@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Vanilla Factions Expanded - Deserters</name>
-  <author>Oskar Potocki, xrushha, legodude17</author>
+  <author>Oskar Potocki, xrushha, legodude17, Allie</author>
   <supportedVersions>
     <li>1.4</li>
   </supportedVersions>
   <packageId>OskarPotocki.VFE.Deserters</packageId>
-  <description>todo</description>
+  <description>This is a Deserter Faction Expanded mod, currently in development.
+
+For obvious reasons this mod requires Royalty DLC.</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
@@ -19,15 +21,15 @@
       <displayName>Vanilla Expanded Framework</displayName>
       <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2023507013</steamWorkshopUrl>
     </li>
-	<li>
-		<packageId>Ludeon.RimWorld.Royalty</packageId>
-		<displayName>Royalty</displayName>
-	</li>
     <li>
       <packageId>OskarPotocki.VFE.Empire</packageId>
       <displayName>Vanilla Factions Expanded - Empire</displayName>
       <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2938820380</steamWorkshopUrl>
     </li>
+	<li>
+		<packageId>Ludeon.RimWorld.Royalty</packageId>
+		<displayName>Royalty</displayName>
+	</li>
   </modDependencies>
   <loadAfter>
     <li>Ludeon.RimWorld</li>
@@ -36,6 +38,6 @@
 	<li>Ludeon.RimWorld.Biotech</li>
     <li>brrainz.harmony</li>
     <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
-	<li>OskarPotocki.VFE.Empire</li>
+    <li>OskarPotocki.VFE.Empire</li>
   </loadAfter>
 </ModMetaData>
