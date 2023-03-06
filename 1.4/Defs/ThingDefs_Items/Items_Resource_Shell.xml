@@ -17,10 +17,20 @@
     <costList>
       <Steel>30</Steel>
     </costList>
-    <recipeMaker>
+    <recipeMaker Inherit="False">
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <workAmount>800</workAmount>
+      <targetCountAdjustment>5</targetCountAdjustment>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
+      <displayPriority>100</displayPriority>
     </recipeMaker>
     <costListForDifficulty>
       <difficultyVar>classicMortars</difficultyVar>
@@ -91,10 +101,20 @@
         <wickTicks>30~60</wickTicks>
       </li>
     </comps>
-    <recipeMaker>
+    <recipeMaker Inherit="False">
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <workAmount>800</workAmount>
+      <targetCountAdjustment>5</targetCountAdjustment>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
+      <displayPriority>100</displayPriority>
     </recipeMaker>
     <projectileWhenLoaded>VFED_Bullet_Shell_ArmorPiercing</projectileWhenLoaded>
     <costList>
@@ -165,10 +185,20 @@
       <Steel>45</Steel>
       <Chemfuel>45</Chemfuel>
     </costList>
-    <recipeMaker>
+    <recipeMaker Inherit="False">
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <workAmount>800</workAmount>
+      <targetCountAdjustment>5</targetCountAdjustment>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
+      <displayPriority>100</displayPriority>
     </recipeMaker>
     <costListForDifficulty>
       <difficultyVar>classicMortars</difficultyVar>
