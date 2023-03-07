@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="VFED_AmmoBoxBase" ParentName="BuildingBase" Abstract="True">
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <altitudeLayer>Building</altitudeLayer>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+	<size>(1, 1)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-5</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.2</fillPercent>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <pathCost>30</pathCost>
+    <passability>PassThroughOnly</passability>
+    <rotatable>false</rotatable>
+    <canOverlapZones>true</canOverlapZones>
+    <tradeability>None</tradeability>
+    <tickerType>Normal</tickerType>
+	<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_AmmoBoxBase">
+    <defName>VFED_AmmoBox_UraniumSlug</defName>
+    <label>uranium slug ammo box</label>
+    <description>A small-sized box containing uranium slug ammunition. Used by Kontarion turrets to reload. May explode when damaged.</description>
+    <graphicData>
+      <texPath>Structures/Security/AmmoCrate_UraniumSlug</texPath>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <costList>
+      <Uranium>60</Uranium>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_AmmoBoxBase">
+    <defName>VFED_AmmoBox_Autocannon</defName>
+    <label>autocannon ammo box</label>
+    <description>A small-sized box containing autocannon ammunition. Used by Palintone turrets to reload. May explode when damaged.</description>
+    <graphicData>
+      <texPath>Structures/Security/AmmoCrate_Autocannon</texPath>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <costList>
+      <Steel>180</Steel>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_AmmoBoxBase">
+    <defName>VFED_AmmoBox_Missile</defName>
+    <label>missile ammo box</label>
+    <description>A small-sized box containing missiles. Used by Onager turrets to reload. May explode when damaged.</description>
+    <graphicData>
+      <texPath>Structures/Security/AmmoCrate_Missiles</texPath>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <costList>
+      <Chemfuel>180</Chemfuel>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>4.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>
