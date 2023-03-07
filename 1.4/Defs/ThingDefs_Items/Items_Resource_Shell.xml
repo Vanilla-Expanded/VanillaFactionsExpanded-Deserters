@@ -10,7 +10,7 @@
       <MarketValue>60</MarketValue>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Resource/Shell/Shell_HighExplosive</texPath>
+      <texPath>Things/Shells/Shell_Shrapnel</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <projectileWhenLoaded>VFED_Bullet_Shell_Shrapnel</projectileWhenLoaded>
@@ -31,6 +31,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <displayPriority>100</displayPriority>
+      <researchPrerequisite>Mortars</researchPrerequisite>
     </recipeMaker>
     <costListForDifficulty>
       <difficultyVar>classicMortars</difficultyVar>
@@ -38,9 +39,6 @@
         <Steel>30</Steel>
       </costList>
     </costListForDifficulty>
-    <recipeMaker>
-      <researchPrerequisite>Mortars</researchPrerequisite>
-    </recipeMaker>
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
@@ -51,8 +49,8 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
-    <thingClass>Projectile_Explosive</thingClass>
-    <projectile>
+    <thingClass>VFED.Projectile_Shrapnel</thingClass>
+    <projectile Class="VFED.ProjectileProperties_Shrapnel">
       <damageDef>Bomb</damageDef>
       <speed>41</speed>
       <explosionRadius>2.9</explosionRadius>
@@ -61,12 +59,17 @@
       <soundExplode>MortarBomb_Explode</soundExplode>
       <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
       <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <shrapnelProjectile>VFED_Bullet_Shrapnel</shrapnelProjectile>
+      <shrapnelCount>16</shrapnelCount>
+      <shrapnelRange>10.5</shrapnelRange>
+      <angleVariance>25</angleVariance>
     </projectile>
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
     <defName>VFED_Bullet_Shrapnel</defName>
     <label>shrapnel</label>
+    <thingClass>VFED.Projectile_ShrapnelPiece</thingClass>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Small</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -89,7 +92,7 @@
       <MarketValue>65</MarketValue>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Resource/Shell/Shell_HighExplosive</texPath>
+      <texPath>Things/Shells/Shell_AntiArmor</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <comps>
@@ -115,6 +118,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <displayPriority>100</displayPriority>
+      <researchPrerequisite>Mortars</researchPrerequisite>
     </recipeMaker>
     <projectileWhenLoaded>VFED_Bullet_Shell_ArmorPiercing</projectileWhenLoaded>
     <costList>
@@ -128,9 +132,6 @@
         <Chemfuel>10</Chemfuel>
       </costList>
     </costListForDifficulty>
-    <recipeMaker>
-      <researchPrerequisite>Mortars</researchPrerequisite>
-    </recipeMaker>
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
@@ -168,7 +169,7 @@
       <MarketValue>170</MarketValue>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Resource/Shell/Shell_HighExplosive</texPath>
+      <texPath>Things/Shells/Shell_Cluster</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <comps>
@@ -199,6 +200,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <displayPriority>100</displayPriority>
+      <researchPrerequisite>Mortars</researchPrerequisite>
     </recipeMaker>
     <costListForDifficulty>
       <difficultyVar>classicMortars</difficultyVar>
@@ -207,9 +209,6 @@
         <Chemfuel>45</Chemfuel>
       </costList>
     </costListForDifficulty>
-    <recipeMaker>
-      <researchPrerequisite>Mortars</researchPrerequisite>
-    </recipeMaker>
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
@@ -220,8 +219,8 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
-    <thingClass>Projectile_Explosive</thingClass>
-    <projectile>
+    <thingClass>VFED.Projectile_Shrapnel</thingClass>
+    <projectile Class="VFED.ProjectileProperties_Shrapnel">
       <damageDef>Bomb</damageDef>
       <speed>41</speed>
       <explosionRadius>2.9</explosionRadius>
@@ -230,6 +229,10 @@
       <soundExplode>MortarBomb_Explode</soundExplode>
       <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
       <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <shrapnelProjectile>Bullet_Shell_HighExplosive</shrapnelProjectile>
+      <shrapnelCount>3</shrapnelCount>
+      <shrapnelRange>10.5</shrapnelRange>
+      <angleVariance>50</angleVariance>
     </projectile>
   </ThingDef>
 
