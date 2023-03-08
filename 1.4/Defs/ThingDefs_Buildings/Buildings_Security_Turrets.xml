@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BuildingBase" Name="VFED_ImperialTurretBase" Abstract="True"> 
-    <thingClass>Building_TurretGun</thingClass>
+  <ThingDef ParentName="BuildingBase" Name="VFED_ImperialTurretBase" Abstract="True">
+    <thingClass>VFED.Building_TurretGunBarrels</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Structures/Security/ImperialTurret_Base</texPath>
@@ -43,13 +43,13 @@
         <explosiveDamageType>Bomb</explosiveDamageType>
         <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
       </li>
-      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Forbiddable" />
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>250</basePowerConsumption>
       </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
     </comps>
     <building>
       <ai_combatDangerous>true</ai_combatDangerous>
@@ -58,7 +58,7 @@
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
       <li>PlaceWorker_ShowTurretRadius</li>
-    </placeWorkers> 
+    </placeWorkers>
     <uiIconScale>0.95</uiIconScale>
   </ThingDef>
 
@@ -80,9 +80,13 @@
         <fuelLabel>Shots until rearm</fuelLabel>
         <fuelGizmoLabel>Uranium slugs</fuelGizmoLabel>
         <outOfFuelMessage>No slugs</outOfFuelMessage>
-        <fuelFilter><thingDefs><li>Uranium</li></thingDefs></fuelFilter>
+        <fuelFilter>
+          <thingDefs>
+            <li>Uranium</li>
+          </thingDefs>
+        </fuelFilter>
         <fuelCapacity>30</fuelCapacity>
-        <fuelMultiplier>0.5</fuelMultiplier> 
+        <fuelMultiplier>0.5</fuelMultiplier>
         <initialFuelPercent>1</initialFuelPercent>
         <autoRefuelPercent>0.5</autoRefuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
@@ -91,17 +95,32 @@
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
       </li>
+      <li Class="VFED.CompProperties_BoxRefuel">
+        <refuelWith>VFED_AmmoBox_UraniumSlug</refuelWith>
+      </li>
     </comps>
     <building>
       <turretGunDef>VFED_Gun_Kontarion</turretGunDef>
       <turretBurstCooldownTime>3.2</turretBurstCooldownTime>
-	  <turretTopDrawSize>4.2</turretTopDrawSize>
+      <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
     <researchPrerequisites>
       <li>SniperTurret</li>
     </researchPrerequisites>
+    <modExtensions>
+      <li Class="VFED.TurretExtension_Barrels">
+        <barrels>
+          <li>(1.375, 0, 0)</li>
+          <li>(1.0625, 0, 0)</li>
+          <li>(0.75, 0, 0)</li>
+          <li>(-0.75, 0, 0)</li>
+          <li>(-1.0625, 0, 0)</li>
+          <li>(-1.375, 0, 0)</li>
+        </barrels>
+      </li>
+    </modExtensions>
   </ThingDef>
-  
+
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>VFED_Gun_Kontarion</defName>
     <label>kontarion cannon</label>
@@ -136,7 +155,7 @@
       </li>
     </verbs>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_ImperialTurretBase">
     <defName>VFED_Turret_Palintone</defName>
     <label>palintone</label>
@@ -155,28 +174,43 @@
         <fuelLabel>Shots until rearm</fuelLabel>
         <fuelGizmoLabel>Autocannon ammo</fuelGizmoLabel>
         <outOfFuelMessage>No ammo</outOfFuelMessage>
-        <fuelFilter><thingDefs><li>Steel</li></thingDefs></fuelFilter>
+        <fuelFilter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </fuelFilter>
         <fuelCapacity>90</fuelCapacity>
-        <fuelMultiplier>0.75</fuelMultiplier> 
-        <initialFuelPercent>1</initialFuelPercent>
-        <autoRefuelPercent>0.5</autoRefuelPercent>
+        <fuelMultiplier>0.75</fuelMultiplier>
         <showFuelGizmo>true</showFuelGizmo>
         <minimumFueledThreshold>1</minimumFueledThreshold>
         <factorByDifficulty>true</factorByDifficulty>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
       </li>
+      <li Class="VFED.CompProperties_BoxRefuel">
+        <refuelWith>VFED_AmmoBox_Autocannon</refuelWith>
+      </li>
     </comps>
     <building>
       <turretGunDef>VFED_Gun_Palintone</turretGunDef>
       <turretBurstCooldownTime>3.2</turretBurstCooldownTime>
-	  <turretTopDrawSize>4.2</turretTopDrawSize>
+      <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
     <researchPrerequisites>
       <li>SniperTurret</li>
     </researchPrerequisites>
+    <modExtensions>
+      <li Class="VFED.TurretExtension_Barrels">
+        <barrels>
+          <li>(1.1875, 0, 0)</li>
+          <li>(0.75, 0, 0)</li>
+          <li>(-0.75, 0, 0)</li>
+          <li>(-1.1875, 0, 0)</li>
+        </barrels>
+      </li>
+    </modExtensions>
   </ThingDef>
-  
+
   <ThingDef ParentName="BaseWeaponTurret">
     <defName>VFED_Gun_Palintone</defName>
     <label>palintone cannon</label>
@@ -191,7 +225,7 @@
       <AccuracyShort>0.25</AccuracyShort>
       <AccuracyMedium>0.25</AccuracyMedium>
       <AccuracyLong>0.18</AccuracyLong>
-      <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.0667</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>50</Mass>
       <Flammability>0</Flammability>

@@ -27,7 +27,8 @@
     <canOverlapZones>true</canOverlapZones>
     <tradeability>None</tradeability>
     <tickerType>Normal</tickerType>
-	<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	  <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <designationCategory>Security</designationCategory>
   </ThingDef>
 
   <ThingDef ParentName="VFED_AmmoBoxBase">
