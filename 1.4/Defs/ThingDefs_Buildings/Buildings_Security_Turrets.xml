@@ -247,5 +247,120 @@
       </li>
     </verbs>
   </ThingDef>
+  
+  <ThingDef ParentName="VFED_ImperialTurretBase">
+    <defName>VFED_Turret_Onager</defName>
+    <label>onager</label>
+    <description>A powerful, anti-armored weapon used by the Empire to destroy heavily armored targets with ease. Capable of launching missiles in bursts of 6, the Onager can deal devastating damage to enemy forces in a short amount of time. The Onager turret is most effective at short range, where its missiles can be accurately targeted at enemy positions. However, it cannot fire at enemies that are too close, as the missiles require a certain distance to arm and track their targets. Additionally, due to the sheer number of missiles it fires, the Onager is not as accurate as other turrets, and can sometimes miss its targets. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of missile ammo in order to automatically reload. It cannot be reloaded by hand.</description>
+    <uiIconPath>Structures/Security/OnagerTurret_MenuIcon</uiIconPath>
+    <statBases>
+      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>480</Steel>
+      <Plasteel>60</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until rearm</fuelLabel>
+        <fuelGizmoLabel>Onager missiles</fuelGizmoLabel>
+        <outOfFuelMessage>No missiles</outOfFuelMessage>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>12</fuelCapacity>
+        <fuelMultiplier>0.75</fuelMultiplier>
+		<initialFuelPercent>0</initialFuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>Overlays/NoAmmo_Missile</fuelIconPath>
+      </li>
+      <li Class="VFED.CompProperties_BoxRefuel">
+        <refuelWith>VFED_AmmoBox_Missile</refuelWith>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>VFED_Gun_Onager</turretGunDef>
+      <turretBurstCooldownTime>0.05</turretBurstCooldownTime>
+      <turretTopDrawSize>4.2</turretTopDrawSize>
+    </building>
+    <researchPrerequisites>
+      <li>SniperTurret</li>
+    </researchPrerequisites>
+    <modExtensions>
+      <li Class="VFED.TurretExtension_Barrels">
+        <barrels>
+          <li>(1.375, 0, 0)</li>
+          <li>(1.0625, 0, 0)</li>
+          <li>(0.75, 0, 0)</li>
+          <li>(-0.75, 0, 0)</li>
+          <li>(-1.0625, 0, 0)</li>
+          <li>(-1.375, 0, 0)</li>
+        </barrels>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>VFED_Gun_Onager</defName>
+    <label>onager cannon</label>
+    <description>A self-loading rocket launcher designed to attach to a turret.</description>
+    <graphicData>
+      <texPath>Structures/Security/OnagerTurret_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.15</AccuracyTouch>
+      <AccuracyShort>0.25</AccuracyShort>
+      <AccuracyMedium>0.25</AccuracyMedium>
+      <AccuracyLong>0.18</AccuracyLong>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>50</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>VFFED_Bullet_Onager</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <minRange>16.9</minRange>
+		<forcedMissRadius>5.9</forcedMissRadius>
+        <range>46.9</range>
+        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+        <burstShotCount>6</burstShotCount>
+        <soundCast>Shot_IncendiaryLauncher</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFFED_Bullet_Onager</defName>
+    <label>onager</label>
+    <graphicData>
+      <texPath>Projectiles/Rocket_Onager</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>40</speed>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <explosionRadius>2.9</explosionRadius>
+      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <arcHeightFactor>0.2</arcHeightFactor>
+      <shadowSize>0.6</shadowSize>
+    </projectile>
+  </ThingDef>
 
 </Defs>
