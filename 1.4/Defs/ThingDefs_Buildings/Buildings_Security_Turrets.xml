@@ -101,7 +101,7 @@
     </comps>
     <building>
       <turretGunDef>VFED_Gun_Kontarion</turretGunDef>
-      <turretBurstCooldownTime>3.2</turretBurstCooldownTime>
+      <turretBurstCooldownTime>0.6</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
     <researchPrerequisites>
@@ -193,7 +193,7 @@
     </comps>
     <building>
       <turretGunDef>VFED_Gun_Palintone</turretGunDef>
-      <turretBurstCooldownTime>3.2</turretBurstCooldownTime>
+      <turretBurstCooldownTime>0.05</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
     <researchPrerequisites>
@@ -237,7 +237,7 @@
         <warmupTime>0</warmupTime>
         <minRange>34.9</minRange>
         <range>500</range>
-        <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
         <burstShotCount>1</burstShotCount>
         <soundCast>Shot_Minigun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
