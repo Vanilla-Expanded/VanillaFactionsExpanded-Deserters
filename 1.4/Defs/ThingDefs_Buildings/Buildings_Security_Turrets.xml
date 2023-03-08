@@ -93,7 +93,7 @@
         <minimumFueledThreshold>1</minimumFueledThreshold>
         <factorByDifficulty>true</factorByDifficulty>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-        <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+        <fuelIconPath>Overlays/NoAmmo_UraniumSlug</fuelIconPath>
       </li>
       <li Class="VFED.CompProperties_BoxRefuel">
         <refuelWith>VFED_AmmoBox_UraniumSlug</refuelWith>
@@ -186,7 +186,7 @@
         <minimumFueledThreshold>1</minimumFueledThreshold>
         <factorByDifficulty>true</factorByDifficulty>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-        <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+        <fuelIconPath>Overlays/NoAmmo_Autocannon</fuelIconPath>
       </li>
       <li Class="VFED.CompProperties_BoxRefuel">
         <refuelWith>VFED_AmmoBox_Autocannon</refuelWith>
