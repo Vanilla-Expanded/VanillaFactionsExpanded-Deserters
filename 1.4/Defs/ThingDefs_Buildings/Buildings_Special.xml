@@ -94,5 +94,103 @@
       </li>
     </comps>
   </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase" Name="VFED_EmpireBuildingBase" Abstract="True">
+    <altitudeLayer>Building</altitudeLayer>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+	  <deconstructible>false</deconstructible>
+    </building>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <pathCost>50</pathCost>
+    <passability>PassThroughOnly</passability>
+    <rotatable>false</rotatable>
+	<stealable>false</stealable>
+    <canOverlapZones>false</canOverlapZones>
+	<designationCategory>VFED_Deserters</designationCategory>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_SupplyCrate</defName>
+    <label>supply crate</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1, 1)</drawSize>
+    </graphicData>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>500</WorkToBuild>
+    </statBases>
+	<fillPercent>0.3</fillPercent>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_BiosecuredCrate</defName>
+    <label>biosecured crate</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialBiosecuredCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1, 1)</drawSize>
+    </graphicData>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>500</WorkToBuild>
+    </statBases>
+	<fillPercent>0.3</fillPercent>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_SurveillancePillar</defName>
+    <label>surveillance pillar</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialBiosecuredCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4, 4)</drawSize>
+    </graphicData>
+	<size>(2, 2)</size>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>200</WorkToBuild>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_SendSignalOnMotion">
+        <onlyHumanlike>true</onlyHumanlike>
+        <radius>12.9</radius>
+        <enableAfterTicks>1200</enableAfterTicks>
+        <signalTag>CompCanBeDormant.WakeUp</signalTag>
+      </li>
+    </comps>
+	<fillPercent>0.3</fillPercent>
+  </ThingDef>
 
 </Defs>
