@@ -43,11 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Building_RemoteTrap.cs" />
     <Compile Include="Building_TurretGunBarrels.cs" />
     <Compile Include="CompBoxRefuel.cs" />
     <Compile Include="DesertersMod.cs" />
     <Compile Include="Projectile_Shrapnel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TexDeserters.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>

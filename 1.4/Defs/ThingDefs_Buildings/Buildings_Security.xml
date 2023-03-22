@@ -2,7 +2,7 @@
 <Defs>
 
   <ThingDef Name="VFED_RemoteChargeBase" ParentName="BuildingBase" Abstract="True">
-    <thingClass>Building_TrapExplosive</thingClass>
+    <thingClass>VFED.Building_RemoteTrapExplosive</thingClass>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
       <damageData>
