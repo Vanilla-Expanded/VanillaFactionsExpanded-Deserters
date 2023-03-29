@@ -31,7 +31,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <displayPriority>100</displayPriority>
-      <researchPrerequisite>Mortars</researchPrerequisite>
+      <researchPrerequisite>VFED_ImperialWarSolutions</researchPrerequisite>
     </recipeMaker>
     <costListForDifficulty>
       <difficultyVar>classicMortars</difficultyVar>
@@ -118,7 +118,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <displayPriority>100</displayPriority>
-      <researchPrerequisite>Mortars</researchPrerequisite>
+      <researchPrerequisite>VFED_ImperialWarSolutions</researchPrerequisite>
     </recipeMaker>
     <projectileWhenLoaded>VFED_Bullet_Shell_ArmorPiercing</projectileWhenLoaded>
     <costList>
@@ -200,7 +200,7 @@
         <Crafting>5</Crafting>
       </skillRequirements>
       <displayPriority>100</displayPriority>
-      <researchPrerequisite>Mortars</researchPrerequisite>
+      <researchPrerequisite>VFED_ImperialWarSolutions</researchPrerequisite>
     </recipeMaker>
     <costListForDifficulty>
       <difficultyVar>classicMortars</difficultyVar>

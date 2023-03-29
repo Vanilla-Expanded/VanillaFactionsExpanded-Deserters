@@ -37,7 +37,7 @@
     </building>
     <constructionSkillPrerequisite>3</constructionSkillPrerequisite>
     <researchPrerequisites>
-      <li>IEDs</li>
+      <li>VFED_RemoteDemolition</li>
     </researchPrerequisites>
     <placeWorkers>
       <li>PlaceWorker_NeverAdjacentTrap</li>

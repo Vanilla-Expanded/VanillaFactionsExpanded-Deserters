@@ -55,6 +55,9 @@
       <ai_combatDangerous>true</ai_combatDangerous>
       <turretTopOffset>(0, 0)</turretTopOffset>
     </building>
+    <researchPrerequisites>
+      <li>VFED_ImperialDefenses</li>
+    </researchPrerequisites>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
       <li>PlaceWorker_ShowTurretRadius</li>
@@ -104,9 +107,6 @@
       <turretBurstCooldownTime>0.6</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
-    <researchPrerequisites>
-      <li>SniperTurret</li>
-    </researchPrerequisites>
     <modExtensions>
       <li Class="VFED.TurretExtension_Barrels">
         <barrels>
@@ -197,9 +197,6 @@
       <turretBurstCooldownTime>0.05</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
-    <researchPrerequisites>
-      <li>SniperTurret</li>
-    </researchPrerequisites>
     <modExtensions>
       <li Class="VFED.TurretExtension_Barrels">
         <barrels>
@@ -289,9 +286,6 @@
       <turretBurstCooldownTime>0.05</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
-    <researchPrerequisites>
-      <li>SniperTurret</li>
-    </researchPrerequisites>
     <modExtensions>
       <li Class="VFED.TurretExtension_Barrels">
         <barrels>
