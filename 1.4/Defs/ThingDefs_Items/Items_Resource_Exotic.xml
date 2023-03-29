@@ -11,6 +11,7 @@
     </graphicData>
     <stackLimit>50</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
+    <tickerType>Rare</tickerType>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
       <MarketValue>100</MarketValue>
@@ -23,6 +24,11 @@
       <li>ItemsMisc</li>
     </thingCategories>
     <allowedArchonexusCount>10</allowedArchonexusCount>
+    <comps>
+      <li Class="VFED.CompProperties_Intel">
+        <outOfDateDays>30</outOfDateDays>
+      </li>
+    </comps>
   </ThingDef>
   
   <ThingDef ParentName="ResourceBase">
@@ -35,6 +41,7 @@
     </graphicData>
     <stackLimit>50</stackLimit>
     <healthAffectsPrice>false</healthAffectsPrice>
+    <tickerType>Rare</tickerType>
     <statBases>
       <MaxHitPoints>30</MaxHitPoints>
       <MarketValue>1000</MarketValue>
@@ -47,6 +54,11 @@
       <li>ItemsMisc</li>
     </thingCategories>
     <allowedArchonexusCount>10</allowedArchonexusCount>
+    <comps>
+      <li Class="VFED.CompProperties_Intel">
+        <outOfDateDays>10</outOfDateDays>
+      </li>
+    </comps>
   </ThingDef>
   
 </Defs>
