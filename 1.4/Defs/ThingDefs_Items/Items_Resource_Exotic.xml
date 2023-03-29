@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ThingDef ParentName="ResourceBase">
+    <defName>VFED_Intel</defName>
+    <label>intel</label>
+    <description>A dossier containing information about the Shattered Empire. In order to protect the information from the Imperial counterintelligence, the information needs to be stored in a physical form. It can be used to obtain contraband items from the Deserters, or to gain access to quests and even assassination missions on Imperial nobility.</description>
+    <graphicData>
+      <texPath>Things/Resources/Intel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>50</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <MarketValue>100</MarketValue>
+      <Mass>0.05</Mass>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <tradeability>None</tradeability>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <allowedArchonexusCount>10</allowedArchonexusCount>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourceBase">
+    <defName>VFED_CriticalIntel</defName>
+    <label>critical intel</label>
+    <description>A dossier containing critical information about the Shattered Empire. In order to protect the information from the Imperial counterintelligence, the information needs to be stored in a physical form. It can be used to plan high-profile assassination attempts, but it can also be exchanged into standard intel via the contraband system.</description>
+    <graphicData>
+      <texPath>Things/Resources/Intel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>50</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <MarketValue>1000</MarketValue>
+      <Mass>0.05</Mass>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <tradeability>None</tradeability>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <allowedArchonexusCount>10</allowedArchonexusCount>
+  </ThingDef>
+  
+</Defs>
