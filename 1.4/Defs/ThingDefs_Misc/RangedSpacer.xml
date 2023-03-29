@@ -114,5 +114,84 @@
       <speed>50</speed>
       <soundExplode>ThumpCannon_Impact</soundExplode>
     </projectile>
+	
+	<!-- fletchling -->
+  <ThingDef ParentName="BaseGunWithQuality">
+    <defName>VEE_Gun_Fletcher</defName>
+    <label>fletcher</label>
+    <description>An ultra-long range sniper rifle which fires fin-stabilized flechettes with acidifier injectors. Due to their lethality and danger of falling into enemy hands, they are always biocoded and will self-destruct if their owner either dies or is disarmed. Lethal to organics and almost useless against non-organics, such as mechanoids.\n\nTargets hit by these flechettes will be inflicted with an unstable variant of acidifier fluids, designed to dissolve the target from the inside rather than destroy their equipment. The acid will rampage through the target’s body and usually results in vital organs being dissolved, however lethality isn’t guaranteed.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Equipment/Fletcher/Fletcher</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_ChargeLance</soundInteract>
+    <thingSetMakerTags><li>VFEE_RewardNone</li></thingSetMakerTags>
+    <statBases>
+      <Mass>6.5</Mass>
+      <AccuracyTouch>0.8</AccuracyTouch>
+      <AccuracyShort>0.87</AccuracyShort>
+      <AccuracyMedium>0.77</AccuracyMedium>
+      <AccuracyLong>0.64</AccuracyLong>
+      <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+      <MarketValue>2100</MarketValue>
+    </statBases>
+    <costList>
+      <Plasteel>60</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <weaponTags>
+      <li>VFEE_Fletchling</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedHeavy</li>
+    </weaponClasses>
+    <equippedStatOffsets>
+      <MoveSpeed>-1</MoveSpeed>
+    </equippedStatOffsets>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>VFEE_Bullet_FletclingDart</defaultProjectile>
+        <warmupTime>0.9</warmupTime>
+        <range>14.9</range>
+        <soundCast>VFEE_Shot_Fletcher</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_Biocodable" />
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFEE_Bullet_FletclingDart</defName>
+    <label>fletcher dart</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_Fletcher</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+      <drawSize>1.5</drawSize>
+    </graphicData>
+    <projectile>
+      <damageDef>VFED_Fletchling</damageDef>
+      <damageAmountBase>4</damageAmountBase>
+      <stoppingPower>3</stoppingPower>
+      <speed>62</speed>
+    </projectile>
+  </ThingDef>
 
 </Defs>
