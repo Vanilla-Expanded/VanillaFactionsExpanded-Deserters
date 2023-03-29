@@ -118,8 +118,8 @@
 	<!-- fletchling -->
   <ThingDef ParentName="BaseGunWithQuality">
     <defName>VEE_Gun_Fletcher</defName>
-    <label>fletcher</label>
-    <description>An ultra-long range sniper rifle which fires fin-stabilized flechettes with acidifier injectors. Due to their lethality and danger of falling into enemy hands, they are always biocoded and will self-destruct if their owner either dies or is disarmed. Lethal to organics and almost useless against non-organics, such as mechanoids.\n\nTargets hit by these flechettes will be inflicted with an unstable variant of acidifier fluids, designed to dissolve the target from the inside rather than destroy their equipment. The acid will rampage through the target’s body and usually results in vital organs being dissolved, however lethality isn’t guaranteed.</description>
+    <label>fletchling</label>
+    <description>A modification to the extremely rare fletcher rifle, fletchling is a shotgun commonly used by Imperial deserters. The mere possession of it can be seen as an act of war against the Shattered Empire. Each fletchling shot releases a number of small acidifier darts that may hit several targets, causing extreme amounts of pain and acid burns. Lethal to organics and almost useless against non-organics, such as mechanoids. \n\nTargets hit by these flechettes will be inflicted with an unstable variant of acidifier fluids, designed to dissolve the target from the inside rather than destroy their equipment. The acid will rampage through the target’s body and usually results in vital organs being dissolved, however lethality isn’t guaranteed.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
       <texPath>Equipment/Fletcher/Fletcher</texPath>
