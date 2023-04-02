@@ -203,7 +203,7 @@
     <graphicData>
       <texPath>Structures/Misc/AerodroneMunitionsCrate</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(4, 4)</drawSize>
+      <drawSize>(3, 3)</drawSize>
     </graphicData>
 	<size>(3, 3)</size>
     <costList>
@@ -236,7 +236,7 @@
     <graphicData>
       <texPath>Structures/Misc/AerodroneBatteryPack</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3, 3)</drawSize>
+      <drawSize>(2, 2)</drawSize>
     </graphicData>
 	<size>(2, 2)</size>
     <costList>
@@ -269,9 +269,9 @@
     <graphicData>
       <texPath>Structures/Misc/Aerodrone</texPath>
       <graphicClass>Graphic_Random</graphicClass>
-      <drawSize>(5, 7)</drawSize>
+      <drawSize>(7, 5)</drawSize>
     </graphicData>
-	<size>(3, 5)</size>
+	<size>(5, 3)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>3</ComponentSpacer>
