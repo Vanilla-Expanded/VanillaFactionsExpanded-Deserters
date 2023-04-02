@@ -283,6 +283,7 @@
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
 	<fillPercent>0.6</fillPercent>
+	<tickerType>Normal</tickerType>
   </ThingDef>
   
   <ThingDef ParentName="VFED_EmpireBuildingBase">
@@ -310,6 +311,7 @@
       <WorkToBuild>5000</WorkToBuild>
     </statBases>
 	<fillPercent>1.0</fillPercent>
+	<tickerType>Normal</tickerType>
   </ThingDef>
 
 </Defs>
