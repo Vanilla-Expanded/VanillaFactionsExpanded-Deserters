@@ -15,11 +15,6 @@
     <statBases>
       <WorkToMake>36000</WorkToMake>
       <Mass>1.6</Mass>
-      <AccuracyTouch>0.80</AccuracyTouch>
-      <AccuracyShort>0.70</AccuracyShort>
-      <AccuracyMedium>0.55</AccuracyMedium>
-      <AccuracyLong>0.40</AccuracyLong>
-      <RangedWeapon_Cooldown>2.00</RangedWeapon_Cooldown>
     </statBases>
     <recipeMaker>
       <researchPrerequisite>ChargedShot</researchPrerequisite>
@@ -51,6 +46,7 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
+        <label>Single shot (Charged shot)</label>
         <defaultProjectile>VFED_Bullet_ChargedShot</defaultProjectile>
         <warmupTime>0.3</warmupTime>
         <range>20.9</range>
@@ -59,6 +55,30 @@
         <soundCast>Shot_ChargeRifle</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
+        <accuracyTouch>0.8</accuracyTouch>
+        <accuracyShort>0.7</accuracyShort>
+        <accuracyMedium>0.55</accuracyMedium>
+        <accuracyLong>0.4</accuracyLong>
+        <defaultCooldownTime>1.6</defaultCooldownTime>
+      </li>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <label>Single shot (Thump shot)</label>
+        <defaultProjectile>VFEE_Bullet_ThumpShot</defaultProjectile>
+        <warmupTime>1</warmupTime>
+        <range>20.9</range>
+        <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+        <forcedMissRadius>0.1</forcedMissRadius>
+        <accuracyTouch>0.8</accuracyTouch>
+        <accuracyShort>0.87</accuracyShort>
+        <accuracyMedium>0.77</accuracyMedium>
+        <accuracyLong>0.64</accuracyLong>
+        <defaultCooldownTime>2</defaultCooldownTime>
       </li>
     </verbs>
     <tools>
@@ -80,6 +100,32 @@
         <cooldownTime>2</cooldownTime>
       </li>
     </tools>
+    <comps>
+      <li Class="MVCF.Comps.CompProperties_VerbProps">
+        <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+        <verbProps>
+          <li>
+            <label>Single shot (Charged shot)</label>
+            <canBeToggled>false</canBeToggled>
+            <comps>
+              <li Class="VFED.VerbCompProperties_Switch">
+                <switchIcon>UI/ChargeBlasterMode_ChargedShot</switchIcon>
+                <startEnabled>true</startEnabled>
+              </li>
+            </comps>
+          </li>
+          <li>
+            <label>Single shot (Thump shot)</label>
+            <canBeToggled>false</canBeToggled>
+            <comps>
+              <li Class="VFED.VerbCompProperties_Switch">
+                <switchIcon>UI/ChargeBlasterMode_ThumpShot</switchIcon>
+              </li>
+            </comps>
+          </li>
+        </verbProps>
+      </li>
+    </comps>
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
@@ -93,7 +139,7 @@
       <damageDef>Bullet</damageDef>
       <damageAmountBase>18</damageAmountBase>
       <armorPenetrationBase>0.4</armorPenetrationBase>
-	  <stoppingPower>1.5</stoppingPower>
+	    <stoppingPower>1.5</stoppingPower>
       <speed>62</speed>
     </projectile>
   </ThingDef>

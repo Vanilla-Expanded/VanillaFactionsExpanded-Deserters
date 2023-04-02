@@ -3,4 +3,5 @@
     <VFED.Detonate>Detonate</VFED.Detonate>
     <VFED.IntelOutOfDate>Intel will go out of date in: {0}</VFED.IntelOutOfDate>
     <VFED.IntelOutOfDateNow>{0} has gone out of date. Consider using up the intel you gather before it goes out of date.</VFED.IntelOutOfDateNow>
+    <VFED.SwitchTo>Click to switch to {0}</VFED.SwitchTo>
 </LanguageData>
