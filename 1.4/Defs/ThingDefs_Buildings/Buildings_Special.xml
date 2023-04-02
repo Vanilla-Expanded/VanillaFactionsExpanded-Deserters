@@ -164,7 +164,7 @@
     <label>surveillance pillar</label>
     <description>todo</description>
     <graphicData>
-      <texPath>Structures/Misc/ImperialBiosecuredCrate</texPath>
+      <texPath>Structures/Security/SurveillancePillar_On</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(4, 4)</drawSize>
     </graphicData>
