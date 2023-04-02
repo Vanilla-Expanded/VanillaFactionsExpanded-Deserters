@@ -27,6 +27,9 @@
     <canOverlapZones>true</canOverlapZones>
     <tradeability>None</tradeability>
     <tickerType>Normal</tickerType>
+    <researchPrerequisites>
+      <li>VFED_ImperialDefenses</li>
+    </researchPrerequisites>
 	<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <designationCategory>Security</designationCategory>
   </ThingDef>
