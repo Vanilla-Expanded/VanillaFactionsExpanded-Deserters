@@ -195,5 +195,69 @@
     </comps>
 	<fillPercent>0.3</fillPercent>
   </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_AerodroneMunitionsCrate</defName>
+    <label>aerodrone munitions crate</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/AerodroneMunitionsCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4, 4)</drawSize>
+    </graphicData>
+	<size>(3, 3)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>150</Mass>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+	<fillPercent>0.6</fillPercent>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>1000</wickTicks>
+        <explosiveRadius>9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.2</chanceNeverExplodeFromDamage>
+      </li>
+	</comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_AerodroneBatteryPack</defName>
+    <label>aerodrone battery pack</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/AerodroneBatteryPack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+	<size>(2, 2)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>120</Mass>
+      <WorkToBuild>600</WorkToBuild>
+    </statBases>
+	<fillPercent>0.4</fillPercent>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>100</wickTicks>
+        <explosiveRadius>10</explosiveRadius>
+        <explosiveDamageType>EMP</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>
+	</comps>
+  </ThingDef>
 
 </Defs>
