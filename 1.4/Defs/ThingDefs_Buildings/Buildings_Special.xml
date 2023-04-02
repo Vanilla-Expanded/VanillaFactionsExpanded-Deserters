@@ -265,7 +265,7 @@
     <label>aerodrone</label>
     <description>todo</description>
     <graphicData>
-      <texPath>Structures/Misc/AerodroneBatteryPack</texPath>
+      <texPath>Structures/Misc/Aerodrone</texPath>
       <graphicClass>Graphic_Random</graphicClass>
       <drawSize>(5, 7)</drawSize>
     </graphicData>
@@ -274,6 +274,7 @@
       <Steel>100</Steel>
       <ComponentSpacer>3</ComponentSpacer>
     </costList>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <statBases>
       <MaxHitPoints>1000</MaxHitPoints>
       <Flammability>0.2</Flammability>
@@ -282,6 +283,33 @@
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
 	<fillPercent>0.6</fillPercent>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ImperialMaxpack</defName>
+    <label>imperial maxpack</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/ImperialMaxpack/ImperialMaxpack</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4, 7)</drawSize>
+    </graphicData>
+	<size>(3, 6)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+	<rotatable>true</rotatable>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+	<passability>Impassable</passability>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>1000</Mass>
+      <WorkToBuild>5000</WorkToBuild>
+    </statBases>
+	<fillPercent>1.0</fillPercent>
   </ThingDef>
 
 </Defs>
