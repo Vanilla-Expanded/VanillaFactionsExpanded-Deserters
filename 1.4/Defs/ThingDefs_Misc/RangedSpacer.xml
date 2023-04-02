@@ -114,6 +114,7 @@
       <speed>50</speed>
       <soundExplode>ThumpCannon_Impact</soundExplode>
     </projectile>
+  </ThingDef>
 	
 	<!-- fletchling -->
   <ThingDef ParentName="BaseGunWithQuality">
