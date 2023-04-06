@@ -313,5 +313,116 @@
     </statBases>
 	<fillPercent>1.0</fillPercent>
   </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_StrikeBuoy</defName>
+    <label>strike buoy</label>
+    <description>todo</description>
+    <size>(1,1)</size>
+    <tickerType>Normal</tickerType>
+    <fillPercent>0.1</fillPercent>
+    <pathCost>20</pathCost>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <WorkToBuild>500</WorkToBuild>
+    </statBases>
+    <graphicData>
+      <texPath>Structures/Security/StrikeBuoy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <shadowData>
+        <volume>(0.6, 0.4, 0.6)</volume>
+      </shadowData>
+      <damageData>
+        <rect>(0.3, 0.3, 0.4, 0.4)</rect>
+      </damageData>
+    </graphicData>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <placeWorkers>
+      <li>PlaceWorker_ShowCompSendSignalOnPawnProximityRadius</li>
+    </placeWorkers>
+    <altitudeLayer>Building</altitudeLayer>
+    <blockWind>true</blockWind>
+    <passability>PassThroughOnly</passability>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <repairEffect>ConstructMetal</repairEffect>
+    <forceDebugSpawnable>true</forceDebugSpawnable>
+    <receivesSignals>true</receivesSignals>
+    <building>
+      <claimable>false</claimable>
+	  <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_SendSignalOnMotion">
+        <onlyHumanlike>true</onlyHumanlike>
+        <radius>4.9</radius>
+        <enableAfterTicks>1200</enableAfterTicks>
+        <signalTag>CompCanBeDormant.WakeUp</signalTag>
+      </li>
+      <li Class="CompProperties_MoteEmitterProximityScan">
+        <mote>Mote_ProximityScannerRadius</mote>
+        <emissionInterval>90</emissionInterval>
+        <maintain>True</maintain>
+        <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
+        <saveKeysPrefix>scan</saveKeysPrefix>
+        <warmupPulseFadeInTime>0.12</warmupPulseFadeInTime>
+        <warmupPulseSolidTime>0.15</warmupPulseSolidTime>
+        <warmupPulseFadeOutTime>0.6</warmupPulseFadeOutTime>
+      </li>
+      <li Class="CompProperties_MoteEmitter">
+        <mote>Mote_ActivatorProximityGlow</mote>
+        <maintain>True</maintain>
+        <saveKeysPrefix>glow</saveKeysPrefix>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(55,145,10,0)</glowColor>
+      </li>
+    </comps>
+    <costList>
+      <Plasteel>7</Plasteel>
+    </costList>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_FuelTank</defName>
+    <label>fuel tank</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/AerodroneMunitionsCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+	<size>(2, 2)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>150</Mass>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+	<fillPercent>0.6</fillPercent>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>1000</wickTicks>
+        <explosiveRadius>6</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.2</chanceNeverExplodeFromDamage>
+        <postExplosionSpawnThingDef>Filth_Fuel</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+      </li>
+	</comps>
+	<tickerType>Normal</tickerType>
+  </ThingDef>
 
 </Defs>
