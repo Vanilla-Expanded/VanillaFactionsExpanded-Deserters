@@ -450,5 +450,62 @@
     </statBases>
 	<fillPercent>0.6</fillPercent>
   </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_Techprinter</defName>
+    <label>techprinter</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/Techprinter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5, 5)</drawSize>
+    </graphicData>
+	<size>(4, 4)</size>
+    <costList>
+      <Plasteel>100</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>250</Mass>
+      <WorkToBuild>3000</WorkToBuild>
+    </statBases>
+	<fillPercent>0.6</fillPercent>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>300</wickTicks>
+        <explosiveRadius>7</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>1.0</chanceNeverExplodeFromDamage>
+      </li>
+	</comps>
+	<tickerType>Normal</tickerType>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_TechiteDiscStack</defName>
+    <label>techite disc stack</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/TechiteDiscStack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+	<size>(1, 1)</size>
+    <costList>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>2.0</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>10</Mass>
+      <WorkToBuild>600</WorkToBuild>
+    </statBases>
+	<fillPercent>0.4</fillPercent>
+  </ThingDef>
 
 </Defs>
