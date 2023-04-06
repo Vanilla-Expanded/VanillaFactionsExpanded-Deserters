@@ -507,5 +507,31 @@
     </statBases>
 	<fillPercent>0.4</fillPercent>
   </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ImperialUnderfarm</defName>
+    <label>imperial underfarm</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialUnderfarm</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(4, 4)</drawSize>
+    </graphicData>
+	<size>(4, 4)</size>
+    <costList>
+	  <Steel>150</Steel>
+	  <Plasteel>30</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>1800</WorkToBuild>
+    </statBases>
+	<fillPercent>0</fillPercent>
+	<passability>Impassable</passability>
+  </ThingDef>
 
 </Defs>
