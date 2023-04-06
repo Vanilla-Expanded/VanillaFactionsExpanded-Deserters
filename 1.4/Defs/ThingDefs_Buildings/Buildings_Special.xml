@@ -402,10 +402,11 @@
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>6</ComponentSpacer>
+	  <Chemfuel>100</Chemfuel>
     </costList>
     <statBases>
-      <MaxHitPoints>120</MaxHitPoints>
-      <Flammability>0.5</Flammability>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>1.0</Flammability>
       <Beauty>0</Beauty>
       <Mass>150</Mass>
       <WorkToBuild>1000</WorkToBuild>
