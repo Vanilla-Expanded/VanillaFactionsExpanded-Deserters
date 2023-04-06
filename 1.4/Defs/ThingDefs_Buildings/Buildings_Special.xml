@@ -533,5 +533,55 @@
 	<fillPercent>0</fillPercent>
 	<passability>Impassable</passability>
   </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_WaterMain</defName>
+    <label>water main</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialUnderfarmMain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+	<size>(3, 3)</size>
+    <costList>
+	  <Steel>150</Steel>
+	  <Plasteel>30</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>1200</WorkToBuild>
+    </statBases>
+	<fillPercent>0.3</fillPercent>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_CrashedAerodrone</defName>
+    <label>crashed aerodrone</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/CrashedAerodrone</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(7, 5)</drawSize>
+    </graphicData>
+	<size>(5, 3)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>800</Mass>
+      <WorkToBuild>3000</WorkToBuild>
+    </statBases>
+	<fillPercent>0.6</fillPercent>
+  </ThingDef>
 
 </Defs>
