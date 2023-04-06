@@ -366,7 +366,7 @@
     <graphicData>
       <texPath>Structures/Security/ImperialTurret_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
+      <drawSize>(1,1)</drawSize>
       <damageData>
         <rect>(0.2,0.2,0.6,0.6)</rect>
       </damageData>
