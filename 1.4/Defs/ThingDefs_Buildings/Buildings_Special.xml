@@ -205,7 +205,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
-	<size>(3, 3)</size>
+	  <size>(3, 3)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>6</ComponentSpacer>
@@ -217,15 +217,19 @@
       <Mass>150</Mass>
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
-	<fillPercent>0.6</fillPercent>
-	<comps>
-      <li Class="CompProperties_Explosive">
+	  <fillPercent>0.6</fillPercent>
+	  <comps>
+      <li Class="VFED.CompProperties_Explosive_Shells">
         <wickTicks>1000</wickTicks>
         <explosiveRadius>9</explosiveRadius>
         <explosiveDamageType>Bomb</explosiveDamageType>
         <chanceNeverExplodeFromDamage>0.2</chanceNeverExplodeFromDamage>
+        <startWickHitPointsPercent>0.25</startWickHitPointsPercent>
+        <shell>Shell_HighExplosive</shell>
+        <shellCount>3~8</shellCount>
+        <shellDist>3~20</shellDist>
       </li>
-	</comps>
+	  </comps>
 	<tickerType>Normal</tickerType>
   </ThingDef>
   
@@ -258,6 +262,7 @@
         <explosiveDamageType>EMP</explosiveDamageType>
         <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
       </li>
+      <li><compClass>VFED.CompEMPEffect</compClass></li>
 	</comps>
 	<tickerType>Normal</tickerType>
   </ThingDef>
