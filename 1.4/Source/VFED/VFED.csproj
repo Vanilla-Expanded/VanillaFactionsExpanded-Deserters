@@ -49,6 +49,9 @@
   <ItemGroup>
     <Compile Include="Comps\CompEMPEffect.cs" />
     <Compile Include="Comps\CompExplosive_Shells.cs" />
+    <Compile Include="Comps\CompMotionDetector.cs" />
+    <Compile Include="Comps\CompPoweredGraphic.cs" />
+    <Compile Include="Comps\CompSurveillancePillar.cs" />
     <Compile Include="Things\Building_RemoteTrap.cs" />
     <Compile Include="Things\Building_TurretGunBarrels.cs" />
     <Compile Include="Comps\CompBoxRefuel.cs" />

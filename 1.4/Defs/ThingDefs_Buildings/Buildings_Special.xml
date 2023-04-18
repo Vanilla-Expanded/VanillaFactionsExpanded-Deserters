@@ -164,11 +164,11 @@
     <label>surveillance pillar</label>
     <description>todo</description>
     <graphicData>
-      <texPath>Structures/Security/SurveillancePillar_On</texPath>
+      <texPath>Structures/Security/SurveillancePillar_Off</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(4, 4)</drawSize>
     </graphicData>
-	<size>(2, 2)</size>
+	  <size>(2, 2)</size>
     <costList>
       <Steel>150</Steel>
       <ComponentSpacer>5</ComponentSpacer>
@@ -180,20 +180,33 @@
       <Mass>15</Mass>
       <WorkToBuild>200</WorkToBuild>
     </statBases>
+    <tickerType>Normal</tickerType>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>100</basePowerConsumption>
       </li>
-      <li Class="CompProperties_SendSignalOnMotion">
-        <onlyHumanlike>true</onlyHumanlike>
-        <radius>12.9</radius>
-        <enableAfterTicks>1200</enableAfterTicks>
-        <signalTag>CompCanBeDormant.WakeUp</signalTag>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(145, 10, 28, 0)</glowColor>
+      </li>
+      <li Class="VFED.CompProperties_PoweredGraphic">
+       <graphicData>
+          <texPath>Structures/Security/SurveillancePillar_On</texPath>
+         <graphicClass>Graphic_Single</graphicClass>
+         <drawSize>(4, 4)</drawSize>
+       </graphicData>
+      </li>
+      <li Class="VFED.CompProperties_MotionDetection">
+        <compClass>VFED.CompSurveillancePillar</compClass>
+        <radius>20</radius>
+        <moteScan>Mote_ProximityScannerRadius</moteScan>
+        <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
+        <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
       </li>
     </comps>
-	<fillPercent>0.3</fillPercent>
+	  <fillPercent>0.3</fillPercent>
   </ThingDef>
   
   <ThingDef ParentName="VFED_EmpireBuildingBase">

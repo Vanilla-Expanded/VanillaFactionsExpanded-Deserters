@@ -4,4 +4,5 @@
     <VFED.IntelOutOfDate>Intel will go out of date in: {0}</VFED.IntelOutOfDate>
     <VFED.IntelOutOfDateNow>{0} has gone out of date. Consider using up the intel you gather before it goes out of date.</VFED.IntelOutOfDateNow>
     <VFED.SwitchTo>Click to switch to {0}</VFED.SwitchTo>
+    <VFED.SurveillancePillarActivated>You have actived an imperial surveillance pillar. Visibility of your faction has increased by 10. It is now {0}.</VFED.SurveillancePillarActivated>
 </LanguageData>
