@@ -8,6 +8,7 @@ public class VFED_DefOf
 {
     public static ThingDef VFED_AerodroneStrikeIncoming;
     public static ThingDef VFED_Mote_AerodroneStrike;
+    public static ThingDef VFED_Spark;
 
     static VFED_DefOf()
     {

@@ -33,7 +33,6 @@ public class Mote_Strike : Mote
             {
                 var strike = ThingMaker.MakeThing(strikeDef);
                 strike.TryGetComp<CompStrike>()?.Notify_Launched(this);
-                Log.Message($"Size: {Map.Size}");
                 var origin = new IntVec3(Rand.Bool ? 0 : Map.Size.x - 1, 0, Rand.Range(Map.Size.z - 17, Map.Size.z));
                 GenSpawn.Spawn(strike, origin, Map);
                 (strike as Projectile)?.Launch(this, Position, Position, ProjectileHitFlags.IntendedTarget);

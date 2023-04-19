@@ -23,5 +23,19 @@
         <comps>
             <li><compClass>VFED.CompStrike</compClass></li>
         </comps>
-      </ThingDef>
+    </ThingDef>
+    <ThingDef ParentName="BaseBullet">
+      <defName>VFED_Spark</defName>
+      <label>spark</label>
+      <thingClass>VFED.Projectile_Spark</thingClass>
+      <graphicData>
+        <graphicClass>Graphic_Single</graphicClass>
+        <texPath>Things/Mote/MicroSparks</texPath>
+        <shaderType>MoteGlow</shaderType>
+      </graphicData>
+      <projectile>
+        <speed>21</speed>
+        <alwaysFreeIntercept>true</alwaysFreeIntercept>
+      </projectile>
+    </ThingDef>
 </Defs>

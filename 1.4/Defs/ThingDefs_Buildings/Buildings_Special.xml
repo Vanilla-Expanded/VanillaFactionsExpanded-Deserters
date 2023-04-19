@@ -500,7 +500,8 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2, 2)</drawSize>
     </graphicData>
-	<size>(1, 1)</size>
+	  <size>(1, 1)</size>
+    <tickerType>Normal</tickerType>
     <costList>
 	  <Plasteel>15</Plasteel>
       <ComponentSpacer>1</ComponentSpacer>
@@ -512,7 +513,8 @@
       <Mass>10</Mass>
       <WorkToBuild>600</WorkToBuild>
     </statBases>
-	<fillPercent>0.4</fillPercent>
+	  <fillPercent>0.4</fillPercent>
+    <comps><li><compClass>VFED.CompVeryFlammable</compClass></li></comps>
   </ThingDef>
   
   <ThingDef ParentName="VFED_EmpireBuildingBase">
