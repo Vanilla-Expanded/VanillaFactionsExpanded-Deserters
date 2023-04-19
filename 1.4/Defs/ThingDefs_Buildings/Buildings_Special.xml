@@ -181,6 +181,11 @@
       <WorkToBuild>200</WorkToBuild>
     </statBases>
     <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <placeWorkers>
+      <li>VFED.PlaceWorker_ShowMotionDetectionRadius</li>
+    </placeWorkers>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -191,19 +196,17 @@
         <glowRadius>2</glowRadius>
         <glowColor>(145, 10, 28, 0)</glowColor>
       </li>
-      <li Class="VFED.CompProperties_PoweredGraphic">
-       <graphicData>
-          <texPath>Structures/Security/SurveillancePillar_On</texPath>
-         <graphicClass>Graphic_Single</graphicClass>
-         <drawSize>(4, 4)</drawSize>
-       </graphicData>
-      </li>
       <li Class="VFED.CompProperties_MotionDetection">
         <compClass>VFED.CompSurveillancePillar</compClass>
         <radius>20</radius>
         <moteScan>Mote_ProximityScannerRadius</moteScan>
         <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
         <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
+        <activeGraphic>
+           <texPath>Structures/Security/SurveillancePillar_On</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(4, 4)</drawSize>
+        </activeGraphic>
       </li>
     </comps>
 	  <fillPercent>0.3</fillPercent>
@@ -359,7 +362,7 @@
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
     <drawerType>MapMeshAndRealTime</drawerType>
     <placeWorkers>
-      <li>PlaceWorker_ShowCompSendSignalOnPawnProximityRadius</li>
+      <li>VFED.PlaceWorker_ShowMotionDetectionRadius</li>
     </placeWorkers>
     <altitudeLayer>Building</altitudeLayer>
     <blockWind>true</blockWind>
@@ -376,26 +379,12 @@
 	  <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
     <comps>
-      <li Class="CompProperties_SendSignalOnMotion">
-        <onlyHumanlike>true</onlyHumanlike>
-        <radius>4.9</radius>
-        <enableAfterTicks>1200</enableAfterTicks>
-        <signalTag>CompCanBeDormant.WakeUp</signalTag>
-      </li>
-      <li Class="CompProperties_MoteEmitterProximityScan">
-        <mote>Mote_ProximityScannerRadius</mote>
-        <emissionInterval>90</emissionInterval>
-        <maintain>True</maintain>
+      <li Class="VFED.CompProperties_MotionDetection">
+        <compClass>VFED.CompStrikeBouy</compClass>
+        <radius>5</radius>
+        <moteScan>Mote_ProximityScannerRadius</moteScan>
+        <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
         <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
-        <saveKeysPrefix>scan</saveKeysPrefix>
-        <warmupPulseFadeInTime>0.12</warmupPulseFadeInTime>
-        <warmupPulseSolidTime>0.15</warmupPulseSolidTime>
-        <warmupPulseFadeOutTime>0.6</warmupPulseFadeOutTime>
-      </li>
-      <li Class="CompProperties_MoteEmitter">
-        <mote>Mote_ActivatorProximityGlow</mote>
-        <maintain>True</maintain>
-        <saveKeysPrefix>glow</saveKeysPrefix>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>

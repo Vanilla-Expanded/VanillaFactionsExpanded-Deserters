@@ -79,22 +79,45 @@ public abstract class CompMotionDetector : ThingComp
 
     private Mote ThrowMote(ThingDef thingDef)
     {
+        var scale = Props.radius / 12.9f;
         if (typeof(MoteAttached).IsAssignableFrom(thingDef.thingClass))
-            return MoteMaker.MakeAttachedOverlay(parent, thingDef, Vector3.zero);
+            return MoteMaker.MakeAttachedOverlay(parent, thingDef, Vector3.zero, scale);
         var drawPos = parent.DrawPos;
-        return drawPos.InBounds(parent.Map) ? MoteMaker.MakeStaticMote(drawPos, parent.Map, thingDef) : null;
+        return drawPos.InBounds(parent.Map) ? MoteMaker.MakeStaticMote(drawPos, parent.Map, thingDef, scale) : null;
+    }
+
+    public override void PostDraw()
+    {
+        base.PostDraw();
+        if (Props.activeGraphic != null && Active)
+        {
+            var mesh = Props.activeGraphic.Graphic.MeshAt(parent.Rotation);
+            var drawPos = parent.DrawPos;
+            drawPos.y = AltitudeLayer.BuildingOnTop.AltitudeFor();
+            Graphics.DrawMesh(mesh, drawPos + Props.activeGraphic.drawOffset.RotatedBy(parent.Rotation), Quaternion.identity,
+                Props.activeGraphic.Graphic.MatAt(parent.Rotation), 0);
+        }
     }
 }
 
 public class CompProperties_MotionDetection : CompProperties
 {
+    public GraphicData activeGraphic;
     public ThingDef moteGlow;
     public ThingDef moteScan;
     public bool onlyHumanlike;
     public float radius;
     public SoundDef soundEmitting;
     public bool triggerOnPawnInRoom;
-    public float warmupPulseFadeInTime;
-    public float warmupPulseFadeOutTime;
-    public float warmupPulseSolidTime;
+}
+
+public class PlaceWorker_ShowMotionDetectionRadius : PlaceWorker
+{
+    public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot, Color ghostCol, Thing thing = null)
+    {
+        base.DrawGhost(def, center, rot, ghostCol, thing);
+        var compProperties = def.GetCompProperties<CompProperties_MotionDetection>();
+        if (compProperties == null) return;
+        GenDraw.DrawRadiusRing(center, compProperties.radius);
+    }
 }

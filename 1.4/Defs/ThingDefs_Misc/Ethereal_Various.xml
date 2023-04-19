@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="MoteBase">
+        <defName>VFED_Mote_AerodroneStrike</defName>
+        <thingClass>VFED.Mote_Strike</thingClass>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <isSaveable>true</isSaveable>
+        <mote>
+          <solidTime>999999</solidTime>
+        </mote>
+        <drawOffscreen>true</drawOffscreen>
+        <graphicData>
+          <texPath>Overlays/AerodroneStrikeTarget</texPath>
+          <graphicClass>Graphic_Mote</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(7, 7)</drawSize>
+        </graphicData>
+    </ThingDef>
+</Defs>
