@@ -1,11 +1,20 @@
 ﻿using System;
+using HarmonyLib;
+using MonoMod.Utils;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace VFED;
 
 public static class Utilities
 {
+    private static readonly Func<Projectile, float> getArcHeightFactor =
+        AccessTools.PropertyGetter(typeof(Projectile), "ArcHeightFactor").CreateDelegate<Func<Projectile, float>>();
+
+    private static readonly Func<Projectile, float> getDistanceCoveredFraction =
+        AccessTools.PropertyGetter(typeof(Projectile), "DistanceCoveredFraction").CreateDelegate<Func<Projectile, float>>();
+
     public static int Wrap(int value, int min, int max)
     {
         if (min == max) return min;
@@ -22,4 +31,9 @@ public static class Utilities
         (MoteMaker.MakeStaticMote(cell.ToVector3Shifted(), map, VFED_DefOf.VFED_Mote_AerodroneStrike, 1f, true) as Mote_Strike)?.LaunchStrike(
             VFED_DefOf.VFED_AerodroneStrikeIncoming, 10);
     }
+
+    public static Vector3 ActualDrawPos(this Thing thing) =>
+        thing is Projectile proj
+            ? proj.DrawPos + new Vector3(0f, 0f, 1f) * (getArcHeightFactor(proj) * GenMath.InverseParabola(getDistanceCoveredFraction(proj)))
+            : thing.DrawPos;
 }

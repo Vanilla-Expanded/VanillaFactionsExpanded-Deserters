@@ -49,7 +49,9 @@
   <ItemGroup>
     <Compile Include="Comps\CompEMPEffect.cs" />
     <Compile Include="Comps\CompExplosive_Shells.cs" />
+    <Compile Include="Comps\CompFleckEmitterExtended.cs" />
     <Compile Include="Comps\CompMotionDetector.cs" />
+    <Compile Include="Comps\CompSmokeEmitter.cs" />
     <Compile Include="Comps\CompStrikeBouy.cs" />
     <Compile Include="Comps\CompSurveillancePillar.cs" />
     <Compile Include="Comps\CompVeryFlammable.cs" />

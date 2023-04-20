@@ -382,13 +382,13 @@
       <li Class="VFED.CompProperties_MotionDetection">
         <compClass>VFED.CompStrikeBouy</compClass>
         <radius>5</radius>
-        <moteScan>Mote_ProximityScannerRadius</moteScan>
-        <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
+        <moteScan>VFED_Mote_ProximityScannerRadius_Orange</moteScan>
+        <moteGlow>VFED_Mote_ActivatorProximityGlow_Orange</moteGlow>
         <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
-        <glowColor>(55,145,10,0)</glowColor>
+        <glowColor>(179,88,9,0)</glowColor>
       </li>
     </comps>
     <costList>

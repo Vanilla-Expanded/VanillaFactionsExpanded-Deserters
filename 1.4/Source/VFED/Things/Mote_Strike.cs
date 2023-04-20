@@ -52,7 +52,7 @@ public class Mote_Strike : Mote
     protected override void TimeInterval(float deltaTime)
     {
         base.TimeInterval(deltaTime);
-        exactRotation += 1.2f * deltaTime;
+        exactRotation += 1.8f * deltaTime;
     }
 
     public override void ExposeData()

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <FleckDef ParentName="FleckBase_Thrown">
+        <defName>VFED_ExhaustGlow</defName>
+        <graphicData>
+            <texPath>Things/Mote/ExhaustGlow</texPath>
+            <shaderType>MoteGlow</shaderType>
+            <color>(235, 115, 40, 150)</color>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>2.6</fadeInTime>
+        <solidTime>1.5</solidTime>
+        <fadeOutTime>3.3</fadeOutTime>
+    </FleckDef>
+</Defs>
