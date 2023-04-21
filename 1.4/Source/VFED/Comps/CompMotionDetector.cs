@@ -27,7 +27,7 @@ public abstract class CompMotionDetector : ThingComp
     {
         base.CompTick();
         if (!parent.Spawned || !Active) return;
-        if (parent.IsHashIntervalTick(250)) CompTickRare();
+        if (parent.IsHashIntervalTick(Props.checkInterval)) DoCheck();
 
         if (moteGlow == null || moteGlow.Destroyed) moteGlow = ThrowMote(Props.moteGlow);
         if (moteGlow is { Destroyed: false }) moteGlow.Maintain();
@@ -49,7 +49,11 @@ public abstract class CompMotionDetector : ThingComp
 
     public override void CompTickRare()
     {
-        base.CompTickRare();
+        DoCheck();
+    }
+
+    private void DoCheck()
+    {
         if (!parent.Spawned || !Active) return;
 
         Thing thing = null;
@@ -103,6 +107,7 @@ public abstract class CompMotionDetector : ThingComp
 public class CompProperties_MotionDetection : CompProperties
 {
     public GraphicData activeGraphic;
+    public int checkInterval = 250;
     public ThingDef moteGlow;
     public ThingDef moteScan;
     public bool onlyHumanlike;

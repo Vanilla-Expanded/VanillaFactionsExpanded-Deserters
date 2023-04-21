@@ -385,6 +385,7 @@
         <moteScan>VFED_Mote_ProximityScannerRadius_Orange</moteScan>
         <moteGlow>VFED_Mote_ActivatorProximityGlow_Orange</moteGlow>
         <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
+        <checkInterval>30</checkInterval>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>

@@ -6,20 +6,21 @@ namespace VFED;
 
 public class CompVeryFlammable : ThingComp
 {
+    private int ticksTillSpark;
     public bool OnFire => parent.OccupiedRect().Cells.SelectMany(c => c.GetThingList(parent.Map)).OfType<Fire>().Any();
-
 
     public override void CompTick()
     {
-        base.CompTick();
         if (OnFire)
         {
-            if (parent.IsHashIntervalTick(60))
+            ticksTillSpark--;
+            if (ticksTillSpark <= 0)
             {
                 var rect = parent.OccupiedRect();
                 var dest = rect.ExpandedBy(4).Cells.Except(rect.Cells).RandomElement();
                 (GenSpawn.Spawn(VFED_DefOf.VFED_Spark, rect.Cells.RandomElement(), parent.Map) as Projectile)?.Launch(parent, dest, dest,
                     ProjectileHitFlags.All);
+                ticksTillSpark = Rand.Range(25, 35);
             }
 
             if (parent.IsHashIntervalTick(40))
@@ -28,6 +29,11 @@ public class CompVeryFlammable : ThingComp
                 parent.Map.gasGrid.AddGas(parent.OccupiedRect().Cells.RandomElement(), GasType.BlindSmoke, 100);
             }
         }
+    }
+
+    public override void PostExposeData()
+    {
+        Scribe_Values.Look(ref ticksTillSpark, nameof(ticksTillSpark));
     }
 }
 
