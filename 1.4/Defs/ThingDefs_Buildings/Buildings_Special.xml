@@ -351,7 +351,7 @@
     <graphicData>
       <texPath>Structures/Security/StrikeBuoy</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(1,1)</drawSize>
+      <drawSize>(1.2,1.2)</drawSize>
       <shadowData>
         <volume>(0.6, 0.4, 0.6)</volume>
       </shadowData>
