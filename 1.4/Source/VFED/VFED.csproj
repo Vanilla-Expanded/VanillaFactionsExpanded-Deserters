@@ -73,6 +73,7 @@
     <Compile Include="Things\Mote_Strike.cs" />
     <Compile Include="Things\Projectile_Shrapnel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContrabandManager.cs" />
     <Compile Include="UI\DeserterTabDef.cs" />
     <Compile Include="UI\DeserterTabWorker_Contraband.cs" />
     <Compile Include="UI\DeserterTabWorker_Plots.cs" />

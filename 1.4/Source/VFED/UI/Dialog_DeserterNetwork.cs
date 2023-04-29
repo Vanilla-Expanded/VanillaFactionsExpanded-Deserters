@@ -31,7 +31,13 @@ public class Dialog_DeserterNetwork : Window
         this.map = map;
     }
 
-    public override Vector2 InitialSize => new(1000, 800);
+    public override Vector2 InitialSize => new(1000, 750);
+
+    public override void PostOpen()
+    {
+        base.PostOpen();
+        foreach (var tab in DefDatabase<DeserterTabDef>.AllDefs) tab.Worker.Notify_Open();
+    }
 
     public override void DoWindowContents(Rect inRect)
     {
@@ -93,8 +99,8 @@ public class Dialog_DeserterNetwork : Window
         Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_Intel);
         using (new TextBlock(TextAnchor.MiddleLeft))
         {
-            Widgets.Label(intelRect.TakeRightPart(120), map.resourceCounter.GetCount(VFED_DefOf.VFED_Intel).ToString());
-            intelRect.TakeLeftPart(60);
+            Widgets.Label(intelRect.TakeRightPart(80), map.resourceCounter.GetCount(VFED_DefOf.VFED_Intel).ToString());
+            intelRect.TakeLeftPart(20);
             Widgets.Label(intelRect, VFED_DefOf.VFED_Intel.LabelCap);
         }
 
@@ -104,15 +110,16 @@ public class Dialog_DeserterNetwork : Window
         Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_CriticalIntel);
         using (new TextBlock(TextAnchor.MiddleLeft))
         {
-            Widgets.Label(intelRect.TakeRightPart(120), map.resourceCounter.GetCount(VFED_DefOf.VFED_CriticalIntel).ToString());
-            intelRect.TakeLeftPart(60);
+            Widgets.Label(intelRect.TakeRightPart(80), map.resourceCounter.GetCount(VFED_DefOf.VFED_CriticalIntel).ToString());
+            intelRect.TakeLeftPart(20);
             Widgets.Label(intelRect, VFED_DefOf.VFED_CriticalIntel.LabelCap);
         }
 
         left.TakeTopPart(40);
         Widgets.DrawMenuSection(left);
         TabDrawer.DrawTabs(left, tabs, 1);
-        curTab.Worker.DoLeftPart(left);
-        curTab.Worker.DoMainPart(inRect);
+        curTab.Worker.DoLeftPart(left.ContractedBy(2));
+        inRect.TakeLeftPart(3);
+        curTab.Worker.DoMainPart(inRect.ContractedBy(2));
     }
 }

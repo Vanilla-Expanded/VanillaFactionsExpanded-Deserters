@@ -13,6 +13,8 @@ public class VFED_DefOf
     public static ThingDef VFED_Intel;
     public static ThingDef VFED_CriticalIntel;
 
+    public static ContrabandCategoryDef VFED_Imperial;
+
     static VFED_DefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(VFED_DefOf));

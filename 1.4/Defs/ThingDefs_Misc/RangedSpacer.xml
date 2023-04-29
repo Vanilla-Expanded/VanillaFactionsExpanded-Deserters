@@ -126,6 +126,12 @@
         </verbProps>
       </li>
     </comps>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>9</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
@@ -222,6 +228,13 @@
     <comps>
       <li Class="CompProperties_Biocodable" />
     </comps>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>2</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </modExtensions>
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">

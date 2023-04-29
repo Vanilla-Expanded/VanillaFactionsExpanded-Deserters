@@ -12,4 +12,15 @@
     <VFED.SpecialEffects>Special effects: </VFED.SpecialEffects>
     <VFED.NoResponse>No response</VFED.NoResponse>
     <VFED.None>None</VFED.None>
+    <VFED.ItemName>Name of the item</VFED.ItemName>
+    <VFED.Cost>Cost</VFED.Cost>
+    <VFED.Basket>Basket</VFED.Basket>
+    <VFED.ContrabandRecieveDesc>Items purchased via the contraband system do not arrive in your colony with cargopods. Instead, a dead drop pick up quest will become available after some amount of time, and the quest will only be available for a brief moment. This is where you pick up purchased contraband.</VFED.ContrabandRecieveDesc>
+    <VFED.Purchase>Purchase</VFED.Purchase>
+    <VFED.RushDelivery>Rush delivery</VFED.RushDelivery>
+    <VFED.TotalCost>Total basket cost</VFED.TotalCost>
+    <VFED.RushDeliveryDesc>You can rush delivery to receive the items instantly via drop pods, however it doubles the Intel cost of this order.</VFED.RushDeliveryDesc>
+    <VFED.TimeToReceive>Estimated time to receive: (*DateTime){0}-{1} days(/DateTime)</VFED.TimeToReceive>
+    <VFED.TimeToPickup>Time to pick up: (*DateTime){0} days(/DateTime)</VFED.TimeToPickup>
+    <VFED.TimeLimitDesc>Time to receive and time to pick up depends on the amount of items you’re purchasing, as well as your current visibility level. After time to receive has elapsed, a dead drop quest will become available. It will only be active for the duration in ‘Time to pick up’. If you fail to collect it in time, the items will be gone.</VFED.TimeLimitDesc>
 </LanguageData>

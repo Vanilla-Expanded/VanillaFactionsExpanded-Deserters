@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VFED.ContrabandCategoryDef>
+    <defName>VFED_Deserter</defName>
+    <label>deserter technology</label>
+  </VFED.ContrabandCategoryDef>
+  <VFED.ContrabandCategoryDef>
+    <defName>VFED_Imperial</defName>
+    <label>imperial technology</label>
+  </VFED.ContrabandCategoryDef>
+</Defs>

@@ -38,4 +38,7 @@ public static class Utilities
             : thing.DrawPos;
 
     public static bool Contains(this IntRange range, int count) => count >= range.TrueMin && count <= range.TrueMax;
+
+    public static int TotalIntelCost(this ContrabandExtension ext) =>
+        Mathf.FloorToInt(ext.intelCost * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandIntelCostModifier);
 }

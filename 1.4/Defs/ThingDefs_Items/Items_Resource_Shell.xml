@@ -39,8 +39,14 @@
         <Steel>30</Steel>
       </costList>
     </costListForDifficulty>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>1</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
-  
+
   <ThingDef ParentName="BaseBullet">
     <defName>VFED_Bullet_Shell_Shrapnel</defName>
     <label>shrapnel shell</label>
@@ -65,7 +71,7 @@
       <angleVariance>25</angleVariance>
     </projectile>
   </ThingDef>
-  
+
   <ThingDef ParentName="BaseBullet">
     <defName>VFED_Bullet_Shrapnel</defName>
     <label>shrapnel</label>
@@ -80,9 +86,9 @@
       <speed>55</speed>
     </projectile>
   </ThingDef>
-  
+
   <!-- -->
-  
+
   <ThingDef ParentName="MakeableShellBase">
     <defName>VFED_Shell_ArmorPiercing</defName>
     <label>armor-piercing shell</label>
@@ -132,8 +138,14 @@
         <Chemfuel>10</Chemfuel>
       </costList>
     </costListForDifficulty>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>1</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
-  
+
   <ThingDef ParentName="BaseBullet">
     <defName>VFED_Bullet_Shell_ArmorPiercing</defName>
     <label>armor-piercing shell</label>
@@ -147,8 +159,8 @@
       <damageDef>Bomb</damageDef>
       <damageAmountBase>80</damageAmountBase>
       <speed>82</speed>
-	  <armorPenetrationBase>2.0</armorPenetrationBase>
-	  <stoppingPower>2</stoppingPower>
+      <armorPenetrationBase>2.0</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
       <explosionRadius>1.9</explosionRadius>
       <flyOverhead>true</flyOverhead>
       <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
@@ -157,7 +169,7 @@
       <soundAmbient>MortarRound_Ambient</soundAmbient>
     </projectile>
   </ThingDef>
-  
+
   <!-- -->
 
   <ThingDef ParentName="MakeableShellBase">
@@ -209,8 +221,14 @@
         <Chemfuel>45</Chemfuel>
       </costList>
     </costListForDifficulty>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>2</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
-  
+
   <ThingDef ParentName="BaseBullet">
     <defName>VFED_Bullet_Shell_Cluster</defName>
     <label>cluster shell</label>
