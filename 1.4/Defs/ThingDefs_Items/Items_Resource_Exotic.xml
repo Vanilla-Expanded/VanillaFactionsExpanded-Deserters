@@ -36,7 +36,7 @@
     <label>critical intel</label>
     <description>A dossier containing critical information about the Shattered Empire. In order to protect the information from the Imperial counterintelligence, the information needs to be stored in a physical form. It can be used to plan high-profile assassination attempts, but it can also be exchanged into standard intel via the contraband system.</description>
     <graphicData>
-      <texPath>Things/Resources/Intel</texPath>
+      <texPath>Things/Resources/CriticalIntel</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <stackLimit>50</stackLimit>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFEE_ChasedDeserter</defName>
+        <rootMinPoints>0</rootMinPoints>
+        <expireDaysRange>4~8</expireDaysRange>
+        <defaultChallengeRating>1</defaultChallengeRating>
+        <isRootSpecial>true</isRootSpecial>
+        <questNameRules>
+            <rulesStrings>
+                <li>questName->Chased Deserter</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription->[asker_nameFull], [asker_titleIndef], is calling from nearby. [asker_pronoun] has deserted the army of [asker_factionName] and is being hunted by (*Threat)a loyalty squad(/Threat). [asker_pronoun] wishes to join you at [map_definite].
+\nBeware - If you accept [asker_nameDef], you will become an enemy of [asker_factionName]! The pursuing loyalty squad will attack immediately. It is composed of: \n\n[raid/raidPawnKinds]
+\nOnly accept if you wish to fight against [asker_factionName].
+\nPicking the side of the deserters will make the Empire permanently hostile, however it will also give you access to the Deserter network via the comms console. You will be able to gain intel on the Shattered Empire and trade this intel for powerful imperial gear, deserter inventions and new quests. At some point, you will be able to launch assassination missions on fanatic imperial figures in order to destabilize the empire.
+\nIf you have a titled nobility under your control, they will lose all their titles, and with them, requirements for their titles. They will however generate a lump sum of intel for you, and the amount of intel depends on their current rank with Shattered Empire.
+                </li>
+            </rulesStrings>
+        </questDescriptionRules>
+        <root Class="QuestNode_Sequence">
+            <nodes>
+                <li Class="QuestNode_GetMap" />
+                <li Class="QuestNode_GetWalkInSpot" />
+
+                <li Class="QuestNode_Set">
+                    <name>raidPoints</name>
+                    <value>$points</value>
+                </li>
+
+                <li Class="QuestNode_SubScript">
+                    <def>Util_AdjustPointsForDistantFight</def>
+                </li>
+
+                <!-- Get asker -->
+                <li Class="QuestNode_GeneratePawn">
+                    <kindDef>Empire_Fighter_Trooper</kindDef>
+                    <storeAs>asker</storeAs>
+                    <faction>Empire</faction>
+                    <forbidAnyTitle>True</forbidAnyTitle>
+                </li>
+
+                <!-- Empire becomes hostile -->
+                <li Class="QuestNode_ChangeFactionGoodwill">
+                    <faction>Empire</faction>
+                    <change>-100</change>
+                    <canSendLetter>false</canSendLetter>
+                    <canSendMessage>false</canSendMessage>
+                    <ensureHostile>true</ensureHostile>
+                    <reason>AcceptedDeserter</reason>
+                </li>
+
+                <li Class="VFED.QuestNode_JoinDeserters" />
+
+                <!-- Spawn joiner -->
+                <li Class="QuestNode_PawnsArrive">
+                    <pawns>$asker</pawns>
+                    <walkInSpot>$walkInSpot</walkInSpot>
+                    <joinPlayer>true</joinPlayer>
+                    <customLetterText TKey="LetterLabelAskerBecameHostile">{BASETEXT}\n\nBecause you accepted [asker_nameDef], [asker_factionName] has become hostile.\n\nThe loyalty squad that is hunting [asker_objective] will arrive soon.</customLetterText>
+                    <isSingleReward>true</isSingleReward>
+                    <rewardDetailsHidden>true</rewardDetailsHidden>
+                </li>
+
+                <!-- Raid -->
+                <li Class="QuestNode_Set">
+                    <name>raidDelayTicks</name>
+                    <value>$(roundToTicksRough(randInt(1800, 2400)))</value>
+                </li>
+                <li Class="QuestNode_Delay">
+                    <delayTicks>$raidDelayTicks</delayTicks>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_SubScript">
+                                <def>Util_Raid</def>
+                                <prefix>raid</prefix>
+                                <parms>
+                                    <inSignal>$inSignal</inSignal>
+                                    <map>$map</map>
+                                    <enemyFaction>Empire</enemyFaction>
+                                    <points>$raidPoints</points>
+                                    <walkInSpot>$walkInSpot</walkInSpot>
+                                    <customLetterLabel TKey="LetterLabelLoyaltySquad">{BASELABEL}: Loyalty squad</customLetterLabel>
+                                    <customLetterText TKey="LetterTextLoyaltySquad">{BASETEXT}\n\nThis is the loyalty squad that was hunting [../asker_nameFull].</customLetterText>
+                                </parms>
+                            </li>
+                            <li Class="QuestNode_End">
+                                <outcome>Success</outcome>
+                            </li>
+                        </nodes>
+                    </node>
+                </li>
+            </nodes>
+        </root>
+    </QuestScriptDef>
+</Defs>

@@ -36,4 +36,6 @@ public static class Utilities
         thing is Projectile proj
             ? proj.DrawPos + new Vector3(0f, 0f, 1f) * (getArcHeightFactor(proj) * GenMath.InverseParabola(getDistanceCoveredFraction(proj)))
             : thing.DrawPos;
+
+    public static bool Contains(this IntRange range, int count) => count >= range.TrueMin && count <= range.TrueMax;
 }

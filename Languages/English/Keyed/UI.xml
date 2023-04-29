@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <VFED.ContactDeserters>Contact Deserters</VFED.ContactDeserters>
+    <VFED.Visibility>Visibility: {0}</VFED.Visibility>
+    <VFED.CurrentVisibility>Current visibility: </VFED.CurrentVisibility>
+    <VFED.Effects>Effects:</VFED.Effects>
+    <VFED.IntelCostModifier>Intel cost: </VFED.IntelCostModifier>
+    <VFED.ContrabandRecieveTimeModifier>Time to receive contraband: </VFED.ContrabandRecieveTimeModifier>
+    <VFED.ContrabandSiteTimeModifier>Availability of the dead drops: </VFED.ContrabandSiteTimeModifier>
+    <VFED.ImperialResponseTime>Time for Imperial response: </VFED.ImperialResponseTime>
+    <VFED.ImperialResponseType>Type of Imperial response: </VFED.ImperialResponseType>
+    <VFED.SpecialEffects>Special effects: </VFED.SpecialEffects>
+    <VFED.NoResponse>No response</VFED.NoResponse>
+    <VFED.None>None</VFED.None>
+</LanguageData>
