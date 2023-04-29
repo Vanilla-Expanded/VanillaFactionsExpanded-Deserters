@@ -10,8 +10,10 @@ namespace VFED;
 
 public class Dialog_DeserterNetwork : Window
 {
-    private readonly Map map;
     private readonly List<TabRecord> tabs;
+    public Map Map;
+    public int TotalCriticalIntel;
+    public int TotalIntel;
     private DeserterTabDef curTab;
 
     public Dialog_DeserterNetwork(Map map)
@@ -28,7 +30,7 @@ public class Dialog_DeserterNetwork : Window
         soundAmbient = SoundDefOf.RadioComms_Ambience;
         curTab = DefDatabase<DeserterTabDef>.AllDefs.First();
         tabs = DefDatabase<DeserterTabDef>.AllDefs.Select(def => new TabRecord(def.LabelCap, () => curTab = def, () => curTab == def)).ToList();
-        this.map = map;
+        Map = map;
     }
 
     public override Vector2 InitialSize => new(1000, 750);
@@ -36,7 +38,15 @@ public class Dialog_DeserterNetwork : Window
     public override void PostOpen()
     {
         base.PostOpen();
-        foreach (var tab in DefDatabase<DeserterTabDef>.AllDefs) tab.Worker.Notify_Open();
+        foreach (var beacon in Building_OrbitalTradeBeacon.AllPowered(Map))
+        foreach (var cell in beacon.TradeableCells)
+        foreach (var thing in cell.GetThingList(Map))
+        {
+            if (thing.def == VFED_DefOf.VFED_Intel) TotalIntel += thing.stackCount;
+            if (thing.def == VFED_DefOf.VFED_CriticalIntel) TotalCriticalIntel += thing.stackCount;
+        }
+
+        foreach (var tab in DefDatabase<DeserterTabDef>.AllDefs) tab.Worker.Notify_Open(this);
     }
 
     public override void DoWindowContents(Rect inRect)
@@ -92,6 +102,8 @@ public class Dialog_DeserterNetwork : Window
 
         Widgets.DrawLineHorizontal(left.x, left.yMin, left.width);
 
+        Text.Font = GameFont.Small;
+
         var intelRect = left.TakeTopPart(30);
         Widgets.DrawLightHighlight(intelRect);
         if (Mouse.IsOver(intelRect)) Widgets.DrawHighlight(intelRect);
@@ -99,7 +111,7 @@ public class Dialog_DeserterNetwork : Window
         Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_Intel);
         using (new TextBlock(TextAnchor.MiddleLeft))
         {
-            Widgets.Label(intelRect.TakeRightPart(80), map.resourceCounter.GetCount(VFED_DefOf.VFED_Intel).ToString());
+            Widgets.Label(intelRect.TakeRightPart(80), TotalIntel.ToString());
             intelRect.TakeLeftPart(20);
             Widgets.Label(intelRect, VFED_DefOf.VFED_Intel.LabelCap);
         }
@@ -110,7 +122,7 @@ public class Dialog_DeserterNetwork : Window
         Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_CriticalIntel);
         using (new TextBlock(TextAnchor.MiddleLeft))
         {
-            Widgets.Label(intelRect.TakeRightPart(80), map.resourceCounter.GetCount(VFED_DefOf.VFED_CriticalIntel).ToString());
+            Widgets.Label(intelRect.TakeRightPart(80), TotalCriticalIntel.ToString());
             intelRect.TakeLeftPart(20);
             Widgets.Label(intelRect, VFED_DefOf.VFED_CriticalIntel.LabelCap);
         }

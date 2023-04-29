@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <QuestScriptDef>
+    <defName>VFED_DeadDrop</defName>
+    <isRootSpecial>true</isRootSpecial>
+    <autoAccept>true</autoAccept>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->Deserter dead drop</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->We have received a message from our deserter informant that our order is ready for collection not far from [map_definite]. The items we will find there are:\n\n[itemStashContents]\n\nDue to the value of the items and the fact that [empire_name] will inevitably look for them when they realize they’ve gone missing, we should make our way to the dead drop as soon as possible.\n\nWe should ensure we have enough carry capacity to bring all the items back.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_GetMap" />
+        <li Class="VFED.QuestNode_GetEmpire">
+          <storeAs>empire</storeAs>
+        </li>
+        <li Class="VFED.QuestNode_GetDeserters">
+          <storeAs>deserters</storeAs>
+        </li>
+        <li Class="VFED.QuestNode_HiddenDelay">
+          <delayTicks>$delayTicks</delayTicks>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_GetSiteTile">
+                <storeAs>siteTile</storeAs>
+                <preferCloserTiles>true</preferCloserTiles>
+              </li>
+
+              <li Class="QuestNode_GetDefaultSitePartsParams">
+                <tile>$siteTile</tile>
+                <faction>$deserters</faction>
+                <sitePartDefs><li>VFED_DeadDrop</li></sitePartDefs>
+                <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+              </li>
+
+              <li Class="QuestNode_SubScript">
+                <def>Util_GenerateSite</def>
+                <parms>
+                  <hiddenSitePartsPossible>true</hiddenSitePartsPossible>
+                </parms>
+              </li>
+
+              <li Class="QuestNode_SpawnWorldObjects">
+                <worldObjects>$site</worldObjects>
+              </li>
+
+              <li Class="QuestNode_WorldObjectTimeout">
+                <worldObject>$site</worldObject>
+                <isQuestTimeout>true</isQuestTimeout>
+                <delayTicks>$availableTime</delayTicks>
+                <inSignalDisable>site.MapGenerated</inSignalDisable>
+                <node Class="QuestNode_Sequence">
+                  <nodes>
+                    <li Class="QuestNode_Letter">
+                      <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+                      <text TKey="LetterTextQuestExpired">Intercepted communications indicate the dead drop has been located by [empire_name]. The quest [resolvedQuestName] has expired.</text>
+                    </li>
+                    <li Class="QuestNode_End">
+                      <outcome>Fail</outcome>
+                    </li>
+                  </nodes>
+                </node>
+              </li>
+
+              <li Class="QuestNode_AddItemsReward">
+                <items>$itemStashContents</items>
+                <inSignalChoiceUsed>site.MapGenerated</inSignalChoiceUsed>
+              </li>
+
+              <li Class="QuestNode_NoWorldObject">
+                <worldObject>$site</worldObject>
+                <node Class="QuestNode_End" />
+              </li>
+            </nodes>
+          </node>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

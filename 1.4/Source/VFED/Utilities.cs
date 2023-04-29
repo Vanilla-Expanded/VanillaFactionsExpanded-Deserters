@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using HarmonyLib;
 using MonoMod.Utils;
 using RimWorld;
@@ -41,4 +42,24 @@ public static class Utilities
 
     public static int TotalIntelCost(this ContrabandExtension ext) =>
         Mathf.FloorToInt(ext.intelCost * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandIntelCostModifier);
+
+    public static FloatRange ReceiveTimeRange(int totalAmount) =>
+        new(
+            totalAmount * 7500 * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier / 60000f,
+            totalAmount * 15000 * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier / 60000f);
+
+    public static float SiteExistTime(int totalAmount) =>
+        (totalAmount >= 25 ? -Mathf.Log(totalAmount - 24) + 5 : 30 - totalAmount)
+      * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandSiteTimeActiveModifier;
+
+    public static int DaysToTicks(this float days) => Mathf.RoundToInt(days * GenDate.TicksPerDay);
+
+    public static IEnumerable<T> LogInline<T>(this IEnumerable<T> source, Func<T, string> toString = null)
+    {
+        foreach (var item in source)
+        {
+            Log.Message(toString == null ? item.ToString() : toString(item));
+            yield return item;
+        }
+    }
 }

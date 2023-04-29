@@ -15,6 +15,8 @@ public class VFED_DefOf
 
     public static ContrabandCategoryDef VFED_Imperial;
 
+    public static QuestScriptDef VFED_DeadDrop;
+
     static VFED_DefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(VFED_DefOf));

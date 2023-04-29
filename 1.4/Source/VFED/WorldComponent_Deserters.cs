@@ -3,7 +3,6 @@ using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
-using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using VFEEmpire;
@@ -16,6 +15,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     public static WorldComponent_Deserters Instance;
 
     public bool Active;
+    public List<string> ActiveEffects = new();
     public int Visibility;
     public VisibilityLevelDef VisibilityLevel;
 
@@ -75,7 +75,16 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     public void Notify_VisibilityChanged()
     {
         Visibility = Mathf.Clamp(Visibility, 0, 100);
-        VisibilityLevel = Active ? DefDatabase<VisibilityLevelDef>.AllDefs.First(def => def.visibilityRange.Contains(Visibility)) : null;
+        ActiveEffects.Clear();
+        if (!Active) return;
+        foreach (var def in DefDatabase<VisibilityLevelDef>.AllDefs.OrderBy(def => def.visibilityRange.max))
+            if (def.visibilityRange.min < Visibility)
+                ActiveEffects.AddRange(def.specialEffects);
+            else if (def.visibilityRange.max > Visibility)
+            {
+                VisibilityLevel = def;
+                break;
+            }
     }
 
     public override void ExposeData()
@@ -110,7 +119,18 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
 
     [HarmonyPatch(typeof(Building_CommsConsole), nameof(Building_CommsConsole.GetCommTargets))]
     [HarmonyPostfix]
-    public static IEnumerable<ICommunicable> GetCommTargets_Postfix(IEnumerable<ICommunicable> targets) => Instance.Active ? targets.Append(Instance) : targets;
+    public static IEnumerable<ICommunicable> GetCommTargets_Postfix(IEnumerable<ICommunicable> targets)
+    {
+        // For some reason this gets called twice, so ensure we don't add an extra one to it
+        var found = false;
+        foreach (var target in targets)
+        {
+            if (target == Instance) found = true;
+            yield return target;
+        }
+
+        if (Instance.Active && !found) yield return Instance;
+    }
 
     [DebugAction("World", "Increase Visibility By 10", allowedGameStates = AllowedGameStates.Playing)]
     public static void IncreaseVisibility()
@@ -130,42 +150,10 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     public static void ToggleDeserters()
     {
         if (!Instance.Active)
-            Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, -100);
+            Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, Faction.OfEmpire.GoodwillToMakeHostile(Faction.OfPlayer));
         Instance.Active = !Instance.Active;
         if (!Instance.Active)
-            Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, 100);
+            Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, 75);
         Instance.Notify_VisibilityChanged();
-    }
-}
-
-public class QuestNode_JoinDeserters : QuestNode
-{
-    [NoTranslate] public SlateRef<string> inSignal;
-
-    protected override void RunInt()
-    {
-        QuestGen.quest.AddPart(new QuestPart_JoinDeserters
-        {
-            inSignal = QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(QuestGen.slate)) ?? QuestGen.slate.Get<string>("inSignal")
-        });
-    }
-
-    protected override bool TestRunInt(Slate slate) => true;
-}
-
-public class QuestPart_JoinDeserters : QuestPart
-{
-    public string inSignal;
-
-    public override void Notify_QuestSignalReceived(Signal signal)
-    {
-        base.Notify_QuestSignalReceived(signal);
-        if (signal.tag == inSignal) WorldComponent_Deserters.Instance.JoinDeserters(quest);
-    }
-
-    public override void ExposeData()
-    {
-        base.ExposeData();
-        Scribe_Values.Look(ref inSignal, nameof(inSignal));
     }
 }

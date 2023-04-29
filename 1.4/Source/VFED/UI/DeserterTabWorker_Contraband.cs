@@ -1,9 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
+using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
 using VFECore.UItils;
+using VFEEmpire;
 using static VFED.ContrabandManager;
 
 namespace VFED;
@@ -11,7 +14,12 @@ namespace VFED;
 public class DeserterTabWorker_Contraband : DeserterTabWorker
 {
     private Vector2 leftScrollPos;
+
+    private Map map;
     private Vector2 rightScrollPos;
+    private int totalCriticalIntel;
+
+    private int totalIntel;
 
     public override void DoLeftPart(Rect inRect)
     {
@@ -102,10 +110,69 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
 
         var buttonsRect = basketRect.TakeRightPart(150);
         buttonsRect.yMin -= 5;
-        if (Widgets.ButtonText(buttonsRect.TakeTopPart(100).ContractedBy(25, 5), "VFED.Purchase".Translate())) { }
 
-        if (Widgets.ButtonText(buttonsRect.ContractedBy(25, 0), "VFED.RushDelivery".Translate())) { }
+        if (TotalCostIntel > totalIntel || TotalCostCriticalIntel > totalCriticalIntel) GUI.color = Color.grey;
+        if (Widgets.ButtonText(buttonsRect.TakeTopPart(100).ContractedBy(25, 5), "VFED.Purchase".Translate()))
+        {
+            if (TotalCostIntel > totalIntel)
+                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_Intel.LabelCap, TotalCostIntel, totalIntel), MessageTypeDefOf.RejectInput, false);
+            else if (TotalCostCriticalIntel > totalCriticalIntel)
+                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_CriticalIntel.LabelCap, TotalCostCriticalIntel, totalCriticalIntel),
+                    MessageTypeDefOf.RejectInput, false);
+            else
+            {
+                var slate = new Slate();
+                slate.Set("delayTicks", Utilities.ReceiveTimeRange(TotalAmount).RandomInRange.DaysToTicks());
+                slate.Set("availableTime", Utilities.SiteExistTime(TotalAmount).DaysToTicks());
+                var things = new List<ThingDef>();
+                foreach (var ((thing, _), count) in ShoppingCart)
+                    for (var i = count; i-- > 0;)
+                        things.Add(thing);
+                slate.Set("itemStashThings", things);
+                QuestUtility.GenerateQuestAndMakeAvailable(VFED_DefOf.VFED_DeadDrop, slate);
+                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_Intel, TotalCostIntel, map, null);
+                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_CriticalIntel, TotalCostCriticalIntel, map, null);
+                SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
+                ClearCart();
+            }
+        }
 
+        GUI.color = Color.white;
+
+        if (TotalCostIntel * 2 > totalIntel || TotalCostCriticalIntel * 2 > totalCriticalIntel) GUI.color = Color.grey;
+        if (Widgets.ButtonText(buttonsRect.ContractedBy(25, 0), "VFED.RushDelivery".Translate()))
+        {
+            if (TotalCostIntel * 2 > totalIntel)
+                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_Intel.LabelCap, TotalCostIntel, totalIntel), MessageTypeDefOf.RejectInput, false);
+            else if (TotalCostCriticalIntel * 2 > totalCriticalIntel)
+                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_CriticalIntel.LabelCap, TotalCostCriticalIntel, totalCriticalIntel),
+                    MessageTypeDefOf.RejectInput, false);
+            else
+            {
+                var things = new List<List<Thing>>();
+                var curList = new List<Thing>();
+                foreach (var ((thing, _), count) in ShoppingCart)
+                    for (var i = count; i-- > 0;)
+                    {
+                        curList.Add(ThingMaker.MakeThing(thing));
+                        if (curList.Count > 10)
+                        {
+                            things.Add(curList);
+                            curList = new List<Thing>();
+                        }
+                    }
+
+                things.Add(curList);
+                DropCellFinder.FindSafeLandingSpot(out var cell, EmpireUtility.Deserters, map);
+                DropPodUtility.DropThingGroupsNear(cell, map, things, canRoofPunch: false, allowFogged: false, forbid: false, faction: EmpireUtility.Deserters);
+                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_Intel, TotalCostIntel * 2, map, null);
+                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_CriticalIntel, TotalCostCriticalIntel * 2, map, null);
+                SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
+                ClearCart();
+            }
+        }
+
+        GUI.color = Color.white;
 
         using (new TextBlock(GameFont.Medium))
             Widgets.Label(basketRect.TakeTopPart(30), "VFED.TotalCost".Translate());
@@ -142,13 +209,11 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
 
         using (new TextBlock(GameFont.Medium))
         {
-            Widgets.Label(inRect.TakeTopPart(30), "VFED.TimeToReceive".Translate(
-                    TotalAmount * 7500 * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier / 60000f,
-                    TotalAmount * 15000 * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier / 60000f)
+            var receiveTime = Utilities.ReceiveTimeRange(TotalAmount);
+            Widgets.Label(inRect.TakeTopPart(30), "VFED.TimeToReceive".Translate(receiveTime.min, receiveTime.max)
                .Resolve()
                .ResolveTags());
-            Widgets.Label(inRect.TakeTopPart(30), "VFED.TimeToPickup".Translate((900000 - TotalAmount * 60000)
-                  * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandSiteTimeActiveModifier / 60000f)
+            Widgets.Label(inRect.TakeTopPart(30), "VFED.TimeToPickup".Translate(Utilities.SiteExistTime(TotalAmount))
                .Resolve()
                .ResolveTags());
         }
@@ -156,8 +221,11 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
         using (new TextBlock(GameFont.Tiny)) Widgets.Label(inRect, "VFED.TimeLimitDesc".Translate().Colorize(ColoredText.SubtleGrayColor));
     }
 
-    public override void Notify_Open()
+    public override void Notify_Open(Dialog_DeserterNetwork parent)
     {
+        totalIntel = parent.TotalIntel;
+        totalCriticalIntel = parent.TotalCriticalIntel;
+        map = parent.Map;
         ClearCart();
     }
 }

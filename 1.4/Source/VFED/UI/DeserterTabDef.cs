@@ -19,5 +19,5 @@ public abstract class DeserterTabWorker
 {
     public abstract void DoLeftPart(Rect inRect);
     public abstract void DoMainPart(Rect inRect);
-    public virtual void Notify_Open() { }
+    public virtual void Notify_Open(Dialog_DeserterNetwork parent) { }
 }
