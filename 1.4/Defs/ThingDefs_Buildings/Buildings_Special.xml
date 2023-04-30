@@ -402,7 +402,7 @@
     <label>fuel tank</label>
     <description>todo</description>
     <graphicData>
-      <texPath>Structures/Misc/AerodroneMunitionsCrate</texPath>
+      <texPath>Structures/Misc/ImperialFuelTank</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
@@ -439,7 +439,7 @@
     <label>surveillance station</label>
     <description>todo</description>
     <graphicData>
-      <texPath>Structures/Misc/AerodroneMunitionsCrate</texPath>
+      <texPath>Structures/Misc/SurveillanceStation</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
