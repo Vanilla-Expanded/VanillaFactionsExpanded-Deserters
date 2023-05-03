@@ -208,6 +208,7 @@
           <drawSize>(4, 4)</drawSize>
         </activeGraphic>
       </li>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
     </comps>
 	  <fillPercent>0.3</fillPercent>
   </ThingDef>
@@ -245,6 +246,7 @@
         <shellCount>3~8</shellCount>
         <shellDist>3~20</shellDist>
       </li>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
 	  </comps>
 	<tickerType>Normal</tickerType>
   </ThingDef>
@@ -279,6 +281,7 @@
         <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
       </li>
       <li><compClass>VFED.CompEMPEffect</compClass></li>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
 	</comps>
 	<tickerType>Normal</tickerType>
   </ThingDef>
@@ -306,6 +309,9 @@
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
 	<fillPercent>0.6</fillPercent>
+  <comps>
+    <li><compClass>VFED.CompIntelExtract</compClass></li>
+  </comps>
   </ThingDef>
   
   <ThingDef ParentName="VFED_EmpireBuildingBase">
@@ -333,6 +339,9 @@
       <WorkToBuild>5000</WorkToBuild>
     </statBases>
 	<fillPercent>1.0</fillPercent>
+  <comps>
+    <li><compClass>VFED.CompIntelExtract</compClass></li>
+  </comps>
   </ThingDef>
   
   <ThingDef ParentName="VFED_EmpireBuildingBase">
@@ -430,6 +439,7 @@
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
       </li>
+    <li><compClass>VFED.CompIntelExtract</compClass></li>
 	</comps>
 	<tickerType>Normal</tickerType>
   </ThingDef>
@@ -457,6 +467,9 @@
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
 	<fillPercent>0.6</fillPercent>
+  <comps>
+    <li><compClass>VFED.CompIntelExtract</compClass></li>
+  </comps>
   </ThingDef>
   
   <ThingDef ParentName="VFED_EmpireBuildingBase">

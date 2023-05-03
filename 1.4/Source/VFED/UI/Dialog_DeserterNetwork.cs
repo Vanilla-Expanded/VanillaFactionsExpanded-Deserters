@@ -85,7 +85,7 @@ public class Dialog_DeserterNetwork : Window
             builder.AppendLine(visibilityLevel.imperialResponseTime.SecondsToTicks().ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
             builder.Append("VFED.ImperialResponseType".Translate());
             builder.AppendLine(visibilityLevel.imperialResponseType != null
-                ? visibilityLevel.imperialResponseType.CapitalizeFirst().Colorize(ColoredText.ThreatColor)
+                ? visibilityLevel.imperialResponseType.LabelCap.Colorize(ColoredText.ThreatColor)
                 : "VFED.NoResponse".Translate().Colorize(ColorLibrary.BrightGreen));
             builder.Append("VFED.SpecialEffects".Translate().Colorize(ColoredText.TipSectionTitleColor));
             if (visibilityLevel.specialEffects == null)

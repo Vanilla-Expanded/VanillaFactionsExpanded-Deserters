@@ -17,6 +17,10 @@ public class VFED_DefOf
 
     public static QuestScriptDef VFED_DeadDrop;
 
+    public static DesignationDef VFED_ExtractIntel;
+
+    [DefAlias("VFED_ExtractIntel")] public static JobDef VFED_ExtractIntelJob;
+
     static VFED_DefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(VFED_DefOf));

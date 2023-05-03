@@ -24,4 +24,5 @@
     <VFED.TimeToPickup>Time to pick up: (*DateTime){0} days(/DateTime)</VFED.TimeToPickup>
     <VFED.TimeLimitDesc>Time to receive and time to pick up depends on the amount of items you’re purchasing, as well as your current visibility level. After time to receive has elapsed, a dead drop quest will become available. It will only be active for the duration in ‘Time to pick up’. If you fail to collect it in time, the items will be gone.</VFED.TimeLimitDesc>
     <VFED.NotEnough>Not enough {0}. Need {1}, have {2}</VFED.NotEnough>
+    <VFED.DeserterQuestDesc>This is a deserter quest. It may provide intel on the Shattered Empire, but it may also increase your faction’s visibility.</VFED.DeserterQuestDesc>
 </LanguageData>

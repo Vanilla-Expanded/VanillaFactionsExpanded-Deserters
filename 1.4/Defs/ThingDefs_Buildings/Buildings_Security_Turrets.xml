@@ -396,6 +396,7 @@
         <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
         <explodeOnKilled>true</explodeOnKilled>
       </li>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
     </comps>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>

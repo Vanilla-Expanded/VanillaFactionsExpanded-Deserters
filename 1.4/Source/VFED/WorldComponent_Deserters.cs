@@ -36,6 +36,17 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             FloatMenuOption("VFED.ContactDeserters".Translate(), delegate { console.GiveUseCommsJob(negotiator, this); }, VFEE_DefOf.VFEE_Deserters.FactionIcon,
                 EmpireUtility.Deserters.Color, MenuOptionPriority.InitiateSocial), negotiator, console);
 
+    public override void WorldComponentTick()
+    {
+        base.WorldComponentTick();
+        if (Active)
+            if (Find.TickManager.TicksGame % 60000 == 0)
+            {
+                Visibility--;
+                Notify_VisibilityChanged();
+            }
+    }
+
     public void JoinDeserters(Quest fromQuest)
     {
         Active = true;
@@ -119,18 +130,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
 
     [HarmonyPatch(typeof(Building_CommsConsole), nameof(Building_CommsConsole.GetCommTargets))]
     [HarmonyPostfix]
-    public static IEnumerable<ICommunicable> GetCommTargets_Postfix(IEnumerable<ICommunicable> targets)
-    {
-        // For some reason this gets called twice, so ensure we don't add an extra one to it
-        var found = false;
-        foreach (var target in targets)
-        {
-            if (target == Instance) found = true;
-            yield return target;
-        }
-
-        if (Instance.Active && !found) yield return Instance;
-    }
+    public static IEnumerable<ICommunicable> GetCommTargets_Postfix(IEnumerable<ICommunicable> targets) => Instance.Active ? targets.Append(Instance) : targets;
 
     [DebugAction("World", "Increase Visibility By 10", allowedGameStates = AllowedGameStates.Playing)]
     public static void IncreaseVisibility()

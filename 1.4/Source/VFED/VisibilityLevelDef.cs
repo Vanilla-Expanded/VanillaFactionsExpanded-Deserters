@@ -12,7 +12,7 @@ public class VisibilityLevelDef : Def
     public Texture2D Icon;
     public string iconPath;
     public float imperialResponseTime;
-    public string imperialResponseType;
+    public ImperialResponseDef imperialResponseType;
     public List<string> specialEffects;
     public IntRange visibilityRange;
 
