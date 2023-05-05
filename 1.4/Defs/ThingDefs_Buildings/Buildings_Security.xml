@@ -220,5 +220,25 @@
     </comps>
     <specialDisplayRadius>14.9</specialDisplayRadius>
   </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFEE_DeployedBombPack</defName>
+    <label>deployed bomb pack</label>
+    <description>A single-use man-portable explosive device. Deployed on the ground, it becomes armed and can be detonated with a press of a button. It generates a big explosion thanks to a wired-in antigrain warhead, making it capable of destroying critical infrastructure and personnel alike. 
+Many imperial garrisons fear a carefully placed bomb pack, but not many soldiers live to tell the tale about its effects.
+</description>
+    <thingClass>VFEEmpire.Building_Bomb</thingClass>
+    <size>(1, 1)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Beauty>-2</Beauty>
+    </statBases>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Accessories/BombPack_Armed</texPath>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <drawerType>RealtimeOnly</drawerType>
+  </ThingDef>
 
 </Defs>
