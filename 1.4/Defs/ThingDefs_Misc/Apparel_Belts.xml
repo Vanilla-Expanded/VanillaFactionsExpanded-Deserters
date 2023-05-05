@@ -80,6 +80,12 @@
     <tradeTags>
       <li>VFED_Accessory</li>
     </tradeTags>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>10</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
   
   <ThingDef ParentName="ApparelNoQualityBase">
@@ -161,6 +167,12 @@
     <tradeTags>
       <li>VFED_Accessory</li>
     </tradeTags>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>14</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
   
   <ThingDef ParentName="ApparelNoQualityBase">
@@ -241,6 +253,12 @@
       <li>VFED_Contaband</li>
     </thingSetMakerTags>
     <allowedArchonexusCount>1</allowedArchonexusCount>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>5</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
 
 </Defs>

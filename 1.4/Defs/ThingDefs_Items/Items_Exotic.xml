@@ -47,6 +47,12 @@
     <thingSetMakerTags>
       <li>VFED_Contaband</li>
     </thingSetMakerTags>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>5</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
   
   <ThingDef ParentName="VFED_TechItemBase">
@@ -80,6 +86,12 @@
     <thingSetMakerTags>
       <li>VFED_Contaband</li>
     </thingSetMakerTags>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>20</intelCost>
+      </li>
+    </modExtensions>
   </ThingDef>
 
 </Defs>
