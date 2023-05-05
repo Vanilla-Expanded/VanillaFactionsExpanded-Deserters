@@ -170,7 +170,6 @@
     <graphicData>
       <texPath>Things/Accessories/DeserterDeclassifier</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(0.7,0.7)</drawSize>
     </graphicData>
     <apparel>
       <wornGraphicPath>Things/Accessories/DeserterDeclassifier</wornGraphicPath>
