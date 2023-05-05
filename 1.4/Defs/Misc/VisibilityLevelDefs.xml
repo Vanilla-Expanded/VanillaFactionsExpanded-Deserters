@@ -18,7 +18,7 @@
         <contrabandTimeToReceiveModifier>1</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>2</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>300</imperialResponseTime>
-        <imperialResponseType>Patrol</imperialResponseType>
+        <imperialResponseType>VFED_Patrol</imperialResponseType>
     </VFED.VisibilityLevelDef>
     <VFED.VisibilityLevelDef>
         <defName>VFED_Rumors</defName>
@@ -29,7 +29,7 @@
         <contrabandTimeToReceiveModifier>2</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>1</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>240</imperialResponseTime>
-        <imperialResponseType>Strike Force</imperialResponseType>
+        <imperialResponseType>VFED_StrikeForce</imperialResponseType>
         <specialEffects>
             <li>Imperial patrol caravan event becomes active</li>
             <li>All imperial armies on all quest locations where Empire would spawn are 20% bigger</li>
@@ -45,7 +45,7 @@
         <contrabandTimeToReceiveModifier>5</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>180</imperialResponseTime>
-        <imperialResponseType>Stellic guard</imperialResponseType>
+        <imperialResponseType>VFED_StellicGuards</imperialResponseType>
         <specialEffects>
             <li>Raids from the Empire faction happen 2x as often</li>
             <li>Imperial patrol caravan event becomes active</li>
@@ -64,7 +64,7 @@
         <contrabandTimeToReceiveModifier>10</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>120</imperialResponseTime>
-        <imperialResponseType>Missile rain</imperialResponseType>
+        <imperialResponseType>VFED_MissileRain</imperialResponseType>
         <specialEffects>
             <li>Raids from the Empire faction happen 3x as often</li>
             <li>Imperial patrol caravan event becomes active</li>
@@ -86,7 +86,7 @@
         <contrabandTimeToReceiveModifier>20</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>60</imperialResponseTime>
-        <imperialResponseType>Missile rain</imperialResponseType>
+        <imperialResponseType>VFED_MissileRain</imperialResponseType>
         <specialEffects>
             <li>As soon as player reaches 100 Visibility, Divine Inferno countdown triggers. </li>
         </specialEffects>

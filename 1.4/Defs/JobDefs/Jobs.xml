@@ -2,7 +2,7 @@
 <Defs>
   <JobDef>
     <defName>VFED_ExtractIntel</defName>
-    <driverClass>VFED.JobDriver_ExtractIntel</driverClass>
+    <driverClass>VFED.Jobs.JobDriver_ExtractIntel</driverClass>
     <reportString>extracting intel from TargetA.</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
