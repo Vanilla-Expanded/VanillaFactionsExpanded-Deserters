@@ -44,14 +44,14 @@
 		  <thin><offset>(-0.0,-0.25)</offset></thin>
         </south>
         <east>
-          <offset>(-0.1,-0.3)</offset>
+          <offset>(-0.3,-0.3)</offset>
 		  <hulk><offset>(-0.05,-0.1)</offset></hulk>
-		  <fat><offset>(-0.0,-0.0)</offset></fat>
+		  <fat><offset>(-0.15,-0.0)</offset></fat>
 		  <thin><offset>(0.0,-0.0)</offset></thin>
         </east>
         <west>
-          <offset>(0.1,-0.3)</offset>
-		  <hulk><offset>(0.0,-0.1)</offset></hulk>
+          <offset>(0.3,-0.3)</offset>
+		  <hulk><offset>(0.05,-0.1)</offset></hulk>
 		  <fat><offset>(-0.0,-0.0)</offset></fat>
 		  <thin><offset>(0.0,-0.0)</offset></thin>
         </west>
@@ -78,7 +78,88 @@
     </apparel>
     <allowedArchonexusCount>1</allowedArchonexusCount>
     <tradeTags>
-      <li>Armor</li>
+      <li>VFED_Accessory</li>
+    </tradeTags>
+  </ThingDef>
+  
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>VFED_Apparel_InvisibilityEngulfer</defName>
+    <label>invisibility engulfer</label>
+    <description>A multi-use personal invisibility device engineered based on experimental imperial technology. Allows the user to become completely invisible for a brief duration, after which the device requires a short amount of time to recharge.</description>
+    <thingClass>Apparel</thingClass>
+    <graphicData>
+      <texPath>Things/Accessories/InvisibilityEngulfer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <Mass>3</Mass>
+	  <MarketValue>1350</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+	<smeltable>false</smeltable>
+    <apparel>
+      <wornGraphicPath>Things/Accessories/InvisibilityEngulfer</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(0.0,-0.1)</offset>
+		  <hulk><offset>(-0.0,-0.1)</offset></hulk>
+		  <fat><offset>(-0.0,-0.0)</offset></fat>
+		  <thin><offset>(0.0,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.0,0.20)</offset>
+		  <female><offset>(0.0,-0.2)</offset> </female>
+		  <hulk><offset>(-0.0,-0.0)</offset></hulk>
+		  <fat><offset>(-0.0,-0.0)</offset></fat>
+		  <thin><offset>(-0.0,-0.25)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.3,-0.15)</offset>
+		  <hulk><offset>(-0,-0.0)</offset></hulk>
+		  <fat><offset>(-0.15,-0.0)</offset></fat>
+		  <thin><offset>(0.1,-0.0)</offset></thin>
+        </east>
+        <west>
+          <offset>(0.3,-0.15)</offset>
+		  <hulk><offset>(0,-0.0)</offset></hulk>
+		  <fat><offset>(0.15,-0.0)</offset></fat>
+		  <thin><offset>(-0.1,-0.0)</offset></thin>
+        </west>
+        <male> <scale>(0.45,0.45)</scale></male>
+        <female><scale>(0.45,0.45)</scale></female>
+        <thin><scale>(0.4,0.4)</scale></thin>
+        <hulk><scale>(0.6,0.6)</scale></hulk>
+        <fat> <scale>(0.6,0.6)</scale></fat>
+      </wornGraphicData>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Torso</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>BeltInvisibility</li>
+      </tags>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+    </apparel>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+    <tradeTags>
+      <li>VFED_Accessory</li>
     </tradeTags>
   </ThingDef>
 
