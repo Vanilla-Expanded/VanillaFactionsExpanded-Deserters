@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>VFED_Apparel_BombPack</defName>
+    <label>bomb pack</label>
+    <description>A single-use man-portable explosive device. Deployed on the ground, it becomes armed and can be detonated with a press of a button. It generates a big explosion thanks to a wired-in antigrain warhead, making it capable of destroying critical infrastructure and personnel alike.</description>
+    <thingClass>Apparel</thingClass>
+    <graphicData>
+      <texPath>Things/Accessories/BombPack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tickerType>Normal</tickerType>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <Mass>3</Mass>
+	  <MarketValue>900</MarketValue>
+      <WorkToMake>4000</WorkToMake>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+	<smeltable>false</smeltable>
+    <apparel>
+      <wornGraphicPath>Things/Accessories/BombPack</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <offset>(0.0,-0.3)</offset>
+		  <hulk><offset>(-0.0,-0.1)</offset></hulk>
+		  <fat><offset>(-0.0,-0.0)</offset></fat>
+		  <thin><offset>(0.0,-0.0)</offset></thin>
+        </north>
+        <south>
+          <offset>(0.0,0.0)</offset>
+		  <female><offset>(0.0,-0.2)</offset> </female>
+		  <hulk><offset>(-0.0,-0.0)</offset></hulk>
+		  <fat><offset>(-0.0,-0.0)</offset></fat>
+		  <thin><offset>(-0.0,-0.25)</offset></thin>
+        </south>
+        <east>
+          <offset>(-0.1,-0.3)</offset>
+		  <hulk><offset>(-0.05,-0.1)</offset></hulk>
+		  <fat><offset>(-0.0,-0.0)</offset></fat>
+		  <thin><offset>(0.0,-0.0)</offset></thin>
+        </east>
+        <west>
+          <offset>(0.1,-0.3)</offset>
+		  <hulk><offset>(0.0,-0.1)</offset></hulk>
+		  <fat><offset>(-0.0,-0.0)</offset></fat>
+		  <thin><offset>(0.0,-0.0)</offset></thin>
+        </west>
+        <male> <scale>(0.35,0.35)</scale></male>
+        <female><scale>(0.35,0.35)</scale></female>
+        <thin><scale>(0.3,0.3)</scale></thin>
+        <hulk><scale>(0.55,0.55)</scale></hulk>
+        <fat> <scale>(0.55,0.55)</scale></fat>
+      </wornGraphicData>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>BeltExplosive</li>
+      </tags>
+      <developmentalStageFilter>Adult</developmentalStageFilter>
+    </apparel>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+    <tradeTags>
+      <li>Armor</li>
+    </tradeTags>
+  </ThingDef>
+
+</Defs>
