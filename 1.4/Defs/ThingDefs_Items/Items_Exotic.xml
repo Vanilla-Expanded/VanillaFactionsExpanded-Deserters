@@ -16,38 +16,6 @@
       <li>VFED_Contraband</li>
     </tradeTags>
   </ThingDef>
-
-  <ThingDef ParentName="VFED_TechItemBase">
-    <defName>VFED_DeserterDeclassifier</defName>
-    <label>deserter declassifier</label>
-    <description>A deserter declassifier is a single-use, ultra-tech device consisting of a brain-scan apparatus and a long, thick needle. It is primarily used by imperial deserters for data extraction. By inserting the needle into the skull of a titled nobility, memories can be downloaded from their brain, forming valuable deserter intel. The amount of intel received is determined by the rank of the noble person. The person affected by a Deserter Declassifier dies in the process, and when used on neutral visitors, it is treated as an act of war.</description>
-    <graphicData>
-      <texPath>Things/Item/Special/MechSerumHealer</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <stackLimit>10</stackLimit>
-    <statBases>
-      <MarketValue>500</MarketValue>
-    </statBases>
-    <thingCategories>
-      <li>ItemsMisc</li>
-    </thingCategories>
-    <tradeability>None</tradeability>
-    <comps>
-      <li Class="CompProperties_Usable">
-        <useJob>UseItem</useJob>
-        <useLabel>Use {0_label}</useLabel>
-        <useDuration>600</useDuration>
-      </li>
-      <li Class="CompProperties_UseEffectPlaySound">
-        <soundOnUsed>MechSerumUsed</soundOnUsed>
-      </li>
-      <li Class="CompProperties_UseEffectDestroySelf" />
-    </comps>
-    <thingSetMakerTags>
-      <li>VFED_Contaband</li>
-    </thingSetMakerTags>
-  </ThingDef>
   
   <ThingDef ParentName="VFED_TechItemBase">
     <defName>VFED_Biodecoder</defName>

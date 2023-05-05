@@ -162,5 +162,86 @@
       <li>VFED_Accessory</li>
     </tradeTags>
   </ThingDef>
+  
+  <ThingDef ParentName="ApparelNoQualityBase">
+    <defName>VFED_DeserterDeclassifier</defName>
+    <label>deserter declassifier</label>
+    <description>A deserter declassifier is a single-use, ultra-tech device consisting of a brain-scan apparatus and a long, thick needle. It is primarily used by imperial deserters for data extraction. By inserting the needle into the skull of a titled nobility, memories can be downloaded from their brain, forming valuable deserter intel. The amount of intel received is determined by the rank of the noble person. The person affected by a Deserter Declassifier dies in the process, and when used on neutral visitors, it is treated as an act of war.</description>
+    <graphicData>
+      <texPath>Things/Accessories/DeserterDeclassifier</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(0.7,0.7)</drawSize>
+    </graphicData>
+    <apparel>
+      <wornGraphicPath>Things/Accessories/DeserterDeclassifier</wornGraphicPath>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
+        <north>
+          <male>  <offset>(0.25, -0.25)</offset> </male>
+          <female><offset>(0.25,-0.25)</offset> </female>
+          <thin>  <offset>(0.15,-0.25)</offset> </thin>
+          <hulk>  <offset>(0.25,-0.3)</offset> </hulk>
+          <fat>   <offset>(0.45,-0.25)</offset> </fat>
+        </north>
+        <south>
+          <male>  <offset>(-0.3, -0.25)</offset> </male>
+          <female><offset>(-0.3,-0.25)</offset> </female>
+          <thin>  <offset>(-0.2,-0.25)</offset> </thin>
+          <hulk>  <offset>(-0.3,-0.3)</offset> </hulk>
+          <fat>   <offset>(-0.5,-0.25)</offset> </fat>
+        </south>
+        <east>
+          <offset>(-0.05,-0.3)</offset>
+        </east>
+        <male>  <scale>(0.4,0.4)</scale> </male>
+        <female><scale>(0.4,0.4)</scale> </female>
+        <thin>  <scale>(0.4,0.4)</scale> </thin>
+        <hulk>  <scale>(0.4,0.4)</scale> </hulk>
+        <fat>   <scale>(0.4,0.4)</scale> </fat>
+      </wornGraphicData>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <scoreOffset>4</scoreOffset>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <ignoredByNonViolent>true</ignoredByNonViolent>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+    </apparel>
+    <comps>
+      <li Class="CompProperties_Reloadable">
+        <maxCharges>1</maxCharges>
+        <destroyOnEmpty>true</destroyOnEmpty>
+        <hotKey>Misc4</hotKey>
+        <chargeNoun>charge</chargeNoun>
+        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <Mass>0.5</Mass>
+      <Beauty>-3</Beauty>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <tradeability>None</tradeability>
+    <smeltable>false</smeltable>
+    <soundInteract>Standard_Pickup</soundInteract>
+    <tickerType>Normal</tickerType>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>VFED_Contaband</li>
+    </thingSetMakerTags>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+  </ThingDef>
 
 </Defs>
