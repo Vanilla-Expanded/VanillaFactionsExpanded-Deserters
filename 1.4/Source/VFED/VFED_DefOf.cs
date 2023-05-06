@@ -20,6 +20,8 @@ public class VFED_DefOf
 
     public static DesignationDef VFED_ExtractIntel;
 
+    public static HediffDef VFED_Invisibility;
+
     [DefAlias("VFED_ExtractIntel")] public static JobDef VFED_ExtractIntelJob;
 
     static VFED_DefOf()

@@ -172,6 +172,9 @@
     <tradeTags>
       <li>VFED_Accessory</li>
     </tradeTags>
+    <comps>
+      <li><compClass>VFED.CompInvisibilityEngulfer</compClass></li>
+    </comps>
     <modExtensions>
       <li Class="VFED.ContrabandExtension">
         <category>VFED_Deserter</category>

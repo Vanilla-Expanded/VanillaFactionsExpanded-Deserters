@@ -13,4 +13,8 @@
     <VFED.Detonate.BombPack.Desc>Detonate this bomb pack remotely to generate a big explosion. WARNING: Pressing this button will immediately set off the bomb.</VFED.Detonate.BombPack.Desc>
     <VFED.Deploy>Deploy</VFED.Deploy>
     <VFED.Deploy.Desc>Deploy this {0} to create a {1} at this location.</VFED.Deploy.Desc>
+    <VFED.EnableInvisibility>Enable Invisibility</VFED.EnableInvisibility>
+    <VFED.EnableInvisibility.Desc>Turn this colonist invisible for 1 hour. If the colonist attacks anyone, the invisibility will end.</VFED.EnableInvisibility.Desc>
+    <VFED.OnCooldown>On cooldown</VFED.OnCooldown>
+    <VFED.AlreadyInvisibile>Already invisible</VFED.AlreadyInvisibile>
 </LanguageData>

@@ -60,11 +60,13 @@
     <Compile Include="Comps\CompExplosive_Shells.cs" />
     <Compile Include="Comps\CompFleckEmitterExtended.cs" />
     <Compile Include="Comps\CompIntelExtract.cs" />
+    <Compile Include="Comps\CompInvisibilityEngulfer.cs" />
     <Compile Include="Comps\CompMotionDetector.cs" />
     <Compile Include="Comps\CompSmokeEmitter.cs" />
     <Compile Include="Comps\CompStrikeBouy.cs" />
     <Compile Include="Comps\CompSurveillancePillar.cs" />
     <Compile Include="Comps\CompVeryFlammable.cs" />
+    <Compile Include="Comps\HediffComp_DisappearsOnAttack.cs" />
     <Compile Include="GameCondition_MissileRain.cs" />
     <Compile Include="HarmonyPatches\DebugPatches.cs" />
     <Compile Include="HarmonyPatches\GoodwillPatches.cs" />
