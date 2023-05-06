@@ -60,6 +60,7 @@
     <Compile Include="Comps\CompExplosive_Shells.cs" />
     <Compile Include="Comps\CompFleckEmitterExtended.cs" />
     <Compile Include="Comps\CompIntelExtract.cs" />
+    <Compile Include="Comps\CompIntelExtractor.cs" />
     <Compile Include="Comps\CompInvisibilityEngulfer.cs" />
     <Compile Include="Comps\CompMotionDetector.cs" />
     <Compile Include="Comps\CompSmokeEmitter.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="HarmonyPatches\MiscPatches.cs" />
     <Compile Include="HarmonyPatches\QuestWindowPatches.cs" />
     <Compile Include="Jobs\JobDriver_ExtractIntel.cs" />
+    <Compile Include="Jobs\JobDriver_ExtractIntelPawn.cs" />
     <Compile Include="Quests\GetFactions.cs" />
     <Compile Include="Quests\ImperialResponse.cs" />
     <Compile Include="Quests\JoinDeserters.cs" />

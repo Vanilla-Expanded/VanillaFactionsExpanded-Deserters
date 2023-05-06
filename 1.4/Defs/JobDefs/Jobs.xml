@@ -6,4 +6,10 @@
     <reportString>extracting intel from TargetA.</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
+  <JobDef>
+    <defName>VFED_ExtractIntelPawn</defName>
+    <driverClass>VFED.Jobs.JobDriver_ExtractIntelPawn</driverClass>
+    <reportString>extracting intel from TargetA.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
 </Defs>

@@ -232,13 +232,7 @@
       </layers>
     </apparel>
     <comps>
-      <li Class="CompProperties_Reloadable">
-        <maxCharges>1</maxCharges>
-        <destroyOnEmpty>true</destroyOnEmpty>
-        <hotKey>Misc4</hotKey>
-        <chargeNoun>charge</chargeNoun>
-        <displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
-      </li>
+      <li><compClass>VFED.CompIntelExtractor</compClass></li>
     </comps>
     <thingCategories>
       <li>ApparelUtility</li>

@@ -22,7 +22,12 @@ public class VFED_DefOf
 
     public static HediffDef VFED_Invisibility;
 
+    public static EffecterDef VFED_BloodMist;
+
+    public static SoundDef DispensePaste;
+
     [DefAlias("VFED_ExtractIntel")] public static JobDef VFED_ExtractIntelJob;
+    public static JobDef VFED_ExtractIntelPawn;
 
     static VFED_DefOf()
     {

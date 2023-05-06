@@ -18,4 +18,6 @@
     <VFED.OnCooldown>On cooldown</VFED.OnCooldown>
     <VFED.AlreadyInvisibile>Already invisible</VFED.AlreadyInvisibile>
     <VFED.MustHavePsylink>Must have psylink</VFED.MustHavePsylink>
+    <VFED.ExtractIntel>Extract intel</VFED.ExtractIntel>
+    <VFED.ExtractIntel.Desc>Extract intel from the brain of a nobleperson. They may be alive, dead, or downed, but the brain must be present. Will destroy the brain.</VFED.ExtractIntel.Desc>
 </LanguageData>

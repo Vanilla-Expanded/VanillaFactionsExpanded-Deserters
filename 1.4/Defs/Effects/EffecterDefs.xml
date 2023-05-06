@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <EffecterDef>
+    <defName>VFED_BloodMist</defName>
+    <children>
+      <li>
+        <subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>
+        <positionRadius>0.3</positionRadius>
+        <fleckDef>VFED_BloodMist</fleckDef>
+        <scale>0.5~1</scale>
+        <spawnLocType>OnSource</spawnLocType>
+        <initialDelayTicks>1</initialDelayTicks>
+        <ticksBetweenMotes>6</ticksBetweenMotes>
+      </li>
+    </children>
+  </EffecterDef>
+</Defs>
