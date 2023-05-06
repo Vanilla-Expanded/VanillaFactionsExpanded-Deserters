@@ -22,7 +22,7 @@ public class VFED_DefOf
 
     public static HediffDef VFED_Invisibility;
 
-    public static EffecterDef VFED_BloodMist;
+    public static FleckDef VFED_BloodMist;
 
     public static SoundDef DispensePaste;
 

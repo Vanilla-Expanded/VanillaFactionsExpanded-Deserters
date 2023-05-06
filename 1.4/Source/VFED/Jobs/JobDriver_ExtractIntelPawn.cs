@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
@@ -37,22 +38,30 @@ public class JobDriver_ExtractIntelPawn : JobDriver
             defaultCompleteMode = ToilCompleteMode.Never
         };
 
-        yield return Toils_General.WaitWith(TargetIndex.A, 600, true, true, false, TargetIndex.A).WithEffect(VFED_DefOf.VFED_BloodMist, TargetIndex.A);
-
         yield return Toils_General.DoAtomic(delegate
         {
             var targetPawn = job.targetA.Pawn;
+
             VFED_DefOf.DispensePaste.PlayOneShot(targetPawn);
+            var drawPos = targetPawn.DrawPos;
+            for (var i = 0; i < 3; i++)
+            {
+                var vector = Rand.InsideUnitCircle * Rand.Range(0.25f, 0.75f) * Rand.Sign;
+                var loc = new Vector3(drawPos.x + vector.x, drawPos.y, drawPos.z + vector.y);
+                FleckMaker.Static(loc, targetPawn.Map, VFED_DefOf.VFED_BloodMist);
+            }
+
             var title = targetPawn.royalty.GetCurrentTitle(Faction.OfEmpire);
             var intel = ThingMaker.MakeThing(IntelTypeForTitle(title));
             intel.stackCount = IntelCountForTitle(title);
             GenPlace.TryPlaceThing(intel, job.targetA.Cell, targetPawn.Map, ThingPlaceMode.Near);
+
             var extractor = pawn.apparel.WornApparel.FirstOrDefault(t => t.TryGetComp<CompIntelExtractor>() != null);
             targetPawn.TakeDamage(new DamageInfo(DamageDefOf.ExecutionCut, 9999, 100, pawn.DrawPos.AngleToFlat(targetPawn.DrawPos), pawn,
                 targetPawn.health.hediffSet.GetBrain(), extractor?.def));
+
             if (targetPawn.Faction != null && targetPawn.Faction != pawn.Faction && !targetPawn.Faction.HostileTo(pawn.Faction))
                 targetPawn.Faction.TryAffectGoodwillWith(pawn.Faction, -25, reason: HistoryEventDefOf.UsedHarmfulAbility);
-            extractor?.Destroy();
         });
     }
 

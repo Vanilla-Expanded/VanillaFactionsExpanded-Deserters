@@ -14,6 +14,11 @@ public class CompDeployable : ThingComp
             {
                 defaultLabel = "VFED.Deploy".Translate(),
                 defaultDesc = "VFED.Deploy.Desc".Translate(parent.def.LabelCap, Props.deployedThing.LabelCap),
+                icon = Props.deployedThing.uiIcon,
+                iconDrawScale = Props.deployedThing.uiIconScale,
+                iconAngle = Props.deployedThing.uiIconAngle,
+                iconOffset = Props.deployedThing.uiIconOffset,
+                defaultIconColor = Props.deployedThing.uiIconColor,
                 action = delegate
                 {
                     GenPlace.TryPlaceThing(ThingMaker.MakeThing(Props.deployedThing), parent.PositionHeld, parent.MapHeld, ThingPlaceMode.Direct);
