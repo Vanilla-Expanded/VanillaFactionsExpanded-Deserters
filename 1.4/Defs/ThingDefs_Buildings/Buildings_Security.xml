@@ -222,12 +222,10 @@
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
-    <defName>VFEE_DeployedBombPack</defName>
+    <defName>VFED_BombPack_Deployed</defName>
     <label>deployed bomb pack</label>
-    <description>A single-use man-portable explosive device. Deployed on the ground, it becomes armed and can be detonated with a press of a button. It generates a big explosion thanks to a wired-in antigrain warhead, making it capable of destroying critical infrastructure and personnel alike. 
-Many imperial garrisons fear a carefully placed bomb pack, but not many soldiers live to tell the tale about its effects.
-</description>
-    <thingClass>VFEEmpire.Building_Bomb</thingClass>
+    <description>A deployed bomb pack. It’s armed, and can be detonated with a press of a button.</description>
+    <thingClass>VFED.Building_BombPackDeployed</thingClass>
     <size>(1, 1)</size>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>

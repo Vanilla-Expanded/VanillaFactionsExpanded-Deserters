@@ -9,4 +9,8 @@
     <VFED.ResponseComing>Imperial response</VFED.ResponseComing>
     <VFED.ResponseComingDesc>An imperial {0} is on its way to this location. It will arrive in {1}.</VFED.ResponseComingDesc>
     <VFED.ResponseMessage>Due to triggering an imperial response, your visibility has increased by {0}. It is now {1}. In the future, you can avoid increasing the visibility by completing the mission before the response arrives.</VFED.ResponseMessage>
+    <VFED.Detonate.BombPack>Detonate bomb pack</VFED.Detonate.BombPack>
+    <VFED.Detonate.BombPack.Desc>Detonate this bomb pack remotely to generate a big explosion. WARNING: Pressing this button will immediately set off the bomb.</VFED.Detonate.BombPack.Desc>
+    <VFED.Deploy>Deploy</VFED.Deploy>
+    <VFED.Deploy.Desc>Deploy this {0} to create a {1} at this location.</VFED.Deploy.Desc>
 </LanguageData>

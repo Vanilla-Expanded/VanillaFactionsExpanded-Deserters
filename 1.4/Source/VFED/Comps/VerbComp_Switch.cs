@@ -66,9 +66,9 @@ public class VerbCompProperties_Switch : VerbCompProperties
 
     public VerbCompProperties_Switch() : base(typeof(VerbComp_Switch)) { }
 
-    public override void PostLoadSpecial(VerbProperties verbProps, AdditionalVerbProps additionalProps)
+    public override void PostLoadSpecial(VerbProperties verbProps, AdditionalVerbProps additionalProps, Def parentDef)
     {
-        base.PostLoadSpecial(verbProps, additionalProps);
+        base.PostLoadSpecial(verbProps, additionalProps, parentDef);
         LongEventHandler.ExecuteWhenFinished(delegate { SwitchIcon = ContentFinder<Texture2D>.Get(switchIcon); });
     }
 }

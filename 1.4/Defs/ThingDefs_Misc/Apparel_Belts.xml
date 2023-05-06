@@ -80,6 +80,11 @@
     <tradeTags>
       <li>VFED_Accessory</li>
     </tradeTags>
+    <comps>
+      <li Class="VFED.CompProperties_Deployable">
+        <deployedThing>VFED_BombPack_Deployed</deployedThing>
+      </li>
+    </comps>
     <modExtensions>
       <li Class="VFED.ContrabandExtension">
         <category>VFED_Deserter</category>
