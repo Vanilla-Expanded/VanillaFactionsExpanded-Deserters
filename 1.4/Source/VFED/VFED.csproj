@@ -65,6 +65,7 @@
     <Compile Include="Comps\CompSmokeEmitter.cs" />
     <Compile Include="Comps\CompStrikeBouy.cs" />
     <Compile Include="Comps\CompSurveillancePillar.cs" />
+    <Compile Include="Comps\CompTargetable_Biocoded.cs" />
     <Compile Include="Comps\CompVeryFlammable.cs" />
     <Compile Include="Comps\HediffComp_DisappearsOnAttack.cs" />
     <Compile Include="GameCondition_MissileRain.cs" />

@@ -43,6 +43,8 @@
         <soundOnUsed>MechSerumUsed</soundOnUsed>
       </li>
       <li Class="CompProperties_UseEffectDestroySelf" />
+      <li Class="VFED.CompProperties_TargetableBiocoded" />
+      <li><compClass>VFED.CompTargetEffect_Biodecode</compClass></li>
     </comps>
     <thingSetMakerTags>
       <li>VFED_Contaband</li>
@@ -82,6 +84,12 @@
         <soundOnUsed>MechSerumUsed</soundOnUsed>
       </li>
       <li Class="CompProperties_UseEffectDestroySelf" />
+      <li Class="CompProperties_UseEffectInstallImplant">
+        <hediffDef>PsychicAmplifier</hediffDef>
+        <bodyPart>Brain</bodyPart>
+        <canUpgrade>true</canUpgrade>
+        <requiresExistingHediff>true</requiresExistingHediff>
+      </li>
     </comps>
     <thingSetMakerTags>
       <li>VFED_Contaband</li>

@@ -17,4 +17,5 @@
     <VFED.EnableInvisibility.Desc>Turn this colonist invisible for 1 hour. If the colonist attacks anyone, the invisibility will end.</VFED.EnableInvisibility.Desc>
     <VFED.OnCooldown>On cooldown</VFED.OnCooldown>
     <VFED.AlreadyInvisibile>Already invisible</VFED.AlreadyInvisibile>
+    <VFED.MustHavePsylink>Must have psylink</VFED.MustHavePsylink>
 </LanguageData>
