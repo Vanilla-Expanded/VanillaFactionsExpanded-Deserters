@@ -10,6 +10,8 @@ public class VFED_DefOf
     public static ThingDef VFED_Mote_AerodroneStrike;
     public static ThingDef VFED_Spark;
     public static ThingDef VFED_Apparel_BombPack;
+    public static ThingDef VFED_Filth_Propaganda;
+    public static ThingDef VFED_DropPodIncoming_Propaganda;
 
     public static ThingDef VFED_Intel;
     public static ThingDef VFED_CriticalIntel;
@@ -25,6 +27,8 @@ public class VFED_DefOf
     public static FleckDef VFED_BloodMist;
 
     public static SoundDef DispensePaste;
+
+    public static PawnKindDef VFEE_Empire_Fighter_Absolver;
 
     [DefAlias("VFED_ExtractIntel")] public static JobDef VFED_ExtractIntelJob;
     public static JobDef VFED_ExtractIntelPawn;

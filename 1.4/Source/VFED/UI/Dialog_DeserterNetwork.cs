@@ -88,10 +88,10 @@ public class Dialog_DeserterNetwork : Window
                 ? visibilityLevel.imperialResponseType.LabelCap.Colorize(ColoredText.ThreatColor)
                 : "VFED.NoResponse".Translate().Colorize(ColorLibrary.BrightGreen));
             builder.Append("VFED.SpecialEffects".Translate().Colorize(ColoredText.TipSectionTitleColor));
-            if (visibilityLevel.specialEffects == null)
-                builder.Append("VFED.None".Translate());
+            if (WorldComponent_Deserters.Instance.ActiveEffects.NullOrEmpty())
+                builder.Append("VFED.None".Translate().Colorize(ColorLibrary.BrightGreen));
             else
-                builder.AppendLine().Append(visibilityLevel.specialEffects.ToLineList("  - ", true));
+                builder.AppendLine().Append(WorldComponent_Deserters.Instance.ActiveEffects.Select(def => def.label).ToLineList("  - ", true));
             TooltipHandler.TipRegion(visibilityRect, builder.ToString());
         }
 

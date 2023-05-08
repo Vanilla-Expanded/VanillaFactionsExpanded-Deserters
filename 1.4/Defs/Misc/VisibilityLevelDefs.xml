@@ -31,8 +31,15 @@
         <imperialResponseTime>240</imperialResponseTime>
         <imperialResponseType>VFED_StrikeForce</imperialResponseType>
         <specialEffects>
-            <li>Imperial patrol caravan event becomes active</li>
-            <li>All imperial armies on all quest locations where Empire would spawn are 20% bigger</li>
+            <li Class="VFED.VisibilityEffect_Incident">
+                <label>Imperial patrol caravan event becomes active</label>
+                <incident>VFED_ImperialPatrol</incident>
+                <becomesActive>true</becomesActive>
+            </li>
+            <li Class="VFED.VisibilityEffect_ArmySize">
+                <label>All imperial armies on all quest locations where Empire would spawn are 20% bigger</label>
+                <multiplier>1.2</multiplier>
+            </li>
         </specialEffects>
     </VFED.VisibilityLevelDef>
     <VFED.VisibilityLevelDef>
@@ -47,11 +54,24 @@
         <imperialResponseTime>180</imperialResponseTime>
         <imperialResponseType>VFED_StellicGuards</imperialResponseType>
         <specialEffects>
-            <li>Raids from the Empire faction happen 2x as often</li>
-            <li>Imperial patrol caravan event becomes active</li>
-            <li>All imperial armies on all quest locations where Empire would spawn are 50% bigger</li>
-            <li>Imperial Propaganda can now drop</li>
-            <li>Chased Deserter quest no longer occurs</li>
+            <li Class="VFED.VisibilityEffect_RaidChance">
+                <label>Raids from the Empire faction happen 2x as often</label>
+                <multiplier>2</multiplier>
+            </li>
+            <li Class="VFED.VisibilityEffect_ArmySize">
+                <label>All imperial armies on all quest locations where Empire would spawn are 50% bigger</label>
+                <multiplier>1.5</multiplier>
+            </li>
+            <li Class="VFED.VisibilityEffect_Incident">
+                <label>Imperial Propaganda can now drop</label>
+                <incident>VFED_PropagandaDrop</incident>
+                <becomesActive>true</becomesActive>
+            </li>
+            <li Class="VFED.VisibilityEffect_Incident">
+                <label>Chased Deserter quest no longer occurs</label>
+                <incident>VFED_GiveQuest_ChasedDeserter</incident>
+                <becomesInactive>true</becomesInactive>
+            </li>
         </specialEffects>
     </VFED.VisibilityLevelDef>
     <VFED.VisibilityLevelDef>
@@ -66,14 +86,26 @@
         <imperialResponseTime>120</imperialResponseTime>
         <imperialResponseType>VFED_MissileRain</imperialResponseType>
         <specialEffects>
-            <li>Raids from the Empire faction happen 3x as often</li>
-            <li>Imperial patrol caravan event becomes active</li>
-            <li>All imperial armies on all quest locations where Empire would spawn are 100% bigger</li>
-            <li>Imperial Propaganda can now drop</li>
-            <li>Chased Deserter quest no longer occurs</li>
-            <li>Aerodrone bombardment event becomes available.</li>
-            <li>Absolver Raid can now occur.</li>
-            <li>Relations with a random faction drop by -10 once a day</li>
+	        <li Class="VFED.VisibilityEffect_RaidChance">
+		        <label>Raids from the Empire faction happen 3x as often</label>
+		        <multiplier>3</multiplier>
+	        </li>
+	        <li Class="VFED.VisibilityEffect_ArmySize">
+		        <label>All imperial armies on all quest locations where Empire would spawn are 100% bigger</label>
+		        <multiplier>2</multiplier>
+	        </li>
+	        <li Class="VFED.VisibilityEffect_AerodroneBombardment">
+		        <label>Aerodrone bombardment event becomes available.</label>
+	        </li>
+	        <li Class="VFED.VisibilityEffect_Incident">
+		        <label>Absolver Raid can now occur.</label>
+		        <incident>VFED_Raid_Absolver</incident>
+		        <becomesActive>true</becomesActive>
+	        </li>
+			<li Class="VFED.VisibilityEffect_Goodwill">
+                <label>Relations with a random faction drop by -10 once a day.</label>
+                <goodwill>-10</goodwill>
+			</li>
         </specialEffects>
     </VFED.VisibilityLevelDef>
     <VFED.VisibilityLevelDef>
@@ -88,7 +120,11 @@
         <imperialResponseTime>60</imperialResponseTime>
         <imperialResponseType>VFED_MissileRain</imperialResponseType>
         <specialEffects>
-            <li>As soon as player reaches 100 Visibility, Divine Inferno countdown triggers. </li>
+            <li Class="VFED.VisibilityEffect_GameCondition">
+                <label>As soon as player reaches 100 Visibility, Divine Inferno countdown triggers.</label>
+	            <gameCondition>VFED_DivineInferno</gameCondition>
+                <durationDays>30</durationDays>
+            </li>
         </specialEffects>
     </VFED.VisibilityLevelDef>
 </Defs>

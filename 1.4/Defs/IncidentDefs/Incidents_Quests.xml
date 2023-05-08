@@ -3,7 +3,7 @@
     <IncidentDef ParentName="GiveQuestBase">
         <defName>VFED_GiveQuest_ChasedDeserter</defName>
         <label>imperial deserter</label>
-        <questScriptDef>VFEE_ChasedDeserter</questScriptDef>
+        <questScriptDef>VFED_ChasedDeserter</questScriptDef>
         <baseChance>0</baseChance>        <!-- given by a special storyteller comp -->
     </IncidentDef>
 </Defs>

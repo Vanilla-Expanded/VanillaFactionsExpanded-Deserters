@@ -55,6 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\LordJob_AssassinateColonist.cs" />
+    <Compile Include="AI\LordToil_AttackClosest.cs" />
     <Compile Include="Comps\CompDeployable.cs" />
     <Compile Include="Comps\CompEMPEffect.cs" />
     <Compile Include="Comps\CompExplosive_Shells.cs" />
@@ -69,13 +71,20 @@
     <Compile Include="Comps\CompTargetable_Biocoded.cs" />
     <Compile Include="Comps\CompVeryFlammable.cs" />
     <Compile Include="Comps\HediffComp_DisappearsOnAttack.cs" />
+    <Compile Include="GameCondition_DivineInferno.cs" />
     <Compile Include="GameCondition_MissileRain.cs" />
     <Compile Include="HarmonyPatches\DebugPatches.cs" />
+    <Compile Include="HarmonyPatches\FilthCleaningPatch.cs" />
+    <Compile Include="FilthExtension_OnClean.cs" />
     <Compile Include="HarmonyPatches\GoodwillPatches.cs" />
     <Compile Include="HarmonyPatches\MiscPatches.cs" />
     <Compile Include="HarmonyPatches\QuestWindowPatches.cs" />
-    <Compile Include="Jobs\JobDriver_ExtractIntel.cs" />
-    <Compile Include="Jobs\JobDriver_ExtractIntelPawn.cs" />
+    <Compile Include="Incidents\IncidentWorker_RaidAbsolver.cs" />
+    <Compile Include="Things\DropPodIncoming_Propaganda.cs" />
+    <Compile Include="Incidents\IncidentWorker_ImperialPatrol.cs" />
+    <Compile Include="Incidents\IncidentWorker_PropagandaDrop.cs" />
+    <Compile Include="AI\Jobs\JobDriver_ExtractIntel.cs" />
+    <Compile Include="AI\Jobs\JobDriver_ExtractIntelPawn.cs" />
     <Compile Include="Quests\GetFactions.cs" />
     <Compile Include="Quests\ImperialResponse.cs" />
     <Compile Include="Quests\JoinDeserters.cs" />
@@ -118,6 +127,10 @@
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.4.*">
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Defs\**\*.xml" Link="Defs\$(RecursiveDir)\$(Filename)%(Extension)" Visible="true" />
+    <None Include="C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data\**\*.xml" Visible="false" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

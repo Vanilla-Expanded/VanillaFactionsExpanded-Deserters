@@ -16,10 +16,4 @@
     <targetType>Thing</targetType>
     <removeIfBuildingDespawned>true</removeIfBuildingDespawned>
   </DesignationDef>
-  <GameConditionDef>
-    <defName>VFED_MissileRain</defName>
-    <conditionClass>VFED.GameCondition_MissileRain</conditionClass>
-    <label>missile rain</label>
-    <canBePermanent>true</canBePermanent>
-  </GameConditionDef>
 </Defs>

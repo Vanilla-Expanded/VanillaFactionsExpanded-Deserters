@@ -20,4 +20,21 @@
     <VFED.MustHavePsylink>Must have psylink</VFED.MustHavePsylink>
     <VFED.ExtractIntel>Extract intel</VFED.ExtractIntel>
     <VFED.ExtractIntel.Desc>Extract intel from the brain of a nobleperson. They may be alive, dead, or downed, but the brain must be present. Will destroy the brain.</VFED.ExtractIntel.Desc>
+    <VFED.ImperialPatrol>{0} patrol</VFED.ImperialPatrol>
+    <VFED.ImperialPatrol.Desc>{0} has encountered an imperial patrol from {1}. They have been spotted! {0} can try and escape, but this will inevitably increase the visibility of {2}. Fighting the patrol might be tough, but it will keep {2} safe. The patrol consists of:\n\n{3}</VFED.ImperialPatrol.Desc>
+    <VFED.ImperialPatrol.Escape>Escape the patrol.</VFED.ImperialPatrol.Escape>
+    <VFED.ImperialPatrol.Attack>Attack the patrol.</VFED.ImperialPatrol.Attack>
+    <VFED.ImperialPatrol.GiveUp>Give up {0}.</VFED.ImperialPatrol.GiveUp>
+    <VFED.ImperialPatrol.GaveUp>{0} has given up {1} to the Empire. It’s unlikely you will ever see them again. Empire doesn’t take kindly to saboteurs.</VFED.ImperialPatrol.GaveUp>
+    <VFED.AerodroneBombardment>Aerodrone bombardment</VFED.AerodroneBombardment>
+    <VFED.AerodroneBombardment.Desc>The {0} has dispatched a number of aerodrones to your location. They suspect you are harboring deserters with ill intention towards the Great Hierarchy.
+An aerodrone is an unmanned atmospheric drone designed for military purposes. Controlled by highly skilled warprogrammers from imperial installations, the aerodrone is a highly effective tool for eliminating enemies of the Empire. Equipped with advanced sensors and targeting systems, the aerodrone can detect and track targets from great distances. Once a target has been identified, the aerodrone will unleash a devastating salvo of precision rockets, each one designed to cause maximum damage and destruction.
+The Empire has pinpointed the location of your critical infrastructure and the aerodrones will shortly initiate their bombardment. Evacuation is advised.</VFED.AerodroneBombardment.Desc>
+    <VFED.GlassingDate>Glassing date</VFED.GlassingDate>
+    <VFED.DivineInferno.Init>Divine Inferno initiated</VFED.DivineInferno.Init>
+    <VFED.DivineInferno.Desc>The Orbital Slicer Beam satellites have finished arranging into a beautiful flower pattern above your colony. What comes next can only be described as total destruction. The slicer beams fire down from the sky, creating a web of energy that systematically levels everything in its path. The terrain itself seems to buckle and heave as the beams slice through the earth, leaving behind deep crevices and rubble-filled craters. People, vehicles, and even buildings are reduced to nothing more than dust and ash in a matter of seconds. The air itself is superheated by the intense energy of the beams, creating a blast wave that can travel for miles.
+There is no escape from the Divine Inferno. Those caught in its path are instantly vaporized, leaving behind nothing but charred remnants of what was once there. Even underground shelters are no match for the destructive power of the slicer beams, as they cut through the earth like a hot knife through butter.
+The aftermath of Divine Inferno is a wasteland of destruction. The landscape is unrecognizable, with little more than rubble and ash as far as the eye can see. The air is still thick with the acrid smell of burnt flesh and melting metal. The once-thriving colony is now nothing more than a scorched and lifeless husk.</VFED.DivineInferno.Desc>
+    <VFED.GoodwillDropVisibility>Due to imperial disinformation, your relations with {0} have dropped by 10.</VFED.GoodwillDropVisibility>
+    <VFED.ShotsFiredLeft>{0} beams fired, {1} beams left</VFED.ShotsFiredLeft>
 </LanguageData>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using MonoMod.Utils;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
@@ -61,5 +63,47 @@ public static class Utilities
             Log.Message(toString == null ? item.ToString() : toString(item));
             yield return item;
         }
+    }
+
+    public static Pawn GetLeader(this Caravan caravan) =>
+        IdeoUtility.FindFirstPawnWithLeaderRole(caravan) ?? BestCaravanPawnUtility.FindBestNegotiator(caravan) ?? BestCaravanPawnUtility
+           .FindBestDiplomat(caravan) ?? caravan.PawnsListForReading.Find(caravan.IsOwner);
+
+    public static void ChangeVisibility(int by)
+    {
+        WorldComponent_Deserters.Instance.Visibility += by;
+        WorldComponent_Deserters.Instance.Notify_VisibilityChanged();
+    }
+
+    public static LookTargets MakeLookTargets(this List<IntVec3> cells, Map map)
+    {
+        return new LookTargets(cells.Select(cell => new GlobalTargetInfo(cell, map)));
+    }
+
+    public static void Schedule(Action action, int tick)
+    {
+        WorldComponent_Deserters.Instance.EventQueue.Enqueue(action, tick);
+    }
+
+    public static string Serialize(this Action action) => $"{action.Method.Name}.{action.Method.DeclaringType.AssemblyQualifiedName}";
+
+    public static Action DeserializeAction(this string str)
+    {
+        var array = str.Split('.');
+
+        var method = array[0];
+        var type = array.Skip(1).Join(delimiter: ".");
+        return Type.GetType(type)?.GetMethod(method, AccessTools.all).CreateDelegate<Action>();
+    }
+
+    public static List<(T1, T2)> ToList<T1, T2>(this PriorityQueue<T1, T2> source)
+    {
+        var result = new List<(T1, T2)>();
+
+        while (source.TryDequeue(out var item1, out var item2)) result.Add((item1, item2));
+
+        foreach (var (item1, item2) in result) source.Enqueue(item1, item2);
+
+        return result;
     }
 }

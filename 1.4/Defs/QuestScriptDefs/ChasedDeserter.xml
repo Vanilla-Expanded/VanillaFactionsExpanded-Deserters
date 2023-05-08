@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
     <QuestScriptDef>
-        <defName>VFEE_ChasedDeserter</defName>
+        <defName>VFED_ChasedDeserter</defName>
         <rootMinPoints>0</rootMinPoints>
         <expireDaysRange>4~8</expireDaysRange>
         <defaultChallengeRating>1</defaultChallengeRating>

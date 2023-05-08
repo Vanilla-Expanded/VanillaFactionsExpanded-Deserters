@@ -21,7 +21,7 @@
         <xpath>Defs/StorytellerDef[@Name="BaseStoryteller"]/comps</xpath>
         <value>
             <li Class="StorytellerCompProperties_SingleMTB">
-                <incident>GiveQuest_Intro_Deserter</incident>
+                <incident>VFED_GiveQuest_ChasedDeserter</incident>
                 <mtbDays>60</mtbDays>
                 <allowedTargetTags>
                     <li>World</li>

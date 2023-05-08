@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <GameConditionDef>
+        <defName>VFED_MissileRain</defName>
+        <conditionClass>VFED.GameCondition_MissileRain</conditionClass>
+        <label>missile rain</label>
+        <canBePermanent>true</canBePermanent>
+    </GameConditionDef>
+    <GameConditionDef>
+        <defName>VFED_DivineInferno</defName>
+        <conditionClass>VFED.GameCondition_DivineInferno</conditionClass>
+        <label>Divine Inferno</label>
+        <description>The Empire has initiated a Divine Inferno protocol on your colony and are moving all required slicer beam satellites into position. Once they meet over your colony, they will glass it with numerous pillars of fire. This can be prevented by reducing your visibility back to Hidden visibility level.</description>
+    </GameConditionDef>
+</Defs>

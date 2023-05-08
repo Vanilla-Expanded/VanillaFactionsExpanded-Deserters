@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
@@ -15,10 +17,10 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     public static WorldComponent_Deserters Instance;
 
     public bool Active;
-    public List<string> ActiveEffects = new();
+    public List<VisibilityEffect> ActiveEffects = new();
+    public PriorityQueue<Action, int> EventQueue = new();
     public int Visibility;
     public VisibilityLevelDef VisibilityLevel;
-
     public WorldComponent_Deserters(World world) : base(world) => Instance = this;
 
     public string GetCallLabel() => null;
@@ -40,11 +42,21 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     {
         base.WorldComponentTick();
         if (Active)
+        {
+            if (Find.TickManager.TicksGame % 2500 == 0)
+                foreach (var effect in ActiveEffects)
+                    effect.TickRare();
+
             if (Find.TickManager.TicksGame % 60000 == 0)
             {
                 Visibility--;
                 Notify_VisibilityChanged();
+                foreach (var effect in ActiveEffects)
+                    effect.TickDay();
             }
+        }
+
+        while (EventQueue.TryPeek(out _, out var tick) && tick <= Find.TickManager.TicksGame) EventQueue.Dequeue()();
     }
 
     public void JoinDeserters(Quest fromQuest)
@@ -83,19 +95,38 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             }
     }
 
-    public void Notify_VisibilityChanged()
+    public void Notify_VisibilityChanged(bool fromLoad = false)
     {
         Visibility = Mathf.Clamp(Visibility, 0, 100);
+        var oldEffects = ActiveEffects.ListFullCopy();
         ActiveEffects.Clear();
         if (!Active) return;
         foreach (var def in DefDatabase<VisibilityLevelDef>.AllDefs.OrderBy(def => def.visibilityRange.max))
-            if (def.visibilityRange.min < Visibility)
-                ActiveEffects.AddRange(def.specialEffects);
-            else if (def.visibilityRange.max > Visibility)
+        {
+            if (def.visibilityRange.min <= Visibility)
+                if (def.specialEffects != null)
+                    foreach (var effect in def.specialEffects)
+                    {
+                        ActiveEffects.RemoveAll(effect.Replaces);
+                        ActiveEffects.Add(effect);
+                    }
+
+            if (def.visibilityRange.max >= Visibility)
             {
                 VisibilityLevel = def;
                 break;
             }
+        }
+
+        if (fromLoad)
+            foreach (var effect in ActiveEffects)
+                effect.OnLoadActive();
+        else
+        {
+            foreach (var effect in oldEffects.Except(ActiveEffects)) effect.OnDeactivate();
+
+            foreach (var effect in ActiveEffects.Except(oldEffects)) effect.OnActivate();
+        }
     }
 
     public override void ExposeData()
@@ -103,7 +134,40 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         base.ExposeData();
         Scribe_Values.Look(ref Active, "active");
         Scribe_Values.Look(ref Visibility, "visibility");
-        Notify_VisibilityChanged();
+        if (Scribe.EnterNode("eventQueue"))
+            try
+            {
+                if (Scribe.mode == LoadSaveMode.Saving)
+                    foreach (var (action, priority) in EventQueue.ToList())
+                    {
+                        if (Scribe.EnterNode("li"))
+                            try
+                            {
+                                Scribe.saver.WriteElement("action", action.Serialize());
+                                Scribe.saver.WriteElement("triggerTick", priority.ToString());
+                            }
+                            finally { Scribe.ExitNode(); }
+                    }
+                else if (Scribe.mode == LoadSaveMode.LoadingVars)
+                {
+                    var curXmlParent = Scribe.loader.curXmlParent;
+                    EventQueue ??= new PriorityQueue<Action, int>();
+                    EventQueue.Clear();
+                    EventQueue.EnsureCapacity(curXmlParent.ChildNodes.Count);
+
+                    foreach (var node in curXmlParent.ChildNodes.Cast<XmlNode>())
+                    {
+                        if (node.Name != "li" || node["triggerTick"] == null || node["action"] == null) continue;
+                        var priority = ParseHelper.FromString<int>(node["triggerTick"].InnerText);
+                        var action = node["action"].InnerText.DeserializeAction();
+
+                        EventQueue.Enqueue(action, priority);
+                    }
+                }
+            }
+            finally { Scribe.ExitNode(); }
+
+        Notify_VisibilityChanged(true);
     }
 
     private static int IntelForTitle(RoyalTitleDef title) =>
