@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <KCSG.SymbolDef>
+    <defName>VFED_SurveillancePillar</defName>
+    <thing>VFED_SurveillancePillar</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_ImperialMaxpack_East</defName>
+    <thing>VFED_ImperialMaxpack</thing>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_ImperialMaxpack_West</defName>
+    <thing>VFED_ImperialMaxpack</thing>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_Candelabra_Steel</defName>
+    <thing>VFEE_Candelabra</thing>
+    <stuff>Steel</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Bluefur_South</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Bluefur</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Bluefur_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Bluefur</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Bluefur_North</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Bluefur</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalMirror_Silver_South</defName>
+    <thing>VFEE_RoyalMirror</thing>
+    <stuff>Silver</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_Turret_StrikerTurret</defName>
+    <thing>VFED_Turret_StrikerTurret</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_ImperialMaxpack_North</defName>
+    <thing>VFED_ImperialMaxpack</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_FuelTank</defName>
+    <thing>VFED_FuelTank</thing>
+  </KCSG.SymbolDef>
+</Defs>
