@@ -93,6 +93,8 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
                 QuestUtility.SendQuestTargetSignals(pawn.questTags, "TitleChanged", pawn.Named("SUBJECT"));
                 MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
             }
+
+        Notify_VisibilityChanged();
     }
 
     public void Notify_VisibilityChanged(bool fromLoad = false)

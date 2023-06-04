@@ -118,7 +118,7 @@
             <label>Single shot (Thump shot)</label>
             <canBeToggled>false</canBeToggled>
             <comps>
-              <li Class="VFED.VerbCompProperties_Switch">
+              <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
                 <switchIcon>UI/ChargeBlasterMode_ThumpShot</switchIcon>
               </li>
             </comps>

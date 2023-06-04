@@ -28,7 +28,6 @@ public class Dialog_DeserterNetwork : Window
         soundAppear = SoundDefOf.CommsWindow_Open;
         soundClose = SoundDefOf.CommsWindow_Close;
         soundAmbient = SoundDefOf.RadioComms_Ambience;
-        curTab = DefDatabase<DeserterTabDef>.AllDefs.First();
         tabs = DefDatabase<DeserterTabDef>.AllDefs.Select(def => new TabRecord(def.LabelCap, () => curTab = def, () => curTab == def)).ToList();
         Map = map;
     }
@@ -47,6 +46,7 @@ public class Dialog_DeserterNetwork : Window
         }
 
         foreach (var tab in DefDatabase<DeserterTabDef>.AllDefs) tab.Worker.Notify_Open(this);
+        curTab = DefDatabase<DeserterTabDef>.AllDefs.First();
     }
 
     public override void DoWindowContents(Rect inRect)

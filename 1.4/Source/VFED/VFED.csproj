@@ -109,7 +109,6 @@
     <Compile Include="VisibilityLevelDef.cs" />
     <Compile Include="WorldComponent_Deserters.cs" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="Comps\VerbComp_Switch.cs" />
     <Compile Include="VFED_DefOf.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +131,5 @@
     <None Include="..\..\Defs\**\*.xml" Link="Defs\$(RecursiveDir)\$(Filename)%(Extension)" Visible="true" />
     <None Include="C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data\**\*.xml" Visible="false" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
