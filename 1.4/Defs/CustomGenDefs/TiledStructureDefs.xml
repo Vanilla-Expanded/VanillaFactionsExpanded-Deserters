@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <KCSG.TiledStructureDef>
+    <defName>VFED_SupplyDepot</defName>
+    <tilesNumber>4</tilesNumber>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileTags>
+      <li>SupplyDepotTile</li>
+    </allowedTileTags>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_SupplyDepotTile</defName>
+    <tag>SupplyDepotTile</tag>
+    <tileLayouts>
+      <li>VFED_SupplyDepotA</li>
+      <li>VFED_SupplyDepotB</li>
+      <li>VFED_SupplyDepotC</li>
+      <li>VFED_SupplyDepotD</li>
+      <li>VFED_SupplyDepotE</li>
+      <li>VFED_SupplyDepotF</li>
+      <li>VFED_SupplyDepotG</li>
+      <li>VFED_SupplyDepotH</li>
+      <li>VFED_SupplyDepotI</li>
+      <li>VFED_SupplyDepotJ</li>
+      <li>VFED_SupplyDepotK</li>
+      <li>VFED_SupplyDepotL</li>
+      <li>VFED_SupplyDepotM</li>
+      <li>VFED_SupplyDepotN</li>
+      <li>VFED_SupplyDepotO</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_AerodroneStation</defName>
+    <tilesNumber>4</tilesNumber>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileTags>
+      <li>AerodroneStationTile</li>
+    </allowedTileTags>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_AerodroneStationTile</defName>
+    <tag>AerodroneStationTile</tag>
+    <tileLayouts>
+      <li>VFED_AerodroneStationA</li>
+      <li>VFED_AerodroneStationB</li>
+      <li>VFED_AerodroneStationC</li>
+      <li>VFED_AerodroneStationD</li>
+      <li>VFED_AerodroneStationE</li>
+      <li>VFED_AerodroneStationF</li>
+      <li>VFED_AerodroneStationG</li>
+      <li>VFED_AerodroneStationH</li>
+      <li>VFED_AerodroneStationI</li>
+      <li>VFED_AerodroneStationJ</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_ImperialConvoy</defName>
+    <tilesNumber>4</tilesNumber>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileTags>
+      <li>ImperialConvoyTile</li>
+    </allowedTileTags>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ImperialConvoyTile</defName>
+    <tag>ImperialConvoyTile</tag>
+    <tileLayouts>
+      <li>VFED_ImperialConvoyA</li>
+      <li>VFED_ImperialConvoyB</li>
+      <li>VFED_ImperialConvoyC</li>
+      <li>VFED_ImperialConvoyD</li>
+      <li>VFED_ImperialConvoyE</li>
+      <li>VFED_ImperialConvoyF</li>
+      <li>VFED_ImperialConvoyG</li>
+      <li>VFED_ImperialConvoyH</li>
+      <li>VFED_ImperialConvoyI</li>
+      <li>VFED_ImperialConvoyJ</li>
+      <li>VFED_ImperialConvoyK</li>
+      <li>VFED_ImperialConvoyL</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_ShuttleStagingPost</defName>
+    <tilesNumber>4</tilesNumber>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileTags>
+      <li>ShuttleStagingPostTile</li>
+    </allowedTileTags>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ShuttleStagingPostTile</defName>
+    <tag>ShuttleStagingPostTile</tag>
+    <tileLayouts>
+      <li>VFED_ShuttleStagingPostA</li>
+      <li>VFED_ShuttleStagingPostB</li>
+      <li>VFED_ShuttleStagingPostC</li>
+      <li>VFED_ShuttleStagingPostD</li>
+      <li>VFED_ShuttleStagingPostE</li>
+      <li>VFED_ShuttleStagingPostF</li>
+      <li>VFED_ShuttleStagingPostG</li>
+      <li>VFED_ShuttleStagingPostH</li>
+      <li>VFED_ShuttleStagingPostI</li>
+      <li>VFED_ShuttleStagingPostJ</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+</Defs>

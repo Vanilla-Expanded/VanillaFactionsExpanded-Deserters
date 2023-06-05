@@ -6,6 +6,16 @@
   </KCSG.SymbolDef>
 
   <KCSG.SymbolDef>
+    <defName>VFED_SupplyCrate</defName>
+    <thing>VFED_SupplyCrate</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_BiosecuredCrate</defName>
+    <thing>VFED_BiosecuredCrate</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
     <defName>VFED_ImperialMaxpack_East</defName>
     <thing>VFED_ImperialMaxpack</thing>
     <rotation>East</rotation>
@@ -63,5 +73,41 @@
   <KCSG.SymbolDef>
     <defName>VFED_FuelTank</defName>
     <thing>VFED_FuelTank</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_AerodroneBatteryPack</defName>
+    <thing>VFED_AerodroneBatteryPack</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_Aerodrone</defName>
+    <thing>VFED_Aerodrone</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_AerodroneMunitionsCrate</defName>
+    <thing>VFED_AerodroneMunitionsCrate</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_CrashedAerodrone</defName>
+    <thing>VFED_CrashedAerodrone</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_StrikeBuoy</defName>
+    <thing>VFED_StrikeBuoy</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_ImperialMaxpack_South</defName>
+    <thing>VFED_ImperialMaxpack</thing>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEI_ArmoredShuttle</defName>
+    <thing>VFEI_ArmoredShuttle</thing>
   </KCSG.SymbolDef>
 </Defs>
