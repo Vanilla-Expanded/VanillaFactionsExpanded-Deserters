@@ -108,7 +108,7 @@
             <label>Single shot (Charged shot)</label>
             <canBeToggled>false</canBeToggled>
             <comps>
-              <li Class="VFED.VerbCompProperties_Switch">
+              <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
                 <switchIcon>UI/ChargeBlasterMode_ChargedShot</switchIcon>
                 <startEnabled>true</startEnabled>
               </li>

@@ -117,6 +117,7 @@
     <defName>VFED_SupplyCrate</defName>
     <label>supply crate</label>
     <description>todo</description>
+    <thingClass>VFED.Building_SupplyCrate</thingClass>
     <graphicData>
       <texPath>Structures/Misc/ImperialCrate</texPath>
       <graphicClass>Graphic_Single</graphicClass>

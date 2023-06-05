@@ -37,4 +37,10 @@ There is no escape from the Divine Inferno. Those caught in its path are instant
 The aftermath of Divine Inferno is a wasteland of destruction. The landscape is unrecognizable, with little more than rubble and ash as far as the eye can see. The air is still thick with the acrid smell of burnt flesh and melting metal. The once-thriving colony is now nothing more than a scorched and lifeless husk.</VFED.DivineInferno.Desc>
     <VFED.GoodwillDropVisibility>Due to imperial disinformation, your relations with {0} have dropped by 10.</VFED.GoodwillDropVisibility>
     <VFED.ShotsFiredLeft>{0} beams fired, {1} beams left</VFED.ShotsFiredLeft>
+    <VFED.VisibilityIncreases>Visibility increases by {0}</VFED.VisibilityIncreases>
+    <VFED.VisibilityDecreases>Visibility decreases by {0}</VFED.VisibilityDecreases>
+    <VFED.VisibilityIncreases.Desc>Visibility will increase by {0}. This may lead to more and stronger imperial responses.</VFED.VisibilityIncreases.Desc>
+    <VFED.VisibilityDecreases.Desc>Visibility will decrease by {0}. This may reduce imperial responses.</VFED.VisibilityDecreases.Desc>
+    <VFED.BiosecuredCrateWarning>Biosecured crates can only be opened by characters with a noble backstory.</VFED.BiosecuredCrateWarning>
+    <VFED.CantOpenBiosecured>Can’t open the crate (requires noble backstory)</VFED.CantOpenBiosecured>
 </LanguageData>

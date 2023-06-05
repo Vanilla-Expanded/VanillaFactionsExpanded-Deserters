@@ -33,6 +33,8 @@ public class VFED_DefOf
     [DefAlias("VFED_ExtractIntel")] public static JobDef VFED_ExtractIntelJob;
     public static JobDef VFED_ExtractIntelPawn;
 
+    public static ThingSetMakerDef VFED_Reward_ItemsSpecial;
+
     static VFED_DefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(VFED_DefOf));

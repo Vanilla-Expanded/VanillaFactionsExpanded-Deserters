@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFED_ImperialUnderfarmRaid</defName>
+	    <rootSelectionWeight>2</rootSelectionWeight>
+	    <expireDaysRange>15~30</expireDaysRange>
+	    <root Class="QuestNode_Sequence">
+		    <nodes>
+			    <li Class="VFED.QuestNode_GetEmpire">
+				    <storeAs>empire</storeAs>
+			    </li>
+			    <li Class="VFED.QuestNode_GetDeserters">
+				    <storeAs>deserters</storeAs>
+			    </li>
+			    <li Class="QuestNode_SubScript">
+				    <def>Util_RandomizePointsChallengeRating</def>
+			    </li>
+			    <li Class="QuestNode_SubScript">
+				    <def>Util_GetDefaultRewardValueFromPoints</def>
+			    </li>
+			    <li Class="QuestNode_SubScript">
+				    <def>Util_AdjustPointsForDistantFight</def>
+			    </li>
+			    <li Class="VFED.QuestNode_DeserterRewards">
+
+			    </li>
+		    </nodes>
+	    </root>
+    </QuestScriptDef>
+</Defs>

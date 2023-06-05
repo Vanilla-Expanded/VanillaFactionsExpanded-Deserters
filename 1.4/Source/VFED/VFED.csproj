@@ -71,6 +71,7 @@
     <Compile Include="Comps\CompTargetable_Biocoded.cs" />
     <Compile Include="Comps\CompVeryFlammable.cs" />
     <Compile Include="Comps\HediffComp_DisappearsOnAttack.cs" />
+    <Compile Include="Comps\MapComponent_ObjectiveHighlighter.cs" />
     <Compile Include="GameCondition_DivineInferno.cs" />
     <Compile Include="GameCondition_MissileRain.cs" />
     <Compile Include="HarmonyPatches\DebugPatches.cs" />
@@ -80,6 +81,11 @@
     <Compile Include="HarmonyPatches\MiscPatches.cs" />
     <Compile Include="HarmonyPatches\QuestWindowPatches.cs" />
     <Compile Include="Incidents\IncidentWorker_RaidAbsolver.cs" />
+    <Compile Include="Quests\DeserterRewards.cs" />
+    <Compile Include="Quests\ImperialForces.cs" />
+    <Compile Include="Quests\ObjectiveTracker.cs" />
+    <Compile Include="Things\Building_CrateBiosecured.cs" />
+    <Compile Include="Things\Building_SupplyCrate.cs" />
     <Compile Include="Things\DropPodIncoming_Propaganda.cs" />
     <Compile Include="Incidents\IncidentWorker_ImperialPatrol.cs" />
     <Compile Include="Incidents\IncidentWorker_PropagandaDrop.cs" />

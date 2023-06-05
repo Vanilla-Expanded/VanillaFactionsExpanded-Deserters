@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <SitePartDef>
+    <defName>VFED_SupplyDepot</defName>
+    <label>supply depot</label>
+    <description>An Imperial Supply Depot.</description>
+    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <expandingIconTexture>WorldObjects/QuestIcon_SupplyDepotRaid</expandingIconTexture>
+    <tags>
+      <li>VFED_SupplyDepot</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>VFED_SupplyDepot</defName>
+    <linkWithSite>VFED_SupplyDepot</linkWithSite>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <structureLayoutDefs>
+        <li>VFED_SupplyDepotA</li>
+        <li>VFED_SupplyDepotB</li>
+        <li>VFED_SupplyDepotC</li>
+        <li>VFED_SupplyDepotD</li>
+        <li>VFED_SupplyDepotE</li>
+        <li>VFED_SupplyDepotF</li>
+        <li>VFED_SupplyDepotG</li>
+        <li>VFED_SupplyDepotH</li>
+        <li>VFED_SupplyDepotI</li>
+        <li>VFED_SupplyDepotJ</li>
+        <li>VFED_SupplyDepotK</li>
+        <li>VFED_SupplyDepotL</li>
+        <li>VFED_SupplyDepotM</li>
+        <li>VFED_SupplyDepotN</li>
+        <li>VFED_SupplyDepotO</li>
+      </structureLayoutDefs>
+      <fullClear>false</fullClear>
+      <clearFogInRect>false</clearFogInRect>
+      <preventBridgeable>false</preventBridgeable>
+    </genStep>
+  </GenStepDef>
+
+</Defs>

@@ -16,7 +16,6 @@
     </questDescriptionRules>
     <root Class="QuestNode_Sequence">
       <nodes>
-        <li Class="QuestNode_GetMap" />
         <li Class="VFED.QuestNode_GetEmpire">
           <storeAs>empire</storeAs>
         </li>

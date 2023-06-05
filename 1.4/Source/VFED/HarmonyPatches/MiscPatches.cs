@@ -2,6 +2,7 @@
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace VFED.HarmonyPatches;
 
@@ -13,13 +14,14 @@ public static class MiscPatches
     public static void ExplodePackOnDeath(Pawn __instance)
     {
         if (__instance.SpawnedOrAnyParentSpawned)
-            foreach (var apparel in __instance.apparel.WornApparel)
-                if (apparel.def == VFED_DefOf.VFED_Apparel_BombPack)
-                {
-                    GenExplosion.DoExplosion(__instance.PositionHeld, __instance.MapHeld, 13.5f, DamageDefOf.Bomb, apparel, 60, 5f);
-                    if (!apparel.Destroyed) apparel.Destroy();
-                    break;
-                }
+        {
+            var apparel = __instance.apparel.WornApparel.FirstOrDefault(ap => ap.def == VFED_DefOf.VFED_Apparel_BombPack);
+            if (apparel != null)
+            {
+                GenExplosion.DoExplosion(__instance.PositionHeld, __instance.MapHeld, 13.5f, DamageDefOf.Bomb, apparel, 60, 5f);
+                if (!apparel.Destroyed) apparel.Destroy();
+            }
+        }
     }
 
     [HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow))]
@@ -55,5 +57,24 @@ public static class MiscPatches
          && WorldComponent_Deserters.Instance.Active
          && WorldComponent_Deserters.Instance.ActiveEffects.OfType<VisibilityEffect_RaidChance>().FirstOrDefault() is { multiplier: var multiplier })
             __result *= multiplier;
+    }
+
+    [HarmonyPatch(typeof(Designation), nameof(Designation.Notify_Added))]
+    [HarmonyPostfix]
+    public static void BiosecurityWarning(Designation __instance)
+    {
+        if (__instance.def == DesignationDefOf.Open && __instance.target.Thing is Building_CrateBiosecured)
+            Messages.Message("VFED.BiosecuredCrateWarning".Translate(), __instance.target.Thing, MessageTypeDefOf.CautionInput);
+    }
+
+    [HarmonyPatch(typeof(WorkGiver_Open), nameof(WorkGiver_Open.HasJobOnThing))]
+    [HarmonyPostfix]
+    public static void CheckBiosecurity(Pawn pawn, Thing t, ref bool __result)
+    {
+        if (__result && t is Building_CrateBiosecured && !pawn.story.AllBackstories.Any(backstory => backstory.spawnCategories.Contains("ImperialRoyal")))
+        {
+            __result = false;
+            JobFailReason.Is("VFED.CantOpenBiosecured".Translate());
+        }
     }
 }

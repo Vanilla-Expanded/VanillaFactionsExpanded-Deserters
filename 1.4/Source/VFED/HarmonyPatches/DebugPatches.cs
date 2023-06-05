@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using RimWorld.QuestGen;
 using Verse;
 
 namespace VFED.HarmonyPatches;
@@ -17,12 +18,17 @@ public static class DebugPatches
         var postfix = new HarmonyMethod(typeof(DebugPatches), nameof(Debug_Postfix));
         var postfixVoid = new HarmonyMethod(typeof(DebugPatches), nameof(Debug_Postfix_Void));
         foreach (var methodBase in GetToPatch())
-            VFED.DesertersMod.Harm.Patch(methodBase, prefix, methodBase is not MethodInfo { ReturnType: var t } || t == typeof(void) ? postfixVoid : postfix);
+            DesertersMod.Harm.Patch(methodBase, prefix, methodBase is not MethodInfo { ReturnType: var t } || t == typeof(void) ? postfixVoid : postfix);
     }
 
     public static IEnumerable<MethodBase> GetToPatch()
     {
         yield break;
+        foreach (var type in typeof(QuestNode).AllSubclasses())
+        {
+            var method = AccessTools.Method(type, "TestRunInt");
+            if (method.ReflectedType == method.DeclaringType && !method.IsAbstract) yield return method;
+        }
     }
 
     public static void Debug_Prefix(object[] __args, MethodBase __originalMethod)

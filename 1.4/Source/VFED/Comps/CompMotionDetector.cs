@@ -67,7 +67,9 @@ public abstract class CompMotionDetector : ThingComp
         if (thing != null) Trigger(thing);
     }
 
-    private bool TriggerOn(Thing t) => !Props.onlyHumanlike || t is Pawn { RaceProps.Humanlike: true };
+    private bool TriggerOn(Thing t) =>
+        t is Pawn pawn && (!Props.onlyHumanlike || pawn.RaceProps.Humanlike) && (!Props.onlyHostile || pawn.HostileTo(parent))
+     && (!Props.onlyPlayer || pawn.Faction.IsPlayerSafe());
 
     public override string CompInspectStringExtra()
     {
@@ -110,7 +112,9 @@ public class CompProperties_MotionDetection : CompProperties
     public int checkInterval = 250;
     public ThingDef moteGlow;
     public ThingDef moteScan;
-    public bool onlyHumanlike;
+    public bool onlyHostile = true;
+    public bool onlyHumanlike = true;
+    public bool onlyPlayer;
     public float radius;
     public SoundDef soundEmitting;
     public bool triggerOnPawnInRoom;
