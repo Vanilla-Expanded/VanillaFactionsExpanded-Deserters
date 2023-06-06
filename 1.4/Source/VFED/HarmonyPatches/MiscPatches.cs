@@ -15,7 +15,7 @@ public static class MiscPatches
     {
         if (__instance.SpawnedOrAnyParentSpawned)
         {
-            var apparel = __instance.apparel.WornApparel.FirstOrDefault(ap => ap.def == VFED_DefOf.VFED_Apparel_BombPack);
+            var apparel = __instance.apparel?.WornApparel.FirstOrDefault(ap => ap.def == VFED_DefOf.VFED_Apparel_BombPack);
             if (apparel != null)
             {
                 GenExplosion.DoExplosion(__instance.PositionHeld, __instance.MapHeld, 13.5f, DamageDefOf.Bomb, apparel, 60, 5f);

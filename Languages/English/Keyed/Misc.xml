@@ -4,7 +4,7 @@
     <VFED.IntelOutOfDate>Intel will go out of date in: {0}</VFED.IntelOutOfDate>
     <VFED.IntelOutOfDateNow>{0} has gone out of date. Consider using up the intel you gather before it goes out of date.</VFED.IntelOutOfDateNow>
     <VFED.SwitchTo>Click to switch to {0}</VFED.SwitchTo>
-    <VFED.SurveillancePillarActivated>You have actived an imperial surveillance pillar. Visibility of your faction has increased by 10. It is now {0}.</VFED.SurveillancePillarActivated>
+    <VFED.SurveillancePillarActivated>You have activated an imperial surveillance pillar. Visibility of your faction has increased by 10. It is now {0}.</VFED.SurveillancePillarActivated>
     <VFED.IntelFromTitle>{0} has been stripped from their title of {1}. They have provided you with {2} Intel.</VFED.IntelFromTitle>
     <VFED.ResponseComing>Imperial response</VFED.ResponseComing>
     <VFED.ResponseComingDesc>An imperial {0} is on its way to this location. It will arrive in {1}.</VFED.ResponseComingDesc>
