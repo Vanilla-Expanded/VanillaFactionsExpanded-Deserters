@@ -79,7 +79,6 @@
     <Compile Include="FilthExtension_OnClean.cs" />
     <Compile Include="HarmonyPatches\GoodwillPatches.cs" />
     <Compile Include="HarmonyPatches\MiscPatches.cs" />
-    <Compile Include="HarmonyPatches\QuestWindowPatches.cs" />
     <Compile Include="Incidents\IncidentWorker_RaidAbsolver.cs" />
     <Compile Include="Quests\DeserterRewards.cs" />
     <Compile Include="Quests\ImperialForces.cs" />

@@ -5,11 +5,13 @@ using HarmonyLib;
 using MonoMod.Utils;
 using RimWorld;
 using RimWorld.Planet;
+using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 
 namespace VFED;
 
+[StaticConstructorOnStartup]
 public static class Utilities
 {
     private static readonly Func<Projectile, float> getArcHeightFactor =
@@ -17,6 +19,17 @@ public static class Utilities
 
     private static readonly Func<Projectile, float> getDistanceCoveredFraction =
         AccessTools.PropertyGetter(typeof(Projectile), "DistanceCoveredFraction").CreateDelegate<Func<Projectile, float>>();
+
+    private static readonly HashSet<QuestScriptDef> deserterQuests = new();
+
+    static Utilities()
+    {
+        foreach (var def in DefDatabase<QuestScriptDef>.AllDefs)
+            if (def.root is QuestNode_Sequence { nodes: var nodes } && nodes.OfType<QuestNode_DeserterRewards>().Any())
+                deserterQuests.Add(def);
+    }
+
+    public static bool IsDeserterQuest(this QuestScriptDef def) => deserterQuests.Contains(def);
 
     public static int Wrap(int value, int min, int max)
     {
@@ -47,8 +60,8 @@ public static class Utilities
 
     public static FloatRange ReceiveTimeRange(int totalAmount) =>
         new(
-            totalAmount * 7500 * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier / 60000f,
-            totalAmount * 15000 * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier / 60000f);
+            totalAmount * 0.125f * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier,
+            totalAmount * 0.25f * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandTimeToReceiveModifier);
 
     public static float SiteExistTime(int totalAmount) =>
         (totalAmount >= 25 ? -Mathf.Log(totalAmount - 24) + 5 : 30 - totalAmount)

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SitePartDef>
+    <defName>VFED_ImperialConvoy</defName>
+    <label>imperial convoy</label>
+    <description>An Imperial Convoy.</description>
+    <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
+    <expandingIconTexture>WorldObjects/QuestIcon_ImperialConvoy</expandingIconTexture>
+    <tags>
+      <li>VFED_ImperialConvoy</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>VFED_ImperialConvoy</defName>
+    <linkWithSite>VFED_ImperialConvoy</linkWithSite>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <tiledStructures>
+        <li>VFED_ImperialConvoy</li>
+      </tiledStructures>
+    </genStep>
+  </GenStepDef>
+</Defs>

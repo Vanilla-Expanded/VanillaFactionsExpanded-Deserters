@@ -47,8 +47,6 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
             pos.y = AltitudeLayer.MetaOverlays.AltitudeFor();
             var opacity = 1f - progress / 2000f;
 
-            Log.Message($"Drawing arrow: {progress}, {pos}, {opacity}");
-
             var rotation = Quaternion.AngleAxis(180, Vector3.up);
             Graphics.DrawMesh(MeshPool.plane10, pos, rotation, FadedMaterialPool.FadedVersionOf(ArrowMatWhite, opacity), 0);
         }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using HarmonyLib;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -75,6 +76,18 @@ public static class MiscPatches
         {
             __result = false;
             JobFailReason.Is("VFED.CantOpenBiosecured".Translate());
+        }
+    }
+
+    [HarmonyPatch(typeof(MainTabWindow_Quests), "DoCharityIcon")]
+    [HarmonyPostfix]
+    public static void AddDeserterIcon(ref Rect innerRect, Quest ___selected)
+    {
+        if (___selected != null && ___selected.root.IsDeserterQuest())
+        {
+            var rect = new Rect(innerRect.xMax - 32f - 26f - 32f - 4f, innerRect.y, 32f, 32f);
+            GUI.DrawTexture(rect, TexDeserters.DeserterQuestTex);
+            if (Mouse.IsOver(rect)) TooltipHandler.TipRegion(rect, "VFED.DeserterQuestDesc".Translate());
         }
     }
 }

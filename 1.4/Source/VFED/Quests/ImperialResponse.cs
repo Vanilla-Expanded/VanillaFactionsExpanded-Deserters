@@ -5,6 +5,7 @@ using RimWorld.Planet;
 using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace VFED;
 
@@ -58,7 +59,7 @@ public class QuestPart_ImperialResponse : QuestPartActivable
     public override string AlertLabel => "VFED.ResponseComing".Translate();
 
     public override string AlertExplanation =>
-        "VFED.ResponseComingDesc".Translate(responseDef?.LabelCap.Colorize(ColoredText.ThreatColor),
+        "VFED.ResponseComingDesc".Translate(responseDef?.label.Colorize(ColoredText.ThreatColor),
             (responseTick - Find.TickManager.TicksGame).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
 
     public override AlertReport AlertReport => responseDef == null ? AlertReport.Inactive : AlertReport.CulpritIs(mapParent);
@@ -78,12 +79,14 @@ public class QuestPart_ImperialResponse : QuestPartActivable
     protected override void Complete(SignalArgs signalArgs)
     {
         base.Complete(signalArgs);
+        if (quest.State != QuestState.Ongoing || !mapParent.HasMap || responseDef == null) return;
         var visibility = WorldComponent_Deserters.Instance.Visibility;
         var visibilityLevel = WorldComponent_Deserters.Instance.VisibilityLevel;
         var map = mapParent.Map;
         if (responseDef.reinforcements != null)
         {
             var pods = new List<ActiveDropPodInfo>();
+            var lord = LordMaker.MakeNewLord(Faction.OfEmpire, new LordJob_AssaultColony(Faction.OfEmpire, false, false, false, false, false), map);
             foreach (var pawnKind in responseDef.reinforcements)
             {
                 var count = pawnKind.range.Lerped(Mathf.InverseLerp(visibilityLevel.visibilityRange.TrueMin, visibilityLevel.visibilityRange.TrueMax,
@@ -97,6 +100,7 @@ public class QuestPart_ImperialResponse : QuestPartActivable
 
                 var pod = new ActiveDropPodInfo();
                 pod.innerContainer.TryAddRangeOrTransfer(pawns, false);
+                lord.AddPawns(pawns);
 
                 pods.Add(pod);
             }
@@ -110,5 +114,13 @@ public class QuestPart_ImperialResponse : QuestPartActivable
 
         Messages.Message("VFED.ResponseMessage".Translate(Mathf.CeilToInt(visibility * 0.1f), WorldComponent_Deserters.Instance.Visibility),
             MessageTypeDefOf.NegativeEvent);
+    }
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_References.Look(ref mapParent, nameof(mapParent));
+        Scribe_Defs.Look(ref responseDef, nameof(responseDef));
+        Scribe_Values.Look(ref responseTick, nameof(responseTick));
     }
 }

@@ -21,7 +21,6 @@ public class QuestNode_ImperialForces : QuestNode
         var parms = new PawnGroupMakerParms
         {
             groupKind = PawnGroupKindDefOf.Settlement,
-            inhabitants = true,
             points = WorldComponent_Deserters.Instance.ActiveEffects.OfType<VisibilityEffect_ArmySize>()
                .Aggregate(points.GetValue(slate), (p, effect) => p * effect.multiplier),
             faction = Faction.OfEmpire,

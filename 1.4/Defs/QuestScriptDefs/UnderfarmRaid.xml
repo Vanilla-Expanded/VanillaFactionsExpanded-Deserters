@@ -4,6 +4,23 @@
         <defName>VFED_ImperialUnderfarmRaid</defName>
 	    <rootSelectionWeight>2</rootSelectionWeight>
 	    <expireDaysRange>15~30</expireDaysRange>
+	    <questNameRules>
+		    <rulesStrings>
+			    <li>questName->Imperial Underfarm Raid</li>
+		    </rulesStrings>
+	    </questNameRules>
+	    <questDescriptionRules>
+		    <rulesStrings>
+			    <li>questDescription->Our intel suggests that [empire_name] has an underfarm complex near our location. Underfarms provide imperial settlements with a steady supply of food. Destroying this underfarm complex is bound to cause unrest in the lower ranks, as food becomes scarce.
+\nThe location features huge swathes of empty terrain with no cover in sight. We should think how we want to approach this.
+\nThe underfarm complex is protected by:
+[forces_description].
+\nA kontarion turret is located at the installation. It’s a powerful, long-range weapon used by the Empire to take out enemy targets from afar. Kontarion turret fires ultra-dense uranium slugs at incredible speeds, penetrating even the heaviest armor. Its ammo needs to be stored right next to it, and a precise shot might set off a chain explosion.
+\nThe underfarm complex is protected by a number of surveillance pillars. They should not be approached, and instead should be disabled from afar - either by destroying them, or cutting off their power. Once activated, they will greatly increase our visibility.
+\nThe objective of this assignment is to destroy the water mains that supply the underfarms. Once that is done, the reward will arrive and we will have to make our escape.
+\nOnce we arrive at the complex, we can expect an imperial response if our visibility is high enough. We will only have a limited amount of time to complete the mission.</li>
+		    </rulesStrings>
+	    </questDescriptionRules>
 	    <root Class="QuestNode_Sequence">
 		    <nodes>
 			    <li Class="VFED.QuestNode_GetEmpire">
@@ -12,18 +29,72 @@
 			    <li Class="VFED.QuestNode_GetDeserters">
 				    <storeAs>deserters</storeAs>
 			    </li>
+				<li Class="QuestNode_GetMap" />
 			    <li Class="QuestNode_SubScript">
 				    <def>Util_RandomizePointsChallengeRating</def>
 			    </li>
 			    <li Class="QuestNode_SubScript">
-				    <def>Util_GetDefaultRewardValueFromPoints</def>
-			    </li>
-			    <li Class="QuestNode_SubScript">
 				    <def>Util_AdjustPointsForDistantFight</def>
 			    </li>
-			    <li Class="VFED.QuestNode_DeserterRewards">
-
+			    <li Class="QuestNode_GetSiteTile">
+				    <storeAs>siteTile</storeAs>
+				    <preferCloserTiles>true</preferCloserTiles>
 			    </li>
+			    <li Class="QuestNode_GetDefaultSitePartsParams">
+				    <tile>$siteTile</tile>
+				    <faction>$empire</faction>
+				    <sitePartDefs><li>VFED_Underfarm</li></sitePartDefs>
+				    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+			    </li>
+			    <li Class="QuestNode_GetSiteThreatPoints">
+				    <storeAs>sitePoints</storeAs>
+				    <sitePartsParams>$sitePartsParams</sitePartsParams>
+			    </li>
+			    <li Class="QuestNode_SubScript">
+				    <def>Util_GetDefaultRewardValueFromPoints</def>
+				    <parms>
+					    <points>$sitePoints</points>
+				    </parms>
+			    </li>
+			    <li Class="QuestNode_Multiply">
+				    <value1>$rewardValue</value1>
+				    <value2>2.5</value2>
+				    <storeAs>rewardValue</storeAs>
+			    </li>
+			    <li Class="QuestNode_SubScript">
+				    <def>Util_GenerateSite</def>
+			    </li>
+			    <li Class="QuestNode_SpawnWorldObjects">
+				    <worldObjects>$site</worldObjects>
+			    </li>
+				<li Class="VFED.QuestNode_MarkObjectives">
+					<inSignal>site.MapGenerated</inSignal>
+					<mapParent>$site</mapParent>
+					<objectiveDef>VFED_ImperialUnderfarm</objectiveDef>
+					<objectiveCompleteSignal>Destroyed</objectiveCompleteSignal>
+				</li>
+				<li Class="VFED.QuestNode_ImperialForces">
+					<inSignal>site.MapGenerated</inSignal>
+					<mapParent>$site</mapParent>
+					<points>$points</points>
+				</li>
+				<li Class="VFED.QuestNode_ImperialResponse">
+					<inSignal>site.MapGenerated</inSignal>
+					<mapParent>$site</mapParent>
+				</li>
+			    <li Class="VFED.QuestNode_DeserterRewards">
+					<inSignal>objectives.Complete</inSignal>
+			    </li>
+				<li Class="QuestNode_End">
+					<inSignal>objectives.Complete</inSignal>
+					<outcome>Success</outcome>
+					<sendLetter>true</sendLetter>
+				</li>
+				<li Class="QuestNode_End">
+					<inSignal>site.Destroyed</inSignal>
+					<outcome>Fail</outcome>
+					<sendLetter>true</sendLetter>
+				</li>
 		    </nodes>
 	    </root>
     </QuestScriptDef>

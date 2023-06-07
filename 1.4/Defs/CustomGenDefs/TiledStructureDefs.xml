@@ -3,7 +3,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_SupplyDepot</defName>
     <tilesNumber>4</tilesNumber>    <!-- used when: not linked to quest/quest null -->
-    <tilesNumberRange>(4, 8)</tilesNumberRange>    <!-- used when: linked to quest -->
+    <tilesNumberRange>4~8</tilesNumberRange>    <!-- used when: linked to quest -->
     <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
     <allowedTileTags>
       <li>SupplyDepotTile</li>
@@ -35,7 +35,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_AerodroneStation</defName>
     <tilesNumber>4</tilesNumber>    <!-- used when: not linked to quest/quest null -->
-    <tilesNumberRange>(4, 8)</tilesNumberRange>    <!-- used when: linked to quest -->
+    <tilesNumberRange>4~8</tilesNumberRange>    <!-- used when: linked to quest -->
     <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
     <allowedTileTags>
       <li>AerodroneStationTile</li>
@@ -62,7 +62,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_ImperialConvoy</defName>
     <tilesNumber>4</tilesNumber>    <!-- used when: not linked to quest/quest null -->
-    <tilesNumberRange>(4, 8)</tilesNumberRange>    <!-- used when: linked to quest -->
+    <tilesNumberRange>4~8</tilesNumberRange>    <!-- used when: linked to quest -->
     <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
     <allowedTileTags>
       <li>ImperialConvoyTile</li>
@@ -91,7 +91,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_ShuttleStagingPost</defName>
     <tilesNumber>4</tilesNumber>    <!-- used when: not linked to quest/quest null -->
-    <tilesNumberRange>(4, 8)</tilesNumberRange>    <!-- used when: linked to quest -->
+    <tilesNumberRange>4~8</tilesNumberRange>    <!-- used when: linked to quest -->
     <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
     <allowedTileTags>
       <li>ShuttleStagingPostTile</li>

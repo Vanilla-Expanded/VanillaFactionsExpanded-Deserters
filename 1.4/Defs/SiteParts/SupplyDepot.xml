@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   <SitePartDef>
     <defName>VFED_SupplyDepot</defName>
     <label>supply depot</label>
     <description>An Imperial Supply Depot.</description>
-    <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+    <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
     <expandingIconTexture>WorldObjects/QuestIcon_SupplyDepotRaid</expandingIconTexture>
     <tags>
       <li>VFED_SupplyDepot</li>
@@ -22,5 +21,4 @@
       </tiledStructures>
     </genStep>
   </GenStepDef>
-
 </Defs>

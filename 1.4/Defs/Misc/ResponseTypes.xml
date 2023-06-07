@@ -17,7 +17,7 @@
   </VFED.ImperialResponseDef>
   <VFED.ImperialResponseDef>
     <defName>VFED_StellicGuards</defName>
-    <label>stellic guards</label>
+    <label>stellic guard squad</label>
     <reinforcements>
       <Empire_Fighter_StellicGuardMelee>4~8</Empire_Fighter_StellicGuardMelee>
       <Empire_Fighter_StellicGuardRanged>4~8</Empire_Fighter_StellicGuardRanged>

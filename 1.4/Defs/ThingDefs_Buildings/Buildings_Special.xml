@@ -200,7 +200,8 @@
       <li Class="VFED.CompProperties_MotionDetection">
         <compClass>VFED.CompSurveillancePillar</compClass>
         <radius>20</radius>
-        <moteScan>Mote_ProximityScannerRadius</moteScan>
+          <onlyPlayer>true</onlyPlayer>
+	      <moteScan>Mote_ProximityScannerRadius</moteScan>
         <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
         <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
         <activeGraphic>
@@ -391,6 +392,7 @@
     <comps>
       <li Class="VFED.CompProperties_MotionDetection">
         <compClass>VFED.CompStrikeBouy</compClass>
+	      <onlyPlayer>true</onlyPlayer>
         <radius>5</radius>
         <moteScan>VFED_Mote_ProximityScannerRadius_Orange</moteScan>
         <moteGlow>VFED_Mote_ActivatorProximityGlow_Orange</moteGlow>

@@ -38,7 +38,7 @@ public class QuestNode_DeserterRewards : QuestNode
         rewardItems.items.Add(intel);
         choice.rewards.Add(rewardItems);
         choice.rewards.Add(GetVisibilityReward(rewardItems.TotalMarketValue, true));
-        questPartChoice.choices.Add(choice);
+        AddAndProcessChoice(questPartChoice, choice, rewardValue, deserters);
         totalWorth += rewardItems.TotalMarketValue;
 
         choice = new QuestPart_Choice.Choice();
@@ -50,12 +50,12 @@ public class QuestNode_DeserterRewards : QuestNode
         rewardItems.items.AddRange(VFED_DefOf.VFED_Reward_ItemsSpecial.root.Generate(makerParams));
         choice.rewards.Add(rewardItems);
         choice.rewards.Add(GetVisibilityReward(rewardItems.TotalMarketValue, true));
-        questPartChoice.choices.Add(choice);
+        AddAndProcessChoice(questPartChoice, choice, rewardValue, deserters);
         totalWorth += rewardItems.TotalMarketValue;
 
         choice = new QuestPart_Choice.Choice();
         choice.rewards.Add(GetVisibilityReward(totalWorth / 2f, false));
-        questPartChoice.choices.Add(choice);
+        AddAndProcessChoice(questPartChoice, choice, rewardValue, deserters);
 
         QuestGen.quest.AddPart(questPartChoice);
 
@@ -67,6 +67,21 @@ public class QuestNode_DeserterRewards : QuestNode
         var reward = new Reward_Visibility();
         reward.InitFromValue(rewardValue, increase);
         return reward;
+    }
+
+    private static void AddAndProcessChoice(QuestPart_Choice questPartChoice, QuestPart_Choice.Choice choice, float rewardValue, Faction deserters)
+    {
+        var parms = default(RewardsGeneratorParams);
+        parms.rewardValue = rewardValue;
+        parms.giverFaction = deserters;
+        for (var index = 0; index < choice.rewards.Count; index++)
+            foreach (var questPart in choice.rewards[index].GenerateQuestParts(index, parms, null, null, null, null))
+            {
+                choice.questParts.Add(questPart);
+                QuestGen.quest.AddPart(questPart);
+            }
+
+        questPartChoice.choices.Add(choice);
     }
 }
 

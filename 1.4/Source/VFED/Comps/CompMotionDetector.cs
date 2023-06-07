@@ -112,7 +112,7 @@ public class CompProperties_MotionDetection : CompProperties
     public int checkInterval = 250;
     public ThingDef moteGlow;
     public ThingDef moteScan;
-    public bool onlyHostile = true;
+    public bool onlyHostile;
     public bool onlyHumanlike = true;
     public bool onlyPlayer;
     public float radius;

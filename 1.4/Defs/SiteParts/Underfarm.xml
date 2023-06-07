@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SitePartDef>
+    <defName>VFED_Underfarm</defName>
+    <label>imperial underfarm</label>
+    <description>An Imperial Underfarm.</description>
+    <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
+    <expandingIconTexture>WorldObjects/QuestIcon_ImperialUnderfarmRaid</expandingIconTexture>
+    <tags>
+      <li>VFED_Underfarm</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>VFED_Underfarm</defName>
+    <linkWithSite>VFED_Underfarm</linkWithSite>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <tiledStructures>
+        <li>VFED_Underfarm</li>
+      </tiledStructures>
+    </genStep>
+  </GenStepDef>
+</Defs>
