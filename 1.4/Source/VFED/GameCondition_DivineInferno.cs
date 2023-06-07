@@ -11,6 +11,7 @@ public class GameCondition_DivineInferno : GameCondition
 {
     private int bombardmentEndTick;
     private int bombardmentStartTick;
+    private bool sentStartLetter;
     private bool BombardmentActive => Find.TickManager.TicksGame >= bombardmentStartTick;
     private bool BombardmentEnded => Find.TickManager.TicksGame >= bombardmentEndTick;
 
@@ -23,7 +24,7 @@ public class GameCondition_DivineInferno : GameCondition
         def.LabelCap + "\n" + "\n" + Description + (BombardmentActive ? BombardmentEnded ? "" : BombardmentStatus : Forecast);
 
     private string BombardmentStatus =>
-        "VFED.ShotsFiredLeft".Translate(Mathf.FloorToInt((float)(Find.TickManager.TicksGame - bombardmentStartTick) / 5f.SecondsToTicks()), 30 - Mathf
+        "\n" + "VFED.ShotsFiredLeft".Translate(Mathf.FloorToInt((float)(Find.TickManager.TicksGame - bombardmentStartTick) / 5f.SecondsToTicks()), 30 - Mathf
            .FloorToInt((float)(Find.TickManager.TicksGame - bombardmentStartTick) / 5f.SecondsToTicks()));
 
     public override void Init()
@@ -49,9 +50,12 @@ public class GameCondition_DivineInferno : GameCondition
         {
             if (BombardmentActive)
             {
-                if (Find.TickManager.TicksGame == bombardmentStartTick)
+                if (!sentStartLetter)
+                {
                     Find.LetterStack.ReceiveLetter("VFED.DivineInferno.Init".Translate(), "VFED.DivineInferno.Desc".Translate(), LetterDefOf.ThreatBig,
                         new LookTargets(AffectedMaps.Select(map => map.Parent)), Faction.OfEmpire);
+                    sentStartLetter = true;
+                }
 
                 if ((Find.TickManager.TicksGame - bombardmentStartTick) % 5f.SecondsToTicks() == 0)
                     foreach (var map in AffectedMaps)
@@ -64,10 +68,18 @@ public class GameCondition_DivineInferno : GameCondition
             }
             else if (WorldComponent_Deserters.Instance.Visibility <= 20) End();
         }
-        else if (Find.TickManager.TicksGame == bombardmentEndTick)
+        else if (WorldComponent_Deserters.Instance.Visibility > 20)
         {
             WorldComponent_Deserters.Instance.Visibility = 10;
             WorldComponent_Deserters.Instance.Notify_VisibilityChanged();
         }
+    }
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_Values.Look(ref bombardmentStartTick, nameof(bombardmentStartTick));
+        Scribe_Values.Look(ref bombardmentEndTick, nameof(bombardmentEndTick));
+        Scribe_Values.Look(ref sentStartLetter, nameof(sentStartLetter));
     }
 }
