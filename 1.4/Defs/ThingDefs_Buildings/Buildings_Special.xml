@@ -476,6 +476,40 @@
   </ThingDef>
   
   <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_SurveillanceDisplayBank</defName>
+    <label>surveillance display bank</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Structures/Misc/SurveillanceTerminalBank/SurveillanceTerminalBank</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3.5,1.5)</drawSize>
+      <shadowData>
+        <volume>(3, 0.45, 1)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(3, 1)</size>
+    <fillPercent>0.50</fillPercent>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <costList>
+      <Steel>150</Steel>
+	  <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+  <comps>
+    <li><compClass>VFED.CompIntelExtract</compClass></li>
+  </comps>
+  </ThingDef>
+
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_Techprinter</defName>
     <label>techprinter</label>
     <description>todo</description>
