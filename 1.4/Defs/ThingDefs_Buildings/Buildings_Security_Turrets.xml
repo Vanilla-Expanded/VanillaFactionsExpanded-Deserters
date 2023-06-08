@@ -68,7 +68,7 @@
   <ThingDef ParentName="VFED_ImperialTurretBase">
     <defName>VFED_Turret_Kontarion</defName>
     <label>kontarion</label>
-    <description>A powerful, long-range weapon used by the Empire to take out enemy targets from afar. Kontarion turret fires ultra-dense uranium slugs at incredible speeds, penetrating even the heaviest armor. With its rapid-fire capabilities, tremendous accuracy and infinite range, it’s a force to be reckoned with. It's more accurate at longer ranges, and can't fire at all close up. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of uranium slug ammo in order to automatically reload. It cannot be reloaded by hand.\n\nKontarion turrets are powerful uranium slug sniper cannons mounted on a big turret frame. They fire rapidly with tremendous accuracy and have infinite range. They do however consume a lot of ammunition.</description>
+    <description>A powerful, long-range weapon used by the Empire to take out enemy targets from afar. Kontarion turret fires ultra-dense uranium slugs at incredible speeds, penetrating even the heaviest armor. With its rapid-fire capabilities, tremendous accuracy and infinite range, it’s a force to be reckoned with. It's more accurate at longer ranges, and can't fire at all close up. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of uranium slug ammo in order to automatically reload. It cannot be reloaded by hand.</description>
     <uiIconPath>Structures/Security/Kontarion_MenuIcon</uiIconPath>
     <statBases>
       <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
@@ -159,7 +159,7 @@
   <ThingDef ParentName="VFED_ImperialTurretBase">
     <defName>VFED_Turret_Palintone</defName>
     <label>palintone</label>
-    <description>A powerful, anti-infantry weapon used by the Empire to defend unsafe outposts. Palintone turret fires ultra-dense uranium slugs at incredible speeds, penetrating even the heaviest armor. It fires huge volleys of rounds that can provide suppressive fire and quickly shred lightly armored targets. With its devastating firepower, the Palintone turret is capable of keeping even the largest enemy forces at bay. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of autocannon ammo in order to automatically reload. It cannot be reloaded by hand.</description>
+    <description>A powerful, anti-infantry weapon used by the Empire to defend unsafe outposts. Palintone turret fires large-caliber shells at incredible speeds, dealing heavy damage over significant ranges. It fires huge volleys of rounds that can provide suppressive fire and quickly shred lightly armored targets. With its devastating firepower, the Palintone turret is capable of keeping even the largest enemy forces at bay. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of autocannon ammo in order to automatically reload. It cannot be reloaded by hand.</description>
     <uiIconPath>Structures/Security/PalintoneTurret_MenuIcon</uiIconPath>
     <statBases>
       <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
@@ -179,7 +179,7 @@
             <li>Steel</li>
           </thingDefs>
         </fuelFilter>
-        <fuelCapacity>90</fuelCapacity>
+        <fuelCapacity>180</fuelCapacity>
         <fuelMultiplier>0.75</fuelMultiplier>
 		<initialFuelPercent>0</initialFuelPercent>
         <showFuelGizmo>true</showFuelGizmo>
@@ -194,7 +194,7 @@
     </comps>
     <building>
       <turretGunDef>VFED_Gun_Palintone</turretGunDef>
-      <turretBurstCooldownTime>0.05</turretBurstCooldownTime>
+      <turretBurstCooldownTime>0</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
     </building>
     <modExtensions>
@@ -223,7 +223,7 @@
       <AccuracyShort>0.25</AccuracyShort>
       <AccuracyMedium>0.25</AccuracyMedium>
       <AccuracyLong>0.18</AccuracyLong>
-      <RangedWeapon_Cooldown>0.0667</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.0267</RangedWeapon_Cooldown>
       <DeteriorationRate>0</DeteriorationRate>
       <Mass>50</Mass>
       <Flammability>0</Flammability>
@@ -232,11 +232,11 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <defaultProjectile>Bullet_Minigun</defaultProjectile>
-        <warmupTime>0</warmupTime>
+        <warmupTime>0.01</warmupTime>
         <minRange>34.9</minRange>
         <range>500</range>
-        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <burstShotCount>15</burstShotCount>
         <soundCast>Shot_Minigun</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>12</muzzleFlashScale>

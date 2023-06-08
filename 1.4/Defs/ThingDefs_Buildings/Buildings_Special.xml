@@ -472,6 +472,10 @@
 	<fillPercent>0.6</fillPercent>
   <comps>
     <li><compClass>VFED.CompIntelExtract</compClass></li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(214,46,31,0)</glowColor>
+      </li>
   </comps>
   </ThingDef>
   
@@ -491,6 +495,7 @@
     <fillPercent>0.50</fillPercent>
     <defaultPlacingRot>South</defaultPlacingRot>
     <altitudeLayer>Building</altitudeLayer>
+	<rotatable>true</rotatable>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>1500</WorkToBuild>
@@ -505,6 +510,10 @@
     <pathCost>50</pathCost>
   <comps>
     <li><compClass>VFED.CompIntelExtract</compClass></li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(214,46,31,0)</glowColor>
+      </li>
   </comps>
   </ThingDef>
 
