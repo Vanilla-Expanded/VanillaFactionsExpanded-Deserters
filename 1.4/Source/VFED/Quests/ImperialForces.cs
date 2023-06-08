@@ -94,7 +94,7 @@ public class PawnGroupMakerParms_Saveable : PawnGroupMakerParms, IExposable
         Scribe_Defs.Look(ref traderKind, nameof(traderKind));
         Scribe_Values.Look(ref generateFightersOnly, nameof(generateFightersOnly));
         Scribe_Values.Look(ref dontUseSingleUseRocketLaunchers, nameof(dontUseSingleUseRocketLaunchers));
-        Scribe_Values.Look(ref raidStrategy, nameof(raidStrategy));
+        Scribe_Defs.Look(ref raidStrategy, nameof(raidStrategy));
         Scribe_Values.Look(ref forceOneDowned, nameof(forceOneDowned));
         Scribe_Values.Look(ref seed, nameof(seed));
         Scribe_Defs.Look(ref raidAgeRestriction, nameof(raidAgeRestriction));

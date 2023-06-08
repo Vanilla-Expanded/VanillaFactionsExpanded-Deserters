@@ -35,6 +35,8 @@ public class VFED_DefOf
 
     public static ThingSetMakerDef VFED_Reward_ItemsSpecial;
 
+    public static SongDef VFED_DivineInferno;
+
     static VFED_DefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(VFED_DefOf));

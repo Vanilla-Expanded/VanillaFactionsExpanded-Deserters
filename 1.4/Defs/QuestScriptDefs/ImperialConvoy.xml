@@ -74,6 +74,16 @@
 				<li Class="VFED.QuestNode_ImperialResponse">
 					<siteName>site</siteName>
 				</li>
+				<li Class="VFECore.QuestNode_ForceMusic">
+					<inSignalEnable>site.MapGenerated</inSignalEnable>
+					<inSignalDisable>site.MapRemoved</inSignalDisable>
+					<possibleSongs>
+						<li>VFED_Stealth1</li>
+						<li>VFED_Stealth2</li>
+						<li>VFED_Stealth3</li>
+					</possibleSongs>
+					<priority>2</priority>
+				</li>
 			    <li Class="VFED.QuestNode_DeserterRewards">
 					<inSignal>site.AllEnemiesDefeated</inSignal>
 			    </li>

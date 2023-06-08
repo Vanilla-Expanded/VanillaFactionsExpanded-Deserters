@@ -3,6 +3,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using VFECore;
 using VFEEmpire;
 
 namespace VFED;
@@ -31,6 +32,7 @@ public class GameCondition_DivineInferno : GameCondition
     {
         base.Init();
         bombardmentStartTick = startTick + Duration;
+        Duration += 5f.SecondsToTicks() * 30;
         bombardmentEndTick = bombardmentStartTick + 5f.SecondsToTicks() * 30;
         Duration += GenDate.TicksPerDay * 10;
     }
@@ -54,6 +56,7 @@ public class GameCondition_DivineInferno : GameCondition
                 {
                     Find.LetterStack.ReceiveLetter("VFED.DivineInferno.Init".Translate(), "VFED.DivineInferno.Desc".Translate(), LetterDefOf.ThreatBig,
                         new LookTargets(AffectedMaps.Select(map => map.Parent)), Faction.OfEmpire);
+                    ForcedMusicManager.ForceSong(VFED_DefOf.VFED_DivineInferno, 5);
                     sentStartLetter = true;
                 }
 
@@ -72,6 +75,7 @@ public class GameCondition_DivineInferno : GameCondition
         {
             WorldComponent_Deserters.Instance.Visibility = 10;
             WorldComponent_Deserters.Instance.Notify_VisibilityChanged();
+            ForcedMusicManager.EndSong(VFED_DefOf.VFED_DivineInferno);
         }
     }
 
