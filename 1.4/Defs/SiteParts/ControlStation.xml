@@ -4,6 +4,7 @@
     <defName>VFED_ControlStation</defName>
     <label>control station</label>
     <description>An Imperial Control Station.</description>
+    <workerClass>VFED.SitePartWorker_Objectives</workerClass>
     <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
     <expandingIconTexture>WorldObjects/QuestIcon_ControlStationRaid</expandingIconTexture>
     <tags>

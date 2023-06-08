@@ -22,6 +22,7 @@
         <li Class="VFED.QuestNode_GetDeserters">
           <storeAs>deserters</storeAs>
         </li>
+				<li Class="QuestNode_GetMap" />
         <li Class="VFED.QuestNode_HiddenDelay">
           <delayTicks>$delayTicks</delayTicks>
           <node Class="QuestNode_Sequence">
@@ -30,7 +31,6 @@
                 <storeAs>siteTile</storeAs>
                 <preferCloserTiles>true</preferCloserTiles>
               </li>
-
               <li Class="QuestNode_GetDefaultSitePartsParams">
                 <tile>$siteTile</tile>
                 <faction>$deserters</faction>

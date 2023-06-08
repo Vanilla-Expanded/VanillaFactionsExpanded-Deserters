@@ -79,8 +79,7 @@
 					<points>$points</points>
 				</li>
 				<li Class="VFED.QuestNode_ImperialResponse">
-					<inSignal>site.MapGenerated</inSignal>
-					<mapParent>$site</mapParent>
+					<siteName>site</siteName>
 				</li>
 			    <li Class="VFED.QuestNode_DeserterRewards">
 					<inSignal>objectives.Complete</inSignal>
@@ -88,12 +87,12 @@
 				<li Class="QuestNode_End">
 					<inSignal>objectives.Complete</inSignal>
 					<outcome>Success</outcome>
-					<sendLetter>true</sendLetter>
+					<sendStandardLetter>true</sendStandardLetter>
 				</li>
 				<li Class="QuestNode_End">
 					<inSignal>site.Destroyed</inSignal>
 					<outcome>Fail</outcome>
-					<sendLetter>true</sendLetter>
+					<sendStandardLetter>true</sendStandardLetter>
 				</li>
 		    </nodes>
 	    </root>

@@ -31,17 +31,17 @@ public class PawnKindDefRange
 
 public class QuestNode_ImperialResponse : QuestNode
 {
-    public SlateRef<string> inSignal;
-
-    public SlateRef<MapParent> mapParent;
+    public SlateRef<string> siteName;
 
     protected override void RunInt()
     {
+        var slate = QuestGen.slate;
+        var name = siteName.GetValue(slate);
         QuestGen.quest.AddPart(new QuestPart_ImperialResponse
         {
-            mapParent = mapParent.GetValue(QuestGen.slate),
-            inSignalEnable = QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(QuestGen.slate))
-                          ?? QuestGen.slate.Get<string>("inSignal")
+            mapParent = slate.Get<MapParent>(name),
+            inSignalEnable = QuestGenUtility.HardcodedSignalWithQuestID(name + ".MapGenerated"),
+            inSignalDisable = QuestGenUtility.HardcodedSignalWithQuestID(name + ".MapRemoved")
         });
     }
 

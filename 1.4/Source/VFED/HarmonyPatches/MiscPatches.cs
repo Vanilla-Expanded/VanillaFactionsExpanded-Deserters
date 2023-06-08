@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using HarmonyLib;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -89,5 +90,14 @@ public static class MiscPatches
             GUI.DrawTexture(rect, TexDeserters.DeserterQuestTex);
             if (Mouse.IsOver(rect)) TooltipHandler.TipRegion(rect, "VFED.DeserterQuestDesc".Translate());
         }
+    }
+
+    [HarmonyPatch(typeof(Site), nameof(Site.ShouldRemoveMapNow))]
+    [HarmonyPostfix]
+    public static void NoRemoveObjectiveMaps(bool __result, ref bool alsoRemoveWorldObject, Site __instance)
+    {
+        if (__result && alsoRemoveWorldObject
+                     && __instance.parts.Any(part => part.def.Worker is SitePartWorker_Objectives objectives && objectives.ShouldKeepSiteForObjectives(part)))
+            alsoRemoveWorldObject = false;
     }
 }
