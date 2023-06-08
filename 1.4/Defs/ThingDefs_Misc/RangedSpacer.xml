@@ -51,8 +51,8 @@
         <warmupTime>0.3</warmupTime>
         <range>20.9</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-        <burstShotCount>3</burstShotCount>
-        <soundCast>Shot_ChargeRifle</soundCast>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>ThumpCannon_Fire</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
         <accuracyTouch>0.8</accuracyTouch>
@@ -70,7 +70,7 @@
         <range>20.9</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
         <burstShotCount>3</burstShotCount>
-        <soundCast>Shot_ChargeRifle</soundCast>
+        <soundCast>ThumpCannon_Fire</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
         <forcedMissRadius>0.1</forcedMissRadius>

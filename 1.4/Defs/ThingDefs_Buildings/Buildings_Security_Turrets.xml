@@ -7,7 +7,7 @@
     <graphicData>
       <texPath>Structures/Security/ImperialTurret_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2.5, 2.5)</drawSize>
+      <drawSize>(3, 3)</drawSize>
       <drawOffset>(0,0,-0.1)</drawOffset>
       <damageData>
         <rect>(0.2,0.2,0.6,0.6)</rect>
