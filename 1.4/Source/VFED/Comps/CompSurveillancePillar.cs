@@ -14,7 +14,8 @@ public class CompSurveillancePillar : CompMotionDetector
     protected override void Trigger(Thing initiator)
     {
         base.Trigger(initiator);
-        Messages.Message("VFED.SurveillancePillarActivated".Translate(100), initiator, MessageTypeDefOf.NegativeEvent);
+        Utilities.ChangeVisibility(10);
+        Messages.Message("VFED.SurveillancePillarActivated".Translate(WorldComponent_Deserters.Instance.Visibility), initiator, MessageTypeDefOf.NegativeEvent);
     }
 
     public override void PostSpawnSetup(bool respawningAfterLoad)

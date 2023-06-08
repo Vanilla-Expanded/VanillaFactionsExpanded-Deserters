@@ -18,26 +18,32 @@ public class QuestNode_ImperialForces : QuestNode
     protected override void RunInt()
     {
         var slate = QuestGen.slate;
-        var parms = new PawnGroupMakerParms
+        var site = mapParent.GetValue(slate);
+        var tile = site.Tile;
+        var parms = new PawnGroupMakerParms_Saveable
         {
             groupKind = PawnGroupKindDefOf.Settlement,
             points = WorldComponent_Deserters.Instance.ActiveEffects.OfType<VisibilityEffect_ArmySize>()
                .Aggregate(points.GetValue(slate), (p, effect) => p * effect.multiplier),
             faction = Faction.OfEmpire,
             generateFightersOnly = true,
-            dontUseSingleUseRocketLaunchers = true
+            dontUseSingleUseRocketLaunchers = true,
+            inhabitants = true,
+            tile = tile,
+            seed = Gen.HashCombineInt(Find.World.info.Seed, tile)
         };
-        var forces = PawnGroupMakerUtility.GeneratePawns(parms).ToList();
+
         QuestGen.quest.AddPart(new QuestPart_SpawnForces
         {
             inSignal = QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? slate.Get<string>("inSignal"),
-            mapParent = mapParent.GetValue(slate),
-            forces = forces
+            mapParent = site,
+            parms = parms
         });
 
         QuestGen.AddQuestDescriptionRules(new List<Rule>
         {
-            new Rule_String("forces_description", PawnUtility.PawnKindsToLineList(forces.Select(p => p.kindDef), "  - ", ColoredText.ThreatColor))
+            new Rule_String("forces_description",
+                PawnUtility.PawnKindsToLineList(PawnGroupMakerUtility.GeneratePawnKindsExample(parms), "  - ", ColoredText.ThreatColor))
         });
     }
 
@@ -46,9 +52,9 @@ public class QuestNode_ImperialForces : QuestNode
 
 public class QuestPart_SpawnForces : QuestPart
 {
-    public List<Pawn> forces;
     public string inSignal;
     public MapParent mapParent;
+    public PawnGroupMakerParms_Saveable parms;
 
     public override void Notify_QuestSignalReceived(Signal signal)
     {
@@ -56,13 +62,13 @@ public class QuestPart_SpawnForces : QuestPart
         if (signal.tag == inSignal && mapParent.HasMap)
         {
             var map = mapParent.Map;
-            forces.RemoveAll(pawn => pawn.Spawned);
+            var forces = PawnGroupMakerUtility.GeneratePawns(parms).ToList();
+            Rand.PushState(Gen.HashCombineInt(Find.World.info.Seed, mapParent.Tile));
             foreach (var pawn in forces)
                 if (CellFinder.TryFindRandomCellNear(map.Center, map, 16, x => x.Standable(map), out var cell))
                     GenSpawn.Spawn(pawn, cell, map);
             LordMaker.MakeNewLord(Faction.OfEmpire, new LordJob_DefendBase(Faction.OfEmpire, map.Center), map, forces);
-            forces.RemoveAll(pawn => pawn.Spawned);
-            if (forces.Count > 0) Log.Error("[VFED] Failed to spawn all imperial forces.");
+            Rand.PopState();
         }
     }
 
@@ -71,6 +77,26 @@ public class QuestPart_SpawnForces : QuestPart
         base.ExposeData();
         Scribe_Values.Look(ref inSignal, nameof(inSignal));
         Scribe_References.Look(ref mapParent, nameof(mapParent));
-        Scribe_Collections.Look(ref forces, nameof(forces), LookMode.Deep);
+        Scribe_Deep.Look(ref parms, nameof(parms));
+    }
+}
+
+public class PawnGroupMakerParms_Saveable : PawnGroupMakerParms, IExposable
+{
+    public void ExposeData()
+    {
+        Scribe_Defs.Look(ref groupKind, nameof(groupKind));
+        Scribe_Values.Look(ref tile, nameof(tile));
+        Scribe_Values.Look(ref inhabitants, nameof(inhabitants));
+        Scribe_Values.Look(ref points, nameof(points));
+        Scribe_References.Look(ref faction, nameof(faction));
+        Scribe_References.Look(ref ideo, nameof(ideo));
+        Scribe_Defs.Look(ref traderKind, nameof(traderKind));
+        Scribe_Values.Look(ref generateFightersOnly, nameof(generateFightersOnly));
+        Scribe_Values.Look(ref dontUseSingleUseRocketLaunchers, nameof(dontUseSingleUseRocketLaunchers));
+        Scribe_Values.Look(ref raidStrategy, nameof(raidStrategy));
+        Scribe_Values.Look(ref forceOneDowned, nameof(forceOneDowned));
+        Scribe_Values.Look(ref seed, nameof(seed));
+        Scribe_Defs.Look(ref raidAgeRestriction, nameof(raidAgeRestriction));
     }
 }

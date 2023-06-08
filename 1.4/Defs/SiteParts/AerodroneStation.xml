@@ -4,6 +4,7 @@
     <defName>VFED_AerodroneStation</defName>
     <label>aerodrone station</label>
     <description>An Imperial Aerodrone Station.</description>
+    <workerClass>VFED.SitePartWorker_Objectives</workerClass>
     <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
     <expandingIconTexture>WorldObjects/QuestIcon_AerodroneStationSabotage</expandingIconTexture>
     <tags>

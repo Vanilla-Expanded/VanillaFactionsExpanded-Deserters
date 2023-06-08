@@ -53,6 +53,12 @@ public class CompIntel : ThingComp
     }
 
     public override string CompInspectStringExtra() => "VFED.IntelOutOfDate".Translate(tickTillOutOfDate.ToStringTicksToPeriodVerbose());
+
+    public override void PostExposeData()
+    {
+        base.PostExposeData();
+        Scribe_Values.Look(ref tickTillOutOfDate, nameof(tickTillOutOfDate));
+    }
 }
 
 public class CompProperties_Intel : CompProperties

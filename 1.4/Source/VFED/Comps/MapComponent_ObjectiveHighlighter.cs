@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -15,6 +14,8 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
     private List<Thing> objectives;
     private List<string> questTags;
     public MapComponent_ObjectiveHighlighter(Map map) : base(map) { }
+
+    public bool HasObjectives => !objectives.NullOrEmpty();
 
     public void Notify_SignalReceived(Signal signal)
     {
@@ -36,20 +37,18 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
         base.MapComponentUpdate();
         if (objectives.NullOrEmpty() || WorldRendererUtility.WorldRenderedNow || Find.CurrentMap != map) return;
 
+        var progress = Find.TickManager.TicksGame % 1000;
+        if (progress < 500) progress = 1000 - progress;
+
+        var pos = Vector3.forward * (1f + progress / 1000f);
+        pos.y = AltitudeLayer.MetaOverlays.AltitudeFor();
+        var opacity = 1f - progress / 2000f;
+        var rotation = Quaternion.AngleAxis(180, Vector3.up);
+
+        ArrowMatWhite.color = new Color(1f, 1f, 1f, opacity);
+
         for (var i = objectives.Count; i-- > 0;)
-        {
-            var objective = objectives[i];
-
-            var progress = Math.Abs(objective.HashOffsetTicks()) % 1000;
-            if (progress < 500) progress = 1000 - progress;
-
-            var pos = objective.DrawPos + Vector3.forward * (1f + progress / 1000f);
-            pos.y = AltitudeLayer.MetaOverlays.AltitudeFor();
-            var opacity = 1f - progress / 2000f;
-
-            var rotation = Quaternion.AngleAxis(180, Vector3.up);
-            Graphics.DrawMesh(MeshPool.plane10, pos, rotation, FadedMaterialPool.FadedVersionOf(ArrowMatWhite, opacity), 0);
-        }
+            Graphics.DrawMesh(MeshPool.plane10, objectives[i].DrawPos + pos, rotation, ArrowMatWhite, 0);
     }
 
     public void Activate(string completeSignal, string questTag)
@@ -86,4 +85,9 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
         Scribe_Collections.Look(ref questTags, "questTags", LookMode.Value);
         Scribe_Collections.Look(ref objectives, nameof(objectives), LookMode.Reference);
     }
+}
+
+public class SitePartWorker_Objectives : SitePartWorker
+{
+    public bool ShouldKeepSiteForObjectives(SitePart part) => part.site?.Map?.GetComponent<MapComponent_ObjectiveHighlighter>()?.HasObjectives ?? false;
 }

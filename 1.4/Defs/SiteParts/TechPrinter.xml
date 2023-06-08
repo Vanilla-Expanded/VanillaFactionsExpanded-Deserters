@@ -4,6 +4,7 @@
     <defName>VFED_TechPrinter</defName>
     <label>techprinter center</label>
     <description>An Imperial TechPrinter Center.</description>
+    <workerClass>VFED.SitePartWorker_Objectives</workerClass>
     <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
     <expandingIconTexture>WorldObjects/QuestIcon_TechprinterDemolition</expandingIconTexture>
     <tags>
