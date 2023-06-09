@@ -54,13 +54,13 @@ public class QuestPart_ImperialResponse : QuestPartActivable
     public ImperialResponseDef responseDef;
     public int responseTick;
 
-    public override bool AlertCritical => responseTick - Find.TickManager.TicksGame <= GenDate.TicksPerHour;
+    public override bool AlertCritical => true;
 
     public override string AlertLabel => "VFED.ResponseComing".Translate();
 
     public override string AlertExplanation =>
         "VFED.ResponseComingDesc".Translate(responseDef?.label.Colorize(ColoredText.ThreatColor),
-            (responseTick - Find.TickManager.TicksGame).ToStringTicksToPeriodVerbose().Colorize(ColoredText.DateTimeColor));
+            (responseTick - Find.TickManager.TicksGame).TicksToSeconds().ToStringDecimalIfSmall().Colorize(ColoredText.DateTimeColor));
 
     public override AlertReport AlertReport => responseDef == null ? AlertReport.Inactive : AlertReport.CulpritIs(mapParent);
 
