@@ -110,4 +110,84 @@
     <defName>VFEI_ArmoredShuttle</defName>
     <thing>VFEI_ArmoredShuttle</thing>
   </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_DevilstrandCloth</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>DevilstrandCloth</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_Intel</defName>
+    <thing>VFED_Intel</thing>
+    <maxStackSize>1</maxStackSize>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_SurveillanceDisplayBank_North</defName>
+    <thing>VFED_SurveillanceDisplayBank</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_SurveillanceDisplayBank_West</defName>
+    <thing>VFED_SurveillanceDisplayBank</thing>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_SurveillanceDisplayBank_East</defName>
+    <thing>VFED_SurveillanceDisplayBank</thing>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_SurveillanceStation</defName>
+    <thing>VFED_SurveillanceStation</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_SurveillanceDisplayBank_South</defName>
+    <thing>VFED_SurveillanceDisplayBank</thing>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_Techprinter</defName>
+    <thing>VFED_Techprinter</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_TechiteDiscStack</defName>
+    <thing>VFED_TechiteDiscStack</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_AmmoBox_Autocannon</defName>
+    <thing>VFED_AmmoBox_Autocannon</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_Turret_Palintone</defName>
+    <thing>VFED_Turret_Palintone</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_WaterMain</defName>
+    <thing>VFED_WaterMain</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_Turret_Kontarion</defName>
+    <thing>VFED_Turret_Kontarion</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_AmmoBox_UraniumSlug</defName>
+    <thing>VFED_AmmoBox_UraniumSlug</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_ImperialUnderfarm</defName>
+    <thing>VFED_ImperialUnderfarm</thing>
+  </KCSG.SymbolDef>
 </Defs>
