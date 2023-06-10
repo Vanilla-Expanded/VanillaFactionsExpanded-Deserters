@@ -14,12 +14,7 @@ namespace VFED;
 public class DeserterTabWorker_Contraband : DeserterTabWorker
 {
     private Vector2 leftScrollPos;
-
-    private Map map;
     private Vector2 rightScrollPos;
-    private int totalCriticalIntel;
-
-    private int totalIntel;
 
     public override void DoLeftPart(Rect inRect)
     {
@@ -111,96 +106,46 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
         var buttonsRect = basketRect.TakeRightPart(150);
         buttonsRect.yMin -= 5;
 
-        if (TotalCostIntel > totalIntel || TotalCostCriticalIntel > totalCriticalIntel) GUI.color = Color.grey;
-        if (Widgets.ButtonText(buttonsRect.TakeTopPart(100).ContractedBy(25, 5), "VFED.Purchase".Translate()))
+        if (!Parent.HasIntel(TotalCostIntel, TotalCostCriticalIntel)) GUI.color = Color.grey;
+        if (DesertersUIUtility.DoPurchaseButton(buttonsRect.TakeTopPart(100).ContractedBy(25, 5), "VFED.Purchase".Translate(), TotalCostIntel,
+                TotalCostCriticalIntel, Parent))
         {
-            if (TotalCostIntel > totalIntel)
-                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_Intel.LabelCap, TotalCostIntel, totalIntel), MessageTypeDefOf.RejectInput, false);
-            else if (TotalCostCriticalIntel > totalCriticalIntel)
-                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_CriticalIntel.LabelCap, TotalCostCriticalIntel, totalCriticalIntel),
-                    MessageTypeDefOf.RejectInput, false);
-            else
-            {
-                var slate = new Slate();
-                slate.Set("delayTicks", Utilities.ReceiveTimeRange(TotalAmount).RandomInRange.DaysToTicks());
-                slate.Set("availableTime", Utilities.SiteExistTime(TotalAmount).DaysToTicks());
-                var things = new List<ThingDef>();
-                foreach (var ((thing, _), count) in ShoppingCart)
-                    for (var i = count; i-- > 0;)
-                        things.Add(thing);
-                slate.Set("itemStashThings", things);
-                QuestUtility.GenerateQuestAndMakeAvailable(VFED_DefOf.VFED_DeadDrop, slate);
-                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_Intel, TotalCostIntel, map, null);
-                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_CriticalIntel, TotalCostCriticalIntel, map, null);
-                SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
-                ClearCart();
-            }
+            var slate = new Slate();
+            slate.Set("delayTicks", Utilities.ReceiveTimeRange(TotalAmount).RandomInRange.DaysToTicks());
+            slate.Set("availableTime", Utilities.SiteExistTime(TotalAmount).DaysToTicks());
+            var things = new List<ThingDef>();
+            foreach (var ((thing, _), count) in ShoppingCart)
+                for (var i = count; i-- > 0;)
+                    things.Add(thing);
+            slate.Set("itemStashThings", things);
+            QuestUtility.GenerateQuestAndMakeAvailable(VFED_DefOf.VFED_DeadDrop, slate);
+            ClearCart();
         }
 
-        GUI.color = Color.white;
-
-        if (TotalCostIntel * 2 > totalIntel || TotalCostCriticalIntel * 2 > totalCriticalIntel) GUI.color = Color.grey;
-        if (Widgets.ButtonText(buttonsRect.ContractedBy(25, 0), "VFED.RushDelivery".Translate()))
+        if (DesertersUIUtility.DoPurchaseButton(buttonsRect.ContractedBy(25, 0), "VFED.RushDelivery".Translate(), TotalCostIntel * 2,
+                TotalCostCriticalIntel * 2, Parent))
         {
-            if (TotalCostIntel * 2 > totalIntel)
-                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_Intel.LabelCap, TotalCostIntel, totalIntel), MessageTypeDefOf.RejectInput, false);
-            else if (TotalCostCriticalIntel * 2 > totalCriticalIntel)
-                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_CriticalIntel.LabelCap, TotalCostCriticalIntel, totalCriticalIntel),
-                    MessageTypeDefOf.RejectInput, false);
-            else
-            {
-                var things = new List<List<Thing>>();
-                var curList = new List<Thing>();
-                foreach (var ((thing, _), count) in ShoppingCart)
-                    for (var i = count; i-- > 0;)
+            var things = new List<List<Thing>>();
+            var curList = new List<Thing>();
+            foreach (var ((thing, _), count) in ShoppingCart)
+                for (var i = count; i-- > 0;)
+                {
+                    curList.Add(ThingMaker.MakeThing(thing));
+                    if (curList.Count > 10)
                     {
-                        curList.Add(ThingMaker.MakeThing(thing));
-                        if (curList.Count > 10)
-                        {
-                            things.Add(curList);
-                            curList = new List<Thing>();
-                        }
+                        things.Add(curList);
+                        curList = new List<Thing>();
                     }
+                }
 
-                things.Add(curList);
-                DropCellFinder.FindSafeLandingSpot(out var cell, EmpireUtility.Deserters, map);
-                DropPodUtility.DropThingGroupsNear(cell, map, things, canRoofPunch: false, allowFogged: false, forbid: false, faction: EmpireUtility.Deserters);
-                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_Intel, TotalCostIntel * 2, map, null);
-                TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_CriticalIntel, TotalCostCriticalIntel * 2, map, null);
-                SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
-                ClearCart();
-            }
+            things.Add(curList);
+            DropCellFinder.FindSafeLandingSpot(out var cell, EmpireUtility.Deserters, Parent.Map);
+            DropPodUtility.DropThingGroupsNear(cell, Parent.Map, things, canRoofPunch: false, allowFogged: false, forbid: false,
+                faction: EmpireUtility.Deserters);
+            ClearCart();
         }
 
-        GUI.color = Color.white;
-
-        using (new TextBlock(GameFont.Medium))
-            Widgets.Label(basketRect.TakeTopPart(30), "VFED.TotalCost".Translate());
-
-        Widgets.DrawLineHorizontal(basketRect.x, basketRect.yMin, basketRect.width);
-
-        var intelRect = basketRect.TakeTopPart(30);
-        Widgets.DrawLightHighlight(intelRect);
-        if (Mouse.IsOver(intelRect)) Widgets.DrawHighlight(intelRect);
-        Widgets.DefIcon(intelRect.TakeLeftPart(30).ContractedBy(1.5f), VFED_DefOf.VFED_Intel);
-        Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_Intel);
-        using (new TextBlock(TextAnchor.MiddleLeft))
-        {
-            Widgets.Label(intelRect.TakeRightPart(60), TotalCostIntel.ToString());
-            intelRect.TakeLeftPart(20);
-            Widgets.Label(intelRect, VFED_DefOf.VFED_Intel.LabelCap);
-        }
-
-        intelRect = basketRect.TakeTopPart(30);
-        if (Mouse.IsOver(intelRect)) Widgets.DrawHighlight(intelRect);
-        Widgets.DefIcon(intelRect.TakeLeftPart(30).ContractedBy(1.5f), VFED_DefOf.VFED_CriticalIntel);
-        Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_CriticalIntel);
-        using (new TextBlock(TextAnchor.MiddleLeft))
-        {
-            Widgets.Label(intelRect.TakeRightPart(60), TotalCostCriticalIntel.ToString());
-            intelRect.TakeLeftPart(20);
-            Widgets.Label(intelRect, VFED_DefOf.VFED_CriticalIntel.LabelCap);
-        }
+        DesertersUIUtility.DrawIntelCost(ref basketRect, "VFED.TotalCost".Translate(), TotalCostIntel, TotalCostCriticalIntel);
 
         using (new TextBlock(GameFont.Tiny))
             Widgets.Label(basketRect, "VFED.RushDeliveryDesc".Translate().Colorize(ColoredText.SubtleGrayColor));
@@ -223,9 +168,7 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
 
     public override void Notify_Open(Dialog_DeserterNetwork parent)
     {
-        totalIntel = parent.TotalIntel;
-        totalCriticalIntel = parent.TotalCriticalIntel;
-        map = parent.Map;
+        base.Notify_Open(parent);
         ClearCart();
     }
 }

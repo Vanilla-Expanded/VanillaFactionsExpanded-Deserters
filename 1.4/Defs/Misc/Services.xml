@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VFED.DeserterServiceDef>
+        <defName>VFED_LowerVisibility</defName>
+        <label>lower visibility</label>
+        <description>Use intel to convince the deserter network to clear your name and reduce your visibility by 1.</description>
+        <iconPath>DeserterServices/Service_LowerVisibility</iconPath>
+        <intelCost>1</intelCost>
+        <worker>VFED.DeserterServiceWorkers:LowerVisibility</worker>
+    </VFED.DeserterServiceDef>
+    <VFED.DeserterServiceDef>
+        <defName>VFED_CallShuttle</defName>
+        <label>call shuttle</label>
+        <description>Call a one-way deserter shuttle for your own use, which will transport colonists, items, and animals up to 70 tiles away.</description>
+        <iconPath>DeserterServices/Service_CallShuttle</iconPath>
+        <intelCost>10</intelCost>
+        <worker>VFED.DeserterServiceWorkers:CallShuttle</worker>
+    </VFED.DeserterServiceDef>
+    <VFED.DeserterServiceDef>
+        <defName>VFED_IncreaseGoodwill</defName>
+        <label>increase goodwill</label>
+        <description>Trade intel to convince the deserter network to increase your goodwill with a random faction by 5.</description>
+        <iconPath>DeserterServices/Service_IncreaseGoodwill</iconPath>
+        <intelCost>5</intelCost>
+        <worker>VFED.DeserterServiceWorkers:IncreaseGoodwill</worker>
+    </VFED.DeserterServiceDef>
+    <VFED.DeserterServiceDef>
+        <defName>VFED_DelayResponse</defName>
+        <label>delay response</label>
+        <description>Trade intel to convince the deserter network to create a distraction, increasing the response time on all currently ongoing operations where the counter is already ticking down. This delays the response by 1 minute. Can be used several times.</description>
+        <iconPath>DeserterServices/Service_DelayResponse</iconPath>
+        <intelCost>5</intelCost>
+        <worker>VFED.DeserterServiceWorkers:DelayResponse</worker>
+    </VFED.DeserterServiceDef>
+    <VFED.DeserterServiceDef>
+        <defName>VFED_TauntImperials</defName>
+        <label>taunt imperial forces</label>
+        <description>Spend intel to taunt imperial strike force to attack your colony.</description>
+        <iconPath>DeserterServices/Service_TauntImperialForces</iconPath>
+        <intelCost>5</intelCost>
+        <worker>VFED.DeserterServiceWorkers:TauntImperials</worker>
+    </VFED.DeserterServiceDef>
+    <VFED.DeserterServiceDef>
+        <defName>VFED_ChangeCritical</defName>
+        <label>change critical intel</label>
+        <description>Trade critical intel for 10 standard intel.</description>
+        <iconPath>DeserterServices/Service_ChangeCriticalIntel</iconPath>
+        <intelCost>1</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+        <worker>VFED.DeserterServiceWorkers:ChangeCritical</worker>
+    </VFED.DeserterServiceDef>
+</Defs>

@@ -34,6 +34,21 @@ public class Dialog_DeserterNetwork : Window
 
     public override Vector2 InitialSize => new(1000, 750);
 
+    public bool HasIntel(int normal, int critical) => normal <= TotalIntel && critical <= TotalCriticalIntel;
+
+    public bool TrySpendIntel(int normal, int critical)
+    {
+        if (!HasIntel(normal, critical)) return false;
+
+        TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_Intel, normal, Map, null);
+        TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_CriticalIntel, critical, Map, null);
+
+        TotalIntel -= normal;
+        TotalCriticalIntel -= critical;
+
+        return true;
+    }
+
     public override void PostOpen()
     {
         base.PostOpen();
@@ -73,7 +88,7 @@ public class Dialog_DeserterNetwork : Window
             builder.AppendLine();
             builder.AppendLine("VFED.Effects".Translate().Colorize(ColoredText.TipSectionTitleColor));
             builder.Append("VFED.IntelCostModifier".Translate());
-            builder.AppendLine(visibilityLevel.contrabandIntelCostModifier.ToStringByStyle(ToStringStyle.FloatMaxOne, ToStringNumberSense.Factor)
+            builder.AppendLine(visibilityLevel.intelCostModifier.ToStringByStyle(ToStringStyle.FloatMaxOne, ToStringNumberSense.Factor)
                .Colorize(ColoredText.ImpactColor));
             builder.Append("VFED.ContrabandRecieveTimeModifier".Translate());
             builder.AppendLine(visibilityLevel.contrabandTimeToReceiveModifier.ToStringByStyle(ToStringStyle.FloatMaxOne, ToStringNumberSense.Factor)

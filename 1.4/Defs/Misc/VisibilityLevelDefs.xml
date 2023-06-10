@@ -48,7 +48,7 @@
         <iconPath>UI/IconVisibility_4</iconPath>
         <description>Your actions have become public knowledge and have hit the imperial news stations like a storm. The Empire now considers you a serious threat and has placed a high priority on tracking you down. Security measures across all installations have been greatly increased. Furthermore, the Empire will now send more raiding parties to any settlements suspected of harboring deserters. It will be harder to obtain contraband and support from the locals as the Empire's propaganda campaign is gaining strength.</description>
         <visibilityRange>61~80</visibilityRange>
-        <contrabandIntelCostModifier>2</contrabandIntelCostModifier>
+        <intelCostModifier>2</intelCostModifier>
         <contrabandTimeToReceiveModifier>5</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>180</imperialResponseTime>
@@ -80,7 +80,7 @@
         <iconPath>UI/IconVisibility_5</iconPath>
         <description>You are now a household name, and the Empire considers you their number one enemy. They are using all of their resources to track you down and eliminate you and your followers. The Empire may also use scorched earth tactics, such as bombing or shelling entire areas suspected of supporting the deserters. They are willing to sacrifice their installations if it means eliminating the deserters, and will respond to any aggression with indiscriminate aerodrone bombardment. Most smuggling operations cease and contraband becomes incredibly hard to come across. The Imperial spy guilds will put out disinformation to turn other factions against you, making it hard to distinguish friend from foe. It's a full-blown war and the outcome will determine you fate and the fate of the Empire. Be prepared for a difficult fight, as survival is the only option now.</description>
         <visibilityRange>81~99</visibilityRange>
-        <contrabandIntelCostModifier>5</contrabandIntelCostModifier>
+        <intelCostModifier>5</intelCostModifier>
         <contrabandTimeToReceiveModifier>10</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>120</imperialResponseTime>
@@ -114,7 +114,7 @@
         <iconPath>UI/IconVisibility_6</iconPath>
         <description>The Empire has initiated a Divine Inferno protocol on your location. May you find solace in the cleansing flames. You have 30 days before The Empire moves all required orbital slicer beam satellites into position. Unless you manage to bring the visibility back down to Hidden in time, your colony will be glassed by numerous pillars of fire.</description>
         <visibilityRange>100~100</visibilityRange>
-        <contrabandIntelCostModifier>10</contrabandIntelCostModifier>
+        <intelCostModifier>10</intelCostModifier>
         <contrabandTimeToReceiveModifier>20</contrabandTimeToReceiveModifier>
         <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
         <imperialResponseTime>60</imperialResponseTime>

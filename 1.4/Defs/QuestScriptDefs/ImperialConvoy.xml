@@ -55,9 +55,6 @@
 			    </li>
 			    <li Class="QuestNode_SubScript">
 				    <def>Util_GetDefaultRewardValueFromPoints</def>
-				    <parms>
-					    <points>($sitePoints + $points)</points>
-				    </parms>
 			    </li>
 			    <li Class="QuestNode_Multiply">
 				    <value1>$rewardValue</value1>

@@ -11,13 +11,13 @@ namespace VFED;
 
 public class VisibilityLevelDef : Def
 {
-    public float contrabandIntelCostModifier = 1;
     public float contrabandSiteTimeActiveModifier = 1;
     public float contrabandTimeToReceiveModifier = 1;
     public Texture2D Icon;
     public string iconPath;
     public float imperialResponseTime;
     public ImperialResponseDef imperialResponseType;
+    public float intelCostModifier = 1;
     public List<VisibilityEffect> specialEffects;
     public IntRange visibilityRange;
 

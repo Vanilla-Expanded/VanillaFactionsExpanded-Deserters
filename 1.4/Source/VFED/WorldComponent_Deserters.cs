@@ -5,6 +5,7 @@ using System.Xml;
 using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
+using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using VFEEmpire;
@@ -19,6 +20,8 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     public bool Active;
     public List<VisibilityEffect> ActiveEffects = new();
     public PriorityQueue<Action, int> EventQueue = new();
+
+    public List<Quest> ServiceQuests = new(10);
     public int Visibility;
     public VisibilityLevelDef VisibilityLevel;
     public WorldComponent_Deserters(World world) : base(world) => Instance = this;
@@ -131,11 +134,30 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         }
     }
 
+    public void EnsureQuestListFilled()
+    {
+        var points = StorytellerUtility.DefaultThreatPointsNow(Find.World);
+        var storyState = Find.World.StoryState;
+        while (ServiceQuests.Count < 10 && Utilities.DeserterQuests.Where(root => root.CanRun(points))
+                  .TryRandomElementByWeight(root => NaturalRandomQuestChooser.GetNaturalRandomSelectionWeight(root, points, storyState),
+                       out var questScript))
+        {
+            var slate = new Slate();
+            slate.Set("points", points);
+            var quest = QuestGen.Generate(questScript, slate);
+            quest.hidden = true;
+            quest.hiddenInUI = true;
+            Find.QuestManager.Add(quest);
+            ServiceQuests.Add(quest);
+        }
+    }
+
     public override void ExposeData()
     {
         base.ExposeData();
         Scribe_Values.Look(ref Active, "active");
         Scribe_Values.Look(ref Visibility, "visibility");
+        Scribe_Collections.Look(ref ServiceQuests, "serviceQuests", LookMode.Reference);
         if (Scribe.EnterNode("eventQueue"))
             try
             {

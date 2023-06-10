@@ -17,7 +17,12 @@ public class DeserterTabDef : Def
 
 public abstract class DeserterTabWorker
 {
+    protected Dialog_DeserterNetwork Parent;
     public abstract void DoLeftPart(Rect inRect);
     public abstract void DoMainPart(Rect inRect);
-    public virtual void Notify_Open(Dialog_DeserterNetwork parent) { }
+
+    public virtual void Notify_Open(Dialog_DeserterNetwork parent)
+    {
+        Parent = parent;
+    }
 }

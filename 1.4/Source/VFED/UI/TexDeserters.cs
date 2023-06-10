@@ -12,4 +12,5 @@ public static class TexDeserters
     public static readonly Texture2D EnableInvisibilityTex = ContentFinder<Texture2D>.Get("UI/EnableInvisibility");
     public static readonly Texture2D VisibilityIncreaseTex = ContentFinder<Texture2D>.Get("UI/IconVisibility_5");
     public static readonly Texture2D VisibilityDecreaseTex = ContentFinder<Texture2D>.Get("UI/IconVisibility_1");
+    public static Texture2D RatingIcon = ContentFinder<Texture2D>.Get("UI/Icons/ChallengeRatingIcon");
 }

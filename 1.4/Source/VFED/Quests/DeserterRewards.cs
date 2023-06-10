@@ -92,6 +92,8 @@ public class Reward_Visibility : Reward
     private int VisibilityChangeAbs => Math.Abs(visibilityChange);
     private bool IncreasesVisibility => visibilityChange > 0;
 
+    public override float TotalMarketValue => ChangesVisibility ? VisibilityChangeAbs * (IncreasesVisibility ? 300 : 200) : 0;
+
     public override IEnumerable<GenUI.AnonymousStackElement> StackElements
     {
         get

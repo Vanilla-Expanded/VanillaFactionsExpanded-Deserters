@@ -72,12 +72,14 @@
     <Compile Include="Comps\CompVeryFlammable.cs" />
     <Compile Include="Comps\HediffComp_DisappearsOnAttack.cs" />
     <Compile Include="Comps\MapComponent_ObjectiveHighlighter.cs" />
+    <Compile Include="DeserterServiceDef.cs" />
     <Compile Include="GameCondition_DivineInferno.cs" />
     <Compile Include="GameCondition_MissileRain.cs" />
     <Compile Include="HarmonyPatches\DebugPatches.cs" />
     <Compile Include="HarmonyPatches\FilthCleaningPatch.cs" />
     <Compile Include="FilthExtension_OnClean.cs" />
     <Compile Include="HarmonyPatches\GoodwillPatches.cs" />
+    <Compile Include="HarmonyPatches\ImperialForcesSizePatches.cs" />
     <Compile Include="HarmonyPatches\MiscPatches.cs" />
     <Compile Include="Incidents\IncidentWorker_RaidAbsolver.cs" />
     <Compile Include="Quests\DeserterRewards.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="Things\Projectile_Shrapnel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContrabandManager.cs" />
+    <Compile Include="UI\DesertersUIUtility.cs" />
     <Compile Include="UI\DeserterTabDef.cs" />
     <Compile Include="UI\DeserterTabWorker_Contraband.cs" />
     <Compile Include="UI\DeserterTabWorker_Plots.cs" />

@@ -29,6 +29,8 @@ public static class Utilities
                 deserterQuests.Add(def);
     }
 
+    public static IEnumerable<QuestScriptDef> DeserterQuests => deserterQuests;
+
     public static bool IsDeserterQuest(this QuestScriptDef def) => deserterQuests.Contains(def);
 
     public static int Wrap(int value, int min, int max)
@@ -56,7 +58,7 @@ public static class Utilities
     public static bool Contains(this IntRange range, int count) => count >= range.TrueMin && count <= range.TrueMax;
 
     public static int TotalIntelCost(this ContrabandExtension ext) =>
-        Mathf.FloorToInt(ext.intelCost * WorldComponent_Deserters.Instance.VisibilityLevel.contrabandIntelCostModifier);
+        Mathf.FloorToInt(ext.intelCost * WorldComponent_Deserters.Instance.VisibilityLevel.intelCostModifier);
 
     public static FloatRange ReceiveTimeRange(int totalAmount) =>
         new(
@@ -118,5 +120,31 @@ public static class Utilities
         foreach (var (item1, item2) in result) source.Enqueue(item1, item2);
 
         return result;
+    }
+
+    public static void Split<T>(this IEnumerable<T> source, out List<T> truthy, out List<T> falsy, Func<T, bool> func)
+    {
+        truthy = new List<T>();
+        falsy = new List<T>();
+        foreach (var t in source)
+            if (func(t))
+                truthy.Add(t);
+            else falsy.Add(t);
+    }
+
+    public static void GetIntelCost(this Quest quest, out int normal, out int critical)
+    {
+        var choice = quest.PartsListForReading.OfType<QuestPart_Choice>().First();
+        var totalValue = choice.choices.Sum(option => option.rewards.Sum(reward => reward.TotalMarketValue));
+        if (quest.challengeRating > 3)
+        {
+            normal = 0;
+            critical = Mathf.CeilToInt(totalValue / choice.choices.Count / 2000 * WorldComponent_Deserters.Instance.VisibilityLevel.intelCostModifier);
+        }
+        else
+        {
+            normal = Mathf.CeilToInt(totalValue / choice.choices.Count / 500 * WorldComponent_Deserters.Instance.VisibilityLevel.intelCostModifier);
+            critical = 0;
+        }
     }
 }

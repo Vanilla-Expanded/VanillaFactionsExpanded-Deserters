@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <TransportShipDef>
+        <defName>VFED_Ship_DeserterShuttle</defName>
+        <label>shuttle</label>
+        <shipThing>Shuttle</shipThing>
+        <arrivingSkyfaller>VFED_DeserterShuttleIncoming</arrivingSkyfaller>
+        <leavingSkyfaller>VFED_DeserterShuttleLeaving</leavingSkyfaller>
+        <worldObject>VFED_TravelingDeserterShuttle</worldObject>
+        <maxLaunchDistance>70</maxLaunchDistance>
+    </TransportShipDef>
+
+    <ThingDef Name="VFED_DeserterShuttleSkyfallerBase" ParentName="SkyfallerBase" Abstract="True">
+        <size>(5,3)</size>
+        <graphicData>
+            <texPath>Structures/Misc/DeserterShuttle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutFlying</shaderType>
+            <drawSize>(6,3)</drawSize>
+            <color>(162,164,149)</color>
+        </graphicData>
+        <skyfaller>
+            <movementType>Decelerate</movementType>
+            <shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
+            <shadowSize>(5.5,3.5)</shadowSize>
+            <motesPerCell>1</motesPerCell>
+        </skyfaller>
+    </ThingDef>
+    <ThingDef ParentName="VFED_DeserterShuttleSkyfallerBase">
+        <defName>VFED_DeserterShuttleIncoming</defName>
+        <label>deserter shuttle (incoming)</label>
+        <thingClass>ShuttleIncoming</thingClass>
+        <skyfaller>
+            <anticipationSound>Shuttle_Landing</anticipationSound>
+            <anticipationSoundTicks>250</anticipationSoundTicks>
+            <ticksToImpactRange>200~250</ticksToImpactRange>
+            <angleCurve>
+                <points>
+                    <li>(0,-60)</li>
+                    <li>(1,-90)</li>
+                </points>
+            </angleCurve>
+            <rotationCurve>
+                <points>
+                    <li>(0,30)</li>
+                    <li>(0.5,5)</li>
+                    <li>(0.9,-5)</li>
+                    <li>(0.95,0)</li>
+                </points>
+            </rotationCurve>
+            <zPositionCurve>
+                <points>
+                    <li>(0.95,2.5)</li>
+                    <li>(1,0)</li>
+                </points>
+            </zPositionCurve>
+            <speedCurve>
+                <points>
+                    <li>(0.6,0.6)</li>
+                    <li>(0.95,0.1)</li>
+                </points>
+            </speedCurve>
+        </skyfaller>
+    </ThingDef>
+    <ThingDef ParentName="VFED_DeserterShuttleSkyfallerBase">
+        <defName>VFED_DeserterShuttleLeaving</defName>
+        <label>deserter shuttle (leaving)</label>
+        <thingClass>FlyShipLeaving</thingClass>
+        <skyfaller>
+            <reversed>true</reversed>
+            <anticipationSound>Shuttle_Leaving</anticipationSound>
+            <anticipationSoundTicks>-10</anticipationSoundTicks>
+            <ticksToImpactRange>-40~-15</ticksToImpactRange>
+            <moteSpawnTime>0.05</moteSpawnTime>
+            <shadow>Things/Skyfaller/SkyfallerShadowRectangle</shadow>
+            <shadowSize>(5.5,3.5)</shadowSize>
+            <motesPerCell>1</motesPerCell>
+            <angleCurve>
+                <points>
+                    <li>(0,90)</li>
+                    <li>(1,70)</li>
+                </points>
+            </angleCurve>
+            <rotationCurve>
+                <points>
+                    <li>(0,0)</li>
+                    <li>(0.15,10)</li>
+                    <li>(0.5,-5)</li>
+                </points>
+            </rotationCurve>
+            <zPositionCurve>
+                <points>
+                    <li>(0,0)</li>
+                    <li>(0.08,2)</li>
+                </points>
+            </zPositionCurve>
+            <speedCurve>
+                <points>
+                    <li>(0,0.2)</li>
+                    <li>(0.4,0.7)</li>
+                </points>
+            </speedCurve>
+        </skyfaller>
+    </ThingDef>
+
+    <WorldObjectDef>
+        <defName>VFED_TravelingDeserterShuttle</defName>
+        <label>deserter shuttle</label>
+        <description>A deserter shuttle in flight.</description>
+        <worldObjectClass>TravelingTransportPods</worldObjectClass>
+        <texture>World/WorldObjects/Caravan</texture>
+        <useDynamicDrawer>true</useDynamicDrawer>
+        <expandingIcon>true</expandingIcon>
+        <expandingIconTexture>Structures/Misc/DeserterShuttle</expandingIconTexture>
+        <expandingIconPriority>60</expandingIconPriority>
+        <expandMore>true</expandMore>
+        <expandingIconColor>(162,164,149)</expandingIconColor>
+        <expandingIconDrawSize>1.6</expandingIconDrawSize>
+        <allowCaravanIncidentsWhichGenerateMap>true</allowCaravanIncidentsWhichGenerateMap>
+        <rotateGraphicWhenTraveling>true</rotateGraphicWhenTraveling>
+    </WorldObjectDef>
+</Defs>

@@ -11,6 +11,9 @@ namespace VFED.HarmonyPatches;
 [HarmonyPatch]
 public static class MiscPatches
 {
+    [HarmonyDelegate(typeof(AvoidGrid), "IncrementAvoidGrid")]
+    public delegate void IncrementAvoidGrid(IntVec3 c, int num);
+
     [HarmonyPatch(typeof(Pawn), nameof(Pawn.Kill))]
     [HarmonyPostfix]
     public static void ExplodePackOnDeath(Pawn __instance)
@@ -100,4 +103,8 @@ public static class MiscPatches
                      && __instance.parts.Any(part => part.def.Worker is SitePartWorker_Objectives objectives && objectives.ShouldKeepSiteForObjectives(part)))
             alsoRemoveWorldObject = false;
     }
+
+    [HarmonyPatch(typeof(AvoidGrid), "PrintAvoidGridAroundTurret")]
+    [HarmonyPrefix]
+    public static bool NoAvoidGridForLargeRange(Building_TurretGun tur) => tur.GunCompEq.PrimaryVerb.verbProps.range >= GenRadial.MaxRadialPatternRadius;
 }

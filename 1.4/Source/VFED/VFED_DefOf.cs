@@ -12,6 +12,7 @@ public class VFED_DefOf
     public static ThingDef VFED_Apparel_BombPack;
     public static ThingDef VFED_Filth_Propaganda;
     public static ThingDef VFED_DropPodIncoming_Propaganda;
+    public static ThingDef VFED_DeserterShuttle;
 
     public static ThingDef VFED_Intel;
     public static ThingDef VFED_CriticalIntel;
@@ -36,6 +37,8 @@ public class VFED_DefOf
     public static ThingSetMakerDef VFED_Reward_ItemsSpecial;
 
     public static SongDef VFED_DivineInferno;
+
+    public static TransportShipDef VFED_Ship_DeserterShuttle;
 
     static VFED_DefOf()
     {
