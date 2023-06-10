@@ -3,25 +3,25 @@
     <SongDef>
         <defName>VFED_DivineInferno</defName>
         <clipPath>Music_DivineInferno/VE_Rimworld_-_DivineInferno</clipPath>
-        <volume>1</volume>
+        <volume>0.8</volume>
         <minRoyalTitle>Emperor</minRoyalTitle> <!-- Make it unplayable normally -->
     </SongDef>
     <SongDef>
         <defName>VFED_Stealth1</defName>
         <clipPath>Music_Stealth/VE_Rimworld_-_Alpha_Team_Go</clipPath>
-        <volume>1</volume>
+        <volume>0.8</volume>
         <minRoyalTitle>Emperor</minRoyalTitle> <!-- Make it unplayable normally -->
     </SongDef>
     <SongDef>
         <defName>VFED_Stealth2</defName>
         <clipPath>Music_Stealth/VE_Rimworld_-_Defuse</clipPath>
-        <volume>1</volume>
+        <volume>0.8</volume>
         <minRoyalTitle>Emperor</minRoyalTitle> <!-- Make it unplayable normally -->
     </SongDef>
     <SongDef>
         <defName>VFED_Stealth3</defName>
         <clipPath>Music_Stealth/VE_Rimworld_-_Side_Door</clipPath>
-        <volume>1</volume>
+        <volume>0.8</volume>
         <minRoyalTitle>Emperor</minRoyalTitle> <!-- Make it unplayable normally -->
     </SongDef>
 </Defs>

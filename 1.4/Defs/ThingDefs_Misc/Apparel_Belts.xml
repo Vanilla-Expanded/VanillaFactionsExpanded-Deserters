@@ -30,36 +30,31 @@
       <wornGraphicPath>Things/Accessories/BombPack</wornGraphicPath>
       <wornGraphicData>
         <renderUtilityAsPack>true</renderUtilityAsPack>
+      <wornGraphicData>
+        <renderUtilityAsPack>true</renderUtilityAsPack>
         <north>
-          <offset>(0.0,-0.3)</offset>
-		  <hulk><offset>(-0.0,-0.1)</offset></hulk>
-		  <fat><offset>(-0.0,-0.0)</offset></fat>
-		  <thin><offset>(0.0,-0.0)</offset></thin>
+          <offset>(0,-0.15)</offset>
         </north>
         <south>
-          <offset>(0.0,0.0)</offset>
-		  <female><offset>(0.0,-0.2)</offset> </female>
-		  <hulk><offset>(-0.0,-0.0)</offset></hulk>
-		  <fat><offset>(-0.0,-0.0)</offset></fat>
-		  <thin><offset>(-0.0,-0.25)</offset></thin>
+          <offset>(0,-0.15)</offset>
         </south>
         <east>
-          <offset>(-0.3,-0.3)</offset>
-		  <hulk><offset>(-0.05,-0.1)</offset></hulk>
-		  <fat><offset>(-0.15,-0.0)</offset></fat>
-		  <thin><offset>(0.0,-0.0)</offset></thin>
+          <offset>(-0.35,-0.1)</offset>
+          <thin><offset>(0.05,0)</offset></thin>
+          <hulk><offset>(-0.15,0)</offset></hulk>
+          <fat> <offset>(-0.20,0)</offset></fat>
         </east>
         <west>
-          <offset>(0.3,-0.3)</offset>
-		  <hulk><offset>(0.05,-0.1)</offset></hulk>
-		  <fat><offset>(-0.0,-0.0)</offset></fat>
-		  <thin><offset>(0.0,-0.0)</offset></thin>
+          <offset>(0.35,-0.1)</offset>
+          <thin><offset>(-0.05,0)</offset></thin>
+          <hulk><offset>(0.15,0)</offset></hulk>
+          <fat> <offset>(0.20,0)</offset></fat>
         </west>
-        <male> <scale>(0.35,0.35)</scale></male>
-        <female><scale>(0.35,0.35)</scale></female>
-        <thin><scale>(0.3,0.3)</scale></thin>
-        <hulk><scale>(0.55,0.55)</scale></hulk>
-        <fat> <scale>(0.55,0.55)</scale></fat>
+        <male>  <scale>(0.75,0.75)</scale></male>
+        <female><scale>(0.75,0.75)</scale></female>
+        <thin>  <scale>(0.7,0.7)</scale></thin>
+        <hulk>  <scale>(0.9,0.9)</scale></hulk>
+        <fat>   <scale>(0.9,0.9)</scale></fat>
       </wornGraphicData>
       <countsAsClothingForNudity>false</countsAsClothingForNudity>
       <careIfWornByCorpse>false</careIfWornByCorpse>
