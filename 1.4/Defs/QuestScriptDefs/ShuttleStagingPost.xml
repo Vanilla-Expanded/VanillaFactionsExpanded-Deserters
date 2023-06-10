@@ -47,6 +47,10 @@
 				    <sitePartDefs><li>VFED_ShuttleStagingPost</li></sitePartDefs>
 				    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
 			    </li>
+				<li Class="QuestNode_Set">
+					<name>siteFaction</name>
+					<value>$empire</value>
+				</li>
 			    <li Class="QuestNode_GetSiteThreatPoints">
 				    <storeAs>sitePoints</storeAs>
 				    <sitePartsParams>$sitePartsParams</sitePartsParams>
@@ -54,12 +58,12 @@
 			    <li Class="QuestNode_SubScript">
 				    <def>Util_GetDefaultRewardValueFromPoints</def>
 				    <parms>
-					    <points>$sitePoints</points>
+					    <points>($sitePoints + $points)</points>
 				    </parms>
 			    </li>
 			    <li Class="QuestNode_Multiply">
 				    <value1>$rewardValue</value1>
-				    <value2>2.5</value2>
+				    <value2>1.25</value2>
 				    <storeAs>rewardValue</storeAs>
 			    </li>
 			    <li Class="QuestNode_SubScript">
