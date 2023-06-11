@@ -652,5 +652,174 @@
     </statBases>
 	<fillPercent>0.6</fillPercent>
   </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ImperialMegaHighShield</defName>
+    <label>imperial mega high-shield</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Endgame/ImperialMegaHighShield</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5, 5)</drawSize>
+    </graphicData>
+	<size>(5, 5)</size>
+    <costList>
+      <Plasteel>100</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+	  <BroadshieldCore>4</BroadshieldCore>
+    </costList>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-200</Beauty>
+      <Mass>250</Mass>
+      <WorkToBuild>15000</WorkToBuild>
+    </statBases>
+	<fillPercent>0.8</fillPercent>
+	<tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <placeWorkers>
+      <li>PlaceWorker_ShowProjectileInterceptorRadius</li>
+    </placeWorkers>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_ProjectileInterceptor">
+        <radius>75</radius>
+        <interceptAirProjectiles>true</interceptAirProjectiles>
+        <color>(0.9, 0.9, 0.9)</color>
+        <reactivateEffect>MortarShieldGenerator_Reactivate</reactivateEffect>
+        <activeSound>MortarShield_Ambience</activeSound>
+        <disarmedByEmpForTicks>360</disarmedByEmpForTicks>
+        <chargeIntervalTicks>6000000</chargeIntervalTicks>
+        <chargeDurationTicks>0</chargeDurationTicks>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>8000</basePowerConsumption>
+      </li>
+    <li><compClass>VFED.CompIntelExtract</compClass></li>
+    </comps>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <killedLeavings>
+      <Plasteel>30</Plasteel>
+	  <BroadshieldCore>4</BroadshieldCore>
+    </killedLeavings>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ZeusCannonControlStation</defName>
+    <label>Zeus cannon control station</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Endgame/ZeusCannonControlStation</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5,3)</drawSize>
+      <shadowData>
+        <volume>(5, 0.45, 3)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(5, 3)</size>
+    <fillPercent>0.60</fillPercent>
+    <altitudeLayer>Building</altitudeLayer>
+	<rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>1250</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <Steel>250</Steel>
+	  <Plasteel>75</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+  <comps>
+    <li><compClass>VFED.CompIntelExtract</compClass></li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(214,46,31,0)</glowColor>
+      </li>
+  </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ZeusCannonCapacitorBank</defName>
+    <label>Zeus cannon capacitor bank</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Endgame/ZeusCannonCapacitors/ZeusCannonCapacitors</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5, 3)</drawSize>
+      <shadowData>
+        <volume>(5, 0.15, 3)</volume>
+      </shadowData>
+    </graphicData>
+	<size>(5, 3)</size>
+	<rotatable>true</rotatable>
+	<tickerType>Normal</tickerType>
+	<defaultPlacingRot>south</defaultPlacingRot>
+    <costList>
+	  <Steel>200</Steel>
+	  <Plasteel>80</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>1800</WorkToBuild>
+    </statBases>
+	<fillPercent>0.4</fillPercent>
+	<passability>Impassable</passability>
+	<comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>100</wickTicks>
+        <explosiveRadius>5</explosiveRadius>
+        <explosiveDamageType>EMP</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>
+      <li><compClass>VFED.CompEMPEffect</compClass></li>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
+	</comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ZeusCannon</defName>
+    <label>Zeus cannon</label>
+    <description>todo</description>
+    <graphicData>
+      <texPath>Endgame/ZeusCannon/ZeusCannon_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(7, 7)</drawSize>
+      <shadowData>
+        <volume>(3, 3, 3)</volume>
+      </shadowData>
+    </graphicData>
+	<size>(5, 5)</size>
+    <costList>
+	  <Steel>650</Steel>
+	  <Plasteel>120</Plasteel>
+      <ComponentSpacer>16</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-50</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>12000</WorkToBuild>
+    </statBases>
+	<fillPercent>0.8</fillPercent>
+	<passability>Impassable</passability>
+	<rotatable>false</rotatable>
+	<comps>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
+	</comps>
+  </ThingDef>
+  
 
 </Defs>
