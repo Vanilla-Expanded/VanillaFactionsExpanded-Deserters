@@ -13,6 +13,7 @@ public class LordToil_AttackClosest : LordToil
 
     public override void UpdateAllDuties()
     {
+        if (lord.ownedPawns.Count < 1) return;
         Data.Target ??= AttackTargetFinder
            .BestAttackTarget(lord.ownedPawns[0], TargetScanFlags.NeedActiveThreat | TargetScanFlags.NeedReachable, thing => thing is Pawn)
            .Thing as Pawn;

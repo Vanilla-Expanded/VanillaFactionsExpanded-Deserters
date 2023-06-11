@@ -761,7 +761,7 @@
 	<size>(5, 3)</size>
 	<rotatable>true</rotatable>
 	<tickerType>Normal</tickerType>
-	<defaultPlacingRot>south</defaultPlacingRot>
+	<defaultPlacingRot>South</defaultPlacingRot>
     <costList>
 	  <Steel>200</Steel>
 	  <Plasteel>80</Plasteel>

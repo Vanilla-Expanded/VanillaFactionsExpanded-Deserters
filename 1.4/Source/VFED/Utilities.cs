@@ -5,7 +5,6 @@ using HarmonyLib;
 using MonoMod.Utils;
 using RimWorld;
 using RimWorld.Planet;
-using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 
@@ -25,7 +24,7 @@ public static class Utilities
     static Utilities()
     {
         foreach (var def in DefDatabase<QuestScriptDef>.AllDefs)
-            if (def.root is QuestNode_Sequence { nodes: var nodes } && nodes.OfType<QuestNode_DeserterRewards>().Any())
+            if (def.HasModExtension<QuestExtension_Deserter>())
                 deserterQuests.Add(def);
     }
 

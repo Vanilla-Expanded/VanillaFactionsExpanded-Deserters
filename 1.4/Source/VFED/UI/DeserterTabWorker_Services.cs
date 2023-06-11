@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -10,10 +9,13 @@ namespace VFED;
 
 public class DeserterTabWorker_Services : DeserterTabWorker
 {
+    private static readonly List<GenUI.AnonymousStackElement> stackElements = new();
     private bool criticalOpen;
     private Vector2 descScrollPos;
     private Vector2 leftScrollPos;
     private bool normalOpen;
+
+    private float rewardsRectLastHeight = 55;
     private Quest selected;
 
     public override void Notify_Open(Dialog_DeserterNetwork parent)
@@ -69,7 +71,7 @@ public class DeserterTabWorker_Services : DeserterTabWorker
             if (quest == selected) Widgets.DrawHighlightSelected(rect);
             rect = rect.ContractedBy(3f);
             GUI.DrawTexture(rect.TakeLeftPart(35).ContractedBy(2.5f, 0), TexDeserters.DeserterQuestTex);
-            var starRect = rect.TakeRightPart(60);
+            var starRect = rect.TakeRightPart(75);
             var num = Mathf.Max(quest.challengeRating, 1);
             for (var i = 0; i < num; i++)
                 GUI.DrawTexture(new Rect(starRect.xMax - 15 * (i + 1), starRect.y + starRect.height / 2f - 7f, 15f, 15f), TexDeserters.RatingIcon);
@@ -99,14 +101,42 @@ public class DeserterTabWorker_Services : DeserterTabWorker
         Widgets.Label(viewRect, desc);
         Widgets.EndScrollView();
 
+        QuestPart_Choice choice = null;
+        var parts = selected.PartsListForReading;
+        for (var i = 0; i < parts.Count; i++)
+        {
+            choice = parts[i] as QuestPart_Choice;
+            if (choice != null) break;
+        }
+
+        if (choice != null)
+        {
+            stackElements.Clear();
+            inRect.yMin += 2;
+            var rewardsRect = inRect.TakeTopPart(15 + Text.LineHeight + rewardsRectLastHeight);
+            Widgets.DrawMenuSection(rewardsRect);
+            rewardsRect = rewardsRect.ContractedBy(5f);
+            Widgets.Label(rewardsRect.TakeTopPart(Text.LineHeight), "VFED.Rewards".Translate());
+            Widgets.DrawLineHorizontal(rewardsRect.x + 2.5f, rewardsRect.y, rewardsRect.width - 5);
+            rewardsRect.yMin += 5;
+
+            var rewards = choice.choices[0].rewards;
+            for (var i = 0; i < rewards.Count; i++) stackElements.AddRange(rewards[i].StackElements);
+
+            rewardsRectLastHeight = GenUI.DrawElementStack(rewardsRect, 24f, stackElements,
+                    delegate(Rect r, GenUI.AnonymousStackElement obj) { obj.drawer(r); },
+                    obj => obj.width, 4f, 5f, false)
+               .height;
+            stackElements.Clear();
+            inRect.yMin += 3;
+        }
+
         var basketRect = inRect.TakeTopPart(150);
         selected.GetIntelCost(out var intelCost, out var criticalIntelCost);
         if (DesertersUIUtility.DoPurchaseButton(basketRect.TakeRightPart(150).ContractedBy(30).TopPartPixels(60), "VFED.Activate".Translate(), intelCost,
                 criticalIntelCost,
                 Parent))
         {
-            var choice = selected.PartsListForReading.OfType<QuestPart_Choice>().First();
-            choice.Choose(choice.choices.RandomElement());
             selected.hidden = false;
             selected.hiddenInUI = false;
             WorldComponent_Deserters.Instance.ServiceQuests.Remove(selected);

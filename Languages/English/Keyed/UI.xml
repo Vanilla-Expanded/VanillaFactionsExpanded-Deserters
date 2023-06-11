@@ -32,5 +32,5 @@
     <VFED.TotalQuestCost>Total quest cost</VFED.TotalQuestCost>
     <VFED.Activate>Activate</VFED.Activate>
     <VFED.OtherServices>Other services</VFED.OtherServices>
-    <VFED.ServiceIncreasedGoodwill>Goodwill with {0} increased by 5 due to positive rumors from imperial deserters.</VFED.ServiceIncreasedGoodwill>
+    <VFED.Rewards>Rewards</VFED.Rewards>
 </LanguageData>

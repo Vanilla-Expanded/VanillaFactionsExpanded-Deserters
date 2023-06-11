@@ -11,10 +11,8 @@ public class LordJob_AssassinateColonist : LordJob
         var graph = new StateGraph();
         var attack = graph.StartingToil = new LordToil_AttackClosest();
         var exit = new LordToil_ExitMap();
-        graph.AddToil(attack);
         graph.AddToil(exit);
         var leave = new Transition(attack, exit);
-        leave.AddSource(attack);
         leave.AddTrigger(new Trigger_Memo("TargetDead"));
         leave.AddPostAction(new TransitionAction_Custom(() =>
         {

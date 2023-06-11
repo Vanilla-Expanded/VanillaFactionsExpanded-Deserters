@@ -1,109 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <QuestScriptDef>
-        <defName>VFED_ImperialConvoy</defName>
-	    <rootSelectionWeight>2</rootSelectionWeight>
-	    <expireDaysRange>15~30</expireDaysRange>
-	    <questNameRules>
-		    <rulesStrings>
-			    <li>questName->Imperial Convoy</li>
-		    </rulesStrings>
-	    </questNameRules>
-	    <questDescriptionRules>
-		    <rulesStrings>
-			    <li>questDescription->We have been informed of a maxpack convoy belonging to [empire_name] in our vicinity. The convoy had to make an emergency stop, which is a perfect opportunity for us to raid it. Whilst maxpacks will be impervious to any break-in attempts, there is bound to be a lot of other valuables scattered around the trucks.
+	<QuestScriptDef>
+		<defName>VFED_ImperialConvoy</defName>
+		<rootSelectionWeight>2</rootSelectionWeight>
+		<expireDaysRange>15~30</expireDaysRange>
+		<questNameRules>
+			<rulesStrings>
+				<li>questName->Imperial Convoy</li>
+			</rulesStrings>
+		</questNameRules>
+		<questDescriptionRules>
+			<rulesStrings>
+				<li>questDescription->We have been informed of a maxpack convoy belonging to [empire_name] in our vicinity. The convoy had to make an emergency stop, which is a perfect opportunity for us to raid it. Whilst maxpacks will be impervious to any break-in attempts, there is bound to be a lot of other valuables scattered around the trucks.
 \nWe need to eliminate everyone in the convoy before they move on.
 \nThe convoy is protected by:
 [forces_description]
 \nDuring unexpected stops like this, Empire is known to place strike buoys around the temporary camps. These strike buoys will alert the Empire of our location, and will trigger a nearby aerodrone to fire missiles at the buoy location. We should make it out priority to avoid these traps.
 \nThe objective of this assignment is to eliminate all enemy personnel in the area. Once that is done, the reward will arrive and we will have to make our escape.
 \nOnce we arrive at the convoy location, we can expect an imperial response if our visibility is high enough. We will only have a limited amount of time to complete the mission.</li>
-		    </rulesStrings>
-	    </questDescriptionRules>
-	    <root Class="QuestNode_Sequence">
-		    <nodes>
-			    <li Class="VFED.QuestNode_GetEmpire">
-				    <storeAs>empire</storeAs>
-			    </li>
-			    <li Class="VFED.QuestNode_GetDeserters">
-				    <storeAs>deserters</storeAs>
-			    </li>
-				<li Class="QuestNode_GetMap" />
-			    <li Class="QuestNode_SubScript">
-				    <def>Util_RandomizePointsChallengeRating</def>
-			    </li>
-			    <li Class="QuestNode_SubScript">
-				    <def>Util_AdjustPointsForDistantFight</def>
-			    </li>
-			    <li Class="QuestNode_GetSiteTile">
-				    <storeAs>siteTile</storeAs>
-				    <preferCloserTiles>true</preferCloserTiles>
-			    </li>
-			    <li Class="QuestNode_GetDefaultSitePartsParams">
-				    <tile>$siteTile</tile>
-				    <faction>$empire</faction>
-				    <sitePartDefs><li>VFED_ImperialConvoy</li></sitePartDefs>
-				    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
-			    </li>
-				<li Class="QuestNode_Set">
-					<name>siteFaction</name>
-					<value>$empire</value>
-				</li>
-			    <li Class="QuestNode_GetSiteThreatPoints">
-				    <storeAs>sitePoints</storeAs>
-				    <sitePartsParams>$sitePartsParams</sitePartsParams>
-			    </li>
-			    <li Class="QuestNode_SubScript">
-				    <def>Util_GetDefaultRewardValueFromPoints</def>
-			    </li>
-			    <li Class="QuestNode_Multiply">
-				    <value1>$rewardValue</value1>
-				    <value2>1.25</value2>
-				    <storeAs>rewardValue</storeAs>
-			    </li>
-			    <li Class="QuestNode_Multiply">
-				    <value1>$rewardValue</value1>
-				    <value2>2.5</value2>
-				    <storeAs>rewardValue</storeAs>
-			    </li>
-			    <li Class="QuestNode_SubScript">
-				    <def>Util_GenerateSite</def>
-			    </li>
-			    <li Class="QuestNode_SpawnWorldObjects">
-				    <worldObjects>$site</worldObjects>
-			    </li>
-				<li Class="VFED.QuestNode_ImperialForces">
-					<inSignal>site.MapGenerated</inSignal>
-					<mapParent>$site</mapParent>
-					<points>$points</points>
-				</li>
-				<li Class="VFED.QuestNode_ImperialResponse">
-					<siteName>site</siteName>
-				</li>
-				<li Class="VFECore.QuestNode_ForceMusic">
-					<inSignalEnable>site.MapGenerated</inSignalEnable>
-					<inSignalDisable>site.MapRemoved</inSignalDisable>
-					<possibleSongs>
-						<li>VFED_Stealth1</li>
-						<li>VFED_Stealth2</li>
-						<li>VFED_Stealth3</li>
-					</possibleSongs>
-					<priority>2</priority>
-				</li>
-			    <li Class="VFED.QuestNode_DeserterRewards">
-					<inSignal>site.AllEnemiesDefeated</inSignal>
-			    </li>
-				<li Class="QuestNode_End">
-					<inSignal>site.AllEnemiesDefeated</inSignal>
-					<outcome>Success</outcome>
-					<sendStandardLetter>true</sendStandardLetter>
-				</li>
-				<li Class="QuestNode_End">
-					<inSignal>site.Destroyed</inSignal>
-					<outcome>Fail</outcome>
-					<sendStandardLetter>true</sendStandardLetter>
-				</li>
-		    </nodes>
-	    </root>
-    </QuestScriptDef>
+			</rulesStrings>
+		</questDescriptionRules>
+		<root Class="QuestNode_SubScript">
+			<def>VFED_DeserterQuestBase</def>
+			<parms>
+				<sitePartDef>VFED_ImperialConvoy</sitePartDef>
+			</parms>
+			<returnVarNames>
+				<li>empire</li>
+			</returnVarNames>
+		</root>
+		<modExtensions>
+			<li Class="VFED.QuestExtension_Deserter" />
+		</modExtensions>
+	</QuestScriptDef>
 </Defs>

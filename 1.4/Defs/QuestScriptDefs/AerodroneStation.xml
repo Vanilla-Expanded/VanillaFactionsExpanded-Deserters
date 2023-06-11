@@ -32,7 +32,7 @@
 			    </li>
 				<li Class="QuestNode_GetMap" />
 			    <li Class="QuestNode_SubScript">
-				    <def>Util_RandomizePointsChallengeRating</def>
+				    <def>VFED_Util_RandomizePointsChallengeRating_AllStars</def>
 			    </li>
 			    <li Class="QuestNode_SubScript">
 				    <def>Util_AdjustPointsForDistantFight</def>
@@ -107,5 +107,8 @@
 				</li>
 		    </nodes>
 	    </root>
+		<modExtensions>
+			<li Class="VFED.QuestExtension_Deserter" />
+		</modExtensions>
     </QuestScriptDef>
 </Defs>

@@ -137,6 +137,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     public void EnsureQuestListFilled()
     {
         var points = StorytellerUtility.DefaultThreatPointsNow(Find.World);
+        if (points < 300) points = 300;
         var storyState = Find.World.StoryState;
         while (ServiceQuests.Count < 10 && Utilities.DeserterQuests.Where(root => root.CanRun(points))
                   .TryRandomElementByWeight(root => NaturalRandomQuestChooser.GetNaturalRandomSelectionWeight(root, points, storyState),
@@ -144,11 +145,14 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         {
             var slate = new Slate();
             slate.Set("points", points);
+            slate.Set("purchasable", true);
             var quest = QuestGen.Generate(questScript, slate);
             quest.hidden = true;
             quest.hiddenInUI = true;
             Find.QuestManager.Add(quest);
             ServiceQuests.Add(quest);
+            var choice = quest.PartsListForReading.OfType<QuestPart_Choice>().First();
+            choice.Choose(choice.choices.RandomElement());
         }
     }
 
