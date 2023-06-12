@@ -170,12 +170,12 @@
 	
 	<!-- fletchling -->
   <ThingDef ParentName="BaseGunWithQuality">
-    <defName>VEE_Gun_Fletcher</defName>
+    <defName>VFED_Gun_Fletchling</defName>
     <label>fletchling</label>
     <description>A modification to the extremely rare fletcher rifle, fletchling is a shotgun commonly used by Imperial deserters. The mere possession of it can be seen as an act of war against the Shattered Empire. Each fletchling shot releases a number of small acidifier darts that may hit several targets, causing extreme amounts of pain and acid burns. Lethal to organics and almost useless against non-organics, such as mechanoids. \n\nTargets hit by these flechettes will be inflicted with an unstable variant of acidifier fluids, designed to dissolve the target from the inside rather than destroy their equipment. The acid will rampage through the target’s body and usually results in vital organs being dissolved, however lethality isn’t guaranteed.</description>
     <techLevel>Spacer</techLevel>
     <graphicData>
-      <texPath>Equipment/Fletcher/Fletcher</texPath>
+      <texPath>Things/Weapons/Fletchling</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <soundInteract>Interact_ChargeLance</soundInteract>
@@ -190,8 +190,8 @@
       <MarketValue>2100</MarketValue>
     </statBases>
     <costList>
-      <Plasteel>60</Plasteel>
-      <ComponentSpacer>3</ComponentSpacer>
+      <Plasteel>80</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
     </costList>
     <weaponTags>
       <li>VFEE_Fletchling</li>
@@ -206,12 +206,14 @@
       <li>
         <verbClass>Verb_Shoot</verbClass>
         <hasStandardCommand>true</hasStandardCommand>
-        <defaultProjectile>VFEE_Bullet_FletclingDart</defaultProjectile>
+        <defaultProjectile>VFEE_Bullet_FletchlingDart</defaultProjectile>
         <warmupTime>0.9</warmupTime>
         <range>14.9</range>
-        <soundCast>VFEE_Shot_Fletcher</soundCast>
-        <soundCastTail>GunTail_Heavy</soundCastTail>
-        <muzzleFlashScale>9</muzzleFlashScale>
+        <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <burstShotCount>5</burstShotCount>
+        <soundCast>VFED_Shot_Fletchling</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>4</muzzleFlashScale>
       </li>
     </verbs>
     <tools>
@@ -238,18 +240,19 @@
   </ThingDef>
   
   <ThingDef ParentName="BaseBullet">
-    <defName>VFEE_Bullet_FletclingDart</defName>
+    <defName>VFEE_Bullet_FletchlingDart</defName>
     <label>fletcher dart</label>
     <graphicData>
       <texPath>Projectile/Bullet_Fletcher</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
-      <drawSize>1.5</drawSize>
+      <drawSize>1.0</drawSize>
     </graphicData>
     <projectile>
       <damageDef>VFED_Fletchling</damageDef>
       <damageAmountBase>4</damageAmountBase>
       <stoppingPower>3</stoppingPower>
+      <armorPenetrationBase>0.16</armorPenetrationBase>
       <speed>62</speed>
     </projectile>
   </ThingDef>

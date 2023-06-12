@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Defs>
+
+  <SoundDef>
+    <defName>VFED_Shot_Fletchling</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>2</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Fletcher/Fletcher_Shot_01a</clipPath>
+          </li>
+        </grains>
+		<volumeRange>15~25</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

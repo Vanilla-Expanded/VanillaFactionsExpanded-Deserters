@@ -6,7 +6,7 @@
 	    <expireDaysRange>15~30</expireDaysRange>
 	    <questNameRules>
 		    <rulesStrings>
-			    <li>questName->TechPrinter Demolition</li>
+			    <li>questName->Techprinter demolition</li>
 		    </rulesStrings>
 	    </questNameRules>
 	    <questDescriptionRules>

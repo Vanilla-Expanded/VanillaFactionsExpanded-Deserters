@@ -6,7 +6,7 @@
 		<expireDaysRange>15~30</expireDaysRange>
 		<questNameRules>
 			<rulesStrings>
-				<li>questName->Imperial Convoy</li>
+				<li>questName->Imperial convoy</li>
 			</rulesStrings>
 		</questNameRules>
 		<questDescriptionRules>

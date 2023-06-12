@@ -233,7 +233,7 @@
         <verbClass>Verb_Shoot</verbClass>
         <defaultProjectile>Bullet_Minigun</defaultProjectile>
         <warmupTime>0.01</warmupTime>
-        <minRange>34.9</minRange>
+        <minRange>18.9</minRange>
         <range>500</range>
         <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
         <burstShotCount>15</burstShotCount>

@@ -6,7 +6,7 @@
 	    <expireDaysRange>15~30</expireDaysRange>
 	    <questNameRules>
 		    <rulesStrings>
-			    <li>questName->Control Station Raid</li>
+			    <li>questName->Control station raid</li>
 		    </rulesStrings>
 	    </questNameRules>
 	    <questDescriptionRules>

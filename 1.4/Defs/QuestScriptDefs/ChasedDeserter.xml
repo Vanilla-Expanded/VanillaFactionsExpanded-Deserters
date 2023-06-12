@@ -8,7 +8,7 @@
         <isRootSpecial>true</isRootSpecial>
         <questNameRules>
             <rulesStrings>
-                <li>questName->Chased Deserter</li>
+                <li>questName->Chased deserter</li>
             </rulesStrings>
         </questNameRules>
         <questDescriptionRules>

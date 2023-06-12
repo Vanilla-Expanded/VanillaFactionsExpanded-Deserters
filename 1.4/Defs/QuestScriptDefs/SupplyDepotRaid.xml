@@ -6,7 +6,7 @@
 		<expireDaysRange>15~30</expireDaysRange>
 	    <questNameRules>
 		    <rulesStrings>
-			    <li>questName->Supply Depot Raid</li>
+			    <li>questName->Supply depot raid</li>
 		    </rulesStrings>
 	    </questNameRules>
 	    <questDescriptionRules>
