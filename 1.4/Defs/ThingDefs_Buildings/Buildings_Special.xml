@@ -858,9 +858,8 @@
     <tickerType>Normal</tickerType>
     <drawOffscreen>true</drawOffscreen>
     <comps>
-      <li>
-        <compClass>VFED.CompIntelExtract</compClass>
-      </li>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
+      <li Class="VFED.CompProperties_AffectsSky_ZeusCannon"/>
     </comps>
   </ThingDef>
 </Defs>

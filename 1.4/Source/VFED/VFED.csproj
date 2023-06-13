@@ -73,8 +73,8 @@
     <Compile Include="Comps\HediffComp_DisappearsOnAttack.cs" />
     <Compile Include="Comps\MapComponent_ObjectiveHighlighter.cs" />
     <Compile Include="DeserterServiceDef.cs" />
-    <Compile Include="GameCondition_DivineInferno.cs" />
-    <Compile Include="GameCondition_MissileRain.cs" />
+    <Compile Include="GameConditions\GameCondition_DivineInferno.cs" />
+    <Compile Include="GameConditions\GameCondition_MissileRain.cs" />
     <Compile Include="HarmonyPatches\DebugPatches.cs" />
     <Compile Include="HarmonyPatches\FilthCleaningPatch.cs" />
     <Compile Include="FilthExtension_OnClean.cs" />
@@ -104,6 +104,7 @@
     <Compile Include="Comps\CompBoxRefuel.cs" />
     <Compile Include="Comps\CompIntel.cs" />
     <Compile Include="DesertersMod.cs" />
+    <Compile Include="Things\LightningBeamMeshes.cs" />
     <Compile Include="Things\Mote_Strike.cs" />
     <Compile Include="Things\Projectile_Shrapnel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,5 +141,6 @@
     <None Include="..\..\Defs\**\*.xml" Link="Defs\$(RecursiveDir)\$(Filename)%(Extension)" Visible="true" />
     <None Include="C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data\**\*.xml" Visible="false" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

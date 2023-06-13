@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
@@ -106,5 +109,16 @@ public static class MiscPatches
 
     [HarmonyPatch(typeof(AvoidGrid), "PrintAvoidGridAroundTurret")]
     [HarmonyPrefix]
-    public static bool NoAvoidGridForLargeRange(Building_TurretGun tur) => tur.GunCompEq.PrimaryVerb.verbProps.range >= GenRadial.MaxRadialPatternRadius;
+    public static bool NoAvoidGridForLargeRange(Building_TurretGun tur) => tur.GunCompEq.PrimaryVerb.verbProps.range < GenRadial.MaxRadialPatternRadius;
+
+    [HarmonyPatch(typeof(ThingListGroupHelper), nameof(ThingListGroupHelper.Includes))]
+    [HarmonyTranspiler]
+    public static IEnumerable<CodeInstruction> FixLudeonsStupidHardcoding(IEnumerable<CodeInstruction> instructions)
+    {
+        var codes = instructions.ToList();
+        var idx1 = codes.FindIndex(ins => ins.opcode == OpCodes.Ldtoken && (Type)ins.operand == typeof(CompAffectsSky));
+        var idx2 = codes.FindIndex(idx1, ins => ins.opcode == OpCodes.Callvirt);
+        codes[idx2].operand = AccessTools.Method(typeof(ThingDef), nameof(ThingDef.HasAssignableCompFrom));
+        return codes;
+    }
 }
