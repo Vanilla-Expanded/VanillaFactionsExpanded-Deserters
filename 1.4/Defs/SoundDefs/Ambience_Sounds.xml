@@ -68,6 +68,7 @@
     <sustain>True</sustain>
     <context>MapOnly</context>
     <priorityMode>PrioritizeNearest</priorityMode>
+    <maxSimultaneous>18</maxSimultaneous>
     <sustainStartSound>FlickSwitch</sustainStartSound>
     <sustainStopSound>FlickSwitch</sustainStopSound>
     <subSounds>
@@ -78,7 +79,7 @@
             <clipPath>ZeusCannon_Aiming/ZeusCannon_Aiming_Sustainer_01a</clipPath>
           </li>
         </grains>
-        <volumeRange>50</volumeRange>
+        <volumeRange>100</volumeRange>
         <distRange>5~15</distRange>
       </li>
     </subSounds>
@@ -87,7 +88,7 @@
   <SoundDef>
     <defName>VFE_ZeusCannon_Shot</defName>  
     <context>MapOnly</context>      
-    <maxSimultaneous>5</maxSimultaneous>
+    <maxSimultaneous>10</maxSimultaneous>
     <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
@@ -96,7 +97,7 @@
             <clipPath>ZeusCannon_Shot</clipPath>
           </li>
         </grains>      
-        <volumeRange>30~35</volumeRange>
+        <volumeRange>40~45</volumeRange>
         <pitchRange>0.8~1.1</pitchRange>
       </li>
     </subSounds>
@@ -105,7 +106,7 @@
   <SoundDef>
     <defName>VFE_ZeusCannon_DistantExplosion</defName>  
     <context>MapOnly</context>      
-    <maxSimultaneous>5</maxSimultaneous>
+    <maxSimultaneous>10</maxSimultaneous>
     <subSounds>
       <li>
         <grains>
@@ -113,7 +114,7 @@
             <clipPath>ZeusCannon_DistantExplosion</clipPath>
           </li>
         </grains>      
-        <volumeRange>30~35</volumeRange>    
+        <volumeRange>40~45</volumeRange>    
         <pitchRange>0.8~1.1</pitchRange>
       </li>
     </subSounds>
@@ -122,7 +123,7 @@
   <SoundDef>
     <defName>VFE_ZeusCannon_Recharging</defName>  
     <context>MapOnly</context>      
-    <maxSimultaneous>4</maxSimultaneous>
+    <maxSimultaneous>10</maxSimultaneous>
     <subSounds>
       <li>
         <grains>
