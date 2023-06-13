@@ -3,15 +3,31 @@
   <SoundDef>
     <defName>VFED_Shot_Fletchling</defName>  
     <context>MapOnly</context>  
-    <maxSimultaneous>2</maxSimultaneous>  
+    <maxSimultaneous>3</maxSimultaneous>  
     <subSounds>
       <li>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>Fletcher/Fletcher_Shot_01a</clipPath>
+            <clipPath>Fletchling/Fletchling_Shot_01a</clipPath>
           </li>
         </grains>
-		<volumeRange>15~25</volumeRange>
+		<volumeRange>25~35</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFED_Shot_ChargeCycler</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>5</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>ChargeCycler/ChargeCycler_Shot_01a</clipPath>
+          </li>
+        </grains>
+		<volumeRange>25~35</volumeRange>
       </li>
     </subSounds>
   </SoundDef>

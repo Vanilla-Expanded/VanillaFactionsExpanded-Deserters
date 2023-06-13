@@ -52,7 +52,7 @@
         <range>20.9</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
         <burstShotCount>1</burstShotCount>
-        <soundCast>ThumpCannon_Fire</soundCast>
+        <soundCast>VFED_Shot_ChargeCycler</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
         <accuracyTouch>0.8</accuracyTouch>
@@ -69,7 +69,7 @@
         <warmupTime>1</warmupTime>
         <range>20.9</range>
         <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-        <burstShotCount>3</burstShotCount>
+        <burstShotCount>1</burstShotCount>
         <soundCast>ThumpCannon_Fire</soundCast>
         <soundCastTail>GunTail_Medium</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -182,10 +182,10 @@
     <thingSetMakerTags><li>VFEE_RewardNone</li></thingSetMakerTags>
     <statBases>
       <Mass>6.5</Mass>
-      <AccuracyTouch>0.8</AccuracyTouch>
-      <AccuracyShort>0.87</AccuracyShort>
-      <AccuracyMedium>0.77</AccuracyMedium>
-      <AccuracyLong>0.64</AccuracyLong>
+      <AccuracyTouch>0.25</AccuracyTouch>
+      <AccuracyShort>0.35</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.28</AccuracyLong>
       <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
       <MarketValue>2100</MarketValue>
     </statBases>

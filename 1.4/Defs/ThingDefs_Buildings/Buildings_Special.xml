@@ -181,6 +181,10 @@
       <Mass>15</Mass>
       <WorkToBuild>200</WorkToBuild>
     </statBases>
+	<building>
+			<soundAmbient>VFE_SurveillancePillarLoop_Ambience</soundAmbient>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+	</building>
     <tickerType>Normal</tickerType>
     <drawerType>MapMeshAndRealTime</drawerType>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -275,6 +279,10 @@
       <WorkToBuild>600</WorkToBuild>
     </statBases>
 	<fillPercent>0.4</fillPercent>
+	<building>
+			<soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+	</building>
 	<comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>100</wickTicks>
@@ -469,6 +477,10 @@
       <Mass>150</Mass>
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
+	<building>
+			<soundAmbient>VFE_SurveillanceStationLoop_Ambience</soundAmbient>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+	</building>
 	<fillPercent>0.6</fillPercent>
   <comps>
     <li><compClass>VFED.CompIntelExtract</compClass></li>
@@ -540,6 +552,10 @@
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
 	<fillPercent>0.6</fillPercent>
+	<building>
+			<soundAmbient>VFE_Techprinter_Ambience</soundAmbient>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+	</building>
 	<comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>300</wickTicks>
@@ -774,6 +790,10 @@
       <Mass>300</Mass>
       <WorkToBuild>1800</WorkToBuild>
     </statBases>
+	<building>
+			<soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
+			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+	</building>
 	<fillPercent>0.4</fillPercent>
 	<passability>Impassable</passability>
 	<comps>

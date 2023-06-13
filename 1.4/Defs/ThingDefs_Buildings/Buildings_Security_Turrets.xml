@@ -329,7 +329,7 @@
         <range>46.9</range>
         <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
         <burstShotCount>6</burstShotCount>
-        <soundCast>Shot_IncendiaryLauncher</soundCast>
+        <soundCast>RocketswarmLauncher_Fire</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
         <muzzleFlashScale>12</muzzleFlashScale>
         <consumeFuelPerShot>1</consumeFuelPerShot>
@@ -352,7 +352,8 @@
       <explosionRadius>2.9</explosionRadius>
       <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
       <ai_IsIncendiary>true</ai_IsIncendiary>
-      <arcHeightFactor>0.2</arcHeightFactor>
+      <arcHeightFactor>0.8</arcHeightFactor>
+      <soundExplode>Explosion_Rocket</soundExplode>
       <shadowSize>0.6</shadowSize>
     </projectile>
   </ThingDef>
