@@ -57,8 +57,8 @@
             <clipPath>ElectricityCrackling/ElectricityCracklingLoop_Sustainer_01a</clipPath>
           </li>
         </grains>
-        <volumeRange>10</volumeRange>
-        <distRange>5~15</distRange>
+        <volumeRange>5</volumeRange>
+        <distRange>5~10</distRange>
       </li>
     </subSounds>
   </SoundDef>
