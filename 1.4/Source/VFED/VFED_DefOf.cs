@@ -28,6 +28,10 @@ public class VFED_DefOf
     public static FleckDef VFED_BloodMist;
 
     public static SoundDef DispensePaste;
+    public static SoundDef VFE_ZeusCannon_Aiming;
+    public static SoundDef VFE_ZeusCannon_Shot;
+    public static SoundDef VFE_ZeusCannon_DistantExplosion;
+    public static SoundDef VFE_ZeusCannon_Recharging;
 
     public static PawnKindDef VFEE_Empire_Fighter_Absolver;
 

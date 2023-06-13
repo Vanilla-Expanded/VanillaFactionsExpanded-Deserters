@@ -11,7 +11,7 @@
     <building>
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
     </building>
-	<size>(1, 1)</size>
+    <size>(1, 1)</size>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>0</Flammability>
@@ -30,7 +30,7 @@
     <researchPrerequisites>
       <li>VFED_ImperialDefenses</li>
     </researchPrerequisites>
-	<constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <designationCategory>Security</designationCategory>
   </ThingDef>
 
@@ -49,7 +49,7 @@
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
     </building>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_AmmoBoxBase">
     <defName>VFED_AmmoBox_Autocannon</defName>
     <label>autocannon ammo box</label>
@@ -73,7 +73,7 @@
       </li>
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_AmmoBoxBase">
     <defName>VFED_AmmoBox_Missile</defName>
     <label>missile ammo box</label>
@@ -97,22 +97,22 @@
       </li>
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="BuildingBase" Name="VFED_EmpireBuildingBase" Abstract="True">
     <altitudeLayer>Building</altitudeLayer>
     <building>
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-	  <deconstructible>false</deconstructible>
+      <deconstructible>false</deconstructible>
     </building>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <pathCost>50</pathCost>
     <passability>PassThroughOnly</passability>
     <rotatable>false</rotatable>
-	<stealable>false</stealable>
+    <stealable>false</stealable>
     <canOverlapZones>false</canOverlapZones>
-	<designationCategory>VFED_Deserters</designationCategory>
+    <designationCategory>VFED_Deserters</designationCategory>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SupplyCrate</defName>
     <label>supply crate</label>
@@ -134,9 +134,9 @@
       <Mass>15</Mass>
       <WorkToBuild>500</WorkToBuild>
     </statBases>
-	<fillPercent>0.3</fillPercent>
+    <fillPercent>0.3</fillPercent>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_BiosecuredCrate</defName>
     <label>biosecured crate</label>
@@ -157,9 +157,9 @@
       <Mass>15</Mass>
       <WorkToBuild>500</WorkToBuild>
     </statBases>
-	<fillPercent>0.3</fillPercent>
+    <fillPercent>0.3</fillPercent>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SurveillancePillar</defName>
     <label>surveillance pillar</label>
@@ -169,7 +169,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(4, 4)</drawSize>
     </graphicData>
-	  <size>(2, 2)</size>
+    <size>(2, 2)</size>
     <costList>
       <Steel>150</Steel>
       <ComponentSpacer>5</ComponentSpacer>
@@ -181,10 +181,10 @@
       <Mass>15</Mass>
       <WorkToBuild>200</WorkToBuild>
     </statBases>
-	<building>
-			<soundAmbient>VFE_SurveillancePillarLoop_Ambience</soundAmbient>
-			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-	</building>
+    <building>
+      <soundAmbient>VFE_SurveillancePillarLoop_Ambience</soundAmbient>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
     <tickerType>Normal</tickerType>
     <drawerType>MapMeshAndRealTime</drawerType>
     <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
@@ -204,21 +204,24 @@
       <li Class="VFED.CompProperties_MotionDetection">
         <compClass>VFED.CompSurveillancePillar</compClass>
         <radius>20</radius>
-          <onlyPlayer>true</onlyPlayer>
-	      <moteScan>Mote_ProximityScannerRadius</moteScan>
+        <onlyPlayer>true</onlyPlayer>
+        <moteScan>Mote_ProximityScannerRadius</moteScan>
         <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
         <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
+        <triggerSound>VFE_SurveillancePillar_Activated</triggerSound>
         <activeGraphic>
-           <texPath>Structures/Security/SurveillancePillar_On</texPath>
+          <texPath>Structures/Security/SurveillancePillar_On</texPath>
           <graphicClass>Graphic_Single</graphicClass>
           <drawSize>(4, 4)</drawSize>
         </activeGraphic>
       </li>
-      <li><compClass>VFED.CompIntelExtract</compClass></li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
     </comps>
-	  <fillPercent>0.3</fillPercent>
+    <fillPercent>0.3</fillPercent>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_AerodroneMunitionsCrate</defName>
     <label>aerodrone munitions crate</label>
@@ -228,7 +231,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
-	  <size>(3, 3)</size>
+    <size>(3, 3)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>6</ComponentSpacer>
@@ -240,8 +243,8 @@
       <Mass>150</Mass>
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
-	  <fillPercent>0.6</fillPercent>
-	  <comps>
+    <fillPercent>0.6</fillPercent>
+    <comps>
       <li Class="VFED.CompProperties_Explosive_Shells">
         <wickTicks>1000</wickTicks>
         <explosiveRadius>9</explosiveRadius>
@@ -252,11 +255,13 @@
         <shellCount>3~8</shellCount>
         <shellDist>3~20</shellDist>
       </li>
-      <li><compClass>VFED.CompIntelExtract</compClass></li>
-	  </comps>
-	<tickerType>Normal</tickerType>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_AerodroneBatteryPack</defName>
     <label>aerodrone battery pack</label>
@@ -266,7 +271,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2, 2)</drawSize>
     </graphicData>
-	<size>(2, 2)</size>
+    <size>(2, 2)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>3</ComponentSpacer>
@@ -278,24 +283,24 @@
       <Mass>120</Mass>
       <WorkToBuild>600</WorkToBuild>
     </statBases>
-	<fillPercent>0.4</fillPercent>
-	<building>
-			<soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
-			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-	</building>
-	<comps>
+    <fillPercent>0.4</fillPercent>
+    <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>100</wickTicks>
         <explosiveRadius>10</explosiveRadius>
         <explosiveDamageType>EMP</explosiveDamageType>
         <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
       </li>
-      <li><compClass>VFED.CompEMPEffect</compClass></li>
-      <li><compClass>VFED.CompIntelExtract</compClass></li>
-	</comps>
-	<tickerType>Normal</tickerType>
+      <li>
+        <compClass>VFED.CompEMPEffect</compClass>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_Aerodrone</defName>
     <label>aerodrone</label>
@@ -305,12 +310,12 @@
       <graphicClass>Graphic_Random</graphicClass>
       <drawSize>(7, 5)</drawSize>
     </graphicData>
-	<size>(5, 3)</size>
+    <size>(5, 3)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>3</ComponentSpacer>
     </costList>
-	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <statBases>
       <MaxHitPoints>1000</MaxHitPoints>
       <Flammability>0.2</Flammability>
@@ -318,12 +323,14 @@
       <Mass>800</Mass>
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
-	<fillPercent>0.6</fillPercent>
-  <comps>
-    <li><compClass>VFED.CompIntelExtract</compClass></li>
-  </comps>
+    <fillPercent>0.6</fillPercent>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ImperialMaxpack</defName>
     <label>imperial maxpack</label>
@@ -333,14 +340,14 @@
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(4, 7)</drawSize>
     </graphicData>
-	<size>(3, 6)</size>
+    <size>(3, 6)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>3</ComponentSpacer>
     </costList>
-	<rotatable>true</rotatable>
-	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-	<passability>Impassable</passability>
+    <rotatable>true</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <passability>Impassable</passability>
     <statBases>
       <MaxHitPoints>2000</MaxHitPoints>
       <Flammability>0.5</Flammability>
@@ -348,12 +355,14 @@
       <Mass>1000</Mass>
       <WorkToBuild>5000</WorkToBuild>
     </statBases>
-	<fillPercent>1.0</fillPercent>
-  <comps>
-    <li><compClass>VFED.CompIntelExtract</compClass></li>
-  </comps>
+    <fillPercent>1.0</fillPercent>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_StrikeBuoy</defName>
     <label>strike buoy</label>
@@ -395,17 +404,18 @@
     <receivesSignals>true</receivesSignals>
     <building>
       <claimable>false</claimable>
-	  <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
     <comps>
       <li Class="VFED.CompProperties_MotionDetection">
         <compClass>VFED.CompStrikeBouy</compClass>
-	      <onlyPlayer>true</onlyPlayer>
+        <onlyPlayer>true</onlyPlayer>
         <radius>5</radius>
         <moteScan>VFED_Mote_ProximityScannerRadius_Orange</moteScan>
         <moteGlow>VFED_Mote_ActivatorProximityGlow_Orange</moteGlow>
         <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
         <checkInterval>30</checkInterval>
+        <triggerSound>VFE_StrikeBuoy_Activated</triggerSound>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>2</glowRadius>
@@ -416,7 +426,7 @@
       <Plasteel>7</Plasteel>
     </costList>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_FuelTank</defName>
     <label>fuel tank</label>
@@ -426,11 +436,11 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
-	<size>(2, 2)</size>
+    <size>(2, 2)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>6</ComponentSpacer>
-	  <Chemfuel>100</Chemfuel>
+      <Chemfuel>100</Chemfuel>
     </costList>
     <statBases>
       <MaxHitPoints>200</MaxHitPoints>
@@ -439,8 +449,8 @@
       <Mass>150</Mass>
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
-	<fillPercent>0.6</fillPercent>
-	<comps>
+    <fillPercent>0.6</fillPercent>
+    <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>600</wickTicks>
         <explosiveRadius>6</explosiveRadius>
@@ -450,11 +460,13 @@
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
         <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
       </li>
-    <li><compClass>VFED.CompIntelExtract</compClass></li>
-	</comps>
-	<tickerType>Normal</tickerType>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SurveillanceStation</defName>
     <label>surveillance station</label>
@@ -464,10 +476,10 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
-	<size>(2, 2)</size>
+    <size>(2, 2)</size>
     <costList>
       <Steel>200</Steel>
-	  <Plasteel>15</Plasteel>
+      <Plasteel>15</Plasteel>
       <ComponentSpacer>6</ComponentSpacer>
     </costList>
     <statBases>
@@ -477,20 +489,18 @@
       <Mass>150</Mass>
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
-	<building>
-			<soundAmbient>VFE_SurveillanceStationLoop_Ambience</soundAmbient>
-			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-	</building>
-	<fillPercent>0.6</fillPercent>
-  <comps>
-    <li><compClass>VFED.CompIntelExtract</compClass></li>
+    <fillPercent>0.6</fillPercent>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
       <li Class="CompProperties_Glower">
         <glowRadius>8</glowRadius>
         <glowColor>(214,46,31,0)</glowColor>
       </li>
-  </comps>
+    </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SurveillanceDisplayBank</defName>
     <label>surveillance display bank</label>
@@ -507,7 +517,7 @@
     <fillPercent>0.50</fillPercent>
     <defaultPlacingRot>South</defaultPlacingRot>
     <altitudeLayer>Building</altitudeLayer>
-	<rotatable>true</rotatable>
+    <rotatable>true</rotatable>
     <statBases>
       <MaxHitPoints>250</MaxHitPoints>
       <WorkToBuild>1500</WorkToBuild>
@@ -515,21 +525,23 @@
     </statBases>
     <costList>
       <Steel>150</Steel>
-	  <Plasteel>15</Plasteel>
+      <Plasteel>15</Plasteel>
       <ComponentSpacer>4</ComponentSpacer>
     </costList>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-  <comps>
-    <li><compClass>VFED.CompIntelExtract</compClass></li>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
       <li Class="CompProperties_Glower">
         <glowRadius>4</glowRadius>
         <glowColor>(214,46,31,0)</glowColor>
       </li>
-  </comps>
+    </comps>
   </ThingDef>
 
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_Techprinter</defName>
     <label>techprinter</label>
@@ -539,7 +551,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(5, 5)</drawSize>
     </graphicData>
-	<size>(4, 4)</size>
+    <size>(4, 4)</size>
     <costList>
       <Plasteel>100</Plasteel>
       <ComponentSpacer>8</ComponentSpacer>
@@ -551,22 +563,18 @@
       <Mass>250</Mass>
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
-	<fillPercent>0.6</fillPercent>
-	<building>
-			<soundAmbient>VFE_Techprinter_Ambience</soundAmbient>
-			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-	</building>
-	<comps>
+    <fillPercent>0.6</fillPercent>
+    <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>300</wickTicks>
         <explosiveRadius>7</explosiveRadius>
         <explosiveDamageType>Bomb</explosiveDamageType>
         <chanceNeverExplodeFromDamage>1.0</chanceNeverExplodeFromDamage>
       </li>
-	</comps>
-	<tickerType>Normal</tickerType>
+    </comps>
+    <tickerType>Normal</tickerType>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_TechiteDiscStack</defName>
     <label>techite disc stack</label>
@@ -576,10 +584,10 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2, 2)</drawSize>
     </graphicData>
-	  <size>(1, 1)</size>
+    <size>(1, 1)</size>
     <tickerType>Normal</tickerType>
     <costList>
-	  <Plasteel>15</Plasteel>
+      <Plasteel>15</Plasteel>
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <statBases>
@@ -589,10 +597,14 @@
       <Mass>10</Mass>
       <WorkToBuild>600</WorkToBuild>
     </statBases>
-	  <fillPercent>0.4</fillPercent>
-    <comps><li><compClass>VFED.CompVeryFlammable</compClass></li></comps>
+    <fillPercent>0.4</fillPercent>
+    <comps>
+      <li>
+        <compClass>VFED.CompVeryFlammable</compClass>
+      </li>
+    </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ImperialUnderfarm</defName>
     <label>imperial underfarm</label>
@@ -602,10 +614,10 @@
       <graphicClass>Graphic_Random</graphicClass>
       <drawSize>(4, 4)</drawSize>
     </graphicData>
-	<size>(4, 4)</size>
+    <size>(4, 4)</size>
     <costList>
-	  <Steel>150</Steel>
-	  <Plasteel>30</Plasteel>
+      <Steel>150</Steel>
+      <Plasteel>30</Plasteel>
       <ComponentSpacer>3</ComponentSpacer>
     </costList>
     <statBases>
@@ -615,10 +627,10 @@
       <Mass>300</Mass>
       <WorkToBuild>1800</WorkToBuild>
     </statBases>
-	<fillPercent>0</fillPercent>
-	<passability>Impassable</passability>
+    <fillPercent>0</fillPercent>
+    <passability>Impassable</passability>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_WaterMain</defName>
     <label>water main</label>
@@ -628,10 +640,10 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3, 3)</drawSize>
     </graphicData>
-	<size>(3, 3)</size>
+    <size>(3, 3)</size>
     <costList>
-	  <Steel>150</Steel>
-	  <Plasteel>30</Plasteel>
+      <Steel>150</Steel>
+      <Plasteel>30</Plasteel>
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <statBases>
@@ -641,9 +653,9 @@
       <Mass>300</Mass>
       <WorkToBuild>1200</WorkToBuild>
     </statBases>
-	<fillPercent>0.3</fillPercent>
+    <fillPercent>0.3</fillPercent>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_CrashedAerodrone</defName>
     <label>crashed aerodrone</label>
@@ -653,12 +665,12 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(7, 5)</drawSize>
     </graphicData>
-	<size>(5, 3)</size>
+    <size>(5, 3)</size>
     <costList>
       <Steel>100</Steel>
       <ComponentSpacer>3</ComponentSpacer>
     </costList>
-	<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <statBases>
       <MaxHitPoints>1000</MaxHitPoints>
       <Flammability>0.2</Flammability>
@@ -666,9 +678,9 @@
       <Mass>800</Mass>
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
-	<fillPercent>0.6</fillPercent>
+    <fillPercent>0.6</fillPercent>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ImperialMegaHighShield</defName>
     <label>imperial mega high-shield</label>
@@ -678,11 +690,11 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(5, 5)</drawSize>
     </graphicData>
-	<size>(5, 5)</size>
+    <size>(5, 5)</size>
     <costList>
       <Plasteel>100</Plasteel>
       <ComponentSpacer>8</ComponentSpacer>
-	  <BroadshieldCore>4</BroadshieldCore>
+      <BroadshieldCore>4</BroadshieldCore>
     </costList>
     <statBases>
       <MaxHitPoints>1000</MaxHitPoints>
@@ -691,8 +703,8 @@
       <Mass>250</Mass>
       <WorkToBuild>15000</WorkToBuild>
     </statBases>
-	<fillPercent>0.8</fillPercent>
-	<tickerType>Normal</tickerType>
+    <fillPercent>0.8</fillPercent>
+    <tickerType>Normal</tickerType>
     <drawerType>MapMeshAndRealTime</drawerType>
     <placeWorkers>
       <li>PlaceWorker_ShowProjectileInterceptorRadius</li>
@@ -716,18 +728,20 @@
         <shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>8000</basePowerConsumption>
       </li>
-    <li><compClass>VFED.CompIntelExtract</compClass></li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
     </comps>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <killedLeavings>
       <Plasteel>30</Plasteel>
-	  <BroadshieldCore>4</BroadshieldCore>
+      <BroadshieldCore>4</BroadshieldCore>
     </killedLeavings>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ZeusCannonControlStation</defName>
-    <label>Zeus cannon control station</label>
+    <label>zeus cannon control station</label>
     <description>todo</description>
     <graphicData>
       <texPath>Endgame/ZeusCannonControlStation</texPath>
@@ -740,7 +754,7 @@
     <size>(5, 3)</size>
     <fillPercent>0.60</fillPercent>
     <altitudeLayer>Building</altitudeLayer>
-	<rotatable>false</rotatable>
+    <rotatable>false</rotatable>
     <statBases>
       <MaxHitPoints>1250</MaxHitPoints>
       <WorkToBuild>6000</WorkToBuild>
@@ -748,23 +762,25 @@
     </statBases>
     <costList>
       <Steel>250</Steel>
-	  <Plasteel>75</Plasteel>
+      <Plasteel>75</Plasteel>
       <ComponentSpacer>8</ComponentSpacer>
     </costList>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
-  <comps>
-    <li><compClass>VFED.CompIntelExtract</compClass></li>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
       <li Class="CompProperties_Glower">
         <glowRadius>4</glowRadius>
         <glowColor>(214,46,31,0)</glowColor>
       </li>
-  </comps>
+    </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ZeusCannonCapacitorBank</defName>
-    <label>Zeus cannon capacitor bank</label>
+    <label>zeus cannon capacitor bank</label>
     <description>todo</description>
     <graphicData>
       <texPath>Endgame/ZeusCannonCapacitors/ZeusCannonCapacitors</texPath>
@@ -774,13 +790,13 @@
         <volume>(5, 0.15, 3)</volume>
       </shadowData>
     </graphicData>
-	<size>(5, 3)</size>
-	<rotatable>true</rotatable>
-	<tickerType>Normal</tickerType>
-	<defaultPlacingRot>South</defaultPlacingRot>
+    <size>(5, 3)</size>
+    <rotatable>true</rotatable>
+    <tickerType>Normal</tickerType>
+    <defaultPlacingRot>South</defaultPlacingRot>
     <costList>
-	  <Steel>200</Steel>
-	  <Plasteel>80</Plasteel>
+      <Steel>200</Steel>
+      <Plasteel>80</Plasteel>
       <ComponentSpacer>4</ComponentSpacer>
     </costList>
     <statBases>
@@ -790,28 +806,29 @@
       <Mass>300</Mass>
       <WorkToBuild>1800</WorkToBuild>
     </statBases>
-	<building>
-			<soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
-			<destroySound>BuildingDestroyed_Metal_Medium</destroySound>
-	</building>
-	<fillPercent>0.4</fillPercent>
-	<passability>Impassable</passability>
-	<comps>
+    <fillPercent>0.4</fillPercent>
+    <passability>Impassable</passability>
+    <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>100</wickTicks>
         <explosiveRadius>5</explosiveRadius>
         <explosiveDamageType>EMP</explosiveDamageType>
         <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
       </li>
-      <li><compClass>VFED.CompEMPEffect</compClass></li>
-      <li><compClass>VFED.CompIntelExtract</compClass></li>
-	</comps>
+      <li>
+        <compClass>VFED.CompEMPEffect</compClass>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ZeusCannon</defName>
-    <label>Zeus cannon</label>
+    <label>zeus cannon</label>
     <description>todo</description>
+    <thingClass>VFED.Building_ZeusCannon</thingClass>
     <graphicData>
       <texPath>Endgame/ZeusCannon/ZeusCannon_Base</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -820,10 +837,11 @@
         <volume>(3, 3, 3)</volume>
       </shadowData>
     </graphicData>
-	<size>(5, 5)</size>
+    <size>(5, 5)</size>
+    <uiIconPath>Endgame/ZeusCannon/ZeusCannon_MenuIcon</uiIconPath>
     <costList>
-	  <Steel>650</Steel>
-	  <Plasteel>120</Plasteel>
+      <Steel>650</Steel>
+      <Plasteel>120</Plasteel>
       <ComponentSpacer>16</ComponentSpacer>
     </costList>
     <statBases>
@@ -833,13 +851,16 @@
       <Mass>300</Mass>
       <WorkToBuild>12000</WorkToBuild>
     </statBases>
-	<fillPercent>0.8</fillPercent>
-	<passability>Impassable</passability>
-	<rotatable>false</rotatable>
-	<comps>
-      <li><compClass>VFED.CompIntelExtract</compClass></li>
-	</comps>
+    <fillPercent>0.8</fillPercent>
+    <passability>Impassable</passability>
+    <rotatable>false</rotatable>
+    <drawerType>RealtimeOnly</drawerType>
+    <tickerType>Normal</tickerType>
+    <drawOffscreen>true</drawOffscreen>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
   </ThingDef>
-  
-
 </Defs>

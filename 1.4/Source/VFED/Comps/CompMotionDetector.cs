@@ -21,6 +21,7 @@ public abstract class CompMotionDetector : ThingComp
     protected virtual void Trigger(Thing initiator)
     {
         Activated = true;
+        Props.triggerSound.PlayOneShot(parent);
     }
 
     public override void CompTick()
@@ -118,6 +119,7 @@ public class CompProperties_MotionDetection : CompProperties
     public float radius;
     public SoundDef soundEmitting;
     public bool triggerOnPawnInRoom;
+    public SoundDef triggerSound;
 }
 
 public class PlaceWorker_ShowMotionDetectionRadius : PlaceWorker

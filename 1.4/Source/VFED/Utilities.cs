@@ -146,4 +146,9 @@ public static class Utilities
             critical = 0;
         }
     }
+
+    public static void IncAlt(this ref Vector3 pos, float frac)
+    {
+        pos += Altitudes.AltIncVect * frac;
+    }
 }

@@ -117,6 +117,7 @@
           <li>(-1.0625, 0, 0)</li>
           <li>(-1.375, 0, 0)</li>
         </barrels>
+        <rotationSpeed>45</rotationSpeed>
       </li>
     </modExtensions>
   </ThingDef>
@@ -205,6 +206,7 @@
           <li>(-0.75, 0, 0)</li>
           <li>(-1.1875, 0, 0)</li>
         </barrels>
+        <rotationSpeed>45</rotationSpeed>
       </li>
     </modExtensions>
   </ThingDef>
@@ -296,6 +298,7 @@
           <li>(-1.0625, 0, 0)</li>
           <li>(-1.375, 0, 0)</li>
         </barrels>
+        <rotationSpeed>45</rotationSpeed>
       </li>
     </modExtensions>
   </ThingDef>

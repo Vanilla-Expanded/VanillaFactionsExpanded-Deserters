@@ -39,4 +39,10 @@ public class Building_SupplyCrate : Building_Casket
         Destroy();
         GenSpawn.Spawn(ThingDefOf.ChunkSlagSteel, pos, map);
     }
+
+    public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+    {
+        innerContainer.ClearAndDestroyContents(mode);
+        base.Destroy(mode);
+    }
 }

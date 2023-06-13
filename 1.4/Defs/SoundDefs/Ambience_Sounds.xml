@@ -22,27 +22,6 @@
   </SoundDef>
   
   <SoundDef>
-    <defName>VFE_SurveillanceStationLoop_Ambience</defName>
-    <sustain>True</sustain>
-    <context>MapOnly</context>
-    <priorityMode>PrioritizeNearest</priorityMode>
-    <sustainStartSound>ScannerGroundPenetrating_Start</sustainStartSound>
-    <sustainStopSound>ScannerGroundPenetrating_Stop</sustainStopSound>
-    <subSounds>
-      <li>
-        <muteWhenPaused>True</muteWhenPaused>
-        <grains>
-          <li Class="AudioGrain_Clip">
-            <clipPath>SurveillanceStationLoop/SurveillanceStation_Loop_1a</clipPath>
-          </li>
-        </grains>
-        <volumeRange>10</volumeRange>
-        <distRange>5~15</distRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-  
-  <SoundDef>
     <defName>VFE_Techprinter_Ambience</defName>
     <sustain>True</sustain>
     <context>MapOnly</context>
@@ -99,7 +78,7 @@
             <clipPath>ZeusCannon_Aiming/ZeusCannon_Aiming_Sustainer_01a</clipPath>
           </li>
         </grains>
-        <volumeRange>10</volumeRange>
+        <volumeRange>50</volumeRange>
         <distRange>5~15</distRange>
       </li>
     </subSounds>
@@ -114,10 +93,10 @@
       <li>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipPath>Sounds/ZeusCannon_Shot</clipPath>
+            <clipPath>ZeusCannon_Shot</clipPath>
           </li>
         </grains>      
-        <volumeRange>15~20</volumeRange>      
+        <volumeRange>30~35</volumeRange>
         <pitchRange>0.8~1.1</pitchRange>
       </li>
     </subSounds>
@@ -131,10 +110,10 @@
       <li>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipPath>Sounds/ZeusCannon_DistantExplosion</clipPath>
+            <clipPath>ZeusCannon_DistantExplosion</clipPath>
           </li>
         </grains>      
-        <volumeRange>15~20</volumeRange>      
+        <volumeRange>30~35</volumeRange>    
         <pitchRange>0.8~1.1</pitchRange>
       </li>
     </subSounds>
@@ -151,7 +130,7 @@
             <clipPath>ZeusCannon_Recharging/ZeusCannon_Recharging_01a</clipPath>
           </li>
         </grains>      
-        <volumeRange>15~20</volumeRange>
+        <volumeRange>25~30</volumeRange>
       </li>
     </subSounds>
   </SoundDef>
