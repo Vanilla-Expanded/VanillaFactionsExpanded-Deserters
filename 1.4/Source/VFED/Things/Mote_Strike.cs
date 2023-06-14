@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using Verse;
+using VFEEmpire;
 
 namespace VFED;
 
@@ -35,7 +36,9 @@ public class Mote_Strike : Mote
                 strike.TryGetComp<CompStrike>()?.Notify_Launched(this);
                 var origin = new IntVec3(Rand.Bool ? 0 : Map.Size.x - 1, 0, Rand.Range(Map.Size.z - 17, Map.Size.z));
                 GenSpawn.Spawn(strike, origin, Map);
-                (strike as Projectile)?.Launch(this, Position, Position, ProjectileHitFlags.IntendedTarget);
+                var titleHolders = WorldComponent_Hierarchy.Instance.TitleHolders;
+                (strike as Projectile)?.Launch(titleHolders[titleHolders.Count - 1] /* Should the emperor */, Position, Position,
+                    ProjectileHitFlags.IntendedTarget);
             }
         }
 
@@ -59,6 +62,7 @@ public class Mote_Strike : Mote
     {
         base.ExposeData();
         Scribe_Values.Look(ref ticksTillStrike, nameof(ticksTillStrike));
+        Scribe_Defs.Look(ref strikeDef, nameof(strikeDef));
     }
 }
 

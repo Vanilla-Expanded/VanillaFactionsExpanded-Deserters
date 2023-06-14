@@ -171,8 +171,7 @@ public class Building_ZeusCannon : Building
             }
 
             gunPos += (Vector3.left * 3.7f).RotatedBy(angle);
-            if (ticksLeftInState == 60)
-                FleckMaker.Static(gunPos, Map, FleckDefOf.ShotFlash, 50);
+            if (ticksLeftInState == 60) FleckMaker.Static(gunPos, Map, FleckDefOf.ShotFlash, 50);
         }
     }
 

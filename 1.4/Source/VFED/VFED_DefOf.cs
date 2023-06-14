@@ -26,8 +26,6 @@ public class VFED_DefOf
     public static HediffDef VFED_Invisibility;
 
     public static FleckDef VFED_BloodMist;
-    public static FleckDef GrowingFlash;
-    public static FleckDef BlastEMP;
 
     public static SoundDef DispensePaste;
     public static SoundDef VFE_ZeusCannon_Aiming;

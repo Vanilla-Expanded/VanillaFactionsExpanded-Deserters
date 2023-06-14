@@ -2,7 +2,7 @@
 <Defs>
     <ThingDef ParentName="BaseBullet">
         <defName>VFED_AerodroneStrikeIncoming</defName>
-        <label>aerodrone strike (incoming)</label>
+        <label>aerodrone strike</label>
         <graphicData>
           <texPath>Things/Projectile/ShellHighExplosive</texPath>
           <graphicClass>Graphic_Single</graphicClass>

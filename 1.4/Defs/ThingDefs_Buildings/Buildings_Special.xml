@@ -722,6 +722,7 @@
         <disarmedByEmpForTicks>360</disarmedByEmpForTicks>
         <chargeIntervalTicks>6000000</chargeIntervalTicks>
         <chargeDurationTicks>0</chargeDurationTicks>
+        <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
       </li>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
