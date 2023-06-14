@@ -60,13 +60,17 @@ public class GameCondition_DivineInferno : GameCondition
                     sentStartLetter = true;
                 }
 
+
+                var titleHolders = WorldComponent_Hierarchy.Instance.TitleHolders;
+                var emperor = titleHolders[titleHolders.Count - 1];
+
                 if ((Find.TickManager.TicksGame - bombardmentStartTick) % 5f.SecondsToTicks() == 0)
                     foreach (var map in AffectedMaps)
                     {
                         SoundDefOf.OrbitalStrike_Ordered.PlayOneShotOnCamera();
                         var from = CellFinder.RandomCell(map);
                         var to = CellFinder.RandomCell(map);
-                        OrbitalSlicer.DoSlice(from, to, map);
+                        OrbitalSlicer.DoSlice(from, to, map, emperor);
                     }
             }
             else if (WorldComponent_Deserters.Instance.Visibility <= 20) End();
