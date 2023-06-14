@@ -69,7 +69,7 @@
     <context>MapOnly</context>
     <priorityMode>PrioritizeNearest</priorityMode>
     <maxSimultaneous>18</maxSimultaneous>
-    <sustainStartSound>FlickSwitch</sustainStartSound>
+    <sustainStartSound>OrbitalTargeter_Fire</sustainStartSound>
     <sustainStopSound>FlickSwitch</sustainStopSound>
     <subSounds>
       <li>
@@ -80,7 +80,7 @@
           </li>
         </grains>
         <volumeRange>100</volumeRange>
-        <distRange>5~15</distRange>
+        <distRange>40~80</distRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -99,6 +99,7 @@
         </grains>      
         <volumeRange>40~45</volumeRange>
         <pitchRange>0.8~1.1</pitchRange>
+        <distRange>40~80</distRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -124,6 +125,7 @@
     <defName>VFE_ZeusCannon_Recharging</defName>  
     <context>MapOnly</context>      
     <maxSimultaneous>10</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
         <grains>
