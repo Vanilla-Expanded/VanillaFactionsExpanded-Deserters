@@ -12,12 +12,12 @@
 	    <questDescriptionRules>
 		    <rulesStrings>
 			    <li>questDescription->The informant network has relayed us the information of a control station belonging to [empire_name]. These forward-placed outposts survey the area around imperial points of interest and alert them of any imminent threat.
-\nWe might find some useful supplies scattered around the staging post. If we have the time, we should take what we can.
+\nWe might find some useful supplies scattered around the control station. If we have the time, we should take what we can.
 \nThe control station is protected by:
 [forces_description]
 \nWe have also been informed that the location is protected by a number of ground-mounted striker turrets. Despite the limited range, these turrets can easily reveal our approach and provide covering fire for the imperial army.
-\nThe staging post is protected by a large number of surveillance pillars. They should not be approached, and instead should be disabled from afar - either by destroying them, or cutting off their power. Once activated, they will greatly increase our visibility.
-\nThe objective of this assignment is to destroy the surveillance station terminal. Once that is done, the reward will arrive and we will have to make our escape.
+\nThe control station is protected by a large number of surveillance pillars. They should not be approached, and instead should be disabled from afar - either by destroying them, or cutting off their power. Once activated, they will greatly increase our visibility.
+\nThe objective of this assignment is to destroy the surveillance station terminal. Once that is done, the reward will arrive and we will have to make our escape. The terminal is usually well defended and placed inside a fortified building.
 \nOnce we arrive at the control station, we can expect an imperial response if our visibility is high enough. We will only have a limited amount of time to complete the mission.</li>
 		    </rulesStrings>
 	    </questDescriptionRules>
