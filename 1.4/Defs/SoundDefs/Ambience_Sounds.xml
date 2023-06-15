@@ -15,7 +15,7 @@
             <clipPath>SurveillancePillarRunning/SurveillancePillarRunning_Loop1a</clipPath>
           </li>
         </grains>
-        <volumeRange>10</volumeRange>
+        <volumeRange>80</volumeRange>
         <distRange>5~15</distRange>
       </li>
     </subSounds>
@@ -36,7 +36,28 @@
             <clipPath>TechPrinterLoop/TechPrinter_Ambience_Loop_01</clipPath>
           </li>
         </grains>
-        <volumeRange>10</volumeRange>
+        <volumeRange>30</volumeRange>
+        <distRange>5~15</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_SurveillanceStation_Loop</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainStartSound>ScannerGroundPenetrating_Start</sustainStartSound>
+    <sustainStopSound>ScannerGroundPenetrating_Stop</sustainStopSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>SurveillanceStationLoop/SurveillanceStation_Loop_1a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>60</volumeRange>
         <distRange>5~15</distRange>
       </li>
     </subSounds>
@@ -57,8 +78,8 @@
             <clipPath>ElectricityCrackling/ElectricityCracklingLoop_Sustainer_01a</clipPath>
           </li>
         </grains>
-        <volumeRange>5</volumeRange>
-        <distRange>5~10</distRange>
+        <volumeRange>1</volumeRange>
+        <distRange>1~5</distRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -69,8 +90,8 @@
     <context>MapOnly</context>
     <priorityMode>PrioritizeNearest</priorityMode>
     <maxSimultaneous>18</maxSimultaneous>
-    <sustainStartSound>OrbitalTargeter_Fire</sustainStartSound>
-    <sustainStopSound>FlickSwitch</sustainStopSound>
+    <sustainStartSound>FlickSwitch</sustainStartSound>
+    <sustainStopSound>TurretAcquireTarget</sustainStopSound>
     <subSounds>
       <li>
         <muteWhenPaused>True</muteWhenPaused>
@@ -79,8 +100,9 @@
             <clipPath>ZeusCannon_Aiming/ZeusCannon_Aiming_Sustainer_01a</clipPath>
           </li>
         </grains>
-        <volumeRange>100</volumeRange>
+        <volumeRange>20</volumeRange>
         <distRange>40~80</distRange>
+        <tempoAffectedByGameSpeed>true</tempoAffectedByGameSpeed>
       </li>
     </subSounds>
   </SoundDef>
@@ -89,7 +111,6 @@
     <defName>VFE_ZeusCannon_Shot</defName>  
     <context>MapOnly</context>      
     <maxSimultaneous>10</maxSimultaneous>
-    <priorityMode>PrioritizeNearest</priorityMode>
     <subSounds>
       <li>
         <grains>
@@ -97,9 +118,17 @@
             <clipPath>ZeusCannon_Shot</clipPath>
           </li>
         </grains>      
-        <volumeRange>40~45</volumeRange>
+        <volumeRange>65~70</volumeRange>
         <pitchRange>0.8~1.1</pitchRange>
-        <distRange>40~80</distRange>
+        <distRange>20~160</distRange>
+        <filters>
+          <li Class="SoundFilterEcho">
+            <delay>1112.654</delay>          
+            <decayRatio>0.5433328</decayRatio>          
+            <wetMix>0.1333435</wetMix>          
+            <dryMix>1</dryMix>
+          </li>
+        </filters>      
       </li>
     </subSounds>
   </SoundDef>
@@ -110,12 +139,13 @@
     <maxSimultaneous>10</maxSimultaneous>
     <subSounds>
       <li>
+        <onCamera>True</onCamera>    
         <grains>
           <li Class="AudioGrain_Folder">
             <clipPath>ZeusCannon_DistantExplosion</clipPath>
           </li>
         </grains>      
-        <volumeRange>40~45</volumeRange>    
+        <volumeRange>40~65</volumeRange>    
         <pitchRange>0.8~1.1</pitchRange>
       </li>
     </subSounds>
@@ -123,9 +153,9 @@
   
   <SoundDef>
     <defName>VFE_ZeusCannon_Recharging</defName>  
-    <context>MapOnly</context>      
-    <maxSimultaneous>10</maxSimultaneous>
+    <context>MapOnly</context>
     <priorityMode>PrioritizeNearest</priorityMode>
+    <maxSimultaneous>10</maxSimultaneous>
     <subSounds>
       <li>
         <grains>
@@ -133,7 +163,8 @@
             <clipPath>ZeusCannon_Recharging/ZeusCannon_Recharging_01a</clipPath>
           </li>
         </grains>      
-        <volumeRange>25~30</volumeRange>
+        <volumeRange>45~50</volumeRange>
+        <tempoAffectedByGameSpeed>true</tempoAffectedByGameSpeed>
       </li>
     </subSounds>
   </SoundDef>
@@ -149,7 +180,7 @@
             <clipPath>StrikeBuoy/StrikeBuoy_Activated_01a</clipPath>
           </li>
         </grains>      
-        <volumeRange>15~20</volumeRange>
+        <volumeRange>45~50</volumeRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -165,7 +196,7 @@
             <clipPath>SurveillanceAlarm/SurveillanceAlarm_ShutOff_01a</clipPath>
           </li>
         </grains>      
-        <volumeRange>15~20</volumeRange>
+        <volumeRange>45~50</volumeRange>
       </li>
     </subSounds>
   </SoundDef>

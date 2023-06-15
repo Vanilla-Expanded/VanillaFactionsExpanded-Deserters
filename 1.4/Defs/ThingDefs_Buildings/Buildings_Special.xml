@@ -207,7 +207,7 @@
         <onlyPlayer>true</onlyPlayer>
         <moteScan>Mote_ProximityScannerRadius</moteScan>
         <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
-        <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
+        <soundEmitting>VFE_SurveillancePillarLoop_Ambience</soundEmitting>
         <triggerSound>VFE_SurveillancePillar_Activated</triggerSound>
         <activeGraphic>
           <texPath>Structures/Security/SurveillancePillar_On</texPath>
@@ -284,6 +284,9 @@
       <WorkToBuild>600</WorkToBuild>
     </statBases>
     <fillPercent>0.4</fillPercent>
+    <building>
+      <soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
+    </building>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>100</wickTicks>
@@ -490,6 +493,9 @@
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
     <fillPercent>0.6</fillPercent>
+    <building>
+      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
+    </building>
     <comps>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
@@ -523,6 +529,9 @@
       <WorkToBuild>1500</WorkToBuild>
       <Flammability>0.5</Flammability>
     </statBases>
+    <building>
+      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
+    </building>
     <costList>
       <Steel>150</Steel>
       <Plasteel>15</Plasteel>
@@ -564,6 +573,9 @@
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
     <fillPercent>0.6</fillPercent>
+    <building>
+      <soundAmbient>VFE_Techprinter_Ambience</soundAmbient>
+    </building>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>300</wickTicks>
@@ -711,7 +723,8 @@
     </placeWorkers>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
-    </building>
+      <soundAmbient>BulletShield_Ambience</soundAmbient>
+	</building>
     <comps>
       <li Class="CompProperties_ProjectileInterceptor">
         <radius>75</radius>
@@ -720,14 +733,14 @@
         <reactivateEffect>MortarShieldGenerator_Reactivate</reactivateEffect>
         <activeSound>MortarShield_Ambience</activeSound>
         <disarmedByEmpForTicks>360</disarmedByEmpForTicks>
-        <chargeIntervalTicks>6000000</chargeIntervalTicks>
-        <chargeDurationTicks>0</chargeDurationTicks>
-        <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+        <chargeIntervalTicks>6000</chargeIntervalTicks>
+        <chargeDurationTicks>300</chargeDurationTicks>
+		<interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
       </li>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <shortCircuitInRain>false</shortCircuitInRain>
-        <basePowerConsumption>8000</basePowerConsumption>
+        <basePowerConsumption>12000</basePowerConsumption>
       </li>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
@@ -768,6 +781,9 @@
     </costList>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
+    <building>
+      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
+    </building>
     <comps>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
@@ -808,6 +824,9 @@
       <WorkToBuild>1800</WorkToBuild>
     </statBases>
     <fillPercent>0.4</fillPercent>
+    <building>
+      <soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
+    </building>
     <passability>Impassable</passability>
     <comps>
       <li Class="CompProperties_Explosive">
