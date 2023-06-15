@@ -19,7 +19,7 @@ public class Building_SupplyCrate : Building_Casket
     protected virtual void GenerateContents()
     {
         var (def, ext) = ContrabandManager.AllContraband.RandomElement();
-        var thing = ThingMaker.MakeThing(def);
+        var thing = ThingMaker.MakeThing(def, def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null);
         thing.stackCount = ext.useCriticalIntel ? Mathf.CeilToInt(3f / ext.intelCost) : Mathf.CeilToInt(10f / ext.intelCost);
         innerContainer.TryAdd(thing);
         if (Rand.Chance(0.1f))

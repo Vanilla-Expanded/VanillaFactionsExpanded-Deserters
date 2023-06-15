@@ -60,7 +60,6 @@ public class GameCondition_DivineInferno : GameCondition
                     sentStartLetter = true;
                 }
 
-
                 var titleHolders = WorldComponent_Hierarchy.Instance.TitleHolders;
                 var emperor = titleHolders[titleHolders.Count - 1];
 
