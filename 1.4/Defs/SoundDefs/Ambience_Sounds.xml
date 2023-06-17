@@ -89,7 +89,7 @@
     <sustain>True</sustain>
     <context>MapOnly</context>
     <priorityMode>PrioritizeNearest</priorityMode>
-    <maxSimultaneous>18</maxSimultaneous>
+    <maxSimultaneous>9</maxSimultaneous>
     <sustainStartSound>FlickSwitch</sustainStartSound>
     <sustainStopSound>TurretAcquireTarget</sustainStopSound>
     <subSounds>
@@ -110,7 +110,7 @@
   <SoundDef>
     <defName>VFE_ZeusCannon_Shot</defName>  
     <context>MapOnly</context>      
-    <maxSimultaneous>10</maxSimultaneous>
+    <maxSimultaneous>9</maxSimultaneous>
     <subSounds>
       <li>
         <grains>
@@ -136,7 +136,7 @@
   <SoundDef>
     <defName>VFE_ZeusCannon_DistantExplosion</defName>  
     <context>MapOnly</context>      
-    <maxSimultaneous>10</maxSimultaneous>
+    <maxSimultaneous>9</maxSimultaneous>
     <subSounds>
       <li>
         <onCamera>True</onCamera>    
@@ -155,7 +155,7 @@
     <defName>VFE_ZeusCannon_Recharging</defName>  
     <context>MapOnly</context>
     <priorityMode>PrioritizeNearest</priorityMode>
-    <maxSimultaneous>10</maxSimultaneous>
+    <maxSimultaneous>9</maxSimultaneous>
     <subSounds>
       <li>
         <grains>
