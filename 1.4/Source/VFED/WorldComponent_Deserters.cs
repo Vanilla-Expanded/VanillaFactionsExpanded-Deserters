@@ -52,7 +52,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
 
             if (Find.TickManager.TicksGame % 60000 == 0)
             {
-                Visibility--;
+                Visibility -= DesertersMod.VisibilityChangePerDay;
                 Notify_VisibilityChanged();
                 foreach (var effect in ActiveEffects)
                     effect.TickDay();

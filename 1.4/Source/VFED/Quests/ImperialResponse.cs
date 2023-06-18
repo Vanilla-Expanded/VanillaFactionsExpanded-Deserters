@@ -67,7 +67,8 @@ public class QuestPart_ImperialResponse : QuestPartActivable
     protected override void Enable(SignalArgs receivedArgs)
     {
         base.Enable(receivedArgs);
-        responseTick = Find.TickManager.TicksGame + WorldComponent_Deserters.Instance.VisibilityLevel.imperialResponseTime.SecondsToTicks();
+        responseTick = Find.TickManager.TicksGame
+                     + (WorldComponent_Deserters.Instance.VisibilityLevel.imperialResponseTime * DesertersMod.ResponseTimeMultiplier).SecondsToTicks();
         responseDef = WorldComponent_Deserters.Instance.VisibilityLevel.imperialResponseType;
     }
 

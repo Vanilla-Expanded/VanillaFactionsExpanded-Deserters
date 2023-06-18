@@ -16,7 +16,9 @@ public class CompIntelExtract : ThingComp
         if (!CanExtract) return;
         intelExtracted = true;
         parent.Map.designationManager.TryRemoveDesignationOn(parent, VFED_DefOf.VFED_ExtractIntel);
-        GenPlace.TryPlaceThing(ThingMaker.MakeThing(VFED_DefOf.VFED_Intel), pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Near);
+        var intel = ThingMaker.MakeThing(VFED_DefOf.VFED_Intel);
+        intel.stackCount = DesertersMod.IntelFromExtraction;
+        GenPlace.TryPlaceThing(intel, pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Near);
     }
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra() =>

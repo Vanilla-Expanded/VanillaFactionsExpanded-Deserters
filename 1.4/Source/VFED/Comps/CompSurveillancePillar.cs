@@ -12,7 +12,7 @@ public class CompSurveillancePillar : CompMotionDetector
     protected override void Trigger(Thing initiator)
     {
         base.Trigger(initiator);
-        Utilities.ChangeVisibility(10);
+        Utilities.ChangeVisibility(DesertersMod.VisibilityFromPillar);
         Messages.Message("VFED.SurveillancePillarActivated".Translate(WorldComponent_Deserters.Instance.Visibility), initiator, MessageTypeDefOf.NegativeEvent);
     }
 

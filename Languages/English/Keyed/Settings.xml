@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <VFEDeserters>Vanilla Factions Expanded - Deserters</VFEDeserters>
+    <VFED.VisibilityChangePerDay>Visibility change per day: {0}</VFED.VisibilityChangePerDay>
+    <VFED.IntelFromExtractingIntel>Intel from extracting intel: {0}</VFED.IntelFromExtractingIntel>
+    <VFED.VisibilityFromPillar>Visibility gain from surveillance pillar</VFED.VisibilityFromPillar>
+    <VFED.ResponseTimeMultiplier>Response time multiplier: {0}</VFED.ResponseTimeMultiplier>
+</LanguageData>
