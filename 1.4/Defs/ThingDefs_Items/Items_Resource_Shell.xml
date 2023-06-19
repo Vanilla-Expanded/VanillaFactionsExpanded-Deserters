@@ -4,7 +4,7 @@
   <ThingDef ParentName="MakeableShellBase">
     <defName>VFED_Shell_Shrapnel</defName>
     <label>shrapnel shell</label>
-    <description>todo</description>
+    <description>Mortar shell that is designed to explode mid-air and release a large number of sharp projectiles. These projectiles are specifically designed to cut through light armored enemies, inflicting serious injuries or fatalities. Projectiles are ejected with the same vector as the mortar shell, and may be stopped by obstacles.</description>
     <possessionCount>1</possessionCount>
     <statBases>
       <MarketValue>60</MarketValue>
@@ -51,7 +51,7 @@
     <defName>VFED_Bullet_Shell_Shrapnel</defName>
     <label>shrapnel shell</label>
     <graphicData>
-      <texPath>Things/Projectile/ShellShrapnel</texPath>
+      <texPath>Projectiles/ShellShrapnel</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
@@ -66,8 +66,8 @@
       <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
       <soundAmbient>MortarRound_Ambient</soundAmbient>
       <shrapnelProjectile>VFED_Bullet_Shrapnel</shrapnelProjectile>
-      <shrapnelCount>16</shrapnelCount>
-      <shrapnelRange>10.5</shrapnelRange>
+      <shrapnelCount>24</shrapnelCount>
+      <shrapnelRange>16.5</shrapnelRange>
       <angleVariance>25</angleVariance>
     </projectile>
   </ThingDef>
@@ -92,7 +92,7 @@
   <ThingDef ParentName="MakeableShellBase">
     <defName>VFED_Shell_ArmorPiercing</defName>
     <label>armor-piercing shell</label>
-    <description>todo</description>
+    <description>Armor-piercing shells are designed to explode upon impact and destroy anything they hit, completely bypassing the armor of the target. Their explosion radius is almost non-existent, and armored targets need to be hit directly for the shell to destroy them. They are very accurate and travel at extreme speeds.</description>
     <possessionCount>1</possessionCount>
     <statBases>
       <MarketValue>65</MarketValue>
@@ -150,7 +150,7 @@
     <defName>VFED_Bullet_Shell_ArmorPiercing</defName>
     <label>armor-piercing shell</label>
     <graphicData>
-      <texPath>Things/Projectile/ShellAntiArmor</texPath>
+      <texPath>Projectiles/ShellAntiArmor</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
@@ -175,7 +175,7 @@
   <ThingDef ParentName="MakeableShellBase">
     <defName>VFED_Shell_Cluster</defName>
     <label>cluster shell</label>
-    <description>todo</description>
+    <description>Mortar shell that is designed to split mid-air and release a three high-explosive shells. Separated shells are ejected in random directions, following the same vector as the cluster shell. Explosions cover a high area but the accuracy of the shells leave a lot to be desired.</description>
     <possessionCount>1</possessionCount>
     <statBases>
       <MarketValue>170</MarketValue>
@@ -233,7 +233,7 @@
     <defName>VFED_Bullet_Shell_Cluster</defName>
     <label>cluster shell</label>
     <graphicData>
-      <texPath>Things/Projectile/ShellCluster</texPath>
+      <texPath>Projectiles/ShellCluster</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
