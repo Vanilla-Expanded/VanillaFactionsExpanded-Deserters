@@ -4,6 +4,7 @@
     <defName>VFED_KindlessKnight</defName>
     <tilesNumber>3</tilesNumber>
     <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_SmallNobleThroneRoom</def>
@@ -23,6 +24,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_PettyPraetor</defName>
     <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_SmallNobleThroneRoom</def>
@@ -46,6 +48,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_BigotedBaron</defName>
     <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_MediumNobleThroneRoom</def>
@@ -77,6 +80,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_CrookedCount</defName>
     <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_MediumNobleThroneRoom</def>
@@ -116,6 +120,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_AbusiveArchcount</defName>
     <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_MediumNobleThroneRoom</def>
@@ -163,6 +168,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_MilitantMarquess</defName>
     <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_MediumNobleThroneRoom</def>
@@ -210,6 +216,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_DepravedDuke</defName>
     <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_LargeNobleThroneRoom</def>
@@ -261,6 +268,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_ArrogantArchduke</defName>
     <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_LargeNobleThroneRoom</def>
@@ -312,6 +320,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_CorruptedConsul</defName>
     <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_LargeNobleThroneRoom</def>
@@ -363,6 +372,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_MalevolentMagister</defName>
     <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_LargeNobleThroneRoom</def>
@@ -418,6 +428,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_DerangedDespot</defName>
     <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_GrandNobleThroneRoom</def>
@@ -477,6 +488,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_SickeningStellarch</defName>
     <maxDistanceFromCenter>3</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_GrandNobleThroneRoom</def>
@@ -540,6 +552,7 @@
   <KCSG.TiledStructureDef>
     <defName>VFED_HeinousHighStellarch</defName>
     <maxDistanceFromCenter>3</maxDistanceFromCenter>
+    <rectSizeIncrease>1</rectSizeIncrease>
     <allowedTileDefs>
       <li>
         <def>VFED_GrandNobleThroneRoom</def>
