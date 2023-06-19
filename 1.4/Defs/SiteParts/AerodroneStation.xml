@@ -17,6 +17,7 @@
     <linkWithSite>VFED_AerodroneStation</linkWithSite>
     <order>460</order>
     <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <scaleWithQuest>true</scaleWithQuest>
       <tiledStructures>
         <li>VFED_AerodroneStation</li>
       </tiledStructures>
