@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <KCSG.TiledStructureDef>
+    <defName>VFED_KindlessKnight</defName>
+    <tilesNumber>3</tilesNumber>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_SmallNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_SmallNobleBedroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_PettyPraetor</defName>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_SmallNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_SmallNobleBedroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_BigotedBaron</defName>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_MediumNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumNobleBedroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_CrookedCount</defName>
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_MediumNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumNobleBedroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_AbusiveArchcount</defName>
+    <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_MediumNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumNobleBedroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_MilitantMarquess</defName>
+    <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_MediumNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumNobleBedroom</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_MediumGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_DepravedDuke</defName>
+    <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_LargeNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumNobleBedroom</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_SmallNobleBedroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_ArrogantArchduke</defName>
+    <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_LargeNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumNobleBedroom</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_LargeGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_MediumBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Gardens</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_CorruptedConsul</defName>
+    <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_LargeNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeNobleBedroom</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_LargeGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Gardens</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_MalevolentMagister</defName>
+    <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_LargeNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeNobleBedroom</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_LargeGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>4, 4</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Gardens</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_PlotPalintoneEmplacement</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_DerangedDespot</defName>
+    <maxDistanceFromCenter>2</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_GrandNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeNobleBedroom</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_LargeGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>4, 4</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Gardens</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_PlotPalintoneEmplacement</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_PlotKontarionEmplacement</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_SickeningStellarch</defName>
+    <maxDistanceFromCenter>3</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_GrandNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeNobleBedroom</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_LargeGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>4, 4</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Gardens</def>
+        <count>4, 4</count>
+      </li>
+      <li>
+        <def>VFED_PlotPalintoneEmplacement</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_PlotKontarionEmplacement</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_PlotOnagerEmplacement</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_HeinousHighStellarch</defName>
+    <maxDistanceFromCenter>3</maxDistanceFromCenter>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_GrandNobleThroneRoom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeNobleBedroom</def>
+        <count>4, 4</count>
+      </li>
+      <li>
+        <def>VFED_LargeGallery</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_LargeBallroom</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_ServantQuarters</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_Bunker</def>
+        <count>5, 5</count>
+      </li>
+      <li>
+        <def>VFED_PlotSurveillanceStation</def>
+        <count>4, 4</count>
+      </li>
+      <li>
+        <def>VFED_StockpileDepot</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_ShuttleLandingPad</def>
+        <count>3, 3</count>
+      </li>
+      <li>
+        <def>VFED_Courtyard</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_Gardens</def>
+        <count>8, 8</count>
+      </li>
+      <li>
+        <def>VFED_PlotPalintoneEmplacement</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_PlotKontarionEmplacement</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_PlotOnagerEmplacement</def>
+        <count>1, 1</count>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+</Defs>

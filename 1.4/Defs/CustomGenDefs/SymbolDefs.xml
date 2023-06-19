@@ -190,4 +190,487 @@
     <defName>VFED_ImperialUnderfarm</defName>
     <thing>VFED_ImperialUnderfarm</thing>
   </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_WoolMuffalo_North</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>WoolMuffalo</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_Gold</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>Gold</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_BlocksSlate</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>BlocksSlate</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_BlocksLimestone</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>BlocksLimestone</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_BlocksSandstone</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>BlocksSandstone</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_BlocksMarble</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>BlocksMarble</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_DevilstrandCloth_North</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>DevilstrandCloth</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialSlab_BlocksGranite_North</defName>
+    <thing>VFEE_ImperialSlab</thing>
+    <stuff>BlocksGranite</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_WoolMuffalo_West</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>WoolMuffalo</stuff>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_WoolMuffalo_South</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>WoolMuffalo</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Bird_North</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Bird</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_Plasteel</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>Plasteel</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Synthread_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Synthread</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Dog_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Dog</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_WoolMuffalo_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>WoolMuffalo</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Leather_Bird</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Leather_Bird</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_SteleSmall_BlocksMarble</defName>
+    <thing>VFEE_SteleSmall</thing>
+    <stuff>BlocksMarble</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Leather_Lizard</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Leather_Lizard</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Leather_Light</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Leather_Light</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalMirror_WoodLog_East</defName>
+    <thing>VFEE_RoyalMirror</thing>
+    <stuff>WoodLog</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Cloth_North</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Cloth</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalMirror_WoodLog_South</defName>
+    <thing>VFEE_RoyalMirror</thing>
+    <stuff>WoodLog</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Leather_Fox</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Leather_Fox</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandChair_BlocksMarble_North</defName>
+    <thing>VFEE_GrandChair</thing>
+    <stuff>BlocksMarble</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalMirror_Steel_East</defName>
+    <thing>VFEE_RoyalMirror</thing>
+    <stuff>Steel</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_WoolSheep_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>WoolSheep</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandChair_BlocksMarble_South</defName>
+    <thing>VFEE_GrandChair</thing>
+    <stuff>BlocksMarble</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalMirror_Steel_South</defName>
+    <thing>VFEE_RoyalMirror</thing>
+    <stuff>Steel</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Cloth</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Cloth</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandChair_BlocksSandstone_South</defName>
+    <thing>VFEE_GrandChair</thing>
+    <stuff>BlocksSandstone</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_BlocksGranite</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>BlocksGranite</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_Steel</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>Steel</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_SteleSmall_BlocksGranite</defName>
+    <thing>VFEE_SteleSmall</thing>
+    <stuff>BlocksGranite</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureLarge_BlocksMarble</defName>
+    <thing>VFEE_RoyalSculptureLarge</thing>
+    <stuff>BlocksMarble</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_Uranium</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>Uranium</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_Jade</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>Jade</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureSmall_WoodLog</defName>
+    <thing>VFEE_RoyalSculptureSmall</thing>
+    <stuff>WoodLog</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureLarge_WoodLog</defName>
+    <thing>VFEE_RoyalSculptureLarge</thing>
+    <stuff>WoodLog</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureLarge_Uranium</defName>
+    <thing>VFEE_RoyalSculptureLarge</thing>
+    <stuff>Uranium</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Cloth_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Cloth</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_PipeOrgan_East</defName>
+    <thing>VFEE_PipeOrgan</thing>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_WoolSheep</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>WoolSheep</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandChair_BlocksSlate_South</defName>
+    <thing>VFEE_GrandChair</thing>
+    <stuff>BlocksSlate</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_Turret_Onager</defName>
+    <thing>VFED_Turret_Onager</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFED_AmmoBox_Missile</defName>
+    <thing>VFED_AmmoBox_Missile</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Leather_Dog</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Leather_Dog</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialSlab_BlocksSlate_South</defName>
+    <thing>VFEE_ImperialSlab</thing>
+    <stuff>BlocksSlate</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Leather_Wolf</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Leather_Wolf</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Cloth_West</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Cloth</stuff>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandRoyalRug_Leather_Elephant_South</defName>
+    <thing>VFEE_GrandRoyalRug</thing>
+    <stuff>Leather_Elephant</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Cloth_South</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Cloth</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_SteleSmall_BlocksLimestone</defName>
+    <thing>VFEE_SteleSmall</thing>
+    <stuff>BlocksLimestone</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialBanner_Leather_Panthera</defName>
+    <thing>VFEE_ImperialBanner</thing>
+    <stuff>Leather_Panthera</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Panthera_South</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Panthera</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_PipeOrgan_South</defName>
+    <thing>VFEE_PipeOrgan</thing>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_ImperialSlab_BlocksSandstone_South</defName>
+    <thing>VFEE_ImperialSlab</thing>
+    <stuff>BlocksSandstone</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_DevilstrandCloth_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>DevilstrandCloth</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_SteleSmall_BlocksSandstone</defName>
+    <thing>VFEE_SteleSmall</thing>
+    <stuff>BlocksSandstone</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureLarge_BlocksSandstone</defName>
+    <thing>VFEE_RoyalSculptureLarge</thing>
+    <stuff>BlocksSandstone</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureLarge_BlocksSlate</defName>
+    <thing>VFEE_RoyalSculptureLarge</thing>
+    <stuff>BlocksSlate</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_Gun_ChargeThumper</defName>
+    <thing>VFEE_Gun_ChargeThumper</thing>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Panthera_West</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Panthera</stuff>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Panthera_East</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Panthera</stuff>
+    <rotation>East</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandRoyalRug_Leather_Panthera_South</defName>
+    <thing>VFEE_GrandRoyalRug</thing>
+    <stuff>Leather_Panthera</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_Leather_Panthera_North</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>Leather_Panthera</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandChair_BlocksSlate_West</defName>
+    <thing>VFEE_GrandChair</thing>
+    <stuff>BlocksSlate</stuff>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalStool_DevilstrandCloth_West</defName>
+    <thing>VFEE_RoyalStool</thing>
+    <stuff>DevilstrandCloth</stuff>
+    <rotation>West</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureGrand_BlocksSandstone</defName>
+    <thing>VFEE_RoyalSculptureGrand</thing>
+    <stuff>BlocksSandstone</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_LargeRoyalRug_DevilstrandCloth_South</defName>
+    <thing>VFEE_LargeRoyalRug</thing>
+    <stuff>DevilstrandCloth</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureLarge_Gold</defName>
+    <thing>VFEE_RoyalSculptureLarge</thing>
+    <stuff>Gold</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandRoyalRug_WoolSheep_South</defName>
+    <thing>VFEE_GrandRoyalRug</thing>
+    <stuff>WoolSheep</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandChair_Steel_South</defName>
+    <thing>VFEE_GrandChair</thing>
+    <stuff>Steel</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureLarge_Jade</defName>
+    <thing>VFEE_RoyalSculptureLarge</thing>
+    <stuff>Jade</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_SteleSmall_Jade</defName>
+    <thing>VFEE_SteleSmall</thing>
+    <stuff>Jade</stuff>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_GrandRoyalRug_Leather_Lizard_South</defName>
+    <thing>VFEE_GrandRoyalRug</thing>
+    <stuff>Leather_Lizard</stuff>
+    <rotation>South</rotation>
+  </KCSG.SymbolDef>
+
+  <KCSG.SymbolDef>
+    <defName>VFEE_RoyalSculptureGrand_Jade</defName>
+    <thing>VFEE_RoyalSculptureGrand</thing>
+    <stuff>Jade</stuff>
+  </KCSG.SymbolDef>
 </Defs>
