@@ -51,7 +51,7 @@
     <defName>VFED_Bullet_Shell_Shrapnel</defName>
     <label>shrapnel shell</label>
     <graphicData>
-      <texPath>Things/Projectile/ShellHighExplosive</texPath>
+      <texPath>Things/Projectile/ShellShrapnel</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
@@ -150,7 +150,7 @@
     <defName>VFED_Bullet_Shell_ArmorPiercing</defName>
     <label>armor-piercing shell</label>
     <graphicData>
-      <texPath>Things/Projectile/ShellHighExplosive</texPath>
+      <texPath>Things/Projectile/ShellAntiArmor</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
@@ -233,7 +233,7 @@
     <defName>VFED_Bullet_Shell_Cluster</defName>
     <label>cluster shell</label>
     <graphicData>
-      <texPath>Things/Projectile/ShellHighExplosive</texPath>
+      <texPath>Things/Projectile/ShellCluster</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
