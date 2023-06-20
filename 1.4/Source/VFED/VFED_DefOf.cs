@@ -13,6 +13,7 @@ public class VFED_DefOf
     public static ThingDef VFED_Filth_Propaganda;
     public static ThingDef VFED_DropPodIncoming_Propaganda;
     public static ThingDef VFED_DeserterShuttle;
+    public static ThingDef VFED_Bullet_Shell_ArmorPiercing;
 
     public static ThingDef VFED_Intel;
     public static ThingDef VFED_CriticalIntel;

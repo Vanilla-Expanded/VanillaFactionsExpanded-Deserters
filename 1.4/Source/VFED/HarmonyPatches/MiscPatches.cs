@@ -121,4 +121,85 @@ public static class MiscPatches
         codes[idx2].operand = AccessTools.Method(typeof(ThingDef), nameof(ThingDef.HasAssignableCompFrom));
         return codes;
     }
+
+    [HarmonyPatch(typeof(Verb_LaunchProjectile), "TryCastShot")]
+    [HarmonyTranspiler]
+    public static IEnumerable<CodeInstruction> APAlwaysHits(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codes = instructions.ToList();
+        var info1 = AccessTools.PropertyGetter(typeof(VerbProperties), nameof(VerbProperties.ForcedMissRadius));
+        var idx1 = codes.FindIndex(ins => ins.Calls(info1));
+        var idx2 = codes.FindIndex(idx1, ins => ins.Branches(out _));
+        var label1 = generator.DefineLabel();
+        var label2 = generator.DefineLabel();
+        codes[idx2 + 1].labels.Add(label1);
+        codes.InsertRange(idx2 + 1, new[]
+        {
+            new CodeInstruction(OpCodes.Ldloc_0),
+            new CodeInstruction(OpCodes.Ldsfld, AccessTools.Field(typeof(VFED_DefOf), nameof(VFED_DefOf.VFED_Bullet_Shell_ArmorPiercing))),
+            new CodeInstruction(OpCodes.Beq, label2),
+            new CodeInstruction(OpCodes.Br, label1),
+            new CodeInstruction(OpCodes.Nop).WithLabels(label2),
+            new CodeInstruction(OpCodes.Ldloc, 7),
+            new CodeInstruction(OpCodes.Ldloc_3),
+            new CodeInstruction(OpCodes.Ldloc, 6),
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Verb), "currentTarget")),
+            new CodeInstruction(OpCodes.Dup),
+            new CodeInstruction(OpCodes.Ldc_I4_1),
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(Verb), "preventFriendlyFire")),
+            new CodeInstruction(OpCodes.Ldloc, 4),
+            new CodeInstruction(OpCodes.Ldnull),
+            new CodeInstruction(OpCodes.Callvirt,
+                AccessTools.Method(typeof(Projectile), nameof(Projectile.Launch),
+                    new[]
+                    {
+                        typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(bool),
+                        typeof(Thing), typeof(ThingDef)
+                    })),
+            new CodeInstruction(OpCodes.Ldc_I4_1),
+            new CodeInstruction(OpCodes.Ret)
+        });
+        return codes;
+    }
+
+    [HarmonyPatch(typeof(PlaceWorker_ShowTurretRadius), nameof(PlaceWorker_ShowTurretRadius.AllowsPlacing))]
+    [HarmonyTranspiler]
+    public static IEnumerable<CodeInstruction> FixPlaceworkerForLargeRadius(IEnumerable<CodeInstruction> instructions)
+    {
+        var codes = instructions.ToList();
+
+        var info1 = AccessTools.Field(typeof(VerbProperties), nameof(VerbProperties.range));
+        var idx1 = codes.FindIndex(ins => ins.LoadsField(info1));
+        Label? label1 = null;
+        var idx2 = codes.FindIndex(idx1, ins => ins.Branches(out label1));
+        if (idx2 == -1 || label1 == null)
+            Log.Error("[VFED] Failed to find jump label in PlaceWorker_ShowTurretRadius");
+        else
+            codes.InsertRange(idx2 + 1, new[]
+            {
+                new CodeInstruction(OpCodes.Ldloc_0),
+                new CodeInstruction(OpCodes.Ldfld, info1),
+                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(GenRadial), nameof(GenRadial.MaxRadialPatternRadius))),
+                new CodeInstruction(OpCodes.Bge, label1.Value)
+            });
+
+        info1 = AccessTools.Field(typeof(VerbProperties), nameof(VerbProperties.minRange));
+        idx1 = codes.FindIndex(ins => ins.LoadsField(info1));
+        label1 = null;
+        idx2 = codes.FindIndex(idx1, ins => ins.Branches(out label1));
+        if (idx2 == -1 || label1 == null)
+            Log.Error("[VFED] Failed to find jump label in PlaceWorker_ShowTurretRadius");
+        else
+            codes.InsertRange(idx2 + 1, new[]
+            {
+                new CodeInstruction(OpCodes.Ldloc_0),
+                new CodeInstruction(OpCodes.Ldfld, info1),
+                new CodeInstruction(OpCodes.Call, AccessTools.PropertyGetter(typeof(GenRadial), nameof(GenRadial.MaxRadialPatternRadius))),
+                new CodeInstruction(OpCodes.Bge, label1.Value)
+            });
+
+        return codes;
+    }
 }

@@ -58,6 +58,11 @@ public class Building_TurretGunBarrels : Building_TurretGun
         Scribe_Values.Look(ref rotationVelocity, nameof(rotationVelocity));
     }
 
+    public override string GetInspectString() =>
+        Prefs.DevMode && CurrentTarget.IsValid
+            ? base.GetInspectString() + $"\nCurrent Angle: {curAngle}, Target Angle: {(CurrentTarget.Cell.ToVector3Shifted() - DrawPos).AngleFlat()}"
+            : base.GetInspectString();
+
     [HarmonyPatch(typeof(Building_TurretGun), "BurstComplete")]
     [HarmonyPostfix]
     public static void BurstComplete_Postfix(Building_TurretGun __instance)
