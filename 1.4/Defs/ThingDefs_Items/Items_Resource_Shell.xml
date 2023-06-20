@@ -175,7 +175,7 @@
   <ThingDef ParentName="MakeableShellBase">
     <defName>VFED_Shell_Cluster</defName>
     <label>cluster shell</label>
-    <description>Mortar shell that is designed to split mid-air and release a three high-explosive shells. Separated shells are ejected in random directions, following the same vector as the cluster shell. Explosions cover a high area but the accuracy of the shells leave a lot to be desired.</description>
+    <description>Mortar shell that is designed to split mid-air and release three high-explosive shells. Separated shells are ejected in random directions, following the same vector as the cluster shell. Explosions cover a high area but the accuracy of the shells leave a lot to be desired.</description>
     <possessionCount>1</possessionCount>
     <statBases>
       <MarketValue>170</MarketValue>
