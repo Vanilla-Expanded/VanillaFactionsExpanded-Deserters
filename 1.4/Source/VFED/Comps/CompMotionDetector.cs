@@ -70,7 +70,7 @@ public abstract class CompMotionDetector : ThingComp
 
     private bool TriggerOn(Thing t) =>
         t is Pawn pawn && (!Props.onlyHumanlike || pawn.RaceProps.Humanlike) && (!Props.onlyHostile || pawn.HostileTo(parent))
-     && (!Props.onlyPlayer || pawn.Faction.IsPlayerSafe());
+     && (!Props.onlyPlayer || pawn.Faction.IsPlayerSafe()) && !pawn.IsInvisible();
 
     public override string CompInspectStringExtra()
     {
