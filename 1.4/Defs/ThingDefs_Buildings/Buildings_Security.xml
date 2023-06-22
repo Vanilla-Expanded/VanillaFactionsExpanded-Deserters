@@ -191,7 +191,7 @@
 
   <ThingDef ParentName="VFED_RemoteChargeBase">
     <defName>VFED_RemoteTrapIED_AntigrainWarhead</defName>
-    <label>IED antigrain warhead trap</label>
+    <label>remote antigrain charge</label>
     <description>A pair of antigrain warheads connected to a remote triggering mechanism. It can be detonated at will, but the fuse time might vary. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
     <graphicData>
       <texPath>Structures/Security/RemoteChargeTrapAntigrain</texPath>
@@ -237,6 +237,175 @@
     </graphicData>
     <tickerType>Normal</tickerType>
     <drawerType>RealtimeOnly</drawerType>
+  </ThingDef>
+  
+  <ThingDef ParentName="TrapIEDBase">
+    <defName>VFED_TrapIED_Shrapnel</defName>
+    <label>IED shrapnel trap</label>
+    <description>A pair of shrapnel shells connected to a trigger which detonates on touch or bullet impact. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+    <graphicData>
+      <texPath>Structures/Security/IEDShrapnel</texPath>
+    </graphicData>
+    <costList>
+      <VFED_Shell_Shrapnel>2</VFED_Shell_Shrapnel>
+    </costList>
+    <uiOrder>47</uiOrder>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>15</wickTicks>
+        <startWickOnDamageTaken>
+          <li>Bullet</li>
+          <li>Arrow</li>
+          <li>ArrowHighVelocity</li>
+        </startWickOnDamageTaken>
+      </li>
+    </comps>
+    <specialDisplayRadius>9.9</specialDisplayRadius>
+  </ThingDef>
+  
+  <ThingDef ParentName="TrapIEDBase">
+    <defName>VFED_TrapIED_ArmorPiercing</defName>
+    <label>IED armor-piercing trap</label>
+    <description>A pair of armor-piercing shells connected to a trigger which detonates on touch or bullet impact. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+    <graphicData>
+      <texPath>Structures/Security/IEDAntiArmor</texPath>
+    </graphicData>
+    <costList>
+      <VFED_Shell_ArmorPiercing>2</VFED_Shell_ArmorPiercing>
+    </costList>
+    <uiOrder>48</uiOrder>
+    <comps>
+      <li Class="CompProperties_Explosive">
+		<armorPenetrationBase>3.0</armorPenetrationBase>
+		<explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>BombSuper</explosiveDamageType>
+		<damageAmountBase>80</damageAmountBase>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>1</wickTicks>
+        <startWickOnDamageTaken>
+          <li>Bullet</li>
+          <li>Arrow</li>
+          <li>ArrowHighVelocity</li>
+        </startWickOnDamageTaken>
+      </li>
+    </comps>
+    <specialDisplayRadius>2.9</specialDisplayRadius>
+  </ThingDef>
+  
+  <ThingDef ParentName="TrapIEDBase">
+    <defName>VFED_TrapIED_Cluster</defName>
+    <label>IED cluster trap</label>
+    <description>A pair of cluster shells connected to a trigger which detonates on touch or bullet impact. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+    <graphicData>
+      <texPath>Structures/Security/IEDCluster</texPath>
+    </graphicData>
+    <costList>
+      <VFED_Shell_Cluster>2</VFED_Shell_Cluster>
+    </costList>
+    <uiOrder>49</uiOrder>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>15</wickTicks>
+        <startWickOnDamageTaken>
+          <li>Bullet</li>
+          <li>Arrow</li>
+          <li>ArrowHighVelocity</li>
+        </startWickOnDamageTaken>
+      </li>
+    </comps>
+    <specialDisplayRadius>13.9</specialDisplayRadius>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_RemoteChargeBase">
+    <defName>VFED_RemoteTrapIED_Shrapnel</defName>
+    <label>remote shrapnel charge</label>
+    <description>A pair of shrapnel shells connected to a remote triggering mechanism. It can be detonated at will, but the fuse time might vary. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+    <graphicData>
+      <texPath>Structures/Security/RemoteChargeTrapShrapnel</texPath>
+    </graphicData>
+    <uiOrder>47</uiOrder>
+    <costList>
+      <VFED_Shell_Shrapnel>2</VFED_Shell_Shrapnel>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>15</wickTicks>
+        <startWickOnDamageTaken>
+          <li>Bullet</li>
+          <li>Arrow</li>
+          <li>ArrowHighVelocity</li>
+        </startWickOnDamageTaken>
+      </li>
+    </comps>
+    <specialDisplayRadius>9.9</specialDisplayRadius>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_RemoteChargeBase">
+    <defName>VFED_RemoteTrapIED_ArmorPiercing</defName>
+    <label>remote armor-piercing charge</label>
+    <description>A pair of armor-piercing shells connected to a remote triggering mechanism. It can be detonated at will, but the fuse time might vary. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+    <graphicData>
+      <texPath>Structures/Security/RemoteChargeTrapAntiArmor</texPath>
+    </graphicData>
+    <uiOrder>48</uiOrder>
+    <costList>
+      <VFED_Shell_ArmorPiercing>2</VFED_Shell_ArmorPiercing>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+		<armorPenetrationBase>3.0</armorPenetrationBase>
+		<explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>BombSuper</explosiveDamageType>
+		<damageAmountBase>80</damageAmountBase>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>1</wickTicks>
+        <startWickOnDamageTaken>
+          <li>Bullet</li>
+          <li>Arrow</li>
+          <li>ArrowHighVelocity</li>
+        </startWickOnDamageTaken>
+      </li>
+    </comps>
+    <specialDisplayRadius>2.9</specialDisplayRadius>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_RemoteChargeBase">
+    <defName>VFED_RemoteTrapIED_Cluster</defName>
+    <label>remote cluster charge</label>
+    <description>A pair of cluster shells connected to a remote triggering mechanism. It can be detonated at will, but the fuse time might vary. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+    <graphicData>
+      <texPath>Structures/Security/RemoteChargeTrapCluster</texPath>
+    </graphicData>
+    <uiOrder>49</uiOrder>
+    <costList>
+      <VFED_Shell_Cluster>2</VFED_Shell_Cluster>
+	  <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <wickTicks>15</wickTicks>
+        <startWickOnDamageTaken>
+          <li>Bullet</li>
+          <li>Arrow</li>
+          <li>ArrowHighVelocity</li>
+        </startWickOnDamageTaken>
+      </li>
+    </comps>
+    <specialDisplayRadius>13.9</specialDisplayRadius>
   </ThingDef>
 
 </Defs>
