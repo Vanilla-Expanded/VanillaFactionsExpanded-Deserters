@@ -280,7 +280,7 @@
     <comps>
       <li Class="CompProperties_Explosive">
 		<armorPenetrationBase>3.0</armorPenetrationBase>
-		<explosiveRadius>2.9</explosiveRadius>
+		<explosiveRadius>1.9</explosiveRadius>
         <explosiveDamageType>BombSuper</explosiveDamageType>
 		<damageAmountBase>80</damageAmountBase>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
@@ -365,7 +365,7 @@
     <comps>
       <li Class="CompProperties_Explosive">
 		<armorPenetrationBase>3.0</armorPenetrationBase>
-		<explosiveRadius>2.9</explosiveRadius>
+		<explosiveRadius>1.9</explosiveRadius>
         <explosiveDamageType>BombSuper</explosiveDamageType>
 		<damageAmountBase>80</damageAmountBase>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
