@@ -251,9 +251,9 @@
     </costList>
     <uiOrder>47</uiOrder>
     <comps>
-      <li Class="CompProperties_Explosive">
-        <explosiveRadius>3.9</explosiveRadius>
-        <explosiveDamageType>Bomb</explosiveDamageType>
+      <li Class="VFED.CompProperties_Explosive_Shells">
+        <explosiveRadius>0.1</explosiveRadius>
+        <explosiveDamageType>Burn</explosiveDamageType>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
         <wickTicks>15</wickTicks>
         <startWickOnDamageTaken>
@@ -261,6 +261,9 @@
           <li>Arrow</li>
           <li>ArrowHighVelocity</li>
         </startWickOnDamageTaken>
+        <shell>VFED_Bullet_Shrapnel</shell>
+        <shellCount>48</shellCount>
+        <shellDist>10~18</shellDist>
       </li>
     </comps>
     <specialDisplayRadius>9.9</specialDisplayRadius>
@@ -279,10 +282,10 @@
     <uiOrder>48</uiOrder>
     <comps>
       <li Class="CompProperties_Explosive">
-		<armorPenetrationBase>3.0</armorPenetrationBase>
-		<explosiveRadius>1.9</explosiveRadius>
+		    <armorPenetrationBase>3.0</armorPenetrationBase>
+		    <explosiveRadius>1.9</explosiveRadius>
         <explosiveDamageType>BombSuper</explosiveDamageType>
-		<damageAmountBase>80</damageAmountBase>
+		    <damageAmountBase>80</damageAmountBase>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
         <wickTicks>1</wickTicks>
         <startWickOnDamageTaken>
@@ -307,16 +310,19 @@
     </costList>
     <uiOrder>49</uiOrder>
     <comps>
-      <li Class="CompProperties_Explosive">
-        <explosiveRadius>3.9</explosiveRadius>
-        <explosiveDamageType>Bomb</explosiveDamageType>
+      <li Class="VFED.CompProperties_Explosive_Shells">
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+        <explosiveRadius>0.1</explosiveRadius>
+        <explosiveDamageType>Burn</explosiveDamageType>
         <wickTicks>15</wickTicks>
         <startWickOnDamageTaken>
           <li>Bullet</li>
           <li>Arrow</li>
           <li>ArrowHighVelocity</li>
         </startWickOnDamageTaken>
+        <shell>Shell_HighExplosive</shell>
+        <shellCount>6</shellCount>
+        <shellDist>10~18</shellDist>
       </li>
     </comps>
     <specialDisplayRadius>13.9</specialDisplayRadius>
