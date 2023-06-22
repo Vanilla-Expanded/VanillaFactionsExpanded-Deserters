@@ -263,7 +263,7 @@
         </startWickOnDamageTaken>
         <shell>VFED_Bullet_Shrapnel</shell>
         <shellCount>48</shellCount>
-        <shellDist>10~18</shellDist>
+        <shellDist>1~10</shellDist>
       </li>
     </comps>
     <specialDisplayRadius>9.9</specialDisplayRadius>
@@ -322,7 +322,7 @@
         </startWickOnDamageTaken>
         <shell>Shell_HighExplosive</shell>
         <shellCount>6</shellCount>
-        <shellDist>10~18</shellDist>
+        <shellDist>2~10</shellDist>
       </li>
     </comps>
     <specialDisplayRadius>13.9</specialDisplayRadius>
@@ -353,7 +353,7 @@
         </startWickOnDamageTaken>
         <shell>VFED_Bullet_Shrapnel</shell>
         <shellCount>48</shellCount>
-        <shellDist>10~18</shellDist>
+        <shellDist>1~10</shellDist>
       </li>
     </comps>
     <specialDisplayRadius>9.9</specialDisplayRadius>
@@ -414,7 +414,7 @@
         </startWickOnDamageTaken>
         <shell>Shell_HighExplosive</shell>
         <shellCount>6</shellCount>
-        <shellDist>10~18</shellDist>
+        <shellDist>2~10</shellDist>
       </li>
     </comps>
     <specialDisplayRadius>13.9</specialDisplayRadius>
