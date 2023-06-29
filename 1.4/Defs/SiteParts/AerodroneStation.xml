@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <SitePartDef>
+  <SitePartDef ParentName="VFED_DeserterMissionSiteBase">
     <defName>VFED_AerodroneStation</defName>
     <label>aerodrone station</label>
     <description>An Imperial Aerodrone Station.</description>
-    <workerClass>VFED.SitePartWorker_Objectives</workerClass>
-    <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
     <expandingIconTexture>WorldObjects/QuestIcon_AerodroneStationSabotage</expandingIconTexture>
     <tags>
       <li>VFED_AerodroneStation</li>

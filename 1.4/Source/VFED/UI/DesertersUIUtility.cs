@@ -42,21 +42,11 @@ public static class DesertersUIUtility
     public static bool DoPurchaseButton(Rect inRect, string text, int intelCost, int criticalIntelCost, Dialog_DeserterNetwork parent)
     {
         if (!parent.HasIntel(intelCost, criticalIntelCost)) GUI.color = Color.grey;
-        if (Widgets.ButtonText(inRect, text))
+        if (Widgets.ButtonText(inRect, text) && parent.TrySpendIntel(intelCost, criticalIntelCost))
         {
-            if (intelCost > parent.TotalIntel)
-                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_Intel.LabelCap, intelCost, parent.TotalIntel), MessageTypeDefOf.RejectInput,
-                    false);
-            else if (criticalIntelCost > parent.TotalCriticalIntel)
-                Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_CriticalIntel.LabelCap, criticalIntelCost, parent.TotalCriticalIntel),
-                    MessageTypeDefOf.RejectInput, false);
-            else
-            {
-                parent.TrySpendIntel(intelCost, criticalIntelCost);
-                SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
-                GUI.color = Color.white;
-                return true;
-            }
+            SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
+            GUI.color = Color.white;
+            return true;
         }
 
         GUI.color = Color.white;

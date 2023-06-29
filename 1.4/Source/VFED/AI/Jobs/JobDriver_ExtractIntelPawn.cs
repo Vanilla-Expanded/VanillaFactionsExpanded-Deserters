@@ -6,7 +6,7 @@ using Verse.AI;
 using Verse.Sound;
 using VFECore.Abilities;
 
-namespace VFED.Jobs;
+namespace VFED;
 
 public class JobDriver_ExtractIntelPawn : JobDriver
 {

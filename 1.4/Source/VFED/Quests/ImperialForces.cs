@@ -99,3 +99,30 @@ public class PawnGroupMakerParms_Saveable : PawnGroupMakerParms, IExposable
         Scribe_Defs.Look(ref raidAgeRestriction, nameof(raidAgeRestriction));
     }
 }
+
+public class QuestNode_GenerateForces : QuestNode
+{
+    public SlateRef<float> points;
+    public SlateRef<string> storeAs;
+
+    protected override void RunInt()
+    {
+        var slate = QuestGen.slate;
+        slate.Set(storeAs.GetValue(slate), PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
+            {
+                groupKind = PawnGroupKindDefOf.Combat,
+                points = points.GetValue(slate),
+                faction = Faction.OfEmpire,
+                generateFightersOnly = true
+            })
+           .Select(pawn =>
+            {
+                if (!pawn.IsWorldPawn()) Find.WorldPawns.PassToWorld(pawn, PawnDiscardDecideMode.KeepForever);
+                QuestGen.AddToGeneratedPawns(pawn);
+                return pawn;
+            })
+           .ToList());
+    }
+
+    protected override bool TestRunInt(Slate slate) => true;
+}

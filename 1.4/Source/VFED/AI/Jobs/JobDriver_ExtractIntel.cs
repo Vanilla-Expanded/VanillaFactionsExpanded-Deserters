@@ -2,7 +2,7 @@
 using Verse;
 using Verse.AI;
 
-namespace VFED.Jobs;
+namespace VFED;
 
 public class JobDriver_ExtractIntel : JobDriver
 {

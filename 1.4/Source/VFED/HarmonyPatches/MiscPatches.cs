@@ -202,4 +202,12 @@ public static class MiscPatches
 
         return codes;
     }
+
+    [HarmonyPatch(typeof(Quest), nameof(Quest.End))]
+    [HarmonyPostfix]
+    public static void CheckForPlotEnd(Quest __instance)
+    {
+        if (WorldComponent_Deserters.Instance.PlotMissions.Any(plotMission => plotMission.quest == __instance))
+            WorldComponent_Deserters.Instance.Notify_PlotQuestEnded(__instance);
+    }
 }

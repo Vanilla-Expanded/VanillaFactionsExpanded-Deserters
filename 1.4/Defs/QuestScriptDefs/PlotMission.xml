@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFED_PlotMission</defName>
+        <isRootSpecial>true</isRootSpecial>
+        <questNameRules>
+            <include>
+                <li>VFED_PlotName</li>
+            </include>
+            <rulesStrings>
+                <li>questName->[plotName]</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription(nobleTitle==Knight)->[noble_nameFull] is a knight of [empire_name], infamous for the brutal tactics and ruthless methods of extracting information from prisoners. [noble_pronoun] gained [noble_possessive] name due to the atrocious acts [noble_pronoun] commits in the name of the Emperor, leaving a trail of destruction in their wake.
+\nEliminating [noble_nameFull] would be a significant victory for the deserter cause, as [noble_pronoun] is responsible for the capture and interrogation of many of our sympathizers. Completing this mission would disrupt the Empire's intelligence-gathering operations and hinder their ability to track and locate the deserter cells.</li>
+                <li>questDescription(nobleTitle==Praetor)->[noble_nameFull] is a praetor of [empire_name], known for [noble_possessive] small-minded and vindictive nature, often punishing subordinates for minor infractions and taking pleasure in exerting [noble_possessive] power over others. [noble_pronoun] gained [noble_possessive] moniker due to [noble_possessive] tendency to focus on petty grievances rather than more significant issues.
+\nAssassinating [noble_nameFull] would be a significant boon for the deserters, as [noble_pronoun] is responsible for overseeing the occupation of several key settlements and has a reputation for being particularly harsh on dissenters. Removing [noble_objective] from power would weaken Imperial control in the region and potentially inspire other subjects to rise up against their oppressors.</li>
+                <li>questDescription(nobleTitle==Baron)->[noble_nameFull] is a baron of [empire_name], known for [noble_possessive] prejudiced views and discriminatory policies towards non-baseliners. [noble_pronoun] gained this moniker due to intolerant and narrow-minded worldview, which has caused great suffering and injustice for many under [noble_possessive] rule.
+\nAssassinating [noble_nameFull] would be a crucial victory for the deserters, as [noble_pronoun] is a key figurehead of the Empire's anti-xeno policies and a driving force behind their efforts to suppress and subjugate non-baseliners. [noble_possessive] death would send a message to other Imperial leaders that the deserters will not stand for such bigotry and discrimination.</li>
+                <li>questDescription(nobleTitle==Count)->[noble_nameFull] is a count of [empire_name], known for [noble_possessive] corrupt and scheming ways, using wealth and influence to manipulate politics and advance [noble_possessive] own interests. [noble_pronoun] gained this moniker due to dishonest and unethical behavior, often engaging in underhanded dealings and double-crossing those who oppose [noble_objective].
+\nAssassinating [noble_nameFull] would be a significant blow to the Empire, as [noble_pronoun] is a key figure in the Imperial court and wields a great deal of power and influence. [noble_possessive] death would disrupt the political balance and potentially spark infighting among rival factions, weakening the Empire's cohesion and ability to respond to deserter threats.</li>
+                <li>questDescription(nobleTitle==VFEE_Archcount)->[noble_nameFull] is an archcount of [empire_name] notorious for [noble_possessive] sadistic tendencies and cruel treatment of those under [noble_possessive] command. [noble_pronoun] gained this moniker due to abusive behavior, which has left a trail of broken lives and shattered spirits in [noble_possessive] wake.
+\nAssassinating [noble_nameFull] would be a significant victory for the deserters, as [noble_pronoun] is responsible for overseeing the construction of several key Imperial fortifications and the management of labor camps where prisoners are subjected to horrific conditions. [noble_possessive] death would disrupt the Empire's construction projects and potentially inspire uprisings among the oppressed laborers.</li>
+                <li>questDescription(nobleTitle==VFEE_Marquess)->[noble_nameFull] is a marquess of [empire_name] known for [noble_possessive] aggressive and militaristic approach to governance, advocating for the expansion of the Empire's military might and the suppression of dissenting voices. [noble_pronoun] gained this moniker due to fervent dedication to military might and discipline, and belief that war is the solution to all problems.
+\nEliminating [noble_nameFull] would be a crucial victory for the deserters, as [noble_pronoun] is a key proponent of the Empire's militarization efforts and a driving force behind their expansionist policies. [noble_possessive] death would disrupt the Empire's plans for conquest and potentially dissuade other leaders from pursuing similar aggressive strategies.</li>
+                <li>questDescription(nobleTitle==Duke)->[noble_nameFull] is a duke of [empire_name] known for hedonistic lifestyle and depraved behavior, using wealth and influence to indulge in all manner of vices and debauchery. [noble_pronoun] gained this moniker due to immoral and corrupt behavior, often using power to exploit and abuse those beneath him.
+\nAssassinating [noble_nameFull] would be a significant blow to the Empire, as [noble_pronoun] is a key figure in the Imperial court and wields a great deal of power and influence. [noble_possessive] death would disrupt the political balance and potentially create openings for deserter spies and sympathizers to gain valuable intelligence.</li>
+                <li>questDescription(nobleTitle==VFEE_Archduke)->[noble_nameFull] is an archduke of [empire_name] known for [noble_possessive] haughty and dismissive attitude towards those [noble_pronoun] deems beneath [noble_objective], often belittling and insulting [noble_possessive] subordinates and opponents alike. [noble_pronoun] gained this moniker due to overwhelming sense of entitlement and superiority, which has earned [noble_objective] a reputation as a difficult and unpleasant figure to work with.
+\n[noble_nameFull] is widely disliked among [noble_possessive] peers, who would likely welcome a change of command and defect to our cause, providing valuable resources and information. [noble_possessive] death would also serve as a warning to other Imperial leaders that the deserters will not tolerate such arrogance and disrespect towards others, potentially inspiring imperial soldiers to join the deserter cause and overthrow the oppressive Empire.</li>
+                <li>questDescription(nobleTitle==Consul)->[noble_nameFull] is a consul of [empire_name] who holds a high position in the Imperial court and is known for [noble_possessive] unethical and immoral behavior. [noble_pronoun] gained this moniker due to reputation for bribery, embezzlement, and other corrupt practices, which [noble_pronoun] uses to maintain [noble_possessive] position and influence with the Emperor.
+\n[noble_nameFull] is widely disliked among the people, who suffer from [noble_possessive] corrupt practices and the resulting economic inequality and injustice. [noble_possessive] death would likely inspire rebellion among oppressed populations and potentially sway other members of the Imperial court to defect to the deserter cause, providing valuable resources and support in the fight against the Empire.</li>
+                <li>questDescription(nobleTitle==VFEE_Magister)->[noble_nameFull] is a magister of [empire_name] who holds a high position in the Imperial court and is known for [noble_possessive] ruthless and oppressive tactics. [noble_pronoun] gained [noble_possessive] moniker due to the reputation for decimating [noble_possessive] own subjects in order to maintain obedience and instill fear in the rest of the population.
+\nAssassinating [noble_nameFull] would be a significant blow to the Empire and a major victory for the deserters, bringing us one step closer to the final mission. [noble_possessive] death would not only disrupt the political balance but also remove a key figure responsible for the brutal oppression and subjugation of the people.</li>
+                <li>questDescription(nobleTitle==VFEE_Despot)->[noble_nameFull] is a despot of [empire_name] who holds a high position in the Imperial court and is known for [noble_possessive] madness and depravity. [noble_pronoun] earned this moniker due to [noble_possessive] reputation for sadistic and cruel behavior, including forcing numerous subjects to serve in [noble_possessive] personal pleasure house, where disobedience is punished with death.
+\nAssassinating [noble_nameFull] would be a crucial victory for the deserter cause, as [noble_possessive] removal from power would not only disrupt the political balance but also remove a key figure responsible for the inhumane treatment of the people. [noble_possessive] death would also likely weaken the morale of the Imperial forces and potentially inspire rebellion among the oppressed masses.</li>
+                <li>questDescription(nobleTitle==Stellarch)->[noble_nameFull] is a powerful and feared stellarch of [empire_name], known for [noble_possessive] ruthless tactics and eugenic beliefs. [noble_pronoun] earned [noble_possessive] moniker due to [noble_possessive] reputation for forcing euthanasia on any noble children with any sort of deformities or disabilities, a practice that is cruel, inhumane and wrong.
+\nAssassinating [noble_nameFull] would be a major blow to the Imperial regime, as it would remove a key figure responsible for the perpetuation of eugenic practices and the persecution of the disabled. It would also strike a blow against the Imperial propaganda machine, which claims that the regime is promoting "genetic purity" for the betterment of the empire. Completing this mission will bring the final mission into our grasp.</li>
+                <li>questDescription(nobleTitle==VFEE_HighStellarch)->[noble_nameFull] is a high stellarch of [empire_name] and is notorious for ruthless tactics and cruel treatment of the citizens under [noble_possessive] rule, often ordering mass executions, divine inferno bombardments and harsh punishments for even the slightest infractions. [noble_pronoun] is feared and despised by many who live under [noble_possessive] jurisdiction.
+\nAssassinating [noble_nameFull] would severely cripple the Empire's military and political power, as [noble_pronoun] is one of the Emperor's most trusted advisors and commanders. Additionally, it would inspire rebellion and resistance among the people who have long suffered under his brutal regime. Completing this mission will set the stage for our final mission, exposing three locations of Zeus cannons that we will need to bring the imperial flagship down.</li>
+            </rulesStrings>
+        </questDescriptionRules>
+        <questContentRules>
+            <rulesStrings>
+                <li>raid/approach_label->Raid</li>
+                <li>shootDown/approach_label->Shoot down</li>
+                <li>falseInvitation/approach_label->False invitation</li>
+                <li>raid/approach_desc->[noble_nameFull] is residing in their mansion near [map_label]. The structure is heavily fortified and well defended. Raiding this mansion will draw the least attention to us, but will also mean the hardest fight.</li>
+                <li>shootDown/approach_desc->[noble_nameFull] is travelling in a shuttle near [map_label]. Other deserters agreed to bring the shuttle down near us, but we will have to venture to the crashed shuttle site and finish them off.</li>
+                <li>falseInvitation/approach_desc->Using our connections, we can invite [noble_nameFull] to [map_label]. They will think they are performing a customary noble visit, when in reality they will walk into their doom. This will definitely draw attention to us.</li>
+            </rulesStrings>
+        </questContentRules>
+        <root Class="QuestNode_Sequence">
+            <nodes>
+                <li Class="VFED.QuestNode_GetEmpire">
+                    <storeAs>empire</storeAs>
+                </li>
+                <li Class="VFED.QuestNode_GetDeserters">
+                    <storeAs>deserters</storeAs>
+                </li>
+                <li Class="QuestNode_GetMap" />
+                <li Class="VFED.QuestNode_ValueFromTitle">
+                    <value>$nobleTitle</value>
+                    <storeAs>challengeRating</storeAs>
+                    <values>
+                        <Knight>1</Knight>
+                        <Praetor>1</Praetor>
+                        <Baron>1</Baron>
+                        <Count>2</Count>
+                        <VFEE_Archcount>2</VFEE_Archcount>
+                        <VFEE_Marquess>2</VFEE_Marquess>
+                        <Duke>3</Duke>
+                        <VFEE_Archduke>3</VFEE_Archduke>
+                        <Consul>3</Consul>
+                        <VFEE_Magister>4</VFEE_Magister>
+                        <VFEE_Despot>4</VFEE_Despot>
+                        <Stellarch>5</Stellarch>
+                        <VFEE_HighStellarch>5</VFEE_HighStellarch>
+                    </values>
+                </li>
+                <li Class="QuestNode_SetChallengeRating">
+                    <challengeRating>$challengeRating</challengeRating>
+                </li>
+                <li Class="QuestNode_EvaluateSimpleCurve">
+                    <value>$challengeRating</value>
+                    <storeAs>pointsFactor</storeAs>
+                    <curve>
+                        <points>
+                            <li>(1, 1)</li>
+                            <li>(2, 2)</li>
+                            <li>(3, 3)</li>
+                            <li>(4, 5)</li>
+                            <li>(5, 8)</li>
+                        </points>
+                    </curve>
+                </li>
+                <li Class="QuestNode_Set">
+                    <name>pointsOriginal</name>
+                    <value>$points</value>
+                </li>
+                <li Class="QuestNode_Multiply">
+                    <value1>$points</value1>
+                    <value2>$pointsFactor</value2>
+                    <storeAs>points</storeAs>
+                </li>
+                <li Class="VFED.QuestNode_GetNoble">
+                    <storeAs>noble</storeAs>
+                    <title>$nobleTitle</title>
+                </li>
+                <li Class="QuestNode_SubScript">
+                    <def>Util_GetDefaultRewardValueFromPoints</def>
+                </li>
+                <li Class="QuestNode_Multiply">
+                    <value1>$rewardValue</value1>
+                    <value2>1.25</value2>
+                    <storeAs>rewardValue</storeAs>
+                </li>
+                <li Class="QuestNode_Multiply">
+                    <value1>$rewardValue</value1>
+                    <value2>4</value2>
+                    <storeAs>rewardValue</storeAs>
+                </li>
+                <li Class="VFED.QuestNode_ApproachChoices">
+                    <choices>
+                        <raid CombatLevel="High">
+                            <nodes>
+                                <li Class="QuestNode_GetSiteTile">
+                                    <storeAs>siteTile</storeAs>
+                                    <preferCloserTiles>true</preferCloserTiles>
+                                </li>
+                                <li Class="QuestNode_GetDefaultSitePartsParams">
+                                    <tile>$siteTile</tile>
+                                    <faction>$empire</faction>
+                                    <sitePartDefs>
+                                        <li>VFED_PlotMission_Raid</li>
+                                    </sitePartDefs>
+                                    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+                                </li>
+                                <li Class="QuestNode_Set">
+                                    <name>siteFaction</name>
+                                    <value>$empire</value>
+                                </li>
+                                <li Class="QuestNode_GetSiteThreatPoints">
+                                    <storeAs>sitePoints</storeAs>
+                                    <sitePartsParams>$sitePartsParams</sitePartsParams>
+                                </li>
+                                <li Class="VFED.QuestNode_ValueFromTitle">
+                                    <value>$nobleTitle</value>
+                                    <storeAs>intelCost</storeAs>
+                                    <values>
+                                        <Knight>2</Knight>
+                                        <Praetor>4</Praetor>
+                                        <Baron>12</Baron>
+                                        <Count>16</Count>
+                                        <VFEE_Archcount>20</VFEE_Archcount>
+                                        <VFEE_Marquess>24</VFEE_Marquess>
+                                        <Duke>28</Duke>
+                                        <VFEE_Archduke>32</VFEE_Archduke>
+                                        <Consul>40</Consul>
+                                        <VFEE_Magister>46</VFEE_Magister>
+                                        <VFEE_Despot>52</VFEE_Despot>
+                                        <Stellarch>56</Stellarch>
+                                        <VFEE_HighStellarch>62</VFEE_HighStellarch>
+                                    </values>
+                                </li>
+                                <li Class="VFED.QuestNode_ValueFromTitle">
+                                    <value>$nobleTitle</value>
+                                    <storeAs>visibilityGain</storeAs>
+                                    <values>
+                                        <Knight>2</Knight>
+                                        <Praetor>4</Praetor>
+                                        <Baron>6</Baron>
+                                        <Count>9</Count>
+                                        <VFEE_Archcount>12</VFEE_Archcount>
+                                        <VFEE_Marquess>16</VFEE_Marquess>
+                                        <Duke>18</Duke>
+                                        <VFEE_Archduke>20</VFEE_Archduke>
+                                        <Consul>22</Consul>
+                                        <VFEE_Magister>24</VFEE_Magister>
+                                        <VFEE_Despot>30</VFEE_Despot>
+                                        <Stellarch>40</Stellarch>
+                                        <VFEE_HighStellarch>50</VFEE_HighStellarch>
+                                    </values>
+                                </li>
+                                <li Class="VFED.QuestNode_GetStructure">
+                                    <value>$nobleTitle</value>
+                                    <storeAs>structureDef</storeAs>
+                                    <structures>
+                                        <Knight>VFED_KindlessKnight</Knight>
+                                        <Praetor>VFED_PettyPraetor</Praetor>
+                                        <Baron>VFED_BigotedBaron</Baron>
+                                        <Count>VFED_CrookedCount</Count>
+                                        <VFEE_Archcount>VFED_AbusiveArchcount</VFEE_Archcount>
+                                        <VFEE_Marquess>VFED_MilitantMarquess</VFEE_Marquess>
+                                        <Duke>VFED_DepravedDuke</Duke>
+                                        <VFEE_Archduke>VFED_ArrogantArchduke</VFEE_Archduke>
+                                        <Consul>VFED_CorruptedConsul</Consul>
+                                        <VFEE_Magister>VFED_MalevolentMagister</VFEE_Magister>
+                                        <VFEE_Despot>VFED_DerangedDespot</VFEE_Despot>
+                                        <Stellarch>VFED_SickeningStellarch</Stellarch>
+                                        <VFEE_HighStellarch>VFED_HeinousHighStellarch</VFEE_HighStellarch>
+                                    </structures>
+                                </li>
+                                <li Class="QuestNode_SubScript">
+                                    <def>Util_GenerateSite</def>
+                                </li>
+                                <li Class="QuestNode_SpawnWorldObjects">
+                                    <worldObjects>$site</worldObjects>
+                                </li>
+                            </nodes>
+                        </raid>
+                        <shootDown CombatLevel="Medium">
+                            <nodes>
+                                <li Class="QuestNode_GetSiteTile">
+                                    <storeAs>siteTile</storeAs>
+                                    <preferCloserTiles>true</preferCloserTiles>
+                                </li>
+                                <li Class="QuestNode_GetDefaultSitePartsParams">
+                                    <tile>$siteTile</tile>
+                                    <faction>$empire</faction>
+                                    <sitePartDefs>
+                                        <li>VFED_PlotMission_DownedShuttle</li>
+                                    </sitePartDefs>
+                                    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+                                </li>
+                                <li Class="VFED.QuestNode_ValueFromTitle">
+                                    <value>$nobleTitle</value>
+                                    <storeAs>intelCost</storeAs>
+                                    <values>
+                                        <Knight>4</Knight>
+                                        <Praetor>8</Praetor>
+                                        <Baron>18</Baron>
+                                        <Count>24</Count>
+                                        <VFEE_Archcount>30</VFEE_Archcount>
+                                        <VFEE_Marquess>36</VFEE_Marquess>
+                                        <Duke>42</Duke>
+                                        <VFEE_Archduke>48</VFEE_Archduke>
+                                        <Consul>56</Consul>
+                                        <VFEE_Magister>62</VFEE_Magister>
+                                        <VFEE_Despot>70</VFEE_Despot>
+                                        <Stellarch>76</Stellarch>
+                                        <VFEE_HighStellarch>82</VFEE_HighStellarch>
+                                    </values>
+                                </li>
+                                <li Class="VFED.QuestNode_ValueFromTitle">
+                                    <value>$nobleTitle</value>
+                                    <storeAs>visibilityGain</storeAs>
+                                    <values>
+                                        <Knight>6</Knight>
+                                        <Praetor>12</Praetor>
+                                        <Baron>18</Baron>
+                                        <Count>27</Count>
+                                        <VFEE_Archcount>36</VFEE_Archcount>
+                                        <VFEE_Marquess>48</VFEE_Marquess>
+                                        <Duke>54</Duke>
+                                        <VFEE_Archduke>60</VFEE_Archduke>
+                                        <Consul>66</Consul>
+                                        <VFEE_Magister>72</VFEE_Magister>
+                                        <VFEE_Despot>80</VFEE_Despot>
+                                        <Stellarch>90</Stellarch>
+                                        <VFEE_HighStellarch>100</VFEE_HighStellarch>
+                                    </values>
+                                </li>
+                                <li Class="QuestNode_Set">
+                                    <name>siteFaction</name>
+                                    <value>$empire</value>
+                                </li>
+                                <li Class="QuestNode_GetSiteThreatPoints">
+                                    <storeAs>sitePoints</storeAs>
+                                    <sitePartsParams>$sitePartsParams</sitePartsParams>
+                                </li>
+                                <li Class="QuestNode_SubScript">
+                                    <def>Util_GenerateSite</def>
+                                </li>
+                                <li Class="QuestNode_SpawnWorldObjects">
+                                    <worldObjects>$site</worldObjects>
+                                </li>
+                            </nodes>
+                        </shootDown>
+                        <falseInvitation CombatLevel="Low" UseCriticalIntel="True">
+                            <nodes>
+                                <li Class="VFED.QuestNode_GenerateForces">
+                                    <points>$points</points>
+                                    <storeAs>forces</storeAs>
+                                </li>
+                                <li Class="VFED.QuestNode_ValueFromTitle">
+                                    <value>$nobleTitle</value>
+                                    <storeAs>intelCost</storeAs>
+                                    <values>
+                                        <Knight>1</Knight>
+                                        <Praetor>1</Praetor>
+                                        <Baron>1</Baron>
+                                        <Count>2</Count>
+                                        <VFEE_Archcount>3</VFEE_Archcount>
+                                        <VFEE_Marquess>3</VFEE_Marquess>
+                                        <Duke>4</Duke>
+                                        <VFEE_Archduke>4</VFEE_Archduke>
+                                        <Consul>4</Consul>
+                                        <VFEE_Magister>5</VFEE_Magister>
+                                        <VFEE_Despot>6</VFEE_Despot>
+                                        <Stellarch>7</Stellarch>
+                                        <VFEE_HighStellarch>8</VFEE_HighStellarch>
+                                    </values>
+                                </li>
+                                <li Class="VFED.QuestNode_ValueFromTitle">
+                                    <value>$nobleTitle</value>
+                                    <storeAs>visibilityGain</storeAs>
+                                    <values>
+                                        <Knight>12</Knight>
+                                        <Praetor>24</Praetor>
+                                        <Baron>32</Baron>
+                                        <Count>54</Count>
+                                        <VFEE_Archcount>72</VFEE_Archcount>
+                                        <VFEE_Marquess>80</VFEE_Marquess>
+                                        <Duke>80</Duke>
+                                        <VFEE_Archduke>82</VFEE_Archduke>
+                                        <Consul>84</Consul>
+                                        <VFEE_Magister>86</VFEE_Magister>
+                                        <VFEE_Despot>90</VFEE_Despot>
+                                        <Stellarch>90</Stellarch>
+                                        <VFEE_HighStellarch>100</VFEE_HighStellarch>
+                                    </values>
+                                </li>
+                                <li Class="VFED.QuestNode_MergeLists">
+                                    <storeAs>contents</storeAs>
+                                    <list1>$forces</list1>
+                                    <item1>$noble</item1>
+                                </li>
+                                <li Class="QuestNode_Set">
+                                    <name>owningFaction</name>
+                                    <value>$empire</value>
+                                </li>
+                                <li Class="QuestNode_SubScript">
+                                    <def>Util_TransportShip_DropOff</def>
+                                </li>
+                                <li Class="VFED.QuestNode_MakeLord">
+                                    <pawns>$contents</pawns>
+                                    <faction>$empire</faction>
+                                    <lordJob>Assault</lordJob>
+                                    <canFlee>true</canFlee>
+                                    <canSteal>false</canSteal>
+                                </li>
+                            </nodes>
+                        </falseInvitation>
+                    </choices>
+                    <inSignalSuccess>noble.Killed</inSignalSuccess>
+                    <inSignalFailure>noble.LeftMap</inSignalFailure>
+                </li>
+                <li Class="QuestNode_End">
+                    <inSignal>noble.Killed</inSignal>
+                    <outcome>Success</outcome>
+                    <sendStandardLetter>true</sendStandardLetter>
+                </li>
+                <li Class="QuestNode_End">
+                    <inSignal>noble.LeftMap</inSignal>
+                    <outcome>Fail</outcome>
+                    <sendStandardLetter>true</sendStandardLetter>
+                </li>
+            </nodes>
+        </root>
+    </QuestScriptDef>
+</Defs>

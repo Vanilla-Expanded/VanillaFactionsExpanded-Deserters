@@ -106,7 +106,6 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
         var buttonsRect = basketRect.TakeRightPart(150);
         buttonsRect.yMin -= 5;
 
-        if (!Parent.HasIntel(TotalCostIntel, TotalCostCriticalIntel)) GUI.color = Color.grey;
         if (DesertersUIUtility.DoPurchaseButton(buttonsRect.TakeTopPart(100).ContractedBy(25, 5), "VFED.Purchase".Translate(), TotalCostIntel,
                 TotalCostCriticalIntel, Parent))
         {

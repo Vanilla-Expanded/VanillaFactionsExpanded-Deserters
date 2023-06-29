@@ -12,7 +12,7 @@
                 </li>
                 <li Class="QuestNode_GetMap" />
                 <li Class="QuestNode_IsTrue">
-                    <value>$purchasable</value>
+                    <value>$purchasable</value> <!-- Set by Services UI code for quests to be purchased-->
                     <node Class="QuestNode_SubScript">
                         <def>VFED_Util_RandomizePointsChallengeRating_AllStars</def>
                     </node>

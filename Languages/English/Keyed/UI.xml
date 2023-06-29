@@ -33,4 +33,15 @@
     <VFED.Activate>Activate</VFED.Activate>
     <VFED.OtherServices>Other services</VFED.OtherServices>
     <VFED.Rewards>Rewards</VFED.Rewards>
+    <VFED.PlotDesc>Plot description</VFED.PlotDesc>
+    <VFED.PlotTarget>Target: Loyalist {0}</VFED.PlotTarget>
+    <VFED.CompletedOn>Completed on {0}</VFED.CompletedOn>
+    <VFED.CombatHigh>Combat: High</VFED.CombatHigh>
+    <VFED.CombatMedium>Combat: Medium</VFED.CombatMedium>
+    <VFED.CombatLow>Combat: Minimal</VFED.CombatLow>
+    <VFED.CombatHighDesc>Expect intense combat</VFED.CombatHighDesc>
+    <VFED.CombatMediumDesc>Expect some combat</VFED.CombatMediumDesc>
+    <VFED.CombatLowDesc>Expect minimal combat</VFED.CombatLowDesc>
+    <VFED.ShowActiveQuest>Show active quest</VFED.ShowActiveQuest>
+    <VFED.Select>Select</VFED.Select>
 </LanguageData>

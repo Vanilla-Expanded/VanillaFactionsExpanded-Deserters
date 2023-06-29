@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
   <DesignationCategoryDef>
     <defName>VFED_Deserters</defName>
     <label>deserters</label>
@@ -10,5 +9,4 @@
       <li>Designator_Deconstruct</li>
     </specialDesignatorClasses>
   </DesignationCategoryDef>
-  
 </Defs>

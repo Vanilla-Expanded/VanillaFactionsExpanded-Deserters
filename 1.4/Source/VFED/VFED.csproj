@@ -33,6 +33,10 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KCSG">
+      <HintPath>..\..\..\..\VanillaExpandedFramework\1.4\Assemblies\KCSG.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MVCF">
       <HintPath>..\..\..\..\VanillaExpandedFramework\1.4\Assemblies\MVCF.dll</HintPath>
       <Private>False</Private>
@@ -55,8 +59,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\BasicJobGivers.cs" />
     <Compile Include="AI\LordJob_AssassinateColonist.cs" />
+    <Compile Include="AI\LordJob_DefendNobleMansion.cs" />
     <Compile Include="AI\LordToil_AttackClosest.cs" />
+    <Compile Include="AI\LordToil_DefendNobleMansion.cs" />
     <Compile Include="Comps\CompDeployable.cs" />
     <Compile Include="Comps\CompEMPEffect.cs" />
     <Compile Include="Comps\CompExplosive_Shells.cs" />
@@ -75,6 +82,8 @@
     <Compile Include="DeserterServiceDef.cs" />
     <Compile Include="GameConditions\GameCondition_DivineInferno.cs" />
     <Compile Include="GameConditions\GameCondition_MissileRain.cs" />
+    <Compile Include="MapGen\GenStep_DownedShuttle.cs" />
+    <Compile Include="MapGen\GenStep_PlotRaid.cs" />
     <Compile Include="HarmonyPatches\DebugPatches.cs" />
     <Compile Include="HarmonyPatches\FilthCleaningPatch.cs" />
     <Compile Include="FilthExtension_OnClean.cs" />
@@ -82,8 +91,11 @@
     <Compile Include="HarmonyPatches\ImperialForcesSizePatches.cs" />
     <Compile Include="HarmonyPatches\MiscPatches.cs" />
     <Compile Include="Incidents\IncidentWorker_RaidAbsolver.cs" />
+    <Compile Include="MapGen\SitePartWorkers.cs" />
+    <Compile Include="Quests\Approaches.cs" />
     <Compile Include="Quests\DeserterRewards.cs" />
     <Compile Include="Quests\ImperialForces.cs" />
+    <Compile Include="Quests\Misc.cs" />
     <Compile Include="Quests\ObjectiveTracker.cs" />
     <Compile Include="Things\Building_CrateBiosecured.cs" />
     <Compile Include="Things\Building_SupplyCrate.cs" />

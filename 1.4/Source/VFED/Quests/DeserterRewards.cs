@@ -100,11 +100,18 @@ public class Reward_Visibility : Reward
         {
             if (!ChangesVisibility) yield break;
 
-            yield return QuestPartUtility.GetStandardRewardStackElement(
-                $"VFED.Visibility{(IncreasesVisibility ? "In" : "De")}creases".Translate(VisibilityChangeAbs),
-                IncreasesVisibility ? TexDeserters.VisibilityIncreaseTex : TexDeserters.VisibilityDecreaseTex, () =>
-                    $"VFED.Visibility{(IncreasesVisibility ? "In" : "De")}creases.Desc".Translate(VisibilityChangeAbs));
+            yield return GetVisibilityStackElement(visibilityChange);
         }
+    }
+
+    public static GenUI.AnonymousStackElement GetVisibilityStackElement(float visibilityChange)
+    {
+        var increasesVisibility = visibilityChange > 0;
+        var visibilityChangeAbs = Math.Abs(visibilityChange);
+        return QuestPartUtility.GetStandardRewardStackElement(
+            $"VFED.Visibility{(increasesVisibility ? "In" : "De")}creases".Translate(visibilityChangeAbs),
+            increasesVisibility ? TexDeserters.VisibilityIncreaseTex : TexDeserters.VisibilityDecreaseTex, () =>
+                $"VFED.Visibility{(increasesVisibility ? "In" : "De")}creases.Desc".Translate(visibilityChangeAbs));
     }
 
     public void InitFromValue(float rewardValue, bool increase)

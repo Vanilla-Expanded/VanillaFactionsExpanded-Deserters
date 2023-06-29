@@ -86,8 +86,3 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
         Scribe_Collections.Look(ref objectives, nameof(objectives), LookMode.Reference);
     }
 }
-
-public class SitePartWorker_Objectives : SitePartWorker
-{
-    public bool ShouldKeepSiteForObjectives(SitePart part) => part.site?.Map?.GetComponent<MapComponent_ObjectiveHighlighter>()?.HasObjectives ?? false;
-}

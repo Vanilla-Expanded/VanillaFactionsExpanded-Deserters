@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <SitePartDef>
+  <SitePartDef ParentName="VFED_DeserterMissionSiteBase">
     <defName>VFED_Underfarm</defName>
     <label>imperial underfarm</label>
     <description>An Imperial Underfarm.</description>
-    <workerClass>VFED.SitePartWorker_Objectives</workerClass>
-    <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
     <expandingIconTexture>WorldObjects/QuestIcon_ImperialUnderfarmRaid</expandingIconTexture>
     <tags>
       <li>VFED_Underfarm</li>

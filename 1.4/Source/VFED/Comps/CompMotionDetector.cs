@@ -22,6 +22,7 @@ public abstract class CompMotionDetector : ThingComp
     {
         Activated = true;
         Props.triggerSound.PlayOneShot(parent);
+        Find.SignalManager.SendSignal(new Signal("MotionDetected", parent.Named("DETECTOR"), initiator.Named("DETECTED")));
     }
 
     public override void CompTick()

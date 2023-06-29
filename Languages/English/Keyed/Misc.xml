@@ -44,4 +44,8 @@ The aftermath of Divine Inferno is a wasteland of destruction. The landscape is 
     <VFED.BiosecuredCrateWarning>Biosecured crates can only be opened by characters with a noble backstory.</VFED.BiosecuredCrateWarning>
     <VFED.CantOpenBiosecured>Can’t open the crate (requires noble backstory)</VFED.CantOpenBiosecured>
     <VFED.ServiceIncreasedGoodwill>Goodwill with {0} increased by 5 due to positive rumors from imperial deserters.</VFED.ServiceIncreasedGoodwill>
+    <VFED.DetectedWarning>You have been detected by security. The garrision is deploying against you.</VFED.DetectedWarning>
+    <VFED.HighAlertWarning>The defenders are moving to high alert.</VFED.HighAlertWarning>
+    <VFED.FleeWarning>{0} is attempting to escape!</VFED.FleeWarning>
+    <VFED.NobleKilledRevenge>{0} from {1} are attempting to avenge {2}.</VFED.NobleKilledRevenge>
 </LanguageData>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <SitePartDef>
+  <SitePartDef ParentName="VFED_DeserterRaidSiteBase">
     <defName>VFED_ImperialConvoy</defName>
     <label>imperial convoy</label>
     <description>An Imperial Convoy.</description>
-    <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
     <expandingIconTexture>WorldObjects/QuestIcon_ImperialConvoy</expandingIconTexture>
     <tags>
       <li>VFED_ImperialConvoy</li>

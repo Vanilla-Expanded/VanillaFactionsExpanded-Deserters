@@ -36,9 +36,23 @@ public class Dialog_DeserterNetwork : Window
 
     public bool HasIntel(int normal, int critical) => normal <= TotalIntel && critical <= TotalCriticalIntel;
 
+    public bool HasIntel(int num, bool useCritical) => useCritical ? num <= TotalCriticalIntel : num <= TotalIntel;
+
     public bool TrySpendIntel(int normal, int critical)
     {
-        if (!HasIntel(normal, critical)) return false;
+        if (normal > TotalIntel)
+        {
+            Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_Intel.LabelCap, normal, TotalIntel), MessageTypeDefOf.RejectInput,
+                false);
+            return false;
+        }
+
+        if (critical > TotalCriticalIntel)
+        {
+            Messages.Message("VFED.NotEnough".Translate(VFED_DefOf.VFED_CriticalIntel.LabelCap, critical, TotalCriticalIntel),
+                MessageTypeDefOf.RejectInput, false);
+            return false;
+        }
 
         TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_Intel, normal, Map, null);
         TradeUtility.LaunchThingsOfType(VFED_DefOf.VFED_CriticalIntel, critical, Map, null);
@@ -47,6 +61,14 @@ public class Dialog_DeserterNetwork : Window
         TotalCriticalIntel -= critical;
 
         return true;
+    }
+
+    public bool TrySpendIntel(int num, bool useCritical)
+    {
+        int normal = 0, critical = 0;
+        if (useCritical) critical = num;
+        else normal = num;
+        return TrySpendIntel(normal, critical);
     }
 
     public override void PostOpen()

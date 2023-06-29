@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <DutyDef>
+        <defName>VFED_StandGuard</defName>
+        <alwaysShowWeapon>true</alwaysShowWeapon>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_TakeCombatEnhancingDrug">
+                    <onlyIfInDanger>true</onlyIfInDanger>
+                </li>
+                <li Class="VFED.JobGiver_StandGuard" />
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+    <DutyDef>
+        <defName>VFED_SitOnThrone</defName>
+        <thinkNode Class="VFED.JobGiver_SitOnThrone" />
+    </DutyDef>
+    <DutyDef>
+        <defName>VFED_Patrol</defName>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="JobGiver_TakeCombatEnhancingDrug">
+                    <onlyIfInDanger>true</onlyIfInDanger>
+                </li>
+                <li Class="VFED.JobGiver_AIPatrol" />
+                <li Class="VFED.JobGiver_WanderBetweenDutyLocations" />
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+</Defs>

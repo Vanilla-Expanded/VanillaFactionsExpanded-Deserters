@@ -134,15 +134,15 @@ public static class Utilities
     public static void GetIntelCost(this Quest quest, out int normal, out int critical)
     {
         var choice = quest.PartsListForReading.OfType<QuestPart_Choice>().First();
-        var totalValue = choice.choices.Sum(option => option.rewards.Sum(reward => reward.TotalMarketValue));
+        var averageValue = choice.choices.Sum(option => option.rewards.Sum(reward => reward.TotalMarketValue)) / choice.choices.Count;
         if (quest.challengeRating > 3)
         {
             normal = 0;
-            critical = Mathf.CeilToInt(totalValue / choice.choices.Count / 2000 * WorldComponent_Deserters.Instance.VisibilityLevel.intelCostModifier);
+            critical = Mathf.CeilToInt(averageValue / 2000 * WorldComponent_Deserters.Instance.VisibilityLevel.intelCostModifier);
         }
         else
         {
-            normal = Mathf.CeilToInt(totalValue / choice.choices.Count / 500 * WorldComponent_Deserters.Instance.VisibilityLevel.intelCostModifier);
+            normal = Mathf.CeilToInt(averageValue / 500 * WorldComponent_Deserters.Instance.VisibilityLevel.intelCostModifier);
             critical = 0;
         }
     }
@@ -151,4 +151,16 @@ public static class Utilities
     {
         pos += Altitudes.AltIncVect * frac;
     }
+
+    public static IEnumerable<Thing> AllThings(this CellRect rect, Map map) => rect.SelectMany(c => c.GetThingList(map)).Distinct();
+
+    public static T TakeRandom<T>(this List<T> source)
+    {
+        var idx = Rand.Range(0, source.Count);
+        var item = source[idx];
+        source.RemoveAt(idx);
+        return item;
+    }
+
+    public static float Radius(this CellRect rect) => Mathf.Sqrt(Mathf.Pow(rect.Width, 2) + Mathf.Pow(rect.Height, 2));
 }

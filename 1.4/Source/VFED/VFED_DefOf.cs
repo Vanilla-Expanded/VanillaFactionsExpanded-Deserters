@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace VFED;
 
@@ -14,6 +15,7 @@ public class VFED_DefOf
     public static ThingDef VFED_DropPodIncoming_Propaganda;
     public static ThingDef VFED_DeserterShuttle;
     public static ThingDef VFED_Bullet_Shell_ArmorPiercing;
+    public static ThingDef VFED_CrashedAerodrone;
 
     public static ThingDef VFED_Intel;
     public static ThingDef VFED_CriticalIntel;
@@ -21,6 +23,7 @@ public class VFED_DefOf
     public static ContrabandCategoryDef VFED_Imperial;
 
     public static QuestScriptDef VFED_DeadDrop;
+    public static QuestScriptDef VFED_PlotMission;
 
     public static DesignationDef VFED_ExtractIntel;
 
@@ -44,6 +47,13 @@ public class VFED_DefOf
     public static SongDef VFED_DivineInferno;
 
     public static TransportShipDef VFED_Ship_DeserterShuttle;
+
+    public static DutyDef VFED_StandGuard;
+    public static DutyDef VFED_SitOnThrone;
+    public static DutyDef VFED_Patrol;
+
+    public static RulePackDef VFED_OperationName;
+    public static RulePackDef VFED_PlotName;
 
     static VFED_DefOf()
     {
