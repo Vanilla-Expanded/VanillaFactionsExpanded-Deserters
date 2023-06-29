@@ -328,9 +328,9 @@
         <defaultProjectile>VFFED_Bullet_Onager</defaultProjectile>
         <warmupTime>0</warmupTime>
         <minRange>16.9</minRange>
-		<forcedMissRadius>5.9</forcedMissRadius>
-        <range>46.9</range>
-        <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+		<forcedMissRadius>2.9</forcedMissRadius>
+        <range>54.9</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
         <burstShotCount>6</burstShotCount>
         <soundCast>RocketswarmLauncher_Fire</soundCast>
         <soundCastTail>GunTail_Heavy</soundCastTail>
