@@ -86,6 +86,47 @@ public static class MiscPatches
         }
     }
 
+    [HarmonyPatch(typeof(FloatMenuMakerMap), "AddHumanlikeOrders")]
+    [HarmonyTranspiler]
+    public static IEnumerable<CodeInstruction> CheckBiosecurity(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codes = instructions.ToList();
+        var info1 = AccessTools.Field(typeof(DesignationDefOf), nameof(DesignationDefOf.Open));
+        var idx1 = codes.FindIndex(ins => ins.LoadsField(info1));
+        Label? label1 = null;
+        var idx2 = codes.FindLastIndex(idx1, ins => ins.Branches(out label1));
+        var idx3 = codes.FindIndex(idx2, ins => ins.opcode == OpCodes.Ldflda);
+        var idx4 = codes.FindIndex(idx2, ins => ins.opcode == OpCodes.Ldloc_S);
+        var info2 = codes[idx3].operand;
+        var info3 = codes[idx4].operand;
+        var label2 = generator.DefineLabel();
+        var labels = codes[idx4].ExtractLabels();
+        codes[idx4].labels.Add(label2);
+        codes.InsertRange(idx4, new[]
+        {
+            new CodeInstruction(OpCodes.Ldloc, info3).WithLabels(labels),
+            new CodeInstruction(OpCodes.Ldflda, info2),
+            CodeInstruction.Call(typeof(LocalTargetInfo), "get_Thing"),
+            new CodeInstruction(OpCodes.Ldarg_1),
+            new CodeInstruction(OpCodes.Ldarg_2),
+            CodeInstruction.Call(typeof(MiscPatches), nameof(CheckBiosecurity), new[] { typeof(Thing), typeof(Pawn), typeof(List<FloatMenuOption>) }),
+            new CodeInstruction(OpCodes.Brfalse, label2),
+            new CodeInstruction(OpCodes.Br, label1!.Value)
+        });
+        return codes;
+    }
+
+    public static bool CheckBiosecurity(Thing t, Pawn p, List<FloatMenuOption> opts)
+    {
+        if (t is Building_CrateBiosecured && !p.story.AllBackstories.Any(backstory => backstory.spawnCategories.Contains("ImperialRoyal")))
+        {
+            opts.Add(new FloatMenuOption("CannotOpen".Translate(t) + ": " + "VFED.CantOpenBiosecured".Translate().CapitalizeFirst(), null));
+            return true;
+        }
+
+        return false;
+    }
+
     [HarmonyPatch(typeof(MainTabWindow_Quests), "DoCharityIcon")]
     [HarmonyPostfix]
     public static void AddDeserterIcon(ref Rect innerRect, Quest ___selected)

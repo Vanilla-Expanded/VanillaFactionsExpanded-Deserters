@@ -35,7 +35,7 @@ public class Building_TurretGunBarrels : Building_TurretGun
         if (CurrentTarget.IsValid)
         {
             var targetAngle = (CurrentTarget.Cell.ToVector3Shifted() - DrawPos).AngleFlat();
-            if (!Mathf.Approximately(targetAngle, curAngle))
+            if (!Mathf.Approximately(Mathf.DeltaAngle(targetAngle, curAngle), 0))
             {
                 curAngle = top.CurRotation = Mathf.SmoothDampAngle(curAngle, targetAngle, ref rotationVelocity, 0.01f, rotationSpeed,
                     1f / GenTicks.TicksPerRealSecond);

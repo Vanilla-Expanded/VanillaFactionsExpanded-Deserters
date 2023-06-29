@@ -12,4 +12,10 @@
     <reportString>extracting intel from TargetA.</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
+  <JobDef>
+    <defName>VFED_UseItemOn</defName>
+    <driverClass>VFED.JobDriver_UseItemOn</driverClass>
+    <reportString>using TargetA on TargetB.</reportString>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
 </Defs>

@@ -141,6 +141,7 @@
     <defName>VFED_BiosecuredCrate</defName>
     <label>biosecured crate</label>
     <description>todo</description>
+    <thingClass>VFED.Building_CrateBiosecured</thingClass>
     <graphicData>
       <texPath>Structures/Misc/ImperialBiosecuredCrate</texPath>
       <graphicClass>Graphic_Single</graphicClass>

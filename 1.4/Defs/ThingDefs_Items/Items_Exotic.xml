@@ -35,7 +35,7 @@
     <tradeability>None</tradeability>
     <comps>
       <li Class="CompProperties_Usable">
-        <useJob>UseItem</useJob>
+        <useJob>VFED_UseItemOn</useJob>
         <useLabel>Use {0_label}</useLabel>
         <useDuration>600</useDuration>
       </li>

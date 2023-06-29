@@ -205,6 +205,9 @@
                                 <li Class="QuestNode_SubScript">
                                     <def>Util_GenerateSite</def>
                                 </li>
+                                <li Class="VFED.QuestNode_ImperialResponse">
+                                    <siteName>site</siteName>
+                                </li>
                                 <li Class="QuestNode_SpawnWorldObjects">
                                     <worldObjects>$site</worldObjects>
                                 </li>
@@ -272,6 +275,9 @@
                                 </li>
                                 <li Class="QuestNode_SubScript">
                                     <def>Util_GenerateSite</def>
+                                </li>
+                                <li Class="VFED.QuestNode_ImperialResponse">
+                                    <siteName>site</siteName>
                                 </li>
                                 <li Class="QuestNode_SpawnWorldObjects">
                                     <worldObjects>$site</worldObjects>

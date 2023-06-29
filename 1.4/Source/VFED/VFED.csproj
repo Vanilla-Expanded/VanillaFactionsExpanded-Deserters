@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI\BasicJobGivers.cs" />
+    <Compile Include="AI\JobDriver_UseItemOn.cs" />
     <Compile Include="AI\LordJob_AssassinateColonist.cs" />
     <Compile Include="AI\LordJob_DefendNobleMansion.cs" />
     <Compile Include="AI\LordToil_AttackClosest.cs" />
@@ -103,8 +104,8 @@
     <Compile Include="Things\DropPodIncoming_Propaganda.cs" />
     <Compile Include="Incidents\IncidentWorker_ImperialPatrol.cs" />
     <Compile Include="Incidents\IncidentWorker_PropagandaDrop.cs" />
-    <Compile Include="AI\Jobs\JobDriver_ExtractIntel.cs" />
-    <Compile Include="AI\Jobs\JobDriver_ExtractIntelPawn.cs" />
+    <Compile Include="AI\JobDriver_ExtractIntel.cs" />
+    <Compile Include="AI\JobDriver_ExtractIntelPawn.cs" />
     <Compile Include="Quests\GetFactions.cs" />
     <Compile Include="Quests\ImperialResponse.cs" />
     <Compile Include="Quests\JoinDeserters.cs" />

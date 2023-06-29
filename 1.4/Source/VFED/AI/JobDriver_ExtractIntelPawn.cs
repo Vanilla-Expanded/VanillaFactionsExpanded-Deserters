@@ -62,6 +62,8 @@ public class JobDriver_ExtractIntelPawn : JobDriver
 
             if (targetPawn.Faction != null && targetPawn.Faction != pawn.Faction && !targetPawn.Faction.HostileTo(pawn.Faction))
                 targetPawn.Faction.TryAffectGoodwillWith(pawn.Faction, -25, reason: HistoryEventDefOf.UsedHarmfulAbility);
+
+            extractor?.Destroy();
         });
     }
 
