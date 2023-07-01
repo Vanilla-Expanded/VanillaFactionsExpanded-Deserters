@@ -15,21 +15,21 @@ public class CompIntelExtract : ThingComp
     {
         if (!CanExtract) return;
         intelExtracted = true;
-        parent.Map.designationManager.TryRemoveDesignationOn(parent, VFED_DefOf.VFED_ExtractIntel);
+        parent.MapHeld?.designationManager?.TryRemoveDesignationOn(parent, VFED_DefOf.VFED_ExtractIntel);
         var intel = ThingMaker.MakeThing(VFED_DefOf.VFED_Intel);
         intel.stackCount = DesertersMod.IntelFromExtraction;
         GenPlace.TryPlaceThing(intel, pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Near);
     }
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra() =>
-        CanExtract
+        CanExtract && parent.MapHeld != null
             ? base.CompGetGizmosExtra()
                .Append(new Command_Action
                 {
                     defaultLabel = VFED_DefOf.VFED_ExtractIntel.LabelCap,
                     defaultDesc = VFED_DefOf.VFED_ExtractIntel.description,
                     icon = TexDeserters.ExtractIntelTex,
-                    action = delegate { parent.Map.designationManager.AddDesignation(new Designation(parent, VFED_DefOf.VFED_ExtractIntel)); }
+                    action = delegate { parent.MapHeld.designationManager.AddDesignation(new Designation(parent, VFED_DefOf.VFED_ExtractIntel)); }
                 })
             : base.CompGetGizmosExtra();
 

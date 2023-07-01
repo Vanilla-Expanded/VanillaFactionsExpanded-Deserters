@@ -13,7 +13,8 @@ public class CompSurveillancePillar : CompMotionDetector
     {
         base.Trigger(initiator);
         Utilities.ChangeVisibility(DesertersMod.VisibilityFromPillar);
-        Messages.Message("VFED.SurveillancePillarActivated".Translate(WorldComponent_Deserters.Instance.Visibility), initiator, MessageTypeDefOf.NegativeEvent);
+        Messages.Message("VFED.SurveillancePillarActivated".Translate(WorldComponent_Deserters.Instance.Visibility, DesertersMod.VisibilityFromPillar),
+            initiator, MessageTypeDefOf.NegativeEvent);
     }
 
     public override void PostSpawnSetup(bool respawningAfterLoad)

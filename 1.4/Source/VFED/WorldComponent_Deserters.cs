@@ -61,6 +61,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             if (Find.TickManager.TicksGame % 60000 == 0)
             {
                 Visibility -= DesertersMod.VisibilityChangePerDay;
+                Utilities.StripTitles();
                 Notify_VisibilityChanged();
                 foreach (var effect in ActiveEffects)
                     effect.TickDay();
@@ -72,48 +73,25 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
 
     public void JoinDeserters(Quest fromQuest)
     {
+        Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, Faction.OfEmpire.GoodwillToMakeHostile(Faction.OfPlayer), false, false);
+
+        EmpireUtility.Deserters.SetRelationDirect(Faction.OfPlayer, FactionRelationKind.Ally, false);
+
         Active = true;
 
-        foreach (var pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists)
-            if (pawn?.royalty?.GetCurrentTitle(Faction.OfEmpire) is { } title)
-            {
-                var intelAmount = IntelForTitle(title);
-                var intel = ThingMaker.MakeThing(VFED_DefOf.VFED_Intel);
-                intel.stackCount = intelAmount;
-                if (pawn.GetCaravan() is { } caravan)
-                    caravan.AddPawnOrItem(intel, true);
-                else if (pawn.MapHeld is { } pawnMap)
-                    GenPlace.TryPlaceThing(intel, pawn.PositionHeld, pawnMap, ThingPlaceMode.Near);
-                else if (Find.Maps.Where(map => map.IsPlayerHome).TryRandomElement(out var playerMap))
-                {
-                    var cell = DropCellFinder.TryFindSafeLandingSpotCloseToColony(playerMap, IntVec2.One, Faction.OfPlayer, 1);
-                    DropPodUtility.DropThingsNear(cell, playerMap, Gen.YieldSingle(intel), canRoofPunch: false, allowFogged: false, faction: Faction.OfPlayer);
-                }
+        Utilities.StripTitles(fromQuest);
 
-                Messages.Message("VFED.IntelFromTitle".Translate(pawn.NameFullColored, title.GetLabelCapFor(pawn), intelAmount), intel,
-                    MessageTypeDefOf.PositiveEvent, fromQuest);
-
-                pawn.royalty.AllTitlesForReading.RemoveAll(royalTitle => royalTitle.def == title);
-                pawn.royalty.AllFactionPermits.RemoveAll(permit => permit.Title == title);
-
-                pawn.royalty.UpdateAvailableAbilities();
-                pawn.Notify_DisabledWorkTypesChanged();
-                pawn.needs?.AddOrRemoveNeedsAsAppropriate();
-                pawn.apparel?.Notify_TitleChanged();
-
-                QuestUtility.SendQuestTargetSignals(pawn.questTags, "TitleChanged", pawn.Named("SUBJECT"));
-                MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
-            }
-
-        Notify_VisibilityChanged();
+        Find.FactionManager.goodwillSituationManager.RecalculateAll(true);
+        Notify_VisibilityChanged(false, fromQuest);
     }
 
-    public void Notify_VisibilityChanged(bool fromLoad = false)
+    public void Notify_VisibilityChanged(bool fromLoad = false, Quest fromQuest = null)
     {
         Visibility = Mathf.Clamp(Visibility, 0, 100);
         var oldEffects = ActiveEffects.ListFullCopy();
         ActiveEffects.Clear();
         if (!Active) return;
+        var oldLevel = VisibilityLevel;
         foreach (var def in DefDatabase<VisibilityLevelDef>.AllDefs.OrderBy(def => def.visibilityRange.max))
         {
             if (def.visibilityRange.min <= Visibility)
@@ -140,12 +118,46 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
 
             foreach (var effect in ActiveEffects.Except(oldEffects)) effect.OnActivate();
         }
+
+        if (oldLevel != VisibilityLevel && !fromLoad)
+        {
+            var label = "VFED.VisibilityChange".Translate(VisibilityLevel.LabelCap);
+            var desc = "VFED.VisibilityChange.Desc".Translate(VisibilityLevel.LabelCap);
+            var deactivated = oldEffects.Except(ActiveEffects).ToList();
+            var activated = ActiveEffects.Except(oldEffects).ToList();
+
+            if (activated.Count > 0)
+            {
+                desc += "\n\n" + "VFED.VisibilityEffectsActive".Translate() + "\n";
+                desc += activated.Select(effect => effect.label).ToLineList("  - ", true);
+            }
+
+            if (deactivated.Count > 0)
+            {
+                desc += "\n\n" + "VFED.VisibilityEffectsInactive".Translate() + "\n";
+                desc += deactivated.Select(effect => effect.label).ToLineList("  - ", true);
+            }
+
+            var letter = new Letter_VisibilityChange
+            {
+                def = (oldLevel?.visibilityRange.max ?? 0) <= VisibilityLevel.visibilityRange.min
+                    ? VisibilityLevel.visibilityRange.max == 100 ? LetterDefOf.ThreatBig : LetterDefOf.NegativeEvent
+                    : LetterDefOf.PositiveEvent,
+                Label = label,
+                Text = desc,
+                ID = Find.UniqueIDsManager.GetNextLetterID(),
+                relatedFaction = EmpireUtility.Deserters,
+                quest = fromQuest,
+                visibilityLevel = VisibilityLevel
+            };
+
+            Find.LetterStack.ReceiveLetter(letter);
+        }
     }
 
     public void EnsureQuestListFilled()
     {
         var points = StorytellerUtility.DefaultThreatPointsNow(Find.World);
-        if (points < 300) points = 300;
         var storyState = Find.World.StoryState;
         while (ServiceQuests.Count < 10 && Utilities.DeserterQuests.Where(root => root.CanRun(points))
                   .TryRandomElementByWeight(root => NaturalRandomQuestChooser.GetNaturalRandomSelectionWeight(root, points, storyState),
@@ -157,6 +169,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             var quest = QuestGen.Generate(questScript, slate);
             quest.hidden = true;
             quest.hiddenInUI = true;
+            quest.ticksUntilAcceptanceExpiry = -1;
             Find.QuestManager.Add(quest);
             ServiceQuests.Add(quest);
             var choice = quest.PartsListForReading.OfType<QuestPart_Choice>().First();
@@ -201,13 +214,13 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     private void GeneratePlotQuest(PlotMissionInfo plot)
     {
         var points = StorytellerUtility.DefaultThreatPointsNow(Find.World);
-        if (points < 300) points = 300;
         var slate = new Slate();
         slate.Set("points", points);
         slate.Set("nobleTitle", plot.royalTitle);
         var quest = QuestGen.Generate(VFED_DefOf.VFED_PlotMission, slate);
         quest.hidden = true;
         quest.hiddenInUI = true;
+        quest.ticksUntilAcceptanceExpiry = -1;
         Find.QuestManager.Add(quest);
         plot.quest = quest;
     }
@@ -253,58 +266,26 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             }
             finally { Scribe.ExitNode(); }
 
+        ServiceQuests ??= new List<Quest>();
+        DataForSites ??= new Dictionary<Site, SiteExtraData>();
+        PlotMissions ??= new List<PlotMissionInfo>();
+
         Notify_VisibilityChanged(true);
     }
-
-    private static int IntelForTitle(RoyalTitleDef title) =>
-        title.seniority switch
-        {
-            0 => 1, // Freeholder
-            100 => 2, // Yeoman
-            200 => 4, // Acolyte
-            300 => 8, // Knight
-            400 => 16, // Praetor
-            500 => 24, // Baron
-            600 => 36, // Count
-            601 => 50, // Archcount
-            602 => 66, // Marquess
-            700 => 84, // Duke
-            701 => 110, // Archduke
-            800 => 140, // Consul
-            801 => 180, // Magister
-            802 => 225, // Despot
-            900 => 280, // Stellarch
-            901 => 350, // High Stellarch
-            1000 => 400 // Emperor
-        };
 
     [HarmonyPatch(typeof(Building_CommsConsole), nameof(Building_CommsConsole.GetCommTargets))]
     [HarmonyPostfix]
     public static IEnumerable<ICommunicable> GetCommTargets_Postfix(IEnumerable<ICommunicable> targets) => Instance.Active ? targets.Append(Instance) : targets;
 
-    [DebugAction("World", "Increase Visibility By 10", allowedGameStates = AllowedGameStates.Playing)]
-    public static void IncreaseVisibility()
-    {
-        Instance.Visibility += 10;
-        Instance.Notify_VisibilityChanged();
-    }
-
-    [DebugAction("World", "Decrease Visibility By 10", allowedGameStates = AllowedGameStates.Playing)]
-    public static void DecreaseVisibility()
-    {
-        Instance.Visibility -= 10;
-        Instance.Notify_VisibilityChanged();
-    }
-
     [DebugAction("World", "Toggle Desertion", allowedGameStates = AllowedGameStates.Playing)]
     public static void ToggleDeserters()
     {
-        if (!Instance.Active)
-            Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, Faction.OfEmpire.GoodwillToMakeHostile(Faction.OfPlayer));
-        Instance.Active = !Instance.Active;
-        if (!Instance.Active)
+        if (Instance.Active)
+        {
             Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, 75);
-        Instance.Notify_VisibilityChanged();
+            Instance.Active = false;
+        }
+        else Instance.JoinDeserters(null);
     }
 
     public class PlotMissionInfo : IExposable

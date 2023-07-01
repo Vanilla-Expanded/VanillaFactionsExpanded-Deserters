@@ -14,6 +14,7 @@ public class DesertersMod : Mod
     {
         Harm = new Harmony("vanillaexpanded.factions.deserters");
         Harm.PatchAll();
+        Instance = this;
         Settings = GetSettings<DesertersSettings>();
     }
 

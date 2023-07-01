@@ -4,7 +4,6 @@ using UnityEngine;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
-using VFECore.Abilities;
 
 namespace VFED;
 
@@ -14,7 +13,7 @@ public class JobDriver_ExtractIntelPawn : JobDriver
 
     protected override IEnumerable<Toil> MakeNewToils()
     {
-        yield return new Toil
+        var gotoToil = new Toil
         {
             initAction = pawn.pather.StopDead,
             tickAction = delegate
@@ -28,7 +27,6 @@ public class JobDriver_ExtractIntelPawn : JobDriver
                 {
                     pawn.pather.StopDead();
                     pawn.rotationTracker.FaceTarget(targetPawn);
-                    targetPawn?.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFE_DefOf_Abilities.VFEA_StandAndFaceTarget, pawn));
                     ReadyForNextToil();
                 }
                 else if (!pawn.pather.Moving) pawn.pather.StartPath(TargetA, PathEndMode.Touch);
@@ -37,6 +35,18 @@ public class JobDriver_ExtractIntelPawn : JobDriver
             socialMode = RandomSocialMode.Off,
             defaultCompleteMode = ToilCompleteMode.Never
         };
+        yield return gotoToil;
+
+        var waitToil = Toils_General.WaitWith(TargetIndex.A, 30, true, true, false, TargetIndex.A);
+        waitToil.AddPreTickAction(delegate
+        {
+            var targetPawn = job.targetA.Pawn;
+            var map = pawn.Map;
+            if (!GenSight.LineOfSight(pawn.Position, targetPawn.Position, map, true)
+             || pawn.Position.DistanceTo(targetPawn.Position) > 1.9f)
+                JumpToToil(gotoToil);
+        });
+        yield return waitToil;
 
         yield return Toils_General.DoAtomic(delegate
         {

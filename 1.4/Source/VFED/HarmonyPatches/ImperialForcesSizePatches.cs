@@ -46,7 +46,10 @@ public static class ImperialForcesSizePatches
     {
         parms = copyParms(parms);
         if (parms.faction == Faction.OfEmpire)
+        {
+            if (parms.points < 300) parms.points = 300;
             parms.points = WorldComponent_Deserters.Instance.ActiveEffects.OfType<VisibilityEffect_ArmySize>()
                .Aggregate(parms.points, (p, effect) => p * effect.multiplier);
+        }
     }
 }

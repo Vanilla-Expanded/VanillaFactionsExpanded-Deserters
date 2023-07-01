@@ -21,7 +21,7 @@ public abstract class CompMotionDetector : ThingComp
     protected virtual void Trigger(Thing initiator)
     {
         Activated = true;
-        Props.triggerSound.PlayOneShot(parent);
+        Props.triggerSound?.PlayOneShot(parent);
         Find.SignalManager.SendSignal(new Signal("MotionDetected", parent.Named("DETECTOR"), initiator.Named("DETECTED")));
     }
 

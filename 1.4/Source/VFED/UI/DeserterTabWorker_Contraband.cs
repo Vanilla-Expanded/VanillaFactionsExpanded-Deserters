@@ -59,7 +59,7 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
                     itemRect.TakeRightPart(10);
                     using (new TextBlock(TextAnchor.MiddleLeft)) Widgets.Label(itemRect.TakeRightPart(50), ext.TotalIntelCost().ToString());
                     Widgets.DefIcon(itemRect.TakeRightPart(30), ext.useCriticalIntel ? VFED_DefOf.VFED_CriticalIntel : VFED_DefOf.VFED_Intel);
-                    var text = item.LabelCap;
+                    var text = item.LabelCap + (ext.countMult == 1 ? "" : " x" + ext.countMult);
                     using (new TextBlock(Text.CalcSize(text).x > itemRect.width ? GameFont.Tiny : GameFont.Small, TextAnchor.MiddleLeft, null))
                         Widgets.Label(itemRect, text);
                 }
@@ -93,7 +93,7 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
             itemRect.TakeRightPart(10);
             using (new TextBlock(TextAnchor.MiddleLeft)) Widgets.Label(itemRect.TakeRightPart(50), ext.TotalIntelCost().ToString());
             Widgets.DefIcon(itemRect.TakeRightPart(30), ext.useCriticalIntel ? VFED_DefOf.VFED_CriticalIntel : VFED_DefOf.VFED_Intel);
-            using (new TextBlock(TextAnchor.MiddleLeft)) Widgets.Label(itemRect, item.LabelCap + " x" + count);
+            using (new TextBlock(TextAnchor.MiddleLeft)) Widgets.Label(itemRect, item.LabelCap + " x" + count * ext.countMult);
         }
 
         Widgets.EndScrollView();
@@ -113,8 +113,8 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
             slate.Set("delayTicks", Utilities.ReceiveTimeRange(TotalAmount).RandomInRange.DaysToTicks());
             slate.Set("availableTime", Utilities.SiteExistTime(TotalAmount).DaysToTicks());
             var things = new List<ThingDef>();
-            foreach (var ((thing, _), count) in ShoppingCart)
-                for (var i = count; i-- > 0;)
+            foreach (var ((thing, ext), count) in ShoppingCart)
+                for (var i = count * ext.countMult; i-- > 0;)
                     things.Add(thing);
             slate.Set("itemStashThings", things);
             QuestUtility.GenerateQuestAndMakeAvailable(VFED_DefOf.VFED_DeadDrop, slate);
@@ -126,8 +126,8 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
         {
             var things = new List<List<Thing>>();
             var curList = new List<Thing>();
-            foreach (var ((thing, _), count) in ShoppingCart)
-                for (var i = count; i-- > 0;)
+            foreach (var ((thing, ext), count) in ShoppingCart)
+                for (var i = count * ext.countMult; i-- > 0;)
                 {
                     curList.Add(ThingMaker.MakeThing(thing, thing.MadeFromStuff ? GenStuff.DefaultStuffFor(thing) : null));
                     if (curList.Count > 10)
@@ -138,9 +138,10 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
                 }
 
             things.Add(curList);
-            DropCellFinder.FindSafeLandingSpot(out var cell, EmpireUtility.Deserters, Parent.Map);
+            var cell = DropCellFinder.TradeDropSpot(Parent.Map);
             DropPodUtility.DropThingGroupsNear(cell, Parent.Map, things, canRoofPunch: false, allowFogged: false, forbid: false,
                 faction: EmpireUtility.Deserters);
+            Messages.Message("VFED.ContrabandArrived".Translate(), new TargetInfo(cell, Parent.Map), MessageTypeDefOf.PositiveEvent);
             ClearCart();
         }
 
@@ -175,6 +176,7 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
 public class ContrabandExtension : DefModExtension
 {
     public ContrabandCategoryDef category;
+    public int countMult = 1;
     public int intelCost = -1;
     public bool useCriticalIntel;
 }

@@ -83,10 +83,10 @@ public static class Utilities
         IdeoUtility.FindFirstPawnWithLeaderRole(caravan) ?? BestCaravanPawnUtility.FindBestNegotiator(caravan) ?? BestCaravanPawnUtility
            .FindBestDiplomat(caravan) ?? caravan.PawnsListForReading.Find(caravan.IsOwner);
 
-    public static void ChangeVisibility(int by)
+    public static void ChangeVisibility(int by, Quest fromQuest = null)
     {
         WorldComponent_Deserters.Instance.Visibility += by;
-        WorldComponent_Deserters.Instance.Notify_VisibilityChanged();
+        WorldComponent_Deserters.Instance.Notify_VisibilityChanged(false, fromQuest);
     }
 
     public static LookTargets MakeLookTargets(this List<IntVec3> cells, Map map)
@@ -163,4 +163,72 @@ public static class Utilities
     }
 
     public static float Radius(this CellRect rect) => Mathf.Sqrt(Mathf.Pow(rect.Width, 2) + Mathf.Pow(rect.Height, 2));
+
+    public static int IntelReward(this RoyalTitleDef title) =>
+        title.seniority switch
+        {
+            0 => 1, // Freeholder
+            100 => 2, // Yeoman
+            200 => 4, // Acolyte
+            300 => 8, // Knight
+            400 => 16, // Praetor
+            500 => 24, // Baron
+            600 => 36, // Count
+            601 => 50, // Archcount
+            602 => 66, // Marquess
+            700 => 84, // Duke
+            701 => 110, // Archduke
+            800 => 140, // Consul
+            801 => 180, // Magister
+            802 => 225, // Despot
+            900 => 280, // Stellarch
+            901 => 350, // High Stellarch
+            1000 => 400 // Emperor
+        };
+
+    [DebugAction("World", "Increase Visibility By 10", allowedGameStates = AllowedGameStates.Playing)]
+    public static void IncreaseVisibility()
+    {
+        ChangeVisibility(10);
+    }
+
+    [DebugAction("World", "Decrease Visibility By 10", allowedGameStates = AllowedGameStates.Playing)]
+    public static void DecreaseVisibility()
+    {
+        ChangeVisibility(-10);
+    }
+
+    public static void StripTitles(Quest fromQuest = null)
+    {
+        foreach (var pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists)
+            if (pawn?.royalty?.GetCurrentTitle(Faction.OfEmpire) is { } title)
+            {
+                var intelAmount = title.IntelReward();
+                var intel = ThingMaker.MakeThing(VFED_DefOf.VFED_Intel);
+                intel.stackCount = intelAmount;
+                if (pawn.GetCaravan() is { } caravan)
+                    caravan.AddPawnOrItem(intel, true);
+                else if (pawn.MapHeld is { } pawnMap)
+                    GenPlace.TryPlaceThing(intel, pawn.PositionHeld, pawnMap, ThingPlaceMode.Near);
+                else if (Find.Maps.Where(map => map.IsPlayerHome).TryRandomElement(out var playerMap))
+                {
+                    var cell = DropCellFinder.TryFindSafeLandingSpotCloseToColony(playerMap, IntVec2.One, Faction.OfPlayer, 1);
+                    DropPodUtility.DropThingsNear(cell, playerMap, Gen.YieldSingle(intel), canRoofPunch: false, allowFogged: false, faction: Faction.OfPlayer);
+                }
+
+                Messages.Message("VFED.IntelFromTitle".Translate(pawn.NameFullColored, title.GetLabelCapFor(pawn), intelAmount), intel,
+                    MessageTypeDefOf.PositiveEvent, fromQuest);
+
+                pawn.royalty.AllTitlesForReading.RemoveAll(royalTitle => royalTitle.def == title);
+                pawn.royalty.AllFactionPermits.RemoveAll(permit => permit.Title == title);
+
+                pawn.royalty.UpdateAvailableAbilities();
+                pawn.Notify_DisabledWorkTypesChanged();
+                pawn.needs?.AddOrRemoveNeedsAsAppropriate();
+                pawn.apparel?.Notify_TitleChanged();
+
+                QuestUtility.SendQuestTargetSignals(pawn.questTags, "TitleChanged", pawn.Named("SUBJECT"));
+                MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
+            }
+    }
 }

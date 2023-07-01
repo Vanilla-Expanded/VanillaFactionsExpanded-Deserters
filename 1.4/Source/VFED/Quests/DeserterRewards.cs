@@ -158,7 +158,7 @@ public class QuestPart_ChangeVisibility : QuestPart
     public override void Notify_QuestSignalReceived(Signal signal)
     {
         base.Notify_QuestSignalReceived(signal);
-        if (signal.tag == inSignal) Utilities.ChangeVisibility(visibilityChange);
+        if (signal.tag == inSignal) Utilities.ChangeVisibility(visibilityChange, quest);
     }
 
     public override void ExposeData()

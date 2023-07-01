@@ -128,6 +128,7 @@
     <Compile Include="UI\DeserterTabWorker_Plots.cs" />
     <Compile Include="UI\DeserterTabWorker_Services.cs" />
     <Compile Include="UI\Dialog_DeserterNetwork.cs" />
+    <Compile Include="UI\Letter_VisibilityChange.cs" />
     <Compile Include="UI\TexDeserters.cs" />
     <Compile Include="VisibilityLevelDef.cs" />
     <Compile Include="WorldComponent_Deserters.cs" />
