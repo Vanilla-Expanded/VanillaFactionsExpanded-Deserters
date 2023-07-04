@@ -143,8 +143,8 @@ public static class MiscPatches
     [HarmonyPostfix]
     public static void NoRemoveObjectiveMaps(bool __result, ref bool alsoRemoveWorldObject, Site __instance)
     {
-        if (__result && alsoRemoveWorldObject
-                     && __instance.parts.Any(part => part.def.Worker is SitePartWorker_Objectives objectives && objectives.ShouldKeepSiteForObjectives(part)))
+        if (__result && alsoRemoveWorldObject && __instance.parts
+               .Any(part => part.def.Worker is SitePartWorker_Objectives objectives && objectives.ShouldKeepSiteForObjectives(part)))
             alsoRemoveWorldObject = false;
     }
 

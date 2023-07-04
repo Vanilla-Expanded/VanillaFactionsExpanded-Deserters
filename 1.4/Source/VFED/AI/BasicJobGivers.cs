@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -89,4 +90,32 @@ public class JobGiver_WanderBetweenDutyLocations : JobGiver_Wander
     }
 
     protected override IntVec3 GetWanderRoot(Pawn pawn) => throw new NotImplementedException();
+}
+
+public class JobGiver_FleeEnemies : ThinkNode_JobGiver
+{
+    private List<Thing> tmpThreats;
+
+    protected override Job TryGiveJob(Pawn pawn)
+    {
+        tmpThreats.Clear();
+        var potentialTargetsFor = pawn.Map.attackTargetsCache.GetPotentialTargetsFor(pawn);
+        for (var i = 0; i < potentialTargetsFor.Count; i++)
+        {
+            var thing = potentialTargetsFor[i].Thing;
+            if (SelfDefenseUtility.ShouldFleeFrom(thing, pawn, false, true)) tmpThreats.Add(thing);
+        }
+
+        var list = pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.AlwaysFlee);
+        for (var j = 0; j < list.Count; j++)
+        {
+            var thing2 = list[j];
+            if (SelfDefenseUtility.ShouldFleeFrom(thing2, pawn, false, true)) tmpThreats.Add(thing2);
+        }
+
+        if (!tmpThreats.Any()) return null;
+        var c = CellFinderLoose.GetFleeDest(pawn, tmpThreats);
+        tmpThreats.Clear();
+        return JobMaker.MakeJob(VFED_DefOf.VFED_FleeEnemies, c);
+    }
 }

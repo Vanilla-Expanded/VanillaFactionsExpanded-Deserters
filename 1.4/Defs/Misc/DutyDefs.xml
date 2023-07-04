@@ -5,8 +5,19 @@
         <alwaysShowWeapon>true</alwaysShowWeapon>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
+                <li Class="JobGiver_ReactToCloseMeleeThreat" />
                 <li Class="JobGiver_TakeCombatEnhancingDrug">
                     <onlyIfInDanger>true</onlyIfInDanger>
+                </li>
+                <li Class="ThinkNode_HarmedRecently">
+                    <subNodes>
+                        <li Class="JobGiver_AIDefendPoint">
+                            <chaseTarget>false</chaseTarget>
+                            <allowTurrets>false</allowTurrets>
+                            <targetAcquireRadius>45</targetAcquireRadius>
+                            <targetKeepRadius>54</targetKeepRadius>
+                        </li>
+                    </subNodes>
                 </li>
                 <li Class="VFED.JobGiver_StandGuard" />
             </subNodes>
@@ -14,7 +25,17 @@
     </DutyDef>
     <DutyDef>
         <defName>VFED_SitOnThrone</defName>
-        <thinkNode Class="VFED.JobGiver_SitOnThrone" />
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ThinkNode_HarmedRecently">
+                    <thresholdTicks>6000</thresholdTicks>
+                    <subNodes>
+                        <li Class="VFED.JobGiver_FleeEnemies" />
+                    </subNodes>
+                </li>
+                <li Class="VFED.JobGiver_SitOnThrone" />
+            </subNodes>
+        </thinkNode>
     </DutyDef>
     <DutyDef>
         <defName>VFED_Patrol</defName>

@@ -18,4 +18,10 @@
     <reportString>using TargetA on TargetB.</reportString>
     <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
   </JobDef>
+  <JobDef>
+    <defName>VFED_FleeEnemies</defName>
+    <driverClass>JobDriver_FleeAndCower</driverClass>
+    <reportString>fleeing.</reportString>
+    <checkOverrideOnDamage>Never</checkOverrideOnDamage>
+  </JobDef>
 </Defs>

@@ -41,6 +41,7 @@ public class VFED_DefOf
 
     [DefAlias("VFED_ExtractIntel")] public static JobDef VFED_ExtractIntelJob;
     public static JobDef VFED_ExtractIntelPawn;
+    public static JobDef VFED_FleeEnemies;
 
     public static ThingSetMakerDef VFED_Reward_ItemsSpecial;
 

@@ -8,7 +8,7 @@ using Verse.Grammar;
 
 namespace VFED;
 
-public class SitePartWorker_WithQuestStructure : SitePartWorker
+public class SitePartWorker_WithQuestStructure : SitePartWorker_Objectives
 {
     public override void Notify_GeneratedByQuestGen(SitePart part, Slate slate, List<Rule> outExtraDescriptionRules,
         Dictionary<string, string> outExtraDescriptionConstants)
@@ -21,9 +21,12 @@ public class SitePartWorker_WithQuestStructure : SitePartWorker
             noble = slate.Get<Pawn>("noble")
         });
     }
+
+    public override bool ShouldKeepSiteForObjectives(SitePart part) =>
+        WorldComponent_Deserters.Instance.DataForSites.TryGetValue(part.site, out var data) && data?.noble is { Spawned: true };
 }
 
 public class SitePartWorker_Objectives : SitePartWorker
 {
-    public bool ShouldKeepSiteForObjectives(SitePart part) => part.site?.Map?.GetComponent<MapComponent_ObjectiveHighlighter>()?.HasObjectives ?? false;
+    public virtual bool ShouldKeepSiteForObjectives(SitePart part) => part.site?.Map?.GetComponent<MapComponent_ObjectiveHighlighter>()?.HasObjectives ?? false;
 }

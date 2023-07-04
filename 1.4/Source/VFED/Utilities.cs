@@ -156,6 +156,7 @@ public static class Utilities
 
     public static T TakeRandom<T>(this List<T> source)
     {
+        if (source.Count == 0) return default;
         var idx = Rand.Range(0, source.Count);
         var item = source[idx];
         source.RemoveAt(idx);
@@ -231,4 +232,21 @@ public static class Utilities
                 MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
             }
     }
+
+    public static Direction8Way ToDirection8Way(this float angle)
+    {
+        return angle switch
+        {
+            >= 337.5f or < 22.5f => Direction8Way.North,
+            < 67.5f => Direction8Way.NorthEast,
+            < 112.5f => Direction8Way.East,
+            < 157.5f => Direction8Way.SouthEast,
+            < 202.5f => Direction8Way.South,
+            < 247.5f => Direction8Way.SouthWest,
+            < 292.5f => Direction8Way.West,
+            _ => Direction8Way.NorthWest
+        };
+    }
+
+    public static Vector3 Center(this Region region) => region.extentsClose.CenterCell.ToVector3Shifted();
 }

@@ -31,7 +31,7 @@ public class GenStep_DownedShuttle : GenStep
         var forces = PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
             {
                 groupKind = PawnGroupKindDefOf.Settlement,
-                points = data.points * 2,
+                points = data.points,
                 faction = Faction.OfEmpire,
                 generateFightersOnly = true,
                 inhabitants = true,

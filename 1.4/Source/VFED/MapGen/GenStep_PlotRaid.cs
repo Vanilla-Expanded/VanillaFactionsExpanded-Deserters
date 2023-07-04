@@ -25,7 +25,7 @@ public class GenStep_PlotRaid : GenStep
         forces.AddRange(PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
         {
             groupKind = PawnGroupKindDefOf.Settlement,
-            points = data.points * 3,
+            points = data.points * 1.5f,
             faction = Faction.OfEmpire,
             generateFightersOnly = true,
             inhabitants = true,
@@ -64,6 +64,7 @@ public class GenStep_PlotRaid : GenStep
                 if (possibleCells.Count == 0) break;
                 var cell = possibleCells.TakeRandom();
                 var pawn = forces.TakeRandom();
+                if (pawn == null) break;
                 GenSpawn.Spawn(pawn, cell, map);
                 possibleCells.RemoveAll(c => c.InHorDistOf(cell, 1.9f));
                 onCall.Add(pawn);
@@ -75,13 +76,15 @@ public class GenStep_PlotRaid : GenStep
         possibleCells = bounds.EdgeCells.Where(c => c.Standable(map)).ToList();
         while (forces.Count > 0 && possibleCells.Count > 0)
         {
-            var pawn1 = forces.TakeRandom();
-            var pawn2 = forces.Count > 0 ? forces.TakeRandom() : null;
             var cell = possibleCells.TakeRandom();
 
-            GenSpawn.Spawn(pawn1, cell.RandomAdjacentCell8Way(), map);
-            patrollers.Add(pawn1);
-            if (pawn2 != null)
+            if (forces.TakeRandom() is { } pawn1)
+            {
+                GenSpawn.Spawn(pawn1, cell.RandomAdjacentCell8Way(), map);
+                patrollers.Add(pawn1);
+            }
+
+            if (forces.TakeRandom() is { } pawn2)
             {
                 GenSpawn.Spawn(pawn2, cell.RandomAdjacentCell8Way(), map);
                 patrollers.Add(pawn2);
@@ -127,18 +130,16 @@ public class GenStep_PlotRaid : GenStep
             if (!guardLocations.Item1.InBounds(map) || !guardLocations.Item2.InBounds(map)) break;
         }
 
-        if (guardLocations.Item1.IsValid && guardLocations.Item1.InBounds(map) && guardLocations.Item1.Standable(map))
+        if (guardLocations.Item1.IsValid && guardLocations.Item1.InBounds(map) && guardLocations.Item1.Standable(map) && forces.TakeRandom() is { } pawn1)
         {
-            var pawn = forces.TakeRandom();
-            GenSpawn.Spawn(pawn, guardLocations.Item1, map);
-            guards.Add(pawn);
+            GenSpawn.Spawn(pawn1, guardLocations.Item1, map);
+            guards.Add(pawn1);
         }
 
-        if (guardLocations.Item2.IsValid && guardLocations.Item2.InBounds(map) && guardLocations.Item2.Standable(map))
+        if (guardLocations.Item2.IsValid && guardLocations.Item2.InBounds(map) && guardLocations.Item2.Standable(map) && forces.TakeRandom() is { } pawn2)
         {
-            var pawn = forces.TakeRandom();
-            GenSpawn.Spawn(pawn, guardLocations.Item2, map);
-            guards.Add(pawn);
+            GenSpawn.Spawn(pawn2, guardLocations.Item2, map);
+            guards.Add(pawn2);
         }
     }
 }

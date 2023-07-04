@@ -9,7 +9,11 @@ namespace VFED;
 
 public abstract class LordToil_DefendNobleMansion : LordToil
 {
-    public LordToilData_DefendNobleMansion Data => data as LordToilData_DefendNobleMansion;
+    public LordToilData_DefendNobleMansion Data
+    {
+        get => data as LordToilData_DefendNobleMansion;
+        set => data = value;
+    }
 }
 
 public class LordToilData_DefendNobleMansion : LordToilData
@@ -60,7 +64,7 @@ public class LordToil_DefendNobleMansion_Passive : LordToil_DefendNobleMansion
     {
         foreach (var pawn in lord.ownedPawns)
             if (pawn == Data.noble) pawn.mindState.duty = new PawnDuty(VFED_DefOf.VFED_SitOnThrone);
-            else if (Data.guards.Contains(pawn)) pawn.mindState.duty = new PawnDuty(VFED_DefOf.VFED_StandGuard);
+            else if (Data.guards.Contains(pawn)) pawn.mindState.duty = new PawnDuty(VFED_DefOf.VFED_StandGuard, pawn.Position, 2.9f);
             else if (Data.onCall.Contains(pawn))
             {
                 var bunker = Data.bunkerAreas.FirstOrDefault(rect => rect.Contains(pawn.Position));
