@@ -3,7 +3,7 @@
     <QuestScriptDef>
         <defName>VFED_AerodroneStation</defName>
 	    <rootSelectionWeight>2</rootSelectionWeight>
-	    <expireDaysRange>15~30</expireDaysRange>
+	    <expireDaysRange>3</expireDaysRange>
 	    <questNameRules>
 		    <rulesStrings>
 			    <li>questName->Aerodrone station sabotage</li>
