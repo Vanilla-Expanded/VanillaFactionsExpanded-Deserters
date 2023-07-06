@@ -3,6 +3,7 @@
     <QuestScriptDef>
         <defName>VFED_PlotMission</defName>
         <isRootSpecial>true</isRootSpecial>
+        <expireDaysRange>-1</expireDaysRange>
         <questNameRules>
             <include>
                 <li>VFED_PlotName</li>

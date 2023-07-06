@@ -12,7 +12,7 @@
                 </li>
                 <li Class="QuestNode_GetMap" />
                 <li Class="QuestNode_IsTrue">
-                    <value>$purchasable</value> <!-- Set by Services UI code for quests to be purchased-->
+                    <value>$purchasable</value>                    <!-- Set by Services UI code for quests to be purchased-->
                     <node Class="QuestNode_SubScript">
                         <def>VFED_Util_RandomizePointsChallengeRating_AllStars</def>
                     </node>
@@ -107,6 +107,39 @@
                         <li>VFED_Stealth3</li>
                     </possibleSongs>
                     <priority>2</priority>
+                </li>
+                <li Class="QuestNode_Signal">
+                    <inSignal>Initiate</inSignal>
+                    <outSignals>
+                        <li>StartTimeout</li>
+                    </outSignals>
+                </li>
+                <li Class="QuestNode_Signal">
+                    <inSignal>site.MapRemoved</inSignal>
+                    <inSignalDisable>$objectiveCompleteSignal</inSignalDisable>
+                    <outSignals>
+                        <li>StartTimeout</li>
+                    </outSignals>
+                </li>
+                <li Class="QuestNode_WorldObjectTimeout">
+                    <worldObject>$site</worldObject>
+                    <isQuestTimeout>true</isQuestTimeout>
+                    <delayTicks>300000</delayTicks>
+                    <inSignalEnable>StartTimeout</inSignalEnable>
+                    <inSignalDisable>site.MapGenerated</inSignalDisable>
+                    <destroyOnCleanup>true</destroyOnCleanup>
+                    <reactivatable>true</reactivatable>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_Letter">
+                                <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+                                <text TKey="LetterTextQuestExpired">The [site_label] has packed up and moved on. The quest [resolvedQuestName] has expired.</text>
+                            </li>
+                            <li Class="QuestNode_End">
+                                <outcome>Fail</outcome>
+                            </li>
+                        </nodes>
+                    </node>
                 </li>
                 <li Class="VFED.QuestNode_DeserterRewards">
                     <inSignal>$questCompleteSignal</inSignal>

@@ -3,7 +3,7 @@
     <QuestScriptDef>
         <defName>VFED_ControlStationRaid</defName>
 	    <rootSelectionWeight>2</rootSelectionWeight>
-	    <expireDaysRange>15~30</expireDaysRange>
+	    <expireDaysRange>3</expireDaysRange>
 	    <questNameRules>
 		    <rulesStrings>
 			    <li>questName->Control station raid</li>
