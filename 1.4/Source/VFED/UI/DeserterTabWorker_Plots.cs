@@ -72,7 +72,7 @@ public class DeserterTabWorker_Plots : DeserterTabWorker
 
             rect = rect.ContractedBy(2, 0);
             Widgets.Label(rect.TakeTopPart(25), plot.name);
-            Widgets.Label(rect.TakeTopPart(25), "VFED.PlotTarget".Translate(plot.royalTitle.label));
+            Widgets.Label(rect.TakeTopPart(25), "VFED.PlotTarget".Translate(plot.title));
             if (plot.Complete)
             {
                 var location = Find.CurrentMap != null ? Find.WorldGrid.LongLatOf(Find.CurrentMap.Tile) : default;

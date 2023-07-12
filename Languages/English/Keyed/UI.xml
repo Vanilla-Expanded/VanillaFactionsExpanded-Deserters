@@ -34,7 +34,7 @@
     <VFED.OtherServices>Other services</VFED.OtherServices>
     <VFED.Rewards>Rewards</VFED.Rewards>
     <VFED.PlotDesc>Plot description</VFED.PlotDesc>
-    <VFED.PlotTarget>Target: Loyalist {0}</VFED.PlotTarget>
+    <VFED.PlotTarget>Target: {0}</VFED.PlotTarget>
     <VFED.CompletedOn>Completed on {0}</VFED.CompletedOn>
     <VFED.CombatHigh>Combat: High</VFED.CombatHigh>
     <VFED.CombatMedium>Combat: Medium</VFED.CombatMedium>

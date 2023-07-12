@@ -334,4 +334,26 @@
       </li>
     </value>
   </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MealSurvivalPack"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		    <intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+        <costMult>3</costMult>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MedicineIndustrial"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		    <intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+        <costMult>2</costMult>
+      </li>
+    </value>
+  </Operation>
 </Patch>
