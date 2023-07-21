@@ -103,15 +103,16 @@ public class PawnGroupMakerParms_Saveable : PawnGroupMakerParms, IExposable
 public class QuestNode_GenerateForces : QuestNode
 {
     public SlateRef<float> points;
+    public SlateRef<float> pointsMult;
     public SlateRef<string> storeAs;
 
     protected override void RunInt()
     {
         var slate = QuestGen.slate;
-        slate.Set(storeAs.GetValue(slate), PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
+        var forces = PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
             {
                 groupKind = PawnGroupKindDefOf.Combat,
-                points = points.GetValue(slate),
+                points = points.GetValue(slate) * (pointsMult.TryGetValue(slate, out var mult) ? mult : 1),
                 faction = Faction.OfEmpire,
                 generateFightersOnly = true
             })
@@ -121,7 +122,8 @@ public class QuestNode_GenerateForces : QuestNode
                 QuestGen.AddToGeneratedPawns(pawn);
                 return pawn;
             })
-           .ToList());
+           .ToList();
+        slate.Set(storeAs.GetValue(slate), forces);
     }
 
     protected override bool TestRunInt(Slate slate) => true;

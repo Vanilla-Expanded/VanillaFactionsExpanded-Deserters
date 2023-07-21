@@ -289,6 +289,7 @@
                             <nodes>
                                 <li Class="VFED.QuestNode_GenerateForces">
                                     <points>$points</points>
+                                    <pointsMult>0.5</pointsMult>
                                     <storeAs>forces</storeAs>
                                 </li>
                                 <li Class="VFED.QuestNode_ValueFromTitle">

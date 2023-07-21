@@ -341,7 +341,7 @@
         <category>VFED_Deserter</category>
 		    <intelCost>1</intelCost>
         <useCriticalIntel>false</useCriticalIntel>
-        <costMult>3</costMult>
+        <countMult>3</countMult>
       </li>
     </value>
   </Operation>
@@ -352,7 +352,7 @@
         <category>VFED_Deserter</category>
 		    <intelCost>1</intelCost>
         <useCriticalIntel>false</useCriticalIntel>
-        <costMult>2</costMult>
+        <countMult>2</countMult>
       </li>
     </value>
   </Operation>
