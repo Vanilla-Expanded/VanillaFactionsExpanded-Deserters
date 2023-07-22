@@ -173,7 +173,8 @@ public class DeserterTabWorker_Plots : DeserterTabWorker
         }
         else
         {
-            if (Widgets.ButtonText(inRect.TakeBottomPart(25).ContractedBy(10, 0), "VFED.ShowActiveQuest".Translate()))
+            if (selectedPlot.quest.State == QuestState.Ongoing
+             && Widgets.ButtonText(inRect.TakeBottomPart(25).ContractedBy(10, 0), "VFED.ShowActiveQuest".Translate()))
             {
                 Parent.Close();
                 MainButtonDefOf.Quests.Worker.Activate();

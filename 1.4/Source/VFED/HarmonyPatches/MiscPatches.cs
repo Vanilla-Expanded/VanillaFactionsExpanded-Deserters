@@ -248,7 +248,7 @@ public static class MiscPatches
     [HarmonyPostfix]
     public static void CheckForPlotEnd(Quest __instance)
     {
-        if (WorldComponent_Deserters.Instance.PlotMissions.Any(plotMission => plotMission.quest == __instance))
+        if (WorldComponent_Deserters.Instance.Active && WorldComponent_Deserters.Instance.PlotMissions.Any(plotMission => plotMission.quest == __instance))
             WorldComponent_Deserters.Instance.Notify_PlotQuestEnded(__instance);
     }
 }

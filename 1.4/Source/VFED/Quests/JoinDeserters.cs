@@ -16,7 +16,7 @@ public class QuestNode_JoinDeserters : QuestNode
         });
     }
 
-    protected override bool TestRunInt(Slate slate) => !WorldComponent_Deserters.Instance.Active;
+    protected override bool TestRunInt(Slate slate) => !WorldComponent_Deserters.Instance.Active && !WorldComponent_Deserters.Instance.Locked;
 }
 
 public class QuestPart_JoinDeserters : QuestPart

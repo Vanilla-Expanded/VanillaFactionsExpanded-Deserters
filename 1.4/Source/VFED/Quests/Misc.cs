@@ -47,6 +47,7 @@ public class QuestNode_GetNoble : QuestNode
         slate.Set(storeAs.GetValue(slate), noble);
         QuestGen.AddToGeneratedPawns(noble);
         if (!noble.IsWorldPawn()) Find.WorldPawns.PassToWorld(noble);
+        if (WorldComponent_Deserters.GeneratingPlot != null) WorldComponent_Deserters.GeneratingPlot.target = noble;
     }
 
     protected override bool TestRunInt(Slate slate) => true;
@@ -186,4 +187,48 @@ public class QuestNode_MakeLord : QuestNode
     }
 
     protected override bool TestRunInt(Slate slate) => true;
+}
+
+public class QuestNode_RevealDelay : QuestNode
+{
+    public SlateRef<IntRange> delayTicksRange;
+
+    protected override void RunInt()
+    {
+        var part = new QuestPart_RevealDelay
+        {
+            delayTicksRange = delayTicksRange.GetValue(QuestGen.slate),
+            inSignalEnable = QuestGen.quest.AddedSignal,
+            inSignalDisable = QuestGen.quest.InitiateSignal,
+            signalListenMode = QuestPart.SignalListenMode.OngoingOrNotYetAccepted
+        };
+        QuestGen.quest.AddPart(part);
+    }
+
+    protected override bool TestRunInt(Slate slate) => true;
+}
+
+public class QuestPart_RevealDelay : QuestPart_DelayRandom
+{
+    public override bool PreventsAutoAccept => true;
+
+    public override AlertReport AlertReport => AlertReport.Inactive;
+
+    protected override void Enable(SignalArgs receivedArgs)
+    {
+        base.Enable(receivedArgs);
+        quest.hidden = true;
+        quest.hiddenInUI = true;
+        quest.ticksUntilAcceptanceExpiry = -1;
+    }
+
+    protected override void Complete(SignalArgs signalArgs)
+    {
+        base.Complete(signalArgs);
+        quest.hidden = false;
+        quest.hiddenInUI = false;
+        quest.ticksUntilAcceptanceExpiry = quest.root.expireDaysRange.RandomInRange.DaysToTicks();
+        quest.appearanceTick = Find.TickManager.TicksGame;
+        QuestUtility.SendLetterQuestAvailable(quest);
+    }
 }

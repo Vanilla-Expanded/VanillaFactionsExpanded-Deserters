@@ -367,5 +367,8 @@
                 </li>
             </nodes>
         </root>
+		<modExtensions>
+			<li Class="VFED.QuestExtension_Deserter" />
+		</modExtensions>
     </QuestScriptDef>
 </Defs>

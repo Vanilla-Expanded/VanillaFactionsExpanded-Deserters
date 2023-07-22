@@ -19,10 +19,13 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
 {
     public static WorldComponent_Deserters Instance;
 
+    public static PlotMissionInfo GeneratingPlot;
+
     public bool Active;
     public List<VisibilityEffect> ActiveEffects = new();
     public Dictionary<Site, SiteExtraData> DataForSites = new();
     public PriorityQueue<Action, int> EventQueue = new();
+    public bool Locked;
 
     public List<PlotMissionInfo> PlotMissions = new();
 
@@ -78,11 +81,30 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         EmpireUtility.Deserters.SetRelationDirect(Faction.OfPlayer, FactionRelationKind.Ally, false);
 
         Active = true;
+        Locked = false;
 
         Utilities.StripTitles(fromQuest);
 
         Find.FactionManager.goodwillSituationManager.RecalculateAll(true);
         Notify_VisibilityChanged(false, fromQuest);
+    }
+
+    public void BetrayDeserters(Quest fromQuest)
+    {
+        Active = false;
+        Locked = true;
+        Visibility = 0;
+        VisibilityLevel = null;
+
+        Faction.OfEmpire.TryAffectGoodwillWith(Faction.OfPlayer, 200, false, false);
+
+        EmpireUtility.Deserters.SetRelationDirect(Faction.OfPlayer, FactionRelationKind.Hostile, false);
+
+        foreach (var quest in Find.QuestManager.QuestsListForReading)
+            if (quest.root.IsDeserterQuest() && quest.State is QuestState.NotYetAccepted or QuestState.Ongoing && quest != fromQuest)
+                quest.End(quest.EverAccepted ? QuestEndOutcome.Fail : QuestEndOutcome.InvalidPreAcceptance);
+
+        Find.FactionManager.goodwillSituationManager.RecalculateAll(true);
     }
 
     public void Notify_VisibilityChanged(bool fromLoad = false, Quest fromQuest = null)
@@ -205,14 +227,40 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         if (quest.State == QuestState.EndedSuccess)
         {
             plot.completedTick = Find.TickManager.TicksGame;
+            var target = plot.target;
+            plot.target = null;
+            var targetTitle = plot.royalTitle;
             var idx = PlotMissions.IndexOf(plot);
+            if (idx >= PlotMissions.Count) return;
+            var bargainChance = targetTitle.seniority switch
+            {
+                700 => 1,
+                701 => 0.1f,
+                800 => 0.3f,
+                801 => 0.5f,
+                802 => 0.7f,
+                900 => 0.9f,
+                901 => 1,
+                _ => 0
+            };
+            if (Rand.Chance(bargainChance))
+            {
+                var slate = new Slate();
+                slate.Set("points", StorytellerUtility.DefaultThreatPointsNow(Find.World));
+                slate.Set("lastTarget", target);
+                slate.Set("lastTarget_title", targetTitle);
+                var bargainQuest = QuestGen.Generate(VFED_DefOf.VFED_EmpireBargain, slate);
+                Find.QuestManager.Add(bargainQuest);
+            }
+
             GeneratePlotQuest(PlotMissions[idx + 1]);
         }
         else if (quest.State is QuestState.EndedFailed or QuestState.EndedInvalid) GeneratePlotQuest(plot);
     }
 
-    private void GeneratePlotQuest(PlotMissionInfo plot)
+    private static void GeneratePlotQuest(PlotMissionInfo plot)
     {
+        GeneratingPlot = plot;
         var points = StorytellerUtility.DefaultThreatPointsNow(Find.World);
         var slate = new Slate();
         slate.Set("points", points);
@@ -223,12 +271,14 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         quest.ticksUntilAcceptanceExpiry = -1;
         Find.QuestManager.Add(quest);
         plot.quest = quest;
+        GeneratingPlot = null;
     }
 
     public override void ExposeData()
     {
         base.ExposeData();
         Scribe_Values.Look(ref Active, "active");
+        Scribe_Values.Look(ref Locked, "locked");
         Scribe_Values.Look(ref Visibility, "visibility");
         Scribe_Collections.Look(ref ServiceQuests, "serviceQuests", LookMode.Reference);
         Scribe_Collections.Look(ref DataForSites, "extraSiteData", LookMode.Reference, LookMode.Deep, ref tempSiteKeys, ref tempExtraDataValues);
@@ -294,6 +344,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         public string name;
         public Quest quest;
         public RoyalTitleDef royalTitle;
+        public Pawn target;
         public string title;
 
         public bool Available => quest != null;
@@ -304,6 +355,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             Scribe_Values.Look(ref name, nameof(name));
             Scribe_Values.Look(ref title, nameof(title));
             Scribe_References.Look(ref quest, nameof(quest));
+            Scribe_References.Look(ref target, nameof(target));
             Scribe_Defs.Look(ref royalTitle, nameof(royalTitle));
             Scribe_Values.Look(ref completedTick, nameof(completedTick));
         }

@@ -24,6 +24,7 @@ public class VFED_DefOf
 
     public static QuestScriptDef VFED_DeadDrop;
     public static QuestScriptDef VFED_PlotMission;
+    public static QuestScriptDef VFED_EmpireBargain;
 
     public static DesignationDef VFED_ExtractIntel;
 

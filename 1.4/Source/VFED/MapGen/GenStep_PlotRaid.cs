@@ -121,13 +121,20 @@ public class GenStep_PlotRaid : GenStep
 
         var pos = door.Position;
         var guardLocations = (IntVec3.Invalid, IntVec3.Invalid);
+        var dist = 1;
 
         while (!guardLocations.Item1.IsValid || !guardLocations.Item1.Standable(map) || !guardLocations.Item2.IsValid || !guardLocations.Item2.Standable(map))
         {
             pos += outsideDirection.FacingCell;
+            dist++;
             guardLocations = (pos + outsideDirection.Rotated(RotationDirection.Clockwise).FacingCell,
                 pos + outsideDirection.Rotated(RotationDirection.Counterclockwise).FacingCell);
             if (!guardLocations.Item1.InBounds(map) || !guardLocations.Item2.InBounds(map)) break;
+            if (dist > 5)
+            {
+                Log.Warning($"[VFED] Could not spawn guards on door at {door.Position}");
+                return;
+            }
         }
 
         if (guardLocations.Item1.IsValid && guardLocations.Item1.InBounds(map) && guardLocations.Item1.Standable(map) && forces.TakeRandom() is { } pawn1)
