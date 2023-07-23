@@ -73,6 +73,7 @@
     <Compile Include="Comps\CompIntelExtractor.cs" />
     <Compile Include="Comps\CompInvisibilityEngulfer.cs" />
     <Compile Include="Comps\CompMotionDetector.cs" />
+    <Compile Include="Comps\CompProperties_ProjectileInterceptor_Powered.cs" />
     <Compile Include="Comps\CompSmokeEmitter.cs" />
     <Compile Include="Comps\CompStrikeBouy.cs" />
     <Compile Include="Comps\CompSurveillancePillar.cs" />

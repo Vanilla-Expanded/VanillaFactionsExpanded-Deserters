@@ -114,12 +114,31 @@
                 </li>
                 <li Class="QuestNode_Multiply">
                     <value1>$rewardValue</value1>
-                    <value2>1.25</value2>
+                    <value2>3.125</value2>
                     <storeAs>rewardValue</storeAs>
+                </li>
+                <li Class="VFED.QuestNode_ValueFromTitle">
+                    <value>$nobleTitle</value>
+                    <storeAs>rewardFactor</storeAs>
+                    <values>
+                        <Knight>1</Knight>
+                        <Praetor>1</Praetor>
+                        <Baron>1.2</Baron>
+                        <Count>1.2</Count>
+                        <VFEE_Archcount>1.4</VFEE_Archcount>
+                        <VFEE_Marquess>1.4</VFEE_Marquess>
+                        <Duke>1.6</Duke>
+                        <VFEE_Archduke>1.6</VFEE_Archduke>
+                        <Consul>1.8</Consul>
+                        <VFEE_Magister>1.8</VFEE_Magister>
+                        <VFEE_Despot>2</VFEE_Despot>
+                        <Stellarch>2</Stellarch>
+                        <VFEE_HighStellarch>3</VFEE_HighStellarch>
+                    </values>
                 </li>
                 <li Class="QuestNode_Multiply">
                     <value1>$rewardValue</value1>
-                    <value2>4</value2>
+                    <value2>$rewardFactor</value2>
                     <storeAs>rewardValue</storeAs>
                 </li>
                 <li Class="VFED.QuestNode_ApproachChoices">

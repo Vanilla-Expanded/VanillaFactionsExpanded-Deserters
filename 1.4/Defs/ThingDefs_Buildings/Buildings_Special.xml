@@ -727,16 +727,16 @@
       <soundAmbient>BulletShield_Ambience</soundAmbient>
 	</building>
     <comps>
-      <li Class="CompProperties_ProjectileInterceptor">
+      <li Class="VFED.CompProperties_ProjectileInterceptor_Powered">
         <radius>75</radius>
         <interceptAirProjectiles>true</interceptAirProjectiles>
         <color>(0.9, 0.9, 0.9)</color>
         <reactivateEffect>MortarShieldGenerator_Reactivate</reactivateEffect>
         <activeSound>MortarShield_Ambience</activeSound>
         <disarmedByEmpForTicks>360</disarmedByEmpForTicks>
-        <chargeIntervalTicks>6000</chargeIntervalTicks>
-        <chargeDurationTicks>300</chargeDurationTicks>
-		<interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+        <chargeIntervalTicks>-1</chargeIntervalTicks>
+		    <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+        <requiresPower>true</requiresPower>
       </li>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>

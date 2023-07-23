@@ -48,12 +48,7 @@
                 </li>
                 <li Class="QuestNode_Multiply">
                     <value1>$rewardValue</value1>
-                    <value2>1.25</value2>
-                    <storeAs>rewardValue</storeAs>
-                </li>
-                <li Class="QuestNode_Multiply">
-                    <value1>$rewardValue</value1>
-                    <value2>2.5</value2>
+                    <value2>3.125</value2>
                     <storeAs>rewardValue</storeAs>
                 </li>
                 <li Class="QuestNode_SubScript">
