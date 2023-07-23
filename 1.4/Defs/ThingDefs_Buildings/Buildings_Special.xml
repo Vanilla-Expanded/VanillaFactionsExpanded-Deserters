@@ -758,6 +758,7 @@
     <defName>VFED_ZeusCannonControlStation</defName>
     <label>zeus cannon control station</label>
     <description>todo</description>
+    <thingClass>VFED.Building_CannonControl</thingClass>
     <graphicData>
       <texPath>Endgame/ZeusCannonControlStation</texPath>
       <graphicClass>Graphic_Single</graphicClass>

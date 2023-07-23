@@ -100,6 +100,7 @@
     <Compile Include="Quests\ImperialForces.cs" />
     <Compile Include="Quests\Misc.cs" />
     <Compile Include="Quests\ObjectiveTracker.cs" />
+    <Compile Include="Things\Building_CannonControl.cs" />
     <Compile Include="Things\Building_CrateBiosecured.cs" />
     <Compile Include="Things\Building_SupplyCrate.cs" />
     <Compile Include="Things\Building_ZeusCannon.cs" />

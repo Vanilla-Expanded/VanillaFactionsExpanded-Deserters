@@ -16,6 +16,10 @@ public class VFED_DefOf
     public static ThingDef VFED_DeserterShuttle;
     public static ThingDef VFED_Bullet_Shell_ArmorPiercing;
     public static ThingDef VFED_CrashedAerodrone;
+    public static ThingDef Mote_ProximityScannerRadius;
+    public static ThingDef Mote_ActivatorProximityGlow;
+    public static ThingDef VFED_Mote_ProximityScannerRadius_Green;
+    public static ThingDef VFED_Mote_ActivatorProximityGlow_Green;
 
     public static ThingDef VFED_Intel;
     public static ThingDef VFED_CriticalIntel;
