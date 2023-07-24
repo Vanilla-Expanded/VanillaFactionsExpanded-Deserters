@@ -232,3 +232,16 @@ public class QuestPart_RevealDelay : QuestPart_DelayRandom
         QuestUtility.SendLetterQuestAvailable(quest);
     }
 }
+
+public class QuestNode_CheckDesertion : QuestNode
+{
+    public SlateRef<string> storeAs;
+
+    protected override void RunInt()
+    {
+        if (WorldComponent_Deserters.Instance.Active)
+            QuestGen.AddQuestDescriptionConstants(new Dictionary<string, string> { { storeAs.GetValue(QuestGen.slate), "True" } });
+    }
+
+    protected override bool TestRunInt(Slate slate) => !storeAs.GetValue(slate).NullOrEmpty();
+}
