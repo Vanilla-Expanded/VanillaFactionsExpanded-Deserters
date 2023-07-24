@@ -707,4 +707,38 @@
     <stuff>Cloth</stuff>
     <rotation>South</rotation>
   </KCSG.SymbolDef>
+  
+<KCSG.SymbolDef>
+  <defName>VFED_ZeusCannonCapacitorBank_West</defName>
+  <thing>VFED_ZeusCannonCapacitorBank</thing>
+  <rotation>West</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFED_ZeusCannonCapacitorBank_South</defName>
+  <thing>VFED_ZeusCannonCapacitorBank</thing>
+  <rotation>South</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFED_ZeusCannonCapacitorBank_North</defName>
+  <thing>VFED_ZeusCannonCapacitorBank</thing>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFED_ZeusCannonCapacitorBank_East</defName>
+  <thing>VFED_ZeusCannonCapacitorBank</thing>
+  <rotation>East</rotation>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFED_ZeusCannonControlStation</defName>
+  <thing>VFED_ZeusCannonControlStation</thing>
+</KCSG.SymbolDef>
+
+<KCSG.SymbolDef>
+  <defName>VFED_ImperialMegaHighShield</defName>
+  <thing>VFED_ImperialMegaHighShield</thing>
+</KCSG.SymbolDef>
+
 </Defs>
