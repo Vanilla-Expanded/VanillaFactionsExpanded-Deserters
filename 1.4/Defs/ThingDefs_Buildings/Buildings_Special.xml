@@ -923,7 +923,7 @@
       <ComponentIndustrial>1</ComponentIndustrial>
     </killedLeavings>
     <researchPrerequisites>
-      <li>Microelectronics</li>
+      <li>MicroelectronicsBasics</li>
     </researchPrerequisites>
     <tickerType>Normal</tickerType>
     <filthLeaving>Filth_MachineBits</filthLeaving>
