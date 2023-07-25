@@ -741,4 +741,9 @@
   <thing>VFED_ImperialMegaHighShield</thing>
 </KCSG.SymbolDef>
 
+<KCSG.SymbolDef>
+  <defName>VFED_ZeusCannon</defName>
+  <thing>VFED_ZeusCannon</thing>
+</KCSG.SymbolDef>
+
 </Defs>
