@@ -7,7 +7,7 @@
     <VFED.SurveillancePillarActivated>You have activated an imperial surveillance pillar. Visibility of your faction has increased by {1}. It is now {0}.</VFED.SurveillancePillarActivated>
     <VFED.IntelFromTitle>{0} has been stripped from their title of {1}. They have provided you with {2} Intel.</VFED.IntelFromTitle>
     <VFED.ResponseComing>Imperial response</VFED.ResponseComing>
-    <VFED.ResponseComingDesc>An imperial {0} is on its way to this location. It will arrive in {1}.</VFED.ResponseComingDesc>
+    <VFED.ResponseComingDesc>An imperial {0} is on its way to this location. It will arrive in {1}s.</VFED.ResponseComingDesc>
     <VFED.ResponseMessage>Due to triggering an imperial response, your visibility has increased by {0}. It is now {1}. In the future, you can avoid increasing the visibility by completing the mission before the response arrives.</VFED.ResponseMessage>
     <VFED.Detonate.BombPack>Detonate bomb pack</VFED.Detonate.BombPack>
     <VFED.Detonate.BombPack.Desc>Detonate this bomb pack remotely to generate a big explosion. WARNING: Pressing this button will immediately set off the bomb.</VFED.Detonate.BombPack.Desc>

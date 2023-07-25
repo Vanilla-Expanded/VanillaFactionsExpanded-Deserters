@@ -11,6 +11,8 @@ public class CompIntelExtract : ThingComp
 
     public bool CanExtract => !intelExtracted;
 
+    private bool HasDesignation => parent.MapHeld.designationManager.DesignationOn(parent, VFED_DefOf.VFED_ExtractIntel) != null;
+
     public void Extract(Pawn pawn)
     {
         if (!CanExtract) return;
@@ -22,19 +24,22 @@ public class CompIntelExtract : ThingComp
     }
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra() =>
-        CanExtract && parent.MapHeld != null
+        CanExtract && parent.MapHeld != null && !HasDesignation
             ? base.CompGetGizmosExtra()
                .Append(new Command_Action
                 {
                     defaultLabel = VFED_DefOf.VFED_ExtractIntel.LabelCap,
                     defaultDesc = VFED_DefOf.VFED_ExtractIntel.description,
                     icon = TexDeserters.ExtractIntelTex,
-                    action = delegate { parent.MapHeld.designationManager.AddDesignation(new Designation(parent, VFED_DefOf.VFED_ExtractIntel)); }
+                    action = delegate
+                    {
+                        if (HasDesignation) parent.MapHeld.designationManager.AddDesignation(new Designation(parent, VFED_DefOf.VFED_ExtractIntel));
+                    }
                 })
             : base.CompGetGizmosExtra();
 
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn) =>
-        CanExtract && parent.Map.designationManager.DesignationOn(parent, VFED_DefOf.VFED_ExtractIntel) != null
+        CanExtract && HasDesignation
             ? base.CompFloatMenuOptions(selPawn)
                .Append(new FloatMenuOption(VFED_DefOf.VFED_ExtractIntel.LabelCap,
                     delegate { selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFED_DefOf.VFED_ExtractIntelJob, parent), JobTag.DraftedOrder); }))
