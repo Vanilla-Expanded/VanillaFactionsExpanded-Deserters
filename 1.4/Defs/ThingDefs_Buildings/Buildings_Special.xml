@@ -884,4 +884,49 @@
       <li Class="VFED.CompProperties_AffectsSky_ZeusCannon"/>
     </comps>
   </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFED_BurnoutIntelScraper</defName>
+    <label>burnout intel scraper</label>
+    <description>A deserter device capable of intercepting imperial communication. When activated, it will begin intel scraping, emitting a pulse in regular intervals. Each pulse has a chance of generating a small amount of intel, but it may also increase your visibility and even alert an imperial strike force. After 10 pulses, the machine burns out and triggers a fiery explosion.</description>
+    <graphicData>
+      <texPath>Structures/Misc/BurnoutIntelScraper</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(1.1, 0.75, 1.1</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.3</fillPercent>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2490</uiOrder>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>5600</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <VFED_DeserterDeclassifier>1</VFED_DeserterDeclassifier>
+    </costList>
+    <killedLeavings>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </killedLeavings>
+    <researchPrerequisites>
+      <li>Microelectronics</li>
+    </researchPrerequisites>
+    <tickerType>Normal</tickerType>
+    <filthLeaving>Filth_MachineBits</filthLeaving>
+  </ThingDef>
+  
 </Defs>
