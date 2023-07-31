@@ -8,6 +8,7 @@ using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using VFEEmpire;
 
 namespace VFED.HarmonyPatches;
 
@@ -250,5 +251,38 @@ public static class MiscPatches
     {
         if (WorldComponent_Deserters.Instance.Active && WorldComponent_Deserters.Instance.PlotMissions.Any(plotMission => plotMission.quest == __instance))
             WorldComponent_Deserters.Instance.Notify_PlotQuestEnded(__instance);
+    }
+
+    [HarmonyPatch(typeof(Skyfaller), nameof(Skyfaller.Tick))]
+    [HarmonyPostfix]
+    public static void CheckForIntercept(Skyfaller __instance)
+    {
+        if (__instance.def != ThingDefOf.ShipChunkIncoming || !__instance.SpawnedOrAnyParentSpawned || __instance.ticksToImpact != 20) return;
+        var list = __instance.MapHeld.listerThings.ThingsOfDef(VFED_DefOf.VFED_ImperialMegaHighShield);
+        for (var i = 0; i < list.Count; i++)
+        {
+            var shield = list[i].TryGetComp<CompProjectileInterceptor>();
+            Log.Message(
+                $"{__instance.Position} vs {shield.parent.Position}, {__instance.Position.DistanceTo(shield.parent.Position)}, {shield.Props.radius}, {__instance.Position.InHorDistOf(shield.parent.Position, shield.Props.radius)}");
+            if (shield.Active && shield.Props.interceptAirProjectiles && __instance.Position.InHorDistOf(shield.parent.Position, shield.Props.radius))
+            {
+                shield.SetLastInterceptAngle(__instance.DrawPos.AngleToFlat(shield.parent.TrueCenter()));
+                shield.SetLastInterceptTicks(Find.TickManager.TicksGame);
+                shield.TriggerEffecter(__instance.DrawPos.ToIntVec3());
+                if (shield.currentHitPoints > 0)
+                {
+                    shield.currentHitPoints -= __instance.def.size.MagnitudeManhattan;
+                    if (shield.currentHitPoints < 0) shield.currentHitPoints = 0;
+                    if (shield.currentHitPoints == 0)
+                    {
+                        shield.SetNextChargeTick(Find.TickManager.TicksGame);
+                        shield.BreakShieldHitpoints(new DamageInfo(DamageDefOf.Crush, __instance.def.size.Magnitude));
+                    }
+                }
+
+                __instance.Destroy();
+                return;
+            }
+        }
     }
 }

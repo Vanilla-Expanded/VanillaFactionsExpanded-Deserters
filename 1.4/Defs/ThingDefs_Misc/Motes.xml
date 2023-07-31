@@ -53,7 +53,7 @@
         <graphicData>
             <texPath>Things/Mote/ActivatorProximityRadius</texPath>
             <shaderType>MoteProximityScannerRadius</shaderType>
-            <color>(1, 0.5, 0.1, 0.35)</color>
+            <color>(0.1, 1, 0.5, 0.35)</color>
             <drawSize>26</drawSize>
             <shaderParameters>
                 <_smokeScrollSpeed>0.1</_smokeScrollSpeed>

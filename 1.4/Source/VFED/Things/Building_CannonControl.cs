@@ -10,11 +10,19 @@ public class Building_CannonControl : Building
     public const float RADIUS = 8.9f;
 
     public bool Controlled;
+    private MapComponent_FlagshipFight manager;
     private Mote moteGlow;
     private Mote moteScan;
+    private MapComponent_FlagshipFight Manager => manager ??= Map.GetComponent<MapComponent_FlagshipFight>();
 
     public ThingDef MoteGlow => Controlled ? VFED_DefOf.VFED_Mote_ActivatorProximityGlow_Green : VFED_DefOf.Mote_ActivatorProximityGlow;
     public ThingDef MoteScan => Controlled ? VFED_DefOf.VFED_Mote_ProximityScannerRadius_Green : VFED_DefOf.Mote_ProximityScannerRadius;
+
+    public override void SpawnSetup(Map map, bool respawningAfterLoad)
+    {
+        base.SpawnSetup(map, respawningAfterLoad);
+        CheckControlled();
+    }
 
     public override void Tick()
     {
@@ -49,7 +57,7 @@ public class Building_CannonControl : Building
         }
     }
 
-    private bool CanControl(Thing t) => t is Pawn pawn && pawn.RaceProps.Humanlike && pawn.Faction.IsPlayerSafe();
+    private static bool CanControl(Thing t) => t is Pawn pawn && pawn.RaceProps.Humanlike && pawn.Faction.IsPlayerSafe();
 
     private Mote ThrowMote(ThingDef thingDef)
     {

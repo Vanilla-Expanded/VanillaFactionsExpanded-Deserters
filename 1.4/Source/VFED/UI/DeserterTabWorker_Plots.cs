@@ -95,12 +95,38 @@ public class DeserterTabWorker_Plots : DeserterTabWorker
             Widgets.Label(inRect.TakeTopPart(30).ContractedBy(3, 0), "VFED.PlotDesc".Translate());
         if (selectedPlot.quest.State == QuestState.NotYetAccepted)
         {
-            var descRect = inRect.TakeTopPart(174);
+            Rect descRect;
+            string desc;
+            Rect viewRect;
+            if (selectedPlot.quest.root == VFED_DefOf.VFED_DeserterEndgame)
+            {
+                var acceptRect = inRect.TakeBottomPart(200);
+                acceptRect = new Rect(0, 0, 240, 80).CenteredOnXIn(acceptRect).CenteredOnYIn(acceptRect);
+                if (Widgets.ButtonText(acceptRect, "VFED.StartMission".Translate()))
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("VFED.EndgameWarningText".Translate(), () =>
+                    {
+                        selectedPlot.quest.hidden = false;
+                        selectedPlot.quest.hiddenInUI = false;
+                        selectedPlot.quest.Accept(null);
+                        Parent.Close();
+                        MainButtonDefOf.Quests.Worker.Activate();
+                        ((MainTabWindow_Quests)MainButtonDefOf.Quests.TabWindow).Select(selectedPlot.quest);
+                    }, true));
+                desc = selectedPlot.quest.description.Resolve();
+                descRect = inRect.TakeTopPart(Text.CalcHeight(desc, inRect.width) + 14);
+                Widgets.DrawMenuSection(descRect);
+                descRect = descRect.ContractedBy(7);
+                descRect.xMax += 5;
+                Widgets.Label(descRect, desc);
+                return;
+            }
+
+            descRect = inRect.TakeTopPart(174);
             Widgets.DrawMenuSection(descRect);
             descRect = descRect.ContractedBy(7);
             descRect.xMax += 5;
-            var desc = selectedPlot.quest.description.Resolve();
-            var viewRect = new Rect(0, 0, descRect.width - 20, Text.CalcHeight(desc, descRect.width - 20));
+            desc = selectedPlot.quest.description.Resolve();
+            viewRect = new Rect(0, 0, descRect.width - 20, Text.CalcHeight(desc, descRect.width - 20));
             Widgets.BeginScrollView(descRect, ref descScrollPos, viewRect);
             Widgets.Label(viewRect, desc);
             Widgets.EndScrollView();

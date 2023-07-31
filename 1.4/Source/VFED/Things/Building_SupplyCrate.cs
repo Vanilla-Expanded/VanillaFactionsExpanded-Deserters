@@ -32,7 +32,7 @@ public class Building_SupplyCrate : Building_Casket
 
     public override void Open()
     {
-        base.Open();
+        EjectContents();
         QuestUtility.SendQuestTargetSignals(questTags, "Opened", this.Named("SUBJECT"));
         var pos = Position;
         var map = Map;

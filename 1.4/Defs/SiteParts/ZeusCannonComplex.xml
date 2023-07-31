@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <SitePartDef ParentName="VFED_DeserterRaidSiteBase">
+        <defName>VFED_ZeusCannonComplex</defName>
+        <label>zeus cannon complex</label>
+        <description>text_todo</description>
+        <expandingIconTexture>WorldObjects/QuestIcon_ZeusCannonComplexRaid</expandingIconTexture>
+        <tags>
+            <li>VFED_ZeusCannonComplex</li>
+        </tags>
+    </SitePartDef>
+    <GenStepDef>
+        <defName>VFED_ZeusCannonComplex</defName>
+        <linkWithSite>VFED_ZeusCannonComplex</linkWithSite>
+        <order>470</order>
+        <genStep Class="KCSG.GenStep_CustomStructureGen">
+          <structureLayoutDefs>
+            <li>VFED_ZeusCannonComplex</li>
+          </structureLayoutDefs>
+          <fullClear>true</fullClear>
+          <preventBridgeable>true</preventBridgeable>
+        </genStep>
+    </GenStepDef>
+</Defs>

@@ -204,7 +204,6 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         foreach (var def in WorldComponent_Hierarchy.Titles)
         {
             if (def.seniority < RoyalTitleDefOf.Knight.seniority) continue;
-            if (def == VFEE_DefOf.Emperor) continue;
 
             var request = default(GrammarRequest);
             request.Includes.Add(VFED_DefOf.VFED_PlotName);
@@ -230,7 +229,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             var target = plot.target;
             plot.target = null;
             var targetTitle = plot.royalTitle;
-            var idx = PlotMissions.IndexOf(plot);
+            var idx = PlotMissions.IndexOf(plot) + 1;
             if (idx >= PlotMissions.Count) return;
             var bargainChance = targetTitle.seniority switch
             {
@@ -253,7 +252,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
                 Find.QuestManager.Add(bargainQuest);
             }
 
-            GeneratePlotQuest(PlotMissions[idx + 1]);
+            GeneratePlotQuest(PlotMissions[idx]);
         }
         else if (quest.State is QuestState.EndedFailed or QuestState.EndedInvalid) GeneratePlotQuest(plot);
     }
@@ -265,7 +264,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         var slate = new Slate();
         slate.Set("points", points);
         slate.Set("nobleTitle", plot.royalTitle);
-        var quest = QuestGen.Generate(VFED_DefOf.VFED_PlotMission, slate);
+        var quest = QuestGen.Generate(plot.royalTitle == VFEE_DefOf.Emperor ? VFED_DefOf.VFED_DeserterEndgame : VFED_DefOf.VFED_PlotMission, slate);
         quest.hidden = true;
         quest.hiddenInUI = true;
         quest.ticksUntilAcceptanceExpiry = -1;
@@ -281,7 +280,6 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         Scribe_Values.Look(ref Locked, "locked");
         Scribe_Values.Look(ref Visibility, "visibility");
         Scribe_Collections.Look(ref ServiceQuests, "serviceQuests", LookMode.Reference);
-        Scribe_Collections.Look(ref DataForSites, "extraSiteData", LookMode.Reference, LookMode.Deep, ref tempSiteKeys, ref tempExtraDataValues);
         Scribe_Collections.Look(ref PlotMissions, "plotMissions", LookMode.Deep);
         if (Scribe.EnterNode("eventQueue"))
             try
@@ -316,6 +314,10 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             }
             finally { Scribe.ExitNode(); }
 
+        if (Scribe.mode == LoadSaveMode.Saving) DataForSites.RemoveAll(kv => kv.Key.Destroyed);
+
+        Scribe_Collections.Look(ref DataForSites, "extraSiteData", LookMode.Reference, LookMode.Deep, ref tempSiteKeys, ref tempExtraDataValues);
+
         ServiceQuests ??= new List<Quest>();
         DataForSites ??= new Dictionary<Site, SiteExtraData>();
         PlotMissions ??= new List<PlotMissionInfo>();
@@ -337,6 +339,13 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         }
         else Instance.JoinDeserters(null);
     }
+
+    [DebugAction("Quests", "Generate Plot Mission", allowedGameStates = AllowedGameStates.Playing)]
+    public static List<DebugActionNode> GeneratePlotMission() =>
+        Instance.PlotMissions.Where(info => !info.Available)
+           .Select(info => new DebugActionNode(info.title, DebugActionType.Action, () => GeneratePlotQuest(info)))
+           .ToList();
+
 
     public class PlotMissionInfo : IExposable
     {

@@ -783,6 +783,8 @@
     </costList>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
+    <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
     <building>
       <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
     </building>

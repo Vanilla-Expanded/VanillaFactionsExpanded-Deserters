@@ -5,12 +5,10 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using VFECore;
 
 namespace VFED;
 
 [StaticConstructorOnStartup]
-[HotSwappable]
 public class Building_ZeusCannon : Building
 {
     public enum CannonState
@@ -32,9 +30,13 @@ public class Building_ZeusCannon : Building
     public static Mesh GunInnerMesh = MeshPool.GridPlane(new Vector2(1.5f, 0.5f));
 
     private Mesh[] beamMeshes;
+    private MapComponent_FlagshipFight manager;
     private CannonState state;
     private Sustainer sustainer;
     private int ticksLeftInState;
+    private MapComponent_FlagshipFight Manager => manager ??= Map.GetComponent<MapComponent_FlagshipFight>();
+
+    public bool CanFire => Manager is { CannonsShouldFire: true };
 
     public CannonState State => state;
     public float StateFactor => Mathf.InverseLerp(TicksToCompleteState, 0, ticksLeftInState);
@@ -129,6 +131,26 @@ public class Building_ZeusCannon : Building
 
     public override void Tick()
     {
+        if (CanFire)
+        {
+            if (State == CannonState.Idle)
+                GotoState(CannonState.Charging);
+        }
+        else
+            switch (State)
+            {
+                case CannonState.Charging:
+                    GotoState(CannonState.Idle);
+                    break;
+                case CannonState.Aiming:
+                case CannonState.Firing:
+                    GotoState(CannonState.Returning);
+                    break;
+                case CannonState.Returning:
+                case CannonState.Idle:
+                default: break;
+            }
+
         if (ticksLeftInState > 0)
         {
             ticksLeftInState--;
@@ -146,6 +168,8 @@ public class Building_ZeusCannon : Building
                 VFED_DefOf.VFE_ZeusCannon_DistantExplosion.PlayOneShot(this);
             else if (ticksLeftInState == 5 && state == CannonState.Aiming)
                 VFED_DefOf.VFE_ZeusCannon_Shot.PlayOneShot(this);
+            else if (ticksLeftInState == 2 && state == CannonState.Firing)
+                Manager.DamageFlagship(Rand.Range(0.02f, 0.06f));
         }
 
         if ((sustainer == null || sustainer.Ended) && state is CannonState.Aiming or CannonState.Returning)

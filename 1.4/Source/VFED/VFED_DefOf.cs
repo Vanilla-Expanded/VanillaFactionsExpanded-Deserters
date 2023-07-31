@@ -20,6 +20,8 @@ public class VFED_DefOf
     public static ThingDef Mote_ActivatorProximityGlow;
     public static ThingDef VFED_Mote_ProximityScannerRadius_Green;
     public static ThingDef VFED_Mote_ActivatorProximityGlow_Green;
+    public static ThingDef VFED_FlagshipChunk;
+    public static ThingDef VFED_ImperialMegaHighShield;
 
     public static ThingDef VFED_Intel;
     public static ThingDef VFED_CriticalIntel;
@@ -29,6 +31,7 @@ public class VFED_DefOf
     public static QuestScriptDef VFED_DeadDrop;
     public static QuestScriptDef VFED_PlotMission;
     public static QuestScriptDef VFED_EmpireBargain;
+    public static QuestScriptDef VFED_DeserterEndgame;
 
     public static DesignationDef VFED_ExtractIntel;
 

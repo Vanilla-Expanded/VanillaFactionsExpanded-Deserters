@@ -16,4 +16,9 @@
     <targetType>Thing</targetType>
     <removeIfBuildingDespawned>true</removeIfBuildingDespawned>
   </DesignationDef>
+  <ShipJobDef>
+    <defName>VFED_WaitLaunchable</defName>
+    <jobClass>VFED.ShipJob_WaitLaunchable</jobClass>
+  </ShipJobDef>
+
 </Defs>
