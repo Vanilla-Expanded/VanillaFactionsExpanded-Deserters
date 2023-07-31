@@ -929,6 +929,18 @@
     </researchPrerequisites>
     <tickerType>Normal</tickerType>
     <filthLeaving>Filth_MachineBits</filthLeaving>
+    <placeWorkers>
+      <li>VFED.PlaceWorker_DeserterOnly</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>900~1800</wickTicks>
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>1</chanceNeverExplodeFromDamage>
+      </li>
+      <li><compClass>VFED.CompIntelScraper</compClass></li>
+    </comps>
   </ThingDef>
   
 </Defs>

@@ -71,6 +71,7 @@
     <Compile Include="Comps\CompFleckEmitterExtended.cs" />
     <Compile Include="Comps\CompIntelExtract.cs" />
     <Compile Include="Comps\CompIntelExtractor.cs" />
+    <Compile Include="Comps\CompIntelScraper.cs" />
     <Compile Include="Comps\CompInvisibilityEngulfer.cs" />
     <Compile Include="Comps\CompMotionDetector.cs" />
     <Compile Include="Comps\CompProperties_ProjectileInterceptor_Powered.cs" />

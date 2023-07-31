@@ -20,4 +20,6 @@ public static class TexDeserters
     public static Texture2D BossBackground = ContentFinder<Texture2D>.Get("Endgame/VFED_BossBackground");
     public static Texture2D BossFlagship = ContentFinder<Texture2D>.Get("Endgame/VFED_BossFlagship");
     public static Texture2D BossHealthTex = SolidColorMaterials.NewSolidColorTexture(new Color(76 / 255f, 46 / 255f, 46 / 255f));
+    public static Texture2D IntelScraperTurnOn = ContentFinder<Texture2D>.Get("UI/IntelScraper_TurnOn");
+    public static Texture2D IntelScraperTurnOff = ContentFinder<Texture2D>.Get("UI/IntelScraper_TurnOff");
 }
