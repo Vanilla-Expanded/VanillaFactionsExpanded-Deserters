@@ -19,6 +19,7 @@
           </structureLayoutDefs>
           <fullClear>true</fullClear>
           <preventBridgeable>true</preventBridgeable>
+          <clearFogInRect>true</clearFogInRect>
         </genStep>
     </GenStepDef>
 </Defs>

@@ -52,9 +52,12 @@
         <li Class="QuestNode_SubScript">
           <def>Util_AdjustPointsForDistantFight</def>
         </li>
-        <li Class="QuestNode_GetSiteTile">
+        <li Class="VFED.QuestNode_GetSiteTileForComplex">
           <storeAs>siteTile</storeAs>
-          <preferCloserTiles>false</preferCloserTiles>
+          <preferedBiomes>
+            <li>IceSheet</li>
+            <li>SeaIce</li>
+          </preferedBiomes>
         </li>
         <li Class="QuestNode_GetDefaultSitePartsParams">
           <tile>$siteTile</tile>
@@ -81,7 +84,7 @@
         <li Class="QuestNode_SpawnWorldObjects">
           <worldObjects>$site</worldObjects>
         </li>
-        <li Class="QuestNode_GenerateShuttle">
+        <li Class="VFED.QuestNode_GenerateShuttleCustom">
           <storeAs>pickupShipThing</storeAs>
           <acceptColonists>true</acceptColonists>
           <acceptChildren>false</acceptChildren>
@@ -89,6 +92,7 @@
           <onlyAcceptHealthy>true</onlyAcceptHealthy>
           <owningFaction>$deserters</owningFaction>
           <permitShuttle>false</permitShuttle>
+          <shuttleDef>VFED_DeserterShuttle</shuttleDef>
         </li>
         <li Class="QuestNode_GenerateTransportShip">
           <def>VFED_Ship_DeserterShuttle</def>
@@ -187,10 +191,20 @@
           <inSignal>site.MapGenerated</inSignal>
           <mapParent>$site</mapParent>
           <points>$points</points>
+          <pointsFactor>4</pointsFactor>
+          <lord>Assault</lord>
         </li>
         <li Class="VFED.QuestNode_FlagshipFight">
           <inSignal>site.MapGenerated</inSignal>
           <mapParent>$site</mapParent>
+        </li>
+        <li Class="VFECore.QuestNode_ForceMusic">
+            <inSignalEnable>site.MapGenerated</inSignalEnable>
+            <inSignalDisable>site.MapRemoved</inSignalDisable>
+            <possibleSongs>
+                <li>VFED_FinalBattle</li>
+            </possibleSongs>
+            <priority>1</priority>
         </li>
         <li Class="QuestNode_Signal">
           <inSignal>objectives.Complete</inSignal>

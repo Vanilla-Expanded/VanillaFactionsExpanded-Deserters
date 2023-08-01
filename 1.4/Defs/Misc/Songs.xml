@@ -24,4 +24,10 @@
         <volume>0.8</volume>
         <minRoyalTitle>Emperor</minRoyalTitle> <!-- Make it unplayable normally -->
     </SongDef>
+    <SongDef>
+        <defName>VFED_FinalBattle</defName>
+        <clipPath>Music_FinalMission/VE_Rimworld_-_Lone_Wolf_Loop</clipPath>
+        <volume>0.8</volume>
+        <minRoyalTitle>Emperor</minRoyalTitle> <!-- Make it unplayable normally -->
+    </SongDef>
 </Defs>

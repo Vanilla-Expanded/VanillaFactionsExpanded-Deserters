@@ -44,7 +44,7 @@ public class Building_ZeusCannon : Building
     private int TicksToCompleteState =>
         (state switch
         {
-            CannonState.Idle => -1f,
+            CannonState.Idle => Rand.Range(0, 5),
             CannonState.Charging => 15f,
             CannonState.Aiming => 10f,
             CannonState.Firing => 1f,
@@ -131,12 +131,7 @@ public class Building_ZeusCannon : Building
 
     public override void Tick()
     {
-        if (CanFire)
-        {
-            if (State == CannonState.Idle)
-                GotoState(CannonState.Charging);
-        }
-        else
+        if (!CanFire)
             switch (State)
             {
                 case CannonState.Charging:
@@ -151,7 +146,7 @@ public class Building_ZeusCannon : Building
                 default: break;
             }
 
-        if (ticksLeftInState > 0)
+        if (ticksLeftInState > 0 && (CanFire || state != CannonState.Idle))
         {
             ticksLeftInState--;
             if (ticksLeftInState <= 0)
@@ -169,7 +164,7 @@ public class Building_ZeusCannon : Building
             else if (ticksLeftInState == 5 && state == CannonState.Aiming)
                 VFED_DefOf.VFE_ZeusCannon_Shot.PlayOneShot(this);
             else if (ticksLeftInState == 2 && state == CannonState.Firing)
-                Manager.DamageFlagship(Rand.Range(0.02f, 0.06f));
+                Manager.DamageFlagship(0.01f);
         }
 
         if ((sustainer == null || sustainer.Ended) && state is CannonState.Aiming or CannonState.Returning)

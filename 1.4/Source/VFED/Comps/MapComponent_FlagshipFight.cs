@@ -45,8 +45,9 @@ public class MapComponent_FlagshipFight : MapComponent
     {
         FlagshipHealth -= damage;
         Find.SignalManager.SendSignal(new Signal(shipDamagedSignal));
-        if (CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out var cell, 10, map.Center, 999999))
-            SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, VFED_DefOf.VFED_FlagshipChunk, cell, map);
+        for (var i = 0; i < 4; i++)
+            if (CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out var cell, 10, map.Center, 999999))
+                SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, VFED_DefOf.VFED_FlagshipChunk, cell, map);
         if (FlagshipHealth <= 0f)
         {
             foreach (var lord in map.lordManager.lords)
@@ -92,8 +93,8 @@ public class MapComponent_FlagshipFight : MapComponent
 
             if (Rand.MTBEventOccurs(120, 60, 30))
             {
-                var cell1 = CellFinder.RandomCell(map);
-                var cell2 = cell1 + GenRadial.RadialPattern[Rand.RangeInclusive(GenRadial.NumCellsInRadius(4.9f), GenRadial.NumCellsInRadius(14.9f))];
+                var cell1 = CellFinder.RandomEdgeCell(map);
+                var cell2 = map.Center + GenRadial.RadialPattern[Rand.RangeInclusive(GenRadial.NumCellsInRadius(4.9f), GenRadial.NumCellsInRadius(14.9f))];
 
                 OrbitalSlicer.DoSlice(cell1, cell2, map, WorldComponent_Hierarchy.Instance.TitleHolders.Last());
             }
@@ -123,7 +124,10 @@ public class MapComponent_FlagshipFight : MapComponent
             if (Rand.MTBEventOccurs(100, 60, 30))
             {
                 var pawn = PawnGenerator.GeneratePawn(VFEE_DefOf.VFEE_Deserter, EmpireUtility.Deserters);
-
+                var lord = map.lordManager.lords.FirstOrDefault(lord => lord.faction == EmpireUtility.Deserters) ?? LordMaker.MakeNewLord(
+                    EmpireUtility.Deserters, new LordJob_AssistColony(EmpireUtility.Deserters, map.mapPawns.FreeColonistsSpawned.RandomElement().Position),
+                    map);
+                lord.AddPawn(pawn);
                 DropPodUtility.DropThingsNear(CellFinder.RandomEdgeCell(map), map, Gen.YieldSingle(pawn));
             }
         }

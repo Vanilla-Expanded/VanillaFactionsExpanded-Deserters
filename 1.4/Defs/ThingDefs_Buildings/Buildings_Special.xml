@@ -932,6 +932,7 @@
     <placeWorkers>
       <li>VFED.PlaceWorker_DeserterOnly</li>
     </placeWorkers>
+    <minifiedDef>MinifiedThing</minifiedDef>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>900~1800</wickTicks>

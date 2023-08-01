@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
@@ -12,8 +13,10 @@ namespace VFED;
 public class QuestNode_ImperialForces : QuestNode
 {
     public SlateRef<string> inSignal;
+    public SlateRef<QuestNode_MakeLord.LordJobType?> lord;
     public SlateRef<MapParent> mapParent;
     public SlateRef<float> points;
+    public SlateRef<float?> pointsFactor;
 
     protected override void RunInt()
     {
@@ -23,7 +26,7 @@ public class QuestNode_ImperialForces : QuestNode
         var parms = new PawnGroupMakerParms_Saveable
         {
             groupKind = PawnGroupKindDefOf.Settlement,
-            points = points.GetValue(slate),
+            points = points.GetValue(slate) * (pointsFactor.GetValue(slate) ?? 1f),
             faction = Faction.OfEmpire,
             generateFightersOnly = true,
             dontUseSingleUseRocketLaunchers = true,
@@ -36,7 +39,8 @@ public class QuestNode_ImperialForces : QuestNode
         {
             inSignal = QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? slate.Get<string>("inSignal"),
             mapParent = site,
-            parms = parms
+            parms = parms,
+            lord = lord.GetValue(slate) ?? QuestNode_MakeLord.LordJobType.Defend
         });
 
         QuestGen.AddQuestDescriptionRules(new List<Rule>
@@ -52,6 +56,7 @@ public class QuestNode_ImperialForces : QuestNode
 public class QuestPart_SpawnForces : QuestPart
 {
     public string inSignal;
+    public QuestNode_MakeLord.LordJobType lord;
     public MapParent mapParent;
     public PawnGroupMakerParms_Saveable parms;
 
@@ -66,7 +71,13 @@ public class QuestPart_SpawnForces : QuestPart
             foreach (var pawn in forces)
                 if (CellFinder.TryFindRandomCellNear(map.Center, map, 16, x => x.Standable(map), out var cell))
                     GenSpawn.Spawn(pawn, cell, map);
-            LordMaker.MakeNewLord(Faction.OfEmpire, new LordJob_DefendBase(Faction.OfEmpire, map.Center), map, forces);
+            LordMaker.MakeNewLord(Faction.OfEmpire, lord switch
+            {
+                QuestNode_MakeLord.LordJobType.Assault => new LordJob_AssaultColony(Faction.OfEmpire, false, false, false, true, false, false, true),
+                QuestNode_MakeLord.LordJobType.Defend => new LordJob_DefendBase(Faction.OfEmpire, map.Center),
+                QuestNode_MakeLord.LordJobType.Assist => new LordJob_AssistColony(Faction.OfEmpire, forces.RandomElement().Position),
+                _ => throw new ArgumentOutOfRangeException()
+            }, map, forces);
             Rand.PopState();
         }
     }
