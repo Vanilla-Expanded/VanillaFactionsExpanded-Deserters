@@ -748,6 +748,10 @@
       </li>
     </comps>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories Inherit="False">
+      <li>BuildingsMisc</li>
+    </thingCategories>
     <killedLeavings>
       <Plasteel>30</Plasteel>
       <BroadshieldCore>4</BroadshieldCore>
@@ -933,6 +937,9 @@
       <li>VFED.PlaceWorker_DeserterOnly</li>
     </placeWorkers>
     <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories Inherit="False">
+      <li>BuildingsMisc</li>
+    </thingCategories>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>900~1800</wickTicks>
