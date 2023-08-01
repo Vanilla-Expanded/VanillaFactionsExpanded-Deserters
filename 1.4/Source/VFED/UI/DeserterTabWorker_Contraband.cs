@@ -129,7 +129,7 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
             foreach (var ((thing, ext), count) in ShoppingCart)
                 for (var i = count * ext.countMult; i-- > 0;)
                 {
-                    curList.Add(ThingMaker.MakeThing(thing, thing.MadeFromStuff ? GenStuff.DefaultStuffFor(thing) : null));
+                    curList.Add(ThingMaker.MakeThing(thing, thing.MadeFromStuff ? GenStuff.DefaultStuffFor(thing) : null).TryMakeMinified());
                     if (curList.Count > 10)
                     {
                         things.Add(curList);

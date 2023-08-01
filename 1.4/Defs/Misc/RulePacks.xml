@@ -47,6 +47,7 @@
                 <li>plotName(nobleTitle==VFEE_Despot)->Deranged despot</li>
                 <li>plotName(nobleTitle==Stellarch)->Sickening stellarch</li>
                 <li>plotName(nobleTitle==VFEE_HighStellarch)->Heinous high stellarch</li>
+                <li>plotName(nobleTitle==Emperor)->Egocentric emperor</li>
             </rulesStrings>
         </rulePack>
     </RulePackDef>

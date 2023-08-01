@@ -38,7 +38,7 @@ public abstract class CompMotionDetector : ThingComp
         {
             if (Active)
             {
-                if (sustainer == null || sustainer.Ended) sustainer = Props.soundEmitting.TrySpawnSustainer(SoundInfo.InMap(parent));
+                if (sustainer == null || sustainer.Ended) sustainer = Props.soundEmitting.TrySpawnSustainer(SoundInfo.InMap(parent, MaintenanceType.PerTick));
 
                 sustainer.Maintain();
             }

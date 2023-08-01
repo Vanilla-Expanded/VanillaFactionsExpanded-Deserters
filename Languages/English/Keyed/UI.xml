@@ -44,4 +44,7 @@
     <VFED.CombatLowDesc>Expect minimal combat</VFED.CombatLowDesc>
     <VFED.ShowActiveQuest>Show active quest</VFED.ShowActiveQuest>
     <VFED.Select>Select</VFED.Select>
+    <VFED.HullIntegrity>Hull integrity</VFED.HullIntegrity>
+    <VFED.Flagship>Flagship</VFED.Flagship>
+    <VFED.StartMission>Start Mission</VFED.StartMission>
 </LanguageData>

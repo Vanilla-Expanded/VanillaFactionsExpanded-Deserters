@@ -147,7 +147,7 @@
                             <nodes>
                                 <li Class="QuestNode_GetSiteTile">
                                     <storeAs>siteTile</storeAs>
-                                    <preferCloserTiles>true</preferCloserTiles>
+                                    <preferCloserTiles>false</preferCloserTiles>
                                 </li>
                                 <li Class="QuestNode_GetDefaultSitePartsParams">
                                     <tile>$siteTile</tile>

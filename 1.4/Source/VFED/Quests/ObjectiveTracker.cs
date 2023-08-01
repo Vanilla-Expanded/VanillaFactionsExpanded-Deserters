@@ -61,9 +61,10 @@ public class QuestPart_MarkObjectives : QuestPart
     {
         base.ExposeData();
         Scribe_Values.Look(ref inSignal, nameof(inSignal));
-        Scribe_Values.Look(ref objectiveTag, nameof(objectiveTag));
         Scribe_Values.Look(ref handlerTag, nameof(handlerTag));
         Scribe_Defs.Look(ref objectiveDef, nameof(objectiveDef));
         Scribe_References.Look(ref mapParent, nameof(mapParent));
+        Scribe_Values.Look(ref objectiveTag, nameof(objectiveTag));
+        Scribe_Values.Look(ref completeSignal, nameof(completeSignal));
     }
 }

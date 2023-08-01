@@ -19,8 +19,9 @@ public class Building_SupplyCrate : Building_Casket
     protected virtual void GenerateContents()
     {
         var (def, ext) = ContrabandManager.AllContraband.RandomElement();
-        var thing = ThingMaker.MakeThing(def, def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null);
-        thing.stackCount = ext.useCriticalIntel ? Mathf.CeilToInt(3f / ext.intelCost) : Mathf.CeilToInt(10f / ext.intelCost);
+        var thing = ThingMaker.MakeThing(def, def.MadeFromStuff ? GenStuff.DefaultStuffFor(def) : null).TryMakeMinified();
+        thing.stackCount = Mathf.Clamp(ext.useCriticalIntel ? Mathf.CeilToInt(3f / ext.intelCost) : Mathf.CeilToInt(10f / ext.intelCost), 1,
+            thing.def.stackLimit);
         innerContainer.TryAdd(thing);
         if (Rand.Chance(0.1f))
         {
@@ -32,7 +33,7 @@ public class Building_SupplyCrate : Building_Casket
 
     public override void Open()
     {
-        base.Open();
+        EjectContents();
         QuestUtility.SendQuestTargetSignals(questTags, "Opened", this.Named("SUBJECT"));
         var pos = Position;
         var map = Map;

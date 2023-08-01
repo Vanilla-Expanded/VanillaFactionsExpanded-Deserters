@@ -71,6 +71,7 @@
     <Compile Include="Comps\CompFleckEmitterExtended.cs" />
     <Compile Include="Comps\CompIntelExtract.cs" />
     <Compile Include="Comps\CompIntelExtractor.cs" />
+    <Compile Include="Comps\CompIntelScraper.cs" />
     <Compile Include="Comps\CompInvisibilityEngulfer.cs" />
     <Compile Include="Comps\CompMotionDetector.cs" />
     <Compile Include="Comps\CompProperties_ProjectileInterceptor_Powered.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Comps\CompTargetable_Biocoded.cs" />
     <Compile Include="Comps\CompVeryFlammable.cs" />
     <Compile Include="Comps\HediffComp_DisappearsOnAttack.cs" />
+    <Compile Include="Comps\MapComponent_FlagshipFight.cs" />
     <Compile Include="Comps\MapComponent_ObjectiveHighlighter.cs" />
     <Compile Include="DeserterServiceDef.cs" />
     <Compile Include="GameConditions\GameCondition_DivineInferno.cs" />
@@ -97,9 +99,11 @@
     <Compile Include="Quests\Approaches.cs" />
     <Compile Include="Quests\Betrayal.cs" />
     <Compile Include="Quests\DeserterRewards.cs" />
+    <Compile Include="Quests\Endgame.cs" />
     <Compile Include="Quests\ImperialForces.cs" />
     <Compile Include="Quests\Misc.cs" />
     <Compile Include="Quests\ObjectiveTracker.cs" />
+    <Compile Include="Quests\ShipJob_WaitLaunchable.cs" />
     <Compile Include="Things\Building_CannonControl.cs" />
     <Compile Include="Things\Building_CrateBiosecured.cs" />
     <Compile Include="Things\Building_SupplyCrate.cs" />

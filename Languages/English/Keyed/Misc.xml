@@ -53,4 +53,16 @@ The aftermath of Divine Inferno is a wasteland of destruction. The landscape is 
     <VFED.VisibilityChange.Desc>Your visibility level has changed. It is now {0}.</VFED.VisibilityChange.Desc>
     <VFED.VisibilityEffectsActive>The following effects have activated:</VFED.VisibilityEffectsActive>
     <VFED.VisibilityEffectsInactive>The following effects have deactivated:</VFED.VisibilityEffectsInactive>
+    <VFED.TimeToNextPulse>Time until next pulse: {0}</VFED.TimeToNextPulse>
+    <VFED.PulsesBeforeOut>Pulses before burn out: {0}</VFED.PulsesBeforeOut>
+    <VFED.BurnoutWarning>Building a burnout intel scraper will be considered a declaration of war with the Empire.</VFED.BurnoutWarning>
+    <VFED.ActivateScraper>Activate scraper</VFED.ActivateScraper>
+    <VFED.ActivateScraper.Desc>Enable intel scraper countdown, which will release a pulse every 60 seconds, giving you a chance of obtaining valuable intel at a chance of triggering imperial investigation.</VFED.ActivateScraper.Desc>
+    <VFED.DeactivateScraper>Deactivate scraper</VFED.DeactivateScraper>
+    <VFED.DeactivateScraper.Desc>Disable intel scraper, stopping the countdown until the next pulse.</VFED.DeactivateScraper.Desc>
+    <VFED.Exhausted>Exhausted</VFED.Exhausted>
+    <VFED.BurnoutIntelGained>Burnout intel scraper intercepted imperial communication and generated {0} intel.</VFED.BurnoutIntelGained>
+    <VFED.BurnoutCriticalIntelGained>Burnout intel scraper intercepted high value imperial communication and generated {0} critical intel.</VFED.BurnoutCriticalIntelGained>
+    <VFED.BurnoutVisibilityIncreased>Burnout intel scraper attracted imperial attention and has increased your visibility by {0}. (Current visibility is {1}.)</VFED.BurnoutVisibilityIncreased>
+    <VFED.BurnoutRaid>Burnout intel scraper was intercepted by an imperial patrol nearby. They are moving in to engage.</VFED.BurnoutRaid>
 </LanguageData>
