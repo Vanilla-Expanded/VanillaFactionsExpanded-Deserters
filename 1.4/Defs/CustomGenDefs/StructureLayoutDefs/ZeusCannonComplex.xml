@@ -4,6 +4,7 @@
 <KCSG.StructureLayoutDef>
   <defName>VFED_ZeusCannonComplex</defName>
   <spawnConduits>false</spawnConduits>
+  <forceGenerateRoof>true</forceGenerateRoof>
   <layouts>
     <li>
       <li>.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,ChunkSlagSteel,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,.,ChunkSandstone,.</li>
