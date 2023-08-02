@@ -5,6 +5,7 @@ using HarmonyLib;
 using MonoMod.Utils;
 using RimWorld;
 using RimWorld.Planet;
+using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 
@@ -249,4 +250,23 @@ public static class Utilities
     }
 
     public static Vector3 Center(this Region region) => region.extentsClose.CenterCell.ToVector3Shifted();
+
+    public static Thing DropShuttleCustom(IEnumerable<Thing> things, Map map, IntVec3 cell, Faction faction = null, ThingDef shuttleDef = null,
+        TransportShipDef transportShipDef = null)
+    {
+        var shuttle = QuestGen_Shuttle.GenerateShuttle(faction, requireColonistCount: 0, dropEverythingOnArrival: true, shuttleDef: shuttleDef);
+        var transportShip = TransportShipMaker.MakeTransportShip(transportShipDef ?? TransportShipDefOf.Ship_Shuttle, null, shuttle);
+        var compTransporter = shuttle.TryGetComp<CompTransporter>();
+        foreach (var thing in things)
+        {
+            if (thing is Pawn pawn && pawn.IsWorldPawn()) Find.WorldPawns.RemovePawn(pawn);
+            compTransporter.innerContainer.TryAddOrTransfer(thing);
+        }
+
+        if (!cell.IsValid) cell = DropCellFinder.GetBestShuttleLandingSpot(map, faction);
+
+        transportShip.ArriveAt(cell, map.Parent);
+        transportShip.AddJobs(ShipJobDefOf.Unload, ShipJobDefOf.FlyAway);
+        return shuttle;
+    }
 }

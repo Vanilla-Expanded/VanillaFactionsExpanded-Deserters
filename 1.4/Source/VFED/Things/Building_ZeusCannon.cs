@@ -234,6 +234,12 @@ public class Building_ZeusCannon : Building
         Scribe_Values.Look(ref state, nameof(state));
     }
 
+    public override void SpawnSetup(Map map, bool respawningAfterLoad)
+    {
+        base.SpawnSetup(map, respawningAfterLoad);
+        if (ticksLeftInState <= 0) ticksLeftInState = TicksToCompleteState;
+    }
+
     public override string GetInspectString() =>
         Prefs.DevMode ? base.GetInspectString() + $"State: {state}, Ticks Left: {ticksLeftInState}" : base.GetInspectString();
 }

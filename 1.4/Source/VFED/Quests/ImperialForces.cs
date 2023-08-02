@@ -73,7 +73,7 @@ public class QuestPart_SpawnForces : QuestPart
                     GenSpawn.Spawn(pawn, cell, map);
             LordMaker.MakeNewLord(Faction.OfEmpire, lord switch
             {
-                QuestNode_MakeLord.LordJobType.Assault => new LordJob_AssaultColony(Faction.OfEmpire, false, false, false, true, false, false, true),
+                QuestNode_MakeLord.LordJobType.Assault => new LordJob_AssaultColony(Faction.OfEmpire, false, false, false, true, false),
                 QuestNode_MakeLord.LordJobType.Defend => new LordJob_DefendBase(Faction.OfEmpire, map.Center),
                 QuestNode_MakeLord.LordJobType.Assist => new LordJob_AssistColony(Faction.OfEmpire, forces.RandomElement().Position),
                 _ => throw new ArgumentOutOfRangeException()

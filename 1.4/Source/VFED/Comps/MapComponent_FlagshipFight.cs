@@ -39,6 +39,22 @@ public class MapComponent_FlagshipFight : MapComponent
                     Cannons.Add(cannon);
                     break;
             }
+
+        for (var i = 0; i < 2; i++)
+        {
+            if (!CellFinder.TryFindRandomEdgeCellWith(c => !c.Fogged(map) && c.Standable(map), map, CellFinder.EdgeRoadChance_Friendly, out var cell))
+                cell = CellFinder.RandomEdgeCell(map);
+            if (!DropCellFinder.TryFindDropSpotNear(cell, map, out var landingSpot, false, false, false, VFED_DefOf.VFED_DeserterShuttle.size))
+                landingSpot = DropCellFinder.GetBestShuttleLandingSpot(map, EmpireUtility.Deserters);
+            var lord = LordMaker.MakeNewLord(EmpireUtility.Deserters, new LordJob_AssistColony(EmpireUtility.Deserters, map.Center), map);
+            var pawns = new List<Pawn>();
+            for (var j = 0; j < 8; j++)
+                pawns.Add(PawnGenerator.GeneratePawn(new PawnGenerationRequest(VFEE_DefOf.VFEE_Deserter, EmpireUtility.Deserters, mustBeCapableOfViolence: true,
+                    biocodeWeaponChance: 1, biocodeApparelChance: 1)));
+            lord.AddPawns(pawns);
+            Utilities.DropShuttleCustom(pawns, map, landingSpot, EmpireUtility.Deserters, VFED_DefOf.VFED_DeserterShuttle,
+                VFED_DefOf.VFED_Ship_DeserterShuttle);
+        }
     }
 
     public void DamageFlagship(float damage)
