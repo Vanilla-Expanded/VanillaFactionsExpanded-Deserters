@@ -105,6 +105,11 @@
     <Compile Include="Quests\ObjectiveTracker.cs" />
     <Compile Include="Quests\ShipJob_WaitLaunchable.cs" />
     <Compile Include="Quests\VanillaFixed.cs" />
+    <Compile Include="StorytellerComps\StorytellerComp_CategoryIndividualMTBByBiome_ByVisibility.cs" />
+    <Compile Include="StorytellerComps\StorytellerComp_FactionInteraction_ByVisibility.cs" />
+    <Compile Include="StorytellerComps\StorytellerComp_ByVisibility.cs" />
+    <Compile Include="StorytellerComps\StorytellerComp_CategoryMTB_ByVisibility.cs" />
+    <Compile Include="StorytellerComps\StorytellerComp_OnOffCycle_ByVisibility.cs" />
     <Compile Include="Things\Building_CannonControl.cs" />
     <Compile Include="Things\Building_CrateBiosecured.cs" />
     <Compile Include="Things\Building_SupplyCrate.cs" />
