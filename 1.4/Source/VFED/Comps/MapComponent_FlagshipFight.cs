@@ -85,9 +85,10 @@ public class MapComponent_FlagshipFight : MapComponent
                     lord.GotoToil(toil);
                 }
 
-            var deserters = map.mapPawns.PawnsInFaction(EmpireUtility.Deserters);
+            var deserterFaction = EmpireUtility.Deserters;
+            var deserters = map.mapPawns.PawnsInFaction(deserterFaction);
             foreach (var deserter in deserters) deserter.GetLord()?.RemovePawn(deserter);
-            LordMaker.MakeNewLord(EmpireUtility.Deserters, new LordJob_ExitMapBest(LocomotionUrgency.Walk, true, true), map, deserters);
+            LordMaker.MakeNewLord(deserterFaction, new LordJob_ExitMapBest(LocomotionUrgency.Walk, true, true), map, deserters);
 
             ShipCountdown.InitiateCountdown("VFED.EndgameText".Translate(PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists
                .Select(p => p.Name.ToStringFull)
@@ -96,14 +97,16 @@ public class MapComponent_FlagshipFight : MapComponent
             Find.SignalManager.SendSignal(new Signal(shipDestroyedSignal));
 
             empire.defeated = true;
-            EmpireUtility.Deserters.defeated = true;
+            empire.hidden = true;
+            deserterFaction.defeated = true;
             foreach (var settlement in Find.WorldObjects.Settlements)
                 if (settlement.Faction == empire && Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true))
                     settlement.SetFaction(newFaction);
 
             foreach (var pawn in PawnsFinder.All_AliveOrDead)
             {
-                if (pawn.Faction == empire && !pawn.Dead) pawn.Kill(new DamageInfo(DamageDefOf.Crush, 999));
+                if (!pawn.Spawned && !pawn.Dead && (pawn.Faction == empire || pawn.Faction == deserterFaction))
+                    pawn.Kill(new DamageInfo(DamageDefOf.Crush, 999));
                 if (pawn.royalty != null)
                 {
                     pawn.royalty.AllTitlesForReading.RemoveAll(royalTitle => royalTitle.faction == empire);
