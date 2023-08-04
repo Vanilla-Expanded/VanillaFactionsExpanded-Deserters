@@ -113,9 +113,12 @@ public class MapComponent_FlagshipFight : MapComponent
                     pawn.royalty.AllFactionPermits.RemoveAll(permit => permit.Faction == empire);
 
                     pawn.royalty.UpdateAvailableAbilities();
+                    pawn.abilities.Notify_TemporaryAbilitiesChanged();
                     pawn.Notify_DisabledWorkTypesChanged();
                     pawn.needs?.AddOrRemoveNeedsAsAppropriate();
                     pawn.apparel?.Notify_TitleChanged();
+                    QuestUtility.SendQuestTargetSignals(pawn.questTags, "TitleChanged", pawn.Named("SUBJECT"));
+                    MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
                 }
             }
 

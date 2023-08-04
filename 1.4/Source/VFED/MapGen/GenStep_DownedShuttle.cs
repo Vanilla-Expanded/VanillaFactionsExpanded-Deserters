@@ -45,6 +45,12 @@ public class GenStep_DownedShuttle : GenStep
         var possibleCells = bounds.Where(c => c.Standable(map)).ToList();
         foreach (var pawn in forces)
         {
+            if (possibleCells.Count <= 0)
+            {
+                bounds = bounds.ExpandedBy(5).ClipInsideMap(map);
+                possibleCells = bounds.Where(c => c.Standable(map) && !forces.Any(p => p.Spawned && p.Position.InHorDistOf(c, 3.9f))).ToList();
+            }
+
             var cell = possibleCells.TakeRandom();
             GenSpawn.Spawn(pawn, cell, map);
             possibleCells.RemoveAll(c => c.InHorDistOf(cell, 3.9f));
