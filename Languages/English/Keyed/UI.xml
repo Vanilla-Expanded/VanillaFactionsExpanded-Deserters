@@ -47,4 +47,5 @@
     <VFED.HullIntegrity>Hull integrity</VFED.HullIntegrity>
     <VFED.Flagship>Flagship</VFED.Flagship>
     <VFED.StartMission>Start Mission</VFED.StartMission>
+    <VFED.IntelAmount>Amount of {0} in range of powered trading beacons.</VFED.IntelAmount>
 </LanguageData>

@@ -89,13 +89,16 @@ public class Dialog_DeserterNetwork : Window
     public override void DoWindowContents(Rect inRect)
     {
         var deserters = WorldComponent_Deserters.Instance;
-        var left = inRect.TakeLeftPart(inRect.width / 5 * 2);
-        var title = left.TakeTopPart(30f);
-        using (new TextBlock(GameFont.Medium)) Widgets.Label(title, Faction.OfPlayer.Name);
         var visibilityLevel = deserters.VisibilityLevel;
+        var left = inRect.TakeLeftPart(inRect.width / 5 * 2);
+        var factionName = Faction.OfPlayer.Name;
         var text = "VFED.Visibility".Translate(visibilityLevel.LabelCap).Resolve();
         var width = Text.CalcSize(text).x + 35;
-        var visibilityRect = title.TakeRightPart(width);
+        Text.Font = GameFont.Medium;
+        var title = left.TakeTopPart(Text.CalcHeight(factionName, left.width - width) + 8);
+        var visibilityRect = title.TakeRightPart(width).TopPartPixels(30);
+        Widgets.Label(title, factionName);
+        Text.Font = GameFont.Small;
         visibilityRect = visibilityRect.ContractedBy(2f, 4.5f);
         Widgets.DrawHighlight(visibilityRect);
         if (Mouse.IsOver(visibilityRect))

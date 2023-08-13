@@ -66,8 +66,9 @@ public class MapComponent_FlagshipFight : MapComponent
                 SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, VFED_DefOf.VFED_FlagshipChunk, cell, map);
         if (FlagshipHealth <= 0f)
         {
+            var empire = Faction.OfEmpire;
             foreach (var lord in map.lordManager.lords)
-                if (lord.faction == Faction.OfEmpire)
+                if (lord.faction == empire)
                 {
                     var toil = lord.Graph.lordToils.OfType<LordToil_PanicFlee>().FirstOrDefault();
                     if (toil == null)
@@ -84,15 +85,45 @@ public class MapComponent_FlagshipFight : MapComponent
                     lord.GotoToil(toil);
                 }
 
-            var deserters = map.mapPawns.PawnsInFaction(EmpireUtility.Deserters);
+            var deserterFaction = EmpireUtility.Deserters;
+            var deserters = map.mapPawns.PawnsInFaction(deserterFaction);
             foreach (var deserter in deserters) deserter.GetLord()?.RemovePawn(deserter);
-            LordMaker.MakeNewLord(EmpireUtility.Deserters, new LordJob_ExitMapBest(LocomotionUrgency.Walk, true, true), map, deserters);
+            LordMaker.MakeNewLord(deserterFaction, new LordJob_ExitMapBest(LocomotionUrgency.Walk, true, true), map, deserters);
 
             ShipCountdown.InitiateCountdown("VFED.EndgameText".Translate(PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists
                .Select(p => p.Name.ToStringFull)
                .ToLineList("  - ", true)));
 
             Find.SignalManager.SendSignal(new Signal(shipDestroyedSignal));
+
+            empire.defeated = true;
+            empire.hidden = true;
+            deserterFaction.defeated = true;
+            foreach (var settlement in Find.WorldObjects.Settlements)
+                if (settlement.Faction == empire && Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true))
+                    settlement.SetFaction(newFaction);
+
+            foreach (var pawn in PawnsFinder.All_AliveOrDead)
+            {
+                if (!pawn.Spawned && !pawn.Dead && (pawn.Faction == empire || pawn.Faction == deserterFaction))
+                    pawn.Kill(new DamageInfo(DamageDefOf.Crush, 999));
+                if (pawn.royalty != null)
+                {
+                    pawn.royalty.AllTitlesForReading.RemoveAll(royalTitle => royalTitle.faction == empire);
+                    pawn.royalty.AllFactionPermits.RemoveAll(permit => permit.Faction == empire);
+
+                    pawn.royalty.UpdateAvailableAbilities();
+                    pawn.abilities.Notify_TemporaryAbilitiesChanged();
+                    pawn.Notify_DisabledWorkTypesChanged();
+                    pawn.needs?.AddOrRemoveNeedsAsAppropriate();
+                    pawn.apparel?.Notify_TitleChanged();
+                    QuestUtility.SendQuestTargetSignals(pawn.questTags, "TitleChanged", pawn.Named("SUBJECT"));
+                    MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
+                }
+            }
+
+            WorldComponent_Deserters.Instance.Active = false;
+            WorldComponent_Deserters.Instance.Locked = true;
         }
     }
 
