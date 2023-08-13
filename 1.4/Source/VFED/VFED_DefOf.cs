@@ -32,6 +32,7 @@ public class VFED_DefOf
     public static QuestScriptDef VFED_PlotMission;
     public static QuestScriptDef VFED_EmpireBargain;
     public static QuestScriptDef VFED_DeserterEndgame;
+    public static QuestScriptDef VFED_EmpireRuins;
 
     public static DesignationDef VFED_ExtractIntel;
 

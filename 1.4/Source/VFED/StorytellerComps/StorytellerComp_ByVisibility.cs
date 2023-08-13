@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using UnityEngine;
 
-namespace VFED.StorytellerComps;
+namespace VFED;
 
 public abstract class StorytellerComp_ByVisibility : StorytellerComp
 {

@@ -269,4 +269,11 @@ public static class Utilities
         transportShip.AddJobs(ShipJobDefOf.Unload, ShipJobDefOf.FlyAway);
         return shuttle;
     }
+
+    public static IEnumerable<T> CombineEnumerable<T>(params IEnumerable<T>[] sources)
+    {
+        var result = Enumerable.Empty<T>();
+        for (var i = 0; i < sources.Length; i++) result = result.Concat(sources[i] ?? Enumerable.Empty<T>());
+        return result;
+    }
 }

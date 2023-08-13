@@ -5,7 +5,7 @@ using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 
-namespace VFED.StorytellerComps;
+namespace VFED;
 
 public class StorytellerComp_CategoryIndividualMTBByBiome_ByVisibility : StorytellerComp_ByVisibility
 {

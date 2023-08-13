@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <SitePartDef ParentName="VFED_DeserterRaidSiteBase">
+        <defName>VFED_EmpireRuins</defName>
+        <label>Crashed imperial flagship</label>
+        <description>The former flagship of the Empire, now crashed.</description>
+        <expandingIconTexture>WorldObjects/QuestIcon_RuinsOfTheEmpire</expandingIconTexture>
+        <tags>
+            <li>VFED_EmpireRuins</li>
+        </tags>
+    </SitePartDef>
+    <GenStepDef>
+        <defName>VFED_EmpireRuins_FlagshipChunks</defName>
+        <linkWithSite>VFED_EmpireRuins</linkWithSite>
+        <order>470</order>
+        <genStep Class="GenStep_ScatterThings">
+            <thingDef>VFED_FlagshipChunk</thingDef>
+            <allowInWaterBiome>false</allowInWaterBiome>
+            <countPer10kCellsRange>150~300</countPer10kCellsRange>
+            <validators>
+              <li Class="ScattererValidator_Buildable">
+                <radius>2</radius>
+                <affordance>Heavy</affordance>
+              </li>
+              <li Class="ScattererValidator_NoNonNaturalEdifices">
+                <radius>2</radius>
+              </li>
+            </validators>
+        </genStep>
+    </GenStepDef>
+    <GenStepDef>
+        <defName>VFED_EmpireRuins</defName>
+        <linkWithSite>VFED_EmpireRuins</linkWithSite>
+        <order>475</order>
+        <genStep Class="VFED.GenStep_FlagshipRuins"></genStep>
+    </GenStepDef>
+</Defs>

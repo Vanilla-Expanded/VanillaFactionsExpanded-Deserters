@@ -3,7 +3,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace VFED.StorytellerComps;
+namespace VFED;
 
 public class StorytellerComp_FactionInteraction_ByVisibility : StorytellerComp_ByVisibility
 {

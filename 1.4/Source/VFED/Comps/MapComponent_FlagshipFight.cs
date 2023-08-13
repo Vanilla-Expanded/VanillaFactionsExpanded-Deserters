@@ -105,8 +105,12 @@ public class MapComponent_FlagshipFight : MapComponent
 
             foreach (var pawn in PawnsFinder.All_AliveOrDead)
             {
-                if (!pawn.Spawned && !pawn.Dead && (pawn.Faction == empire || pawn.Faction == deserterFaction))
-                    pawn.Kill(new DamageInfo(DamageDefOf.Crush, 999));
+                if (!pawn.Dead)
+                {
+                    if (pawn.Faction == empire && !pawn.Spawned) pawn.Kill(new DamageInfo(DamageDefOf.Bomb, 999));
+                    else if (Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true)) pawn.SetFaction(newFaction);
+                }
+
                 if (pawn.royalty != null)
                 {
                     pawn.royalty.AllTitlesForReading.RemoveAll(royalTitle => royalTitle.faction == empire);
@@ -124,6 +128,14 @@ public class MapComponent_FlagshipFight : MapComponent
 
             WorldComponent_Deserters.Instance.Active = false;
             WorldComponent_Deserters.Instance.Locked = true;
+
+            foreach (var quest in Find.QuestManager.QuestsListForReading)
+                if ((quest.root.IsDeserterQuest() || quest.InvolvedFactions.Any(f => f == empire || f == deserterFaction))
+                 && quest.State is QuestState.NotYetAccepted or QuestState.Ongoing)
+                    quest.End(quest.EverAccepted ? QuestEndOutcome.Fail : QuestEndOutcome.InvalidPreAcceptance);
+
+            QuestUtility.SendLetterQuestAvailable(QuestUtility.GenerateQuestAndMakeAvailable(VFED_DefOf.VFED_EmpireRuins,
+                StorytellerUtility.DefaultSiteThreatPointsNow()));
         }
     }
 

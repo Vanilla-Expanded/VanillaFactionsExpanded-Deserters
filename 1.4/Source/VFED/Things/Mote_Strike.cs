@@ -37,7 +37,7 @@ public class Mote_Strike : Mote
                 var origin = new IntVec3(Rand.Bool ? 0 : Map.Size.x - 1, 0, Rand.Range(Map.Size.z - 17, Map.Size.z));
                 GenSpawn.Spawn(strike, origin, Map);
                 var titleHolders = WorldComponent_Hierarchy.Instance.TitleHolders;
-                (strike as Projectile)?.Launch(titleHolders[titleHolders.Count - 1] /* Should the emperor */, Position, Position,
+                (strike as Projectile)?.Launch(titleHolders[titleHolders.Count - 1] /* Should be the emperor */, Position, Position,
                     ProjectileHitFlags.IntendedTarget);
             }
         }
