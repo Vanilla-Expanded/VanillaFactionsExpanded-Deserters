@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ScenarioDef>
+    <defName>VFED_NewSafehaven</defName>
+    <label>New Safehaven</label>
+    <description>Your deserter group has stumbled upon an old bunker, a potential haven. But with the valuable intel you carry, the Empire's visibility on you is alarmingly high. Aerodrones patrol the skies, and Imperial raiding parties are closing in. Use the intel to unlock powerful tech and deserter services, aiding your ultimate mission: to assassinate key Imperial nobility. Survive the initial onslaught and lay low; over time, the Empire's relentless search will wane. The choice is yours: fortify, adapt, or perish.\n\nNote: Since you start with high visibility, this is a difficult scenario.</description>
+    <scenario>
+      <summary>A deserter cell, laying low. A classic VFE - Deserters experience.</summary>
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>VFED_NewSafehaven</factionDef>
+      </playerFaction>
+      <parts>
+
+        <!-- Config pages -->
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>3</pawnCount>
+          <pawnChoiceCount>4</pawnChoiceCount>
+        </li>
+
+        <!-- Player starting stuff spawn method-->
+        <li Class="ScenPart_PlayerPawnsArriveMethod">
+          <def>PlayerPawnsArriveMethod</def>
+          <method>Standing</method>
+        </li>
+
+        <!-- Player starting things -->
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>MealSurvivalPack</thingDef>
+          <count>40</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>MedicineIndustrial</thingDef>
+          <count>24</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>VFED_Gun_ChargeCycler</thingDef>
+          <count>2</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>ComponentIndustrial</thingDef>
+          <count>10</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>ComponentSpacer</thingDef>
+          <count>10</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>Silver</thingDef>
+          <count>400</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>VFED_Intel</thingDef>
+          <count>40</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsNearPlayerStart">
+          <def>ScatterThingsNearPlayerStart</def>
+          <thingDef>VFED_CriticalIntel</thingDef>
+          <count>6</count>
+        </li>
+		
+		<!-- Scatter anywhere -->
+        <li Class="ScenPart_ScatterThingsAnywhere">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>Steel</thingDef>
+          <count>400</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsAnywhere">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>WoodLog</thingDef>
+          <count>600</count>
+        </li>
+        <li Class="ScenPart_ScatterThingsAnywhere">
+          <def>ScatterThingsAnywhere</def>
+          <thingDef>ComponentIndustrial</thingDef>
+          <count>30</count>
+        </li>
+
+        <!-- Game start dialog -->
+        <li Class="ScenPart_GameStartDialog">
+          <def>GameStartDialog</def>
+          <text>Your deserter group has stumbled upon an old bunker, a potential haven. But with the valuable intel you carry, the Empire's visibility on you is alarmingly high. Aerodrones patrol the skies, and Imperial raiding parties are closing in. Use the intel to unlock powerful tech and deserter services, aiding your ultimate mission: to assassinate key Imperial nobility. Survive the initial onslaught and lay low; over time, the Empire's relentless search will wane. The choice is yours: fortify, adapt, or perish.</text>
+          <closeSound>GameStartSting</closeSound>
+        </li>
+		
+        <li Class="KCSG.ScenPart_AddStartingStructure">
+          <def>VFEC_AddStartingStructure</def>
+          <structureLabel>An old bunker</structureLabel>
+          <spawnTheStartingPawn>true</spawnTheStartingPawn>
+          <nearMapCenter>True</nearMapCenter>
+          <chooseFrom>
+            <li>VFED_NewSafehaven1</li>
+			<li>VFED_NewSafehaven2</li>
+			<li>VFED_NewSafehaven3</li>
+			<li>VFED_NewSafehaven4</li>
+			<li>VFED_NewSafehaven5</li>
+			<li>VFED_NewSafehaven6</li>
+          </chooseFrom>
+        </li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+
+</Defs>
