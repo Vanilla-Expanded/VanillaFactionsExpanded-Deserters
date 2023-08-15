@@ -6,7 +6,7 @@
     <description>Damocles knows that the only way to defeat the Empire is to tread the fine line between all out war and espionage. Good events only come to those who fight. The story that unfolds will be that of increasing tension and desperation, focused on a small group of likeminded people surviving the onslaught together.</description>
     <portraitLarge>HeroImage/DamoclesDeserter</portraitLarge>
     <portraitTiny>HeroImage/DamoclesDeserterTiny</portraitTiny>
-    <listOrder>20</listOrder>
+    <listOrder>42</listOrder>
     <populationIntentFactorFromPopCurve>
       <points>
         <li>0,  8.0</li>
