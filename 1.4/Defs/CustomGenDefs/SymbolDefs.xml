@@ -746,4 +746,9 @@
   <thing>VFED_ZeusCannon</thing>
 </KCSG.SymbolDef>
 
+<KCSG.SymbolDef>
+  <defName>VFED_BurnoutIntelScraper_North</defName>
+  <thing>VFED_BurnoutIntelScraper</thing>
+</KCSG.SymbolDef>
+
 </Defs>
