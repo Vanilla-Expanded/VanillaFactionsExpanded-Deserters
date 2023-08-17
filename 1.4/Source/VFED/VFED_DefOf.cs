@@ -65,6 +65,8 @@ public class VFED_DefOf
     public static RulePackDef VFED_OperationName;
     public static RulePackDef VFED_PlotName;
 
+    public static SitePartDef VFED_ZeusCannonComplex;
+
     static VFED_DefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(VFED_DefOf));

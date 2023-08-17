@@ -25,9 +25,9 @@ public class Building_ZeusCannon : Building
     public static Material GunOutline = MaterialPool.MatFrom("Endgame/ZeusCannon/ZeusCannon_Gun_Outline");
     public static Material Gun = MaterialPool.MatFrom("Endgame/ZeusCannon/ZeusCannon_Gun");
     public static Material GunSupport = MaterialPool.MatFrom("Endgame/ZeusCannon/ZeusCannon_GunSupport");
-    public static Material Charge = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.9f, 0.85f, 0.2f));
+    public static Material Charge = SolidColorMaterials.SimpleSolidColorMaterial(new(0.9f, 0.85f, 0.2f));
     public static Material LightningMat = MatLoader.LoadMat("Weather/LightningBolt");
-    public static Mesh GunInnerMesh = MeshPool.GridPlane(new Vector2(1.5f, 0.5f));
+    public static Mesh GunInnerMesh = MeshPool.GridPlane(new(1.5f, 0.5f));
 
     private Mesh[] beamMeshes;
     private MapComponent_FlagshipFight manager;
@@ -44,7 +44,7 @@ public class Building_ZeusCannon : Building
     private int TicksToCompleteState =>
         (state switch
         {
-            CannonState.Idle => Rand.Range(0, 5),
+            CannonState.Idle => Rand.Range(0.5f, 5),
             CannonState.Charging => 15f,
             CannonState.Aiming => 10f,
             CannonState.Firing => 1f,
@@ -125,7 +125,7 @@ public class Building_ZeusCannon : Building
             Graphics.DrawMesh(beamMeshes[i], drawLoc + (Vector3.forward * (i % 3 * 0.3f - 0.5f)).RotatedBy(angle), Quaternion.AngleAxis(angle - 90, Vector3.up),
                 FadedMaterialPool.FadedVersionOf(LightningMat, firingPct), 0);
         var s = 90 * Mathf.InverseLerp(60, 45, ticksLeftInState);
-        Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(drawLoc, Quaternion.identity, new Vector3(s, 1, s)), FadedMaterialPool.FadedVersionOf(
+        Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(drawLoc, Quaternion.identity, new(s, 1, s)), FadedMaterialPool.FadedVersionOf(
             ThingDefOf.Mote_PowerBeam.graphic.MatSingle, firingPct), 0);
     }
 
@@ -145,6 +145,7 @@ public class Building_ZeusCannon : Building
                 case CannonState.Idle:
                 default: break;
             }
+        else if (ticksLeftInState <= 0 && state == CannonState.Idle) ticksLeftInState = TicksToCompleteState;
 
         if (ticksLeftInState > 0 && (CanFire || state != CannonState.Idle))
         {
@@ -251,8 +252,8 @@ public class CompAffectsSky_ZeusCannon : CompAffectsSky
     public override float LerpFactor => Cannon.State == Building_ZeusCannon.CannonState.Firing ? 1 - Cannon.StateFactor : 0;
 
     public override SkyTarget SkyTarget =>
-        new(1f, new SkyColorSet(new Color(0.9f, 0.95f, 1f),
-            new Color(0.784313738f, 0.8235294f, 0.847058833f), new Color(0.9f, 0.95f, 1f), 1.15f), 1f, 1f);
+        new(1f, new(new(0.9f, 0.95f, 1f),
+            new(0.784313738f, 0.8235294f, 0.847058833f), new(0.9f, 0.95f, 1f), 1.15f), 1f, 1f);
 }
 
 public class CompProperties_AffectsSky_ZeusCannon : CompProperties_AffectsSky

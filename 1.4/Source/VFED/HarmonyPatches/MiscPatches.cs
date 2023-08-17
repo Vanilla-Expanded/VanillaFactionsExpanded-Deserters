@@ -121,7 +121,7 @@ public static class MiscPatches
     {
         if (t is Building_CrateBiosecured && !p.story.AllBackstories.Any(backstory => backstory.spawnCategories.Contains("ImperialRoyal")))
         {
-            opts.Add(new FloatMenuOption("CannotOpen".Translate(t) + ": " + "VFED.CantOpenBiosecured".Translate().CapitalizeFirst(), null));
+            opts.Add(new("CannotOpen".Translate(t) + ": " + "VFED.CantOpenBiosecured".Translate().CapitalizeFirst(), null));
             return true;
         }
 
@@ -276,7 +276,7 @@ public static class MiscPatches
                     if (shield.currentHitPoints == 0)
                     {
                         shield.SetNextChargeTick(Find.TickManager.TicksGame);
-                        shield.BreakShieldHitpoints(new DamageInfo(DamageDefOf.Crush, __instance.def.size.Magnitude));
+                        shield.BreakShieldHitpoints(new(DamageDefOf.Crush, __instance.def.size.Magnitude));
                     }
                 }
 
@@ -284,5 +284,17 @@ public static class MiscPatches
                 return;
             }
         }
+    }
+
+    [HarmonyPatch(typeof(GenHostility), nameof(GenHostility.AnyHostileActiveThreatToPlayer))]
+    [HarmonyPostfix]
+    public static void ComplexHostileWithQuest(Map map, ref bool __result)
+    {
+        if (__result) return;
+        if (map.Parent is not Site site) return;
+        if (site.MainSitePartDef != VFED_DefOf.VFED_ZeusCannonComplex) return;
+        if (Find.QuestManager.QuestsListForReading.FirstOrDefault(q => q.root == VFED_DefOf.VFED_DeserterEndgame) is not { } quest) return;
+        if (quest.State is not QuestState.Ongoing) return;
+        __result = true;
     }
 }

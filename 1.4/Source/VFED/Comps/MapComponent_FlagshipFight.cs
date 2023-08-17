@@ -28,7 +28,7 @@ public class MapComponent_FlagshipFight : MapComponent
         FlagshipHealth = 1f;
         shipDamagedSignal = shipDamaged;
         shipDestroyedSignal = shipDestroyed;
-        Cannons = new List<Building_ZeusCannon>();
+        Cannons = new();
         foreach (var thing in map.listerThings.ThingsInGroup(ThingRequestGroup.BuildingArtificial))
             switch (thing)
             {
@@ -49,7 +49,7 @@ public class MapComponent_FlagshipFight : MapComponent
             var lord = LordMaker.MakeNewLord(EmpireUtility.Deserters, new LordJob_AssistColony(EmpireUtility.Deserters, map.Center), map);
             var pawns = new List<Pawn>();
             for (var j = 0; j < 8; j++)
-                pawns.Add(PawnGenerator.GeneratePawn(new PawnGenerationRequest(VFEE_DefOf.VFEE_Deserter, EmpireUtility.Deserters, mustBeCapableOfViolence: true,
+                pawns.Add(PawnGenerator.GeneratePawn(new(VFEE_DefOf.VFEE_Deserter, EmpireUtility.Deserters, mustBeCapableOfViolence: true,
                     biocodeWeaponChance: 1, biocodeApparelChance: 1)));
             lord.AddPawns(pawns);
             Utilities.DropShuttleCustom(pawns, map, landingSpot, EmpireUtility.Deserters, VFED_DefOf.VFED_DeserterShuttle,
@@ -60,7 +60,7 @@ public class MapComponent_FlagshipFight : MapComponent
     public void DamageFlagship(float damage)
     {
         FlagshipHealth -= damage;
-        Find.SignalManager.SendSignal(new Signal(shipDamagedSignal));
+        Find.SignalManager.SendSignal(new(shipDamagedSignal));
         for (var i = 0; i < 4; i++)
             if (CellFinderLoose.TryFindSkyfallerCell(ThingDefOf.ShipChunkIncoming, map, out var cell, 10, map.Center, 999999))
                 SkyfallerMaker.SpawnSkyfaller(ThingDefOf.ShipChunkIncoming, VFED_DefOf.VFED_FlagshipChunk, cell, map);
@@ -73,7 +73,7 @@ public class MapComponent_FlagshipFight : MapComponent
                     var toil = lord.Graph.lordToils.OfType<LordToil_PanicFlee>().FirstOrDefault();
                     if (toil == null)
                     {
-                        toil = new LordToil_PanicFlee
+                        toil = new()
                         {
                             useAvoidGrid = true
                         };
@@ -94,7 +94,7 @@ public class MapComponent_FlagshipFight : MapComponent
                .Select(p => p.Name.ToStringFull)
                .ToLineList("  - ", true)));
 
-            Find.SignalManager.SendSignal(new Signal(shipDestroyedSignal));
+            Find.SignalManager.SendSignal(new(shipDestroyedSignal));
 
             empire.defeated = true;
             empire.hidden = true;
@@ -107,8 +107,13 @@ public class MapComponent_FlagshipFight : MapComponent
             {
                 if (!pawn.Dead)
                 {
-                    if (pawn.Faction == empire && !pawn.Spawned) pawn.Kill(new DamageInfo(DamageDefOf.Bomb, 999));
-                    else if (Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true)) pawn.SetFaction(newFaction);
+                    if (pawn.Faction == empire)
+                    {
+                        if (!pawn.Spawned) pawn.Kill(new DamageInfo(DamageDefOf.Bomb, 999));
+                        else if (Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true)) pawn.SetFaction(newFaction);
+                    }
+                    else if (pawn.Faction == deserterFaction && Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true))
+                        pawn.SetFaction(newFaction);
                 }
 
                 if (pawn.royalty != null)
@@ -162,7 +167,7 @@ public class MapComponent_FlagshipFight : MapComponent
             {
                 var pods = new List<ActiveDropPodInfo>();
                 var lord = LordMaker.MakeNewLord(Faction.OfEmpire, new LordJob_AssaultColony(Faction.OfEmpire, false, false, false, false, false), map);
-                var pawns = PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
+                var pawns = PawnGroupMakerUtility.GeneratePawns(new()
                     {
                         dontUseSingleUseRocketLaunchers = true,
                         faction = Faction.OfEmpire,
@@ -197,10 +202,10 @@ public class MapComponent_FlagshipFight : MapComponent
         base.MapComponentOnGUI();
         if (!Active || FlagshipHealth <= 0 || FlagshipHealth >= 1) return;
         var emperor = WorldComponent_Hierarchy.Instance.TitleHolders.Last();
-        var rect = new Rect(new Vector2(UI.screenWidth - 116, 30), ColonistBar.BaseSize * 2);
+        var rect = new Rect(new(UI.screenWidth - 116, 30), ColonistBar.BaseSize * 2);
         GUI.DrawTexture(rect, TexDeserters.BossBackground);
         GUI.DrawTexture(
-            new Rect(new Vector2(rect.x, rect.y - ColonistBarColonistDrawer.PawnTextureSize.y), ColonistBarColonistDrawer.PawnTextureSize * 2),
+            new(new(rect.x, rect.y - ColonistBarColonistDrawer.PawnTextureSize.y), ColonistBarColonistDrawer.PawnTextureSize * 2),
             PortraitsCache.Get(emperor, ColonistBarColonistDrawer.PawnTextureSize * 2, Rot4.South, ColonistBarColonistDrawer.PawnTextureCameraOffset,
                 1.28205f));
         var innerRect = rect.BottomHalf();
@@ -208,7 +213,7 @@ public class MapComponent_FlagshipFight : MapComponent
         GUI.DrawTexture(innerRect, TexDeserters.BossFlagship);
         innerRect = rect.BottomPartPixels(Text.LineHeight);
         using (new TextBlock(TextAnchor.MiddleCenter)) Widgets.Label(innerRect, "VFED.Flagship".Translate());
-        rect = new Rect(rect.x - 210, rect.y, 200, 30);
+        rect = new(rect.x - 210, rect.y, 200, 30);
         Widgets.FillableBar(rect, FlagshipHealth, TexDeserters.BossHealthTex, BaseContent.BlackTex, false);
         using (new TextBlock(TextAnchor.MiddleCenter)) Widgets.Label(rect, "VFED.HullIntegrity".Translate() + ":" + FlagshipHealth.ToStringPercentEmptyZero());
     }
