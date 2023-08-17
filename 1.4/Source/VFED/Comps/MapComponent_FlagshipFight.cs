@@ -136,6 +136,7 @@ public class MapComponent_FlagshipFight : MapComponent
 
             foreach (var quest in Find.QuestManager.QuestsListForReading)
                 if ((quest.root.IsDeserterQuest() || quest.InvolvedFactions.Any(f => f == empire || f == deserterFaction))
+                 && quest.root != VFED_DefOf.VFED_DeserterEndgame
                  && quest.State is QuestState.NotYetAccepted or QuestState.Ongoing)
                     quest.End(quest.EverAccepted ? QuestEndOutcome.Fail : QuestEndOutcome.InvalidPreAcceptance);
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ScenPartDef>
+        <defName>VFED_StartDeserting</defName>
+        <label>start deserting</label>
+        <category>Misc</category>
+        <scenPartClass>VFED.ScenPart_StartDeserting</scenPartClass>
+        <maxUses>1</maxUses>
+    </ScenPartDef>
+</Defs>

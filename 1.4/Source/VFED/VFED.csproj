@@ -106,6 +106,7 @@
     <Compile Include="Quests\ObjectiveTracker.cs" />
     <Compile Include="Quests\ShipJob_WaitLaunchable.cs" />
     <Compile Include="Quests\VanillaFixed.cs" />
+    <Compile Include="ScenParts\ScenPart_StartDeserting.cs" />
     <Compile Include="StorytellerComps\StorytellerComp_CategoryIndividualMTBByBiome_ByVisibility.cs" />
     <Compile Include="StorytellerComps\StorytellerComp_FactionInteraction_ByVisibility.cs" />
     <Compile Include="StorytellerComps\StorytellerComp_ByVisibility.cs" />
