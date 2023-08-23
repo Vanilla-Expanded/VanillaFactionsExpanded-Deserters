@@ -17,7 +17,6 @@ public static class DesertersUIUtility
 
         var intelRect = inRect.TakeTopPart(30);
         Widgets.DrawLightHighlight(intelRect);
-        TooltipHandler.TipRegion(intelRect, "VFED.IntelAmount".Translate(VFED_DefOf.VFED_Intel.label));
         if (Mouse.IsOver(intelRect)) Widgets.DrawHighlight(intelRect);
         Widgets.DefIcon(intelRect.TakeLeftPart(30).ContractedBy(1.5f), VFED_DefOf.VFED_Intel);
         Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_Intel);
@@ -30,7 +29,6 @@ public static class DesertersUIUtility
 
         intelRect = inRect.TakeTopPart(30);
         if (Mouse.IsOver(intelRect)) Widgets.DrawHighlight(intelRect);
-        TooltipHandler.TipRegion(intelRect, "VFED.IntelAmount".Translate(VFED_DefOf.VFED_CriticalIntel.label));
         Widgets.DefIcon(intelRect.TakeLeftPart(30).ContractedBy(1.5f), VFED_DefOf.VFED_CriticalIntel);
         Widgets.InfoCardButton(intelRect.TakeLeftPart(30).ContractedBy(3), VFED_DefOf.VFED_CriticalIntel);
         using (new TextBlock(TextAnchor.MiddleLeft))

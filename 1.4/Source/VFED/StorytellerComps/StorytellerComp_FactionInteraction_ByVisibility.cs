@@ -32,7 +32,7 @@ public class StorytellerComp_FactionInteraction_ByVisibility : StorytellerComp_B
         for (var i = 0; i < incCount; i = num2 + 1)
         {
             var parms = GenerateParms(Props.incident.category, target);
-            if (Props.incident.Worker.CanFireNow(parms)) yield return new FiringIncident(Props.incident, this, parms);
+            if (Props.incident.Worker.CanFireNow(parms)) yield return new(Props.incident, this, parms);
 
             num2 = i;
         }
@@ -55,5 +55,5 @@ public class StorytellerCompProperties_FactionInteraction_ByVisibility : Storyte
 
     public float minWealth;
 
-    public StorytellerCompProperties_FactionInteraction_ByVisibility() => compClass = typeof(StorytellerComp_FactionInteraction);
+    public StorytellerCompProperties_FactionInteraction_ByVisibility() => compClass = typeof(StorytellerComp_FactionInteraction_ByVisibility);
 }
