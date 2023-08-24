@@ -389,7 +389,7 @@
       <Flammability>0.7</Flammability>
       <Mass>10</Mass>
       <Beauty>-20</Beauty>
-      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+      <ShootingAccuracyTurret>0.78</ShootingAccuracyTurret>
     </statBases>
     <tickerType>Normal</tickerType>
     <comps>
@@ -415,7 +415,7 @@
       <combatPower>45</combatPower>
       <ai_combatDangerous>true</ai_combatDangerous>
       <turretGunDef>VFEE_Gun_StrikerTurret</turretGunDef>
-      <turretBurstCooldownTime>4.8</turretBurstCooldownTime>
+      <turretBurstCooldownTime>6.8</turretBurstCooldownTime>
       <deconstructible>false</deconstructible>
     </building>
 	<designationCategory>VFED_Deserters</designationCategory>
