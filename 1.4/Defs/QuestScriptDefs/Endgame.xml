@@ -12,17 +12,17 @@
     <questDescriptionRules>
       <rulesStrings>
         <li>questDescription->[noble_nameFull] is the Emperor of the [empire_name]. An egocentric ruler who values tradition over the lives of [noble_possessive] people, [noble_pronoun] has to be stopped at all costs. [noble_pronoun] refuses to adapt to the new reality post-Sophiamunda Shattering, and instead insists on maintaining old ways, leading to the wasteful loss of countless lives.
-\nDespite the warnings we have given [noble_objective] and the obvious signs of impending doom, [noble_pronoun] remains obstinate in [noble_possessive] ways, driving the Empire towards certain destruction. The only hope for the deserters is to take out the Imperial flagship in orbit, which gives the Emperor an overwhelming military advantage.
-\nIn order to do that, we have to take control of three Zeus cannons located in various places on the planet. This mission needs to be executed on all fronts simultaneously, as we will only have a limited window of opportunity once the first Zeus cannon is taken. Activating all three of them at the same time will ensure the total obliteration of the Imperial flagship, after which the Empire will have no choice but to dissolve.</li>
+\n\nDespite the warnings we have given [noble_objective] and the obvious signs of impending doom, [noble_pronoun] remains obstinate in [noble_possessive] ways, driving the Empire towards certain destruction. The only hope for the deserters is to take out the Imperial flagship in orbit, which gives the Emperor an overwhelming military advantage.
+\n\nIn order to do that, we have to take control of three Zeus cannons located in various places on the planet. This mission needs to be executed on all fronts simultaneously, as we will only have a limited window of opportunity once the first Zeus cannon is taken. Activating all three of them at the same time will ensure the total obliteration of the Imperial flagship, after which the Empire will have no choice but to dissolve.</li>
       </rulesStrings>
     </questDescriptionRules>
     <questContentRules>
       <rulesStrings>
-        <li>shuttleLetterText->Text.todo
-\nA deserter shuttle has landed in your area. It is tasked with delivering a deserter strike force, including whoever you choose to send on this mission, into a Zeus cannon installation. Your soldiers will be assisted by deserter reinforcements.
-\nThe installation is heavily defended. Furthermore, Imperial reinforcements will be dispatched almost immediately upon landing. You can expect the Empire to bring their best and most powerful weapons to try and stop you.
-\nYour objective is to capture the control room of the Zeus cannon batteries. As long as you are within the range of the main control station, Zeus cannons will continuously fire at the imperial flagship. The target is heavily armored, and bringing it down will require a lot of firepower.
-\nThe installation is defended by an imperial mega high-shield, which should keep you safe from aerodrone bombardments and slicer beams as long as you maintain a constant power supply to it.</li>
+        <li>shuttleLetterText->All deserter cells on the planet have been informed about what is going to occur now. Everyone knows that now is the only time to strike.
+\n\nA deserter shuttle has landed in your area. It is tasked with delivering a deserter strike force, including whoever you choose to send on this mission, into a Zeus cannon installation. Your soldiers will be assisted by deserter reinforcements.
+\n\nThe installation is heavily defended. Furthermore, Imperial reinforcements will be dispatched almost immediately upon landing. You can expect the Empire to bring their best and most powerful weapons to try and stop you.
+\n\nYour objective is to capture the control room of the Zeus cannon batteries. As long as you are within the range of the main control station, Zeus cannons will continuously fire at the imperial flagship. The target is heavily armored, and bringing it down will require a lot of firepower.
+\n\nThe installation is defended by an imperial mega high-shield, which should keep you safe from aerodrone bombardments and slicer beams as long as you maintain a constant power supply to it.</li>
       </rulesStrings>
     </questContentRules>
     <root Class="QuestNode_Sequence">

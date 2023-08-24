@@ -3,7 +3,7 @@
   <HediffDef>
     <defName>VFED_Invisibility</defName>
     <label>invisibility</label>
-    <description>text_todo</description>
+    <description>An invisibility granted by the invisibility engulfer item. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
     <isBad>false</isBad>
     <hediffClass>HediffWithComps</hediffClass>
     <comps>

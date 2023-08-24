@@ -364,7 +364,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VFED_Turret_StrikerTurret</defName>
     <label>striker turret</label>
-    <description>todo</description>
+    <description>A stationary, powerful turret. Will self-destruct if it is sufficiently damaged.</description>
     <thingClass>Building_TurretGun</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>

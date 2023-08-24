@@ -116,7 +116,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SupplyCrate</defName>
     <label>supply crate</label>
-    <description>todo</description>
+    <description>A small imperial crate containing valuables. May contain intel. Opening it requires bypassing several security protocols and takes a short while./n/nAny attempt to destroy it will destroy the items as well.</description>
     <thingClass>VFED.Building_SupplyCrate</thingClass>
     <graphicData>
       <texPath>Structures/Misc/ImperialCrate</texPath>
@@ -140,7 +140,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_BiosecuredCrate</defName>
     <label>biosecured crate</label>
-    <description>todo</description>
+    <description>A small imperial crate containing extremely valuable items. May contain critical intel. Due to the special restrictions, only imperial nobles are capable of opening it./n/nAny attempt to destroy it will destroy the items as well.</description>
     <thingClass>VFED.Building_CrateBiosecured</thingClass>
     <graphicData>
       <texPath>Structures/Misc/ImperialBiosecuredCrate</texPath>
@@ -164,7 +164,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SurveillancePillar</defName>
     <label>surveillance pillar</label>
-    <description>todo</description>
+    <description>A large pillar with a series of sensors, cameras and motion detectors. Thanks to the sophisticated face recognition system, surveillance pillar can detect the presence of deserters in radius and will increase the visibility of whichever faction has sent them. Can be disabled via electromagnetic pulse, or by simply cutting off the power grid.</description>
     <graphicData>
       <texPath>Structures/Security/SurveillancePillar_Off</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -226,7 +226,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_AerodroneMunitionsCrate</defName>
     <label>aerodrone munitions crate</label>
-    <description>todo</description>
+    <description>A large military crate of aerodrone munitions. Will explode when damaged, sending armed shells flying in random directions.</description>
     <graphicData>
       <texPath>Structures/Misc/AerodroneMunitionsCrate</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -266,7 +266,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_AerodroneBatteryPack</defName>
     <label>aerodrone battery pack</label>
-    <description>todo</description>
+    <description>A large, overcharged aerodrone battery. Will release a strong electromagnetic pulse when damaged, potentially disabling nearby defenses.</description>
     <graphicData>
       <texPath>Structures/Misc/AerodroneBatteryPack</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -308,7 +308,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_Aerodrone</defName>
     <label>aerodrone</label>
-    <description>todo</description>
+    <description>Aerodrone is a spacer-tech, unmanned aerial vehicle equipped with advanced sensors and a missile payload. Designed for autonomous long-range operations, it's commonly used by the Empire for reconnaissance and bombardment. Its ability to release powerful missile salvos makes it effective against various targets. This aerodrone is temporarily disabled due to the recharge cycle.</description>
     <graphicData>
       <texPath>Structures/Misc/Aerodrone</texPath>
       <graphicClass>Graphic_Random</graphicClass>
@@ -338,7 +338,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ImperialMaxpack</defName>
     <label>imperial maxpack</label>
-    <description>todo</description>
+    <description>The Imperial maxpack is a formidable armored transport truck, known for its impressive cargo capacity. Its armor is impenetrable, ensuring the safety of its contents throughout transit. Once in motion, the Maxpack’s doors remain sealed until it reaches its predetermined destination. While attempting to loot its cargo is futile due to built-in self-destruct protocols, its robust exterior makes it an ideal shield on the battlefield.</description>
     <graphicData>
       <texPath>Structures/ImperialMaxpack/ImperialMaxpack</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -370,7 +370,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_StrikeBuoy</defName>
     <label>strike buoy</label>
-    <description>todo</description>
+    <description>A small surveillance buoy usually deployed around temporary convoy stops. Linked directly with a patrolling aerodrone, once triggered, it will send down a small missile salvo on its location.</description>
     <size>(1,1)</size>
     <tickerType>Normal</tickerType>
     <fillPercent>0.1</fillPercent>
@@ -434,7 +434,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_FuelTank</defName>
     <label>fuel tank</label>
-    <description>todo</description>
+    <description>A large fuel tank used to refuel Imperial shuttles. Will detonate if damaged beyond a certain point, potentially triggering a chain reaction.</description>
     <graphicData>
       <texPath>Structures/Misc/ImperialFuelTank</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -473,8 +473,8 @@
 
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SurveillanceStation</defName>
-    <label>surveillance station</label>
-    <description>todo</description>
+    <label>surveillance console</label>
+    <description>A large console designed to link to surrounding surveillance pillars. Provides users with all the necessary data related to enemy movements in a given sector.</description>
     <graphicData>
       <texPath>Structures/Misc/SurveillanceStation</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -511,7 +511,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SurveillanceDisplayBank</defName>
     <label>surveillance display bank</label>
-    <description>todo</description>
+    <description>An imperial computer interface. Linked to the surveillance console, the display bank shows live footage from all surveillance pillars in the sector.</description>
     <graphicData>
       <texPath>Structures/Misc/SurveillanceTerminalBank/SurveillanceTerminalBank</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -555,7 +555,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_Techprinter</defName>
     <label>techprinter</label>
-    <description>todo</description>
+    <description>The Techprinter is a marvel of technological innovation, designed to capture and preserve the intricate knowledge residing within a techfriar’s mind. These advanced machines imprint this invaluable information directly onto techite discs. Techprints provide foundational knowledge for researchers, shedding light on innovations from more advanced societies.</description>
     <graphicData>
       <texPath>Structures/Misc/Techprinter</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -591,7 +591,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_TechiteDiscStack</defName>
     <label>techite disc stack</label>
-    <description>todo</description>
+    <description>A compact stack of discs crafted from the enigmatic element known as techite, produced exclusively by the Empire for knowledge transcribing. Primarily designed for preserving information. When ignited, they release a dense cloud of blinding smoke and sparks, capable of engulfing a vast area in flames.</description>
     <graphicData>
       <texPath>Structures/Misc/TechiteDiscStack</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -621,7 +621,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ImperialUnderfarm</defName>
     <label>imperial underfarm</label>
-    <description>todo</description>
+    <description>An underground hydroponics basic used by the empire to feed their subjects. Fully automated and connected to water mains, these farms require no labor to operate.</description>
     <graphicData>
       <texPath>Structures/Misc/ImperialUnderfarm</texPath>
       <graphicClass>Graphic_Random</graphicClass>
@@ -647,7 +647,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_WaterMain</defName>
     <label>water main</label>
-    <description>todo</description>
+    <description>A large node connecting all the nearby water mains. Required for the underfarms to operate.</description>
     <graphicData>
       <texPath>Structures/Misc/ImperialUnderfarmMain</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -672,7 +672,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_CrashedAerodrone</defName>
     <label>crashed aerodrone</label>
-    <description>todo</description>
+    <description>A crashed imperial aerodrone.</description>
     <graphicData>
       <texPath>Structures/Misc/CrashedAerodrone</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -697,7 +697,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ImperialMegaHighShield</defName>
     <label>imperial mega high-shield</label>
-    <description>todo</description>
+    <description>An advanced shielding apparatus, the Imperial mega high-shield projects a vast momentum repulsor field, allowing shots to exit but preventing any from entering. Specifically calibrated for high angles, it's adept at deflecting incoming mortar rounds, aerodrone strikes and even orbital slicer beams. The unit can be temporarily disabled by EMP attacks, either by shocking the projector unit itself, or using EMP munitions on the shield. Draws huge amounts of power.</description>
     <graphicData>
       <texPath>Endgame/ImperialMegaHighShield</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -761,7 +761,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ZeusCannonControlStation</defName>
     <label>zeus cannon control station</label>
-    <description>todo</description>
+    <description>This terminal serves as the primary interface for operating the Zeus Cannon batteries. Equipped with sophisticated controls and targeting systems, the Zeus Cannon Control Station ensures precision and coordination when deploying the formidable firepower of the Zeus Cannons. Operators need to be within its radius to control it.</description>
     <thingClass>VFED.Building_CannonControl</thingClass>
     <graphicData>
       <texPath>Endgame/ZeusCannonControlStation</texPath>
@@ -806,7 +806,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ZeusCannonCapacitorBank</defName>
     <label>zeus cannon capacitor bank</label>
-    <description>todo</description>
+    <description>A capacitor bank that transforms electricity into raw energy for the Zeus cannon. Will release a large EMP shockwave when destroyed, potentially disabling the Zeus cannon itself.</description>
     <graphicData>
       <texPath>Endgame/ZeusCannonCapacitors/ZeusCannonCapacitors</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -855,7 +855,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ZeusCannon</defName>
     <label>zeus cannon</label>
-    <description>todo</description>
+    <description>A relic of ancient Sophiamundan technology, the Zeus Cannon is a closely guarded secret of the Empire. This formidable artillery piece has the unique ability to convert vast quantities of electricity into potent energy blasts. With unmatched range, it can pierce the atmosphere to target and obliterate objects in orbit. A testament to lost engineering brilliance, it stands as both a weapon and a symbol of the Empire's might./n/nIt has a long charging cycle, after which it will aim at the target and release a devastating energy blast.</description>
     <thingClass>VFED.Building_ZeusCannon</thingClass>
     <graphicData>
       <texPath>Endgame/ZeusCannon/ZeusCannon_Base</texPath>

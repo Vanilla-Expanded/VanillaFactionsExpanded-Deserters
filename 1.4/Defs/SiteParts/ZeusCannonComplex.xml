@@ -3,7 +3,7 @@
     <SitePartDef ParentName="VFED_DeserterRaidSiteBase">
         <defName>VFED_ZeusCannonComplex</defName>
         <label>zeus cannon complex</label>
-        <description>text_todo</description>
+        <description>A secret imperial installation equipped with a large number of powerful zeus cannons, capable of bringing down large objects from the orbit.</description>
         <expandingIconTexture>WorldObjects/QuestIcon_ZeusCannonComplexRaid</expandingIconTexture>
         <tags>
             <li>VFED_ZeusCannonComplex</li>
