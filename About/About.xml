@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Vanilla Factions Expanded - Deserters</name>
-  <author>Oskar Potocki, xrushha, legodude17, Allie</author>
+  <author>Oskar Potocki, xrushha, legodude17</author>
   <supportedVersions>
     <li>1.4</li>
   </supportedVersions>
   <packageId>OskarPotocki.VFE.Deserters</packageId>
-  <description>This is a Deserter Faction Expanded mod, currently in development.
+  <description>After the release of Vanilla Factions Expanded - Empire, a lot of you have requested that we tell the other side of this marvelous story - the story of Deserters. So many of you have requested it that in fact we made it our priority to release the Deserters faction expansion as soon as it was reasonably possible. What initially was meant to be a small mod about stealing stuff from the Empire, quickly became a grand new campaign against the evil nobility. We didn’t stop on just a few new quests and a new weapon - this mod comes packed with content to make the anti-imperial playthrough not only viable, but also oh so fun!
+
+An indepth visibility system will track how much the Empire knows about you, and will affect everything that occurs in your game against the Empire. Higher visibility might result in larger imperial raids, less time for the empire to send reinforcements to their compounds, higher contraband prices and even quiet absolver raids.
+
+Our goal with this mod was to make you feel like you’re a part of the bigger movement happening across the entire planet, but still in secret. You will be able to contact other deserter cells to send shuttles to pick you up, cause distractions and taunt imperial forces. You will be doing all that by trading intel - which is a new resource obtained directly from the empire via a variety of different ways. I encourage you to check the infographics to find out more about what we cooked for you!
 
 For obvious reasons this mod requires Royalty DLC.</description>
   <modDependencies>
