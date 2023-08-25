@@ -110,7 +110,6 @@
     <rotatable>false</rotatable>
     <stealable>false</stealable>
     <canOverlapZones>false</canOverlapZones>
-    <designationCategory>VFED_Deserters</designationCategory>
   </ThingDef>
 
   <ThingDef ParentName="VFED_EmpireBuildingBase">

@@ -418,7 +418,6 @@
       <turretBurstCooldownTime>6.8</turretBurstCooldownTime>
       <deconstructible>false</deconstructible>
     </building>
-	<designationCategory>VFED_Deserters</designationCategory>
     <placeWorkers>
       <li>PlaceWorker_TurretTop</li>
       <li>PlaceWorker_ShowTurretRadius</li>
