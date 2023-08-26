@@ -8,7 +8,7 @@ namespace VFED;
 [HarmonyPatch]
 public class CompBoxRefuel : ThingComp
 {
-    public static HashSet<string> UsesBoxes = new();
+    public static HashSet<string> MustUseBoxes = new();
     private static readonly List<Thing> checkThings = new();
     private CompRefuelable compRefuelable;
     public CompProperties_BoxRefuel Props => props as CompProperties_BoxRefuel;
@@ -47,7 +47,7 @@ public class CompBoxRefuel : ThingComp
     [HarmonyPrefix]
     public static bool CanRefuel_Prefix(Thing t, ref bool __result)
     {
-        if (UsesBoxes.Contains(t.def.defName))
+        if (MustUseBoxes.Contains(t.def.defName))
         {
             __result = false;
             return false;
@@ -60,6 +60,7 @@ public class CompBoxRefuel : ThingComp
 // ReSharper disable InconsistentNaming
 public class CompProperties_BoxRefuel : CompProperties
 {
+    public bool mustUseBoxes;
     public ThingDef refuelWith;
 
     public CompProperties_BoxRefuel() => compClass = typeof(CompBoxRefuel);
@@ -67,6 +68,6 @@ public class CompProperties_BoxRefuel : CompProperties
     public override void PostLoadSpecial(ThingDef parent)
     {
         base.PostLoadSpecial(parent);
-        CompBoxRefuel.UsesBoxes.Add(parent.defName);
+        if (mustUseBoxes) CompBoxRefuel.MustUseBoxes.Add(parent.defName);
     }
 }

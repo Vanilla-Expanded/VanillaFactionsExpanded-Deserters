@@ -16,4 +16,12 @@
               </li>
         </value>
     </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Turret_RocketswarmLauncher"]/comps</xpath>
+        <value>
+            <li Class="VFED.CompProperties_BoxRefuel">
+                <refuelWith>VFED_AmmoBox_Missile</refuelWith>
+              </li>
+        </value>
+    </Operation>
 </Patch>
