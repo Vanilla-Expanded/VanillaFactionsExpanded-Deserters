@@ -33,7 +33,7 @@ public static class ContrabandManager
     {
         foreach (var thing in from project in projects
                  from thing in DefDatabase<ResearchProjectDef>.GetNamed(project).UnlockedDefs.OfType<ThingDef>()
-                 where thing.techHediffsTags.Any(tag => tag.StartsWith("ImplantEmpire"))
+                 where !thing.techHediffsTags.NullOrEmpty() && thing.techHediffsTags.Any(tag => tag.StartsWith("ImplantEmpire"))
                  select thing)
             GiveExtension(thing);
 
@@ -100,7 +100,7 @@ public static class ContrabandManager
     public static ContrabandExtension GiveExtension(ThingDef item, ContrabandCategoryDef category = null)
     {
         var ext = new ContrabandExtension { category = category ?? VFED_DefOf.VFED_Imperial };
-        item.modExtensions ??= new List<DefModExtension>();
+        item.modExtensions ??= new();
         item.modExtensions.Add(ext);
         return ext;
     }
@@ -115,7 +115,7 @@ public static class ContrabandManager
         AllContraband.Add((item, ext));
         if (!ContrabandByCategory.TryGetValue(ext.category, out var list))
         {
-            list = new List<(ThingDef, ContrabandExtension)>();
+            list = new();
             ContrabandByCategory.Add(ext.category, list);
         }
 
