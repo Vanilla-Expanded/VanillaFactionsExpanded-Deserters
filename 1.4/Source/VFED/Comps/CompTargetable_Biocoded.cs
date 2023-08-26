@@ -15,7 +15,8 @@ public class CompTargetable_Biocoded : CompTargetable
             canTargetBuildings = true,
             canTargetItems = true,
             mapObjectTargetsMustBeAutoAttackable = false,
-            validator = x => x.Thing?.TryGetComp<CompBiocodable>() is { Biocoded: true } && BaseTargetValidator(x.Thing)
+            validator = x =>
+                (x.Thing?.TryGetComp<CompBiocodable>() is { Biocoded: true } || x.Thing is Building_CrateBiosecured) && BaseTargetValidator(x.Thing)
         };
 
     public override IEnumerable<Thing> GetTargets(Thing targetChosenByPlayer = null)
@@ -33,7 +34,7 @@ public class CompTargetEffect_Biodecode : CompTargetEffect
 {
     public override void DoEffectOn(Pawn user, Thing target)
     {
-        var comp = target.TryGetComp<CompBiocodable>();
-        comp.UnCode();
+        target.TryGetComp<CompBiocodable>()?.UnCode();
+        if (target is Building_CrateBiosecured crate) crate.Open();
     }
 }
