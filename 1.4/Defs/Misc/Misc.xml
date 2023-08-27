@@ -20,5 +20,16 @@
     <defName>VFED_WaitLaunchable</defName>
     <jobClass>VFED.ShipJob_WaitLaunchable</jobClass>
   </ShipJobDef>
-
+  <WorkGiverDef>
+    <defName>VFED_ExtractIntel</defName>
+    <label>extract intel</label>
+    <giverClass>VFED.WorkGiver_ExtractIntel</giverClass>
+    <workType>BasicWorker</workType>
+    <verb>extract</verb>
+    <gerund>extracting</gerund>
+    <priorityInType>55</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
 </Defs>

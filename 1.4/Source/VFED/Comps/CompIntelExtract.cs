@@ -33,7 +33,7 @@ public class CompIntelExtract : ThingComp
                     icon = TexDeserters.ExtractIntelTex,
                     action = delegate
                     {
-                        if (HasDesignation) parent.MapHeld.designationManager.AddDesignation(new Designation(parent, VFED_DefOf.VFED_ExtractIntel));
+                        if (HasDesignation) parent.MapHeld.designationManager.AddDesignation(new(parent, VFED_DefOf.VFED_ExtractIntel));
                     }
                 })
             : base.CompGetGizmosExtra();
@@ -41,8 +41,10 @@ public class CompIntelExtract : ThingComp
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn) =>
         CanExtract && HasDesignation
             ? base.CompFloatMenuOptions(selPawn)
-               .Append(new FloatMenuOption(VFED_DefOf.VFED_ExtractIntel.LabelCap,
-                    delegate { selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFED_DefOf.VFED_ExtractIntelJob, parent), JobTag.DraftedOrder); }))
+               .Append(selPawn.CanReach(parent, PathEndMode.Touch, Danger.Deadly)
+                    ? new(VFED_DefOf.VFED_ExtractIntel.LabelCap,
+                        delegate { selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFED_DefOf.VFED_ExtractIntelJob, parent), JobTag.DraftedOrder); })
+                    : new("CannotUseNoPath".Translate(), null))
             : base.CompFloatMenuOptions(selPawn);
 
     public override void PostExposeData()

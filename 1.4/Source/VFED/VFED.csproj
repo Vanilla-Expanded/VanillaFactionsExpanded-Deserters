@@ -65,6 +65,7 @@
     <Compile Include="AI\LordJob_DefendNobleMansion.cs" />
     <Compile Include="AI\LordToil_AttackClosest.cs" />
     <Compile Include="AI\LordToil_DefendNobleMansion.cs" />
+    <Compile Include="AI\WorkGiver_ExtractIntel.cs" />
     <Compile Include="Comps\CompDeployable.cs" />
     <Compile Include="Comps\CompEMPEffect.cs" />
     <Compile Include="Comps\CompExplosive_Shells.cs" />

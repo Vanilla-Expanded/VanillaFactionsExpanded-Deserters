@@ -13,16 +13,18 @@ public class CompIntelScraper : ThingComp
     private int pulsesLeft;
     private int ticksTillPulse;
 
+    public override void PostPostMake()
+    {
+        base.PostPostMake();
+        pulsesLeft = 10;
+        ticksTillPulse = TicksPerPulse;
+        active = false;
+    }
+
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
-        if (!respawningAfterLoad)
-        {
-            pulsesLeft = 10;
-            ticksTillPulse = TicksPerPulse;
-            active = false;
-            if (!WorldComponent_Deserters.Instance.Active) WorldComponent_Deserters.Instance.JoinDeserters(null);
-        }
+        if (!WorldComponent_Deserters.Instance.Active) WorldComponent_Deserters.Instance.JoinDeserters(null);
     }
 
     public override void CompTick()
