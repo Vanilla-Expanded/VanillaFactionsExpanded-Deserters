@@ -23,6 +23,11 @@ public class CompIntelExtract : ThingComp
         GenPlace.TryPlaceThing(intel, pawn.PositionHeld, pawn.MapHeld, ThingPlaceMode.Near);
     }
 
+    private void AddDesignation()
+    {
+        if (!HasDesignation) parent.MapHeld.designationManager.AddDesignation(new(parent, VFED_DefOf.VFED_ExtractIntel));
+    }
+
     public override IEnumerable<Gizmo> CompGetGizmosExtra() =>
         CanExtract && parent.MapHeld != null && !HasDesignation
             ? base.CompGetGizmosExtra()
@@ -31,19 +36,20 @@ public class CompIntelExtract : ThingComp
                     defaultLabel = VFED_DefOf.VFED_ExtractIntel.LabelCap,
                     defaultDesc = VFED_DefOf.VFED_ExtractIntel.description,
                     icon = TexDeserters.ExtractIntelTex,
-                    action = delegate
-                    {
-                        if (HasDesignation) parent.MapHeld.designationManager.AddDesignation(new(parent, VFED_DefOf.VFED_ExtractIntel));
-                    }
+                    action = AddDesignation
                 })
             : base.CompGetGizmosExtra();
 
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn) =>
-        CanExtract && HasDesignation
+        CanExtract
             ? base.CompFloatMenuOptions(selPawn)
                .Append(selPawn.CanReach(parent, PathEndMode.Touch, Danger.Deadly)
                     ? new(VFED_DefOf.VFED_ExtractIntel.LabelCap,
-                        delegate { selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFED_DefOf.VFED_ExtractIntelJob, parent), JobTag.DraftedOrder); })
+                        delegate
+                        {
+                            AddDesignation();
+                            selPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(VFED_DefOf.VFED_ExtractIntelJob, parent), JobTag.DraftedOrder);
+                        })
                     : new("CannotUseNoPath".Translate(), null))
             : base.CompFloatMenuOptions(selPawn);
 
