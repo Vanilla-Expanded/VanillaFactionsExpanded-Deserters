@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
@@ -69,26 +70,32 @@ public class MapComponent_FlagshipFight : MapComponent
             var empire = Faction.OfEmpire;
             foreach (var lord in map.lordManager.lords)
                 if (lord.faction == empire)
-                {
-                    var toil = lord.Graph.lordToils.OfType<LordToil_PanicFlee>().FirstOrDefault();
-                    if (toil == null)
+                    try
                     {
-                        toil = new()
+                        var toil = lord.Graph.lordToils.OfType<LordToil_PanicFlee>().FirstOrDefault();
+                        if (toil == null)
                         {
-                            useAvoidGrid = true
-                        };
-                        lord.Graph.AddToil(toil);
-                    }
+                            toil = new()
+                            {
+                                useAvoidGrid = true
+                            };
+                            lord.Graph.AddToil(toil);
+                        }
 
-                    Messages.Message("MessageFightersFleeing".Translate(lord.faction.def.pawnsPlural.CapitalizeFirst(), lord.faction.Name),
-                        MessageTypeDefOf.NeutralEvent);
-                    lord.GotoToil(toil);
-                }
+                        Messages.Message("MessageFightersFleeing".Translate(lord.faction.def.pawnsPlural.CapitalizeFirst(), lord.faction.Name),
+                            MessageTypeDefOf.NeutralEvent);
+                        lord.GotoToil(toil);
+                    }
+                    catch (Exception e) { Log.Error($"[VFE - Deserters] Failed to cleanup lord {lord}: {e}"); }
 
             var deserterFaction = EmpireUtility.Deserters;
-            var deserters = map.mapPawns.PawnsInFaction(deserterFaction);
-            foreach (var deserter in deserters) deserter.GetLord()?.RemovePawn(deserter);
-            LordMaker.MakeNewLord(deserterFaction, new LordJob_ExitMapBest(LocomotionUrgency.Walk, true, true), map, deserters);
+            try
+            {
+                var deserters = map.mapPawns.PawnsInFaction(deserterFaction);
+                foreach (var deserter in deserters) deserter.GetLord()?.RemovePawn(deserter);
+                LordMaker.MakeNewLord(deserterFaction, new LordJob_ExitMapBest(LocomotionUrgency.Walk, true, true), map, deserters);
+            }
+            catch (Exception e) { Log.Error($"[VFE - Deserters] Failed to cleanup deserters: {e}"); }
 
             ShipCountdown.InitiateCountdown("VFED.EndgameText".Translate(PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists
                .Select(p => p.Name.ToStringFull)
@@ -99,46 +106,56 @@ public class MapComponent_FlagshipFight : MapComponent
             empire.defeated = true;
             empire.hidden = true;
             deserterFaction.defeated = true;
+
+            WorldComponent_Deserters.Instance.Active = false;
+            WorldComponent_Deserters.Instance.Locked = true;
+
             foreach (var settlement in Find.WorldObjects.Settlements)
-                if (settlement.Faction == empire && Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true))
-                    settlement.SetFaction(newFaction);
+                try
+                {
+                    if (settlement.Faction == empire && Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true))
+                        settlement.SetFaction(newFaction);
+                }
+                catch (Exception e) { Log.Error($"[VFE - Deserters] Failed to reassign faction of Empire settlement {settlement}: {e}"); }
 
             foreach (var pawn in PawnsFinder.All_AliveOrDead)
             {
                 if (!pawn.Dead)
-                {
-                    if (pawn.Faction == empire)
+                    try
                     {
-                        if (!pawn.Spawned) pawn.Kill(new DamageInfo(DamageDefOf.Bomb, 999));
-                        else if (Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true)) pawn.SetFaction(newFaction);
+                        if (pawn.Faction == empire)
+                        {
+                            if (!pawn.Spawned) pawn.Kill(new DamageInfo(DamageDefOf.Bomb, 999));
+                            else if (Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true)) pawn.SetFaction(newFaction);
+                        }
+                        else if (pawn.Faction == deserterFaction && Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true))
+                            pawn.SetFaction(newFaction);
                     }
-                    else if (pawn.Faction == deserterFaction && Find.FactionManager.TryGetRandomNonColonyHumanlikeFaction(out var newFaction, true))
-                        pawn.SetFaction(newFaction);
-                }
+                    catch (Exception e) { Log.Error($"[VFE - Deserters] Failed to clean up pawn {pawn}: {e}"); }
 
                 if (pawn.royalty != null)
-                {
-                    pawn.royalty.AllTitlesForReading.RemoveAll(royalTitle => royalTitle.faction == empire);
-                    pawn.royalty.AllFactionPermits.RemoveAll(permit => permit.Faction == empire);
+                    try
+                    {
+                        pawn.royalty.AllTitlesForReading.RemoveAll(royalTitle => royalTitle.faction == empire);
+                        pawn.royalty.AllFactionPermits.RemoveAll(permit => permit.Faction == empire);
 
-                    pawn.royalty.UpdateAvailableAbilities();
-                    pawn.abilities.Notify_TemporaryAbilitiesChanged();
-                    pawn.Notify_DisabledWorkTypesChanged();
-                    pawn.needs?.AddOrRemoveNeedsAsAppropriate();
-                    pawn.apparel?.Notify_TitleChanged();
-                    QuestUtility.SendQuestTargetSignals(pawn.questTags, "TitleChanged", pawn.Named("SUBJECT"));
-                    MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
-                }
+                        pawn.royalty.UpdateAvailableAbilities();
+                        pawn.abilities.Notify_TemporaryAbilitiesChanged();
+                        pawn.Notify_DisabledWorkTypesChanged();
+                        pawn.needs?.AddOrRemoveNeedsAsAppropriate();
+                        pawn.apparel?.Notify_TitleChanged();
+                        QuestUtility.SendQuestTargetSignals(pawn.questTags, "TitleChanged", pawn.Named("SUBJECT"));
+                        MeditationFocusTypeAvailabilityCache.ClearFor(pawn);
+                    }
+                    catch (Exception e) { Log.Error($"[VFE - Deserters] Failed to remove titles and permits from {pawn}: {e}"); }
             }
-
-            WorldComponent_Deserters.Instance.Active = false;
-            WorldComponent_Deserters.Instance.Locked = true;
 
             foreach (var quest in Find.QuestManager.QuestsListForReading)
                 if ((quest.root.IsDeserterQuest() || quest.InvolvedFactions.Any(f => f == empire || f == deserterFaction))
                  && quest.root != VFED_DefOf.VFED_DeserterEndgame
                  && quest.State is QuestState.NotYetAccepted or QuestState.Ongoing)
-                    quest.End(quest.EverAccepted ? QuestEndOutcome.Fail : QuestEndOutcome.InvalidPreAcceptance);
+                    try { quest.End(quest.EverAccepted ? QuestEndOutcome.Fail : QuestEndOutcome.InvalidPreAcceptance); }
+                    catch (Exception e) { Log.Error($"[VFE - Deserters] Failed to end quest {quest}: {e}"); }
 
             QuestUtility.SendLetterQuestAvailable(QuestUtility.GenerateQuestAndMakeAvailable(VFED_DefOf.VFED_EmpireRuins,
                 StorytellerUtility.DefaultSiteThreatPointsNow()));

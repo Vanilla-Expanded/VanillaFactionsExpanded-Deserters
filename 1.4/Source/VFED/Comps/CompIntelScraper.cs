@@ -37,7 +37,7 @@ public class CompIntelScraper : ThingComp
     {
         var effecterDef = DefDatabase<EffecterDef>.GetNamed("BurnoutMechlinkBoosterUsed");
         var effecter = new Effecter(effecterDef);
-        effecter.Trigger(new TargetInfo(parent.Position, parent.Map), TargetInfo.Invalid);
+        effecter.Trigger(new(parent.Position, parent.Map), TargetInfo.Invalid);
         effecter.Cleanup();
         var visibility = WorldComponent_Deserters.Instance.Visibility;
         if (new (Action, float)[]
@@ -86,7 +86,7 @@ public class CompIntelScraper : ThingComp
 
     private void DoRaid()
     {
-        if (IncidentDefOf.RaidEnemy.Worker.TryExecute(new IncidentParms
+        if (IncidentDefOf.RaidEnemy.Worker.TryExecute(new()
             {
                 target = parent.Map,
                 points = StorytellerUtility.DefaultThreatPointsNow(parent.Map) / 4f,
@@ -100,7 +100,7 @@ public class CompIntelScraper : ThingComp
     public override IEnumerable<Gizmo> CompGetGizmosExtra() =>
         base.CompGetGizmosExtra()
            .Append(active
-                ? new Command_Action
+                ? new()
                 {
                     defaultLabel = "VFED.DeactivateScraper".Translate(),
                     defaultDesc = "VFED.DeactivateScraper.Desc".Translate(),
