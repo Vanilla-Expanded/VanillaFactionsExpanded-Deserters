@@ -37,10 +37,14 @@ public class CompIntelScraper : ThingComp
 
     private void DoPulse()
     {
-        var effecterDef = DefDatabase<EffecterDef>.GetNamed("BurnoutMechlinkBoosterUsed");
-        var effecter = new Effecter(effecterDef);
-        effecter.Trigger(new(parent.Position, parent.Map), TargetInfo.Invalid);
-        effecter.Cleanup();
+        if (ModsConfig.BiotechActive)
+        {
+            var effecterDef = DefDatabase<EffecterDef>.GetNamed("BurnoutMechlinkBoosterUsed");
+            var effecter = new Effecter(effecterDef);
+            effecter.Trigger(new(parent.Position, parent.Map), TargetInfo.Invalid);
+            effecter.Cleanup();
+        }
+
         var visibility = WorldComponent_Deserters.Instance.Visibility;
         if (new (Action, float)[]
             {

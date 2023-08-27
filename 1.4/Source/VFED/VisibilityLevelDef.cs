@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -122,8 +121,8 @@ public class VisibilityEffect_AerodroneBombardment : VisibilityEffect
         foreach (var map in Find.Maps.Where(map => map.IsPlayerHome))
         {
             var targets = new List<Thing>();
-            targets.AddRange(map.listerThings.ThingsInGroup(ThingRequestGroup.AttackTarget).OfType<Building_Turret>().Where((Func<Thing, bool>)IsPlayer));
-            targets.AddRange(map.listerThings.ThingsInGroup(ThingRequestGroup.PowerTrader).OfType<Building_Battery>().Where((Func<Thing, bool>)IsPlayer));
+            targets.AddRange(map.listerThings.ThingsInGroup(ThingRequestGroup.AttackTarget).OfType<Building_Turret>().Where(IsPlayer));
+            targets.AddRange(map.listerThings.ThingsInGroup(ThingRequestGroup.PowerTrader).OfType<Building_Battery>().Where(IsPlayer));
             targets.AddRange(map.mapPawns.FreeColonists);
             targets.AddRange(map.listerThings.ThingsInGroup(ThingRequestGroup.Bed).Where(IsPlayer));
             var items = new List<Thing>();
