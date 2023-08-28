@@ -297,4 +297,12 @@ public static class MiscPatches
         if (quest.State is not QuestState.Ongoing) return;
         __result = true;
     }
+
+    [HarmonyPatch(typeof(PawnGroupMakerUtility), nameof(PawnGroupMakerUtility.PawnGenOptionValid))]
+    [HarmonyPostfix]
+    public static void CheckDeserterSpawn(PawnGenOption o, PawnGroupMakerParms groupParms, ref bool __result)
+    {
+        if (!__result || !o.kind.IsDeserter()) return;
+        if (EmpireUtility.Deserters.defeated || (WorldComponent_Deserters.Instance.Active && groupParms.faction != EmpireUtility.Deserters)) __result = false;
+    }
 }

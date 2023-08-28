@@ -21,7 +21,7 @@ public static class GoodwillPatches
     public static void TryMakeInitialRelationsWith_Postfix(Faction __instance, Faction other)
     {
         if (IsEnemyBecauseDeserter(__instance, other))
-            __instance.SetRelation(new FactionRelation { baseGoodwill = -100, other = other, kind = FactionRelationKind.Hostile });
+            __instance.SetRelation(new() { baseGoodwill = -100, other = other, kind = FactionRelationKind.Hostile });
     }
 
     [HarmonyPatch(typeof(GoodwillSituationWorker_PermanentEnemy), nameof(GoodwillSituationWorker_PermanentEnemy.ArePermanentEnemies))]

@@ -24,7 +24,8 @@ public class CompIntelScraper : ThingComp
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
-        if (!WorldComponent_Deserters.Instance.Active) WorldComponent_Deserters.Instance.JoinDeserters(null);
+        if (WorldComponent_Deserters.Instance.Locked) parent.Destroy();
+        else if (!WorldComponent_Deserters.Instance.Active) WorldComponent_Deserters.Instance.JoinDeserters(null);
     }
 
     public override void CompTick()
@@ -137,9 +138,9 @@ public class PlaceWorker_DeserterOnly : PlaceWorker
     public override void PostPlace(Map map, BuildableDef def, IntVec3 loc, Rot4 rot)
     {
         base.PostPlace(map, def, loc, rot);
-        if (!WorldComponent_Deserters.Instance.Active)
+        if (!WorldComponent_Deserters.Instance.Active && !WorldComponent_Deserters.Instance.Locked)
             Messages.Message("VFED.BurnoutWarning".Translate(), new TargetInfo(loc, map), MessageTypeDefOf.CautionInput);
     }
 
-    public override bool IsBuildDesignatorVisible(BuildableDef def) => WorldComponent_Deserters.Instance.Active;
+    public override bool IsBuildDesignatorVisible(BuildableDef def) => WorldComponent_Deserters.Instance.Active && !WorldComponent_Deserters.Instance.Locked;
 }
