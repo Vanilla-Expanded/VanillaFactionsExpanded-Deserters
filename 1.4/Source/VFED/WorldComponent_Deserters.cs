@@ -10,6 +10,7 @@ using RimWorld.QuestGen;
 using UnityEngine;
 using Verse;
 using Verse.Grammar;
+using VFECore;
 using VFEEmpire;
 
 namespace VFED;
@@ -72,6 +73,16 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         }
 
         while (EventQueue.TryPeek(out _, out var tick) && tick <= Find.TickManager.TicksGame) EventQueue.Dequeue()();
+
+        if (Find.TickManager.TicksGame % 15000 == 0)
+        {
+            var deserterSongs = ForcedMusicManager.Instance.Songs.Where(song => song.defName.StartsWith("VFED_Stealth")).ToList();
+            if (deserterSongs.Any() && !Find.Maps.Any(map => map.Parent is Site site && site.MainSitePartDef.defName.StartsWith("VFED")))
+            {
+                Log.Warning("[VFED] Deserter music is running without any quest maps open, ending");
+                foreach (var song in deserterSongs) ForcedMusicManager.EndSong(song);
+            }
+        }
     }
 
     public void JoinDeserters(Quest fromQuest)
