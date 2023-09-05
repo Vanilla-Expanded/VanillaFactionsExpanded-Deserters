@@ -107,6 +107,9 @@
       <turretGunDef>VFED_Gun_Kontarion</turretGunDef>
       <turretBurstCooldownTime>0.6</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
+      <relatedBuildCommands>
+          <li>VFED_AmmoBox_UraniumSlug</li>
+      </relatedBuildCommands>
     </building>
     <modExtensions>
       <li Class="VFED.TurretExtension_Barrels">
@@ -199,6 +202,9 @@
       <turretGunDef>VFED_Gun_Palintone</turretGunDef>
       <turretBurstCooldownTime>0</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
+      <relatedBuildCommands>
+          <li>VFED_AmmoBox_Autocannon</li>
+      </relatedBuildCommands>
     </building>
     <modExtensions>
       <li Class="VFED.TurretExtension_Barrels">
@@ -290,6 +296,9 @@
       <turretGunDef>VFED_Gun_Onager</turretGunDef>
       <turretBurstCooldownTime>0.05</turretBurstCooldownTime>
       <turretTopDrawSize>4.2</turretTopDrawSize>
+      <relatedBuildCommands>
+        <li>VFED_AmmoBox_Missile</li>
+      </relatedBuildCommands>
     </building>
     <modExtensions>
       <li Class="VFED.TurretExtension_Barrels">
