@@ -115,7 +115,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_SupplyCrate</defName>
     <label>supply crate</label>
-    <description>A small imperial crate containing valuables. May contain intel. Opening it requires bypassing several security protocols and takes a short while./n/nAny attempt to destroy it will destroy the items as well.</description>
+    <description>A small imperial crate containing valuables. May contain intel. Opening it requires bypassing several security protocols and takes a short while.\n\nAny attempt to destroy it will destroy the items as well.</description>
     <thingClass>VFED.Building_SupplyCrate</thingClass>
     <graphicData>
       <texPath>Structures/Misc/ImperialCrate</texPath>
@@ -139,7 +139,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_BiosecuredCrate</defName>
     <label>biosecured crate</label>
-    <description>A small imperial crate containing extremely valuable items. May contain critical intel. Due to the special restrictions, only imperial nobles are capable of opening it./n/nAny attempt to destroy it will destroy the items as well.</description>
+    <description>A small imperial crate containing extremely valuable items. May contain critical intel. Due to the special restrictions, only imperial nobles are capable of opening it.\n\nAny attempt to destroy it will destroy the items as well.</description>
     <thingClass>VFED.Building_CrateBiosecured</thingClass>
     <graphicData>
       <texPath>Structures/Misc/ImperialBiosecuredCrate</texPath>
@@ -854,7 +854,7 @@
   <ThingDef ParentName="VFED_EmpireBuildingBase">
     <defName>VFED_ZeusCannon</defName>
     <label>zeus cannon</label>
-    <description>A relic of ancient Sophiamundan technology, the Zeus Cannon is a closely guarded secret of the Empire. This formidable artillery piece has the unique ability to convert vast quantities of electricity into potent energy blasts. With unmatched range, it can pierce the atmosphere to target and obliterate objects in orbit. A testament to lost engineering brilliance, it stands as both a weapon and a symbol of the Empire's might./n/nIt has a long charging cycle, after which it will aim at the target and release a devastating energy blast.</description>
+    <description>A relic of ancient Sophiamundan technology, the Zeus Cannon is a closely guarded secret of the Empire. This formidable artillery piece has the unique ability to convert vast quantities of electricity into potent energy blasts. With unmatched range, it can pierce the atmosphere to target and obliterate objects in orbit. A testament to lost engineering brilliance, it stands as both a weapon and a symbol of the Empire's might.\n\nIt has a long charging cycle, after which it will aim at the target and release a devastating energy blast.</description>
     <thingClass>VFED.Building_ZeusCannon</thingClass>
     <graphicData>
       <texPath>Endgame/ZeusCannon/ZeusCannon_Base</texPath>
