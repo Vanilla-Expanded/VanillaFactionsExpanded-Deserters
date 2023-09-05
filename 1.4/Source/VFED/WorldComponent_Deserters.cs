@@ -48,9 +48,9 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
     }
 
     public FloatMenuOption CommFloatMenuOption(Building_CommsConsole console, Pawn negotiator) =>
-        FloatMenuUtility.DecoratePrioritizedTask(new
-            FloatMenuOption("VFED.ContactDeserters".Translate(), delegate { console.GiveUseCommsJob(negotiator, this); }, VFEE_DefOf.VFEE_Deserters.FactionIcon,
-                EmpireUtility.Deserters.Color, MenuOptionPriority.InitiateSocial), negotiator, console);
+        FloatMenuUtility.DecoratePrioritizedTask(new("VFED.ContactDeserters".Translate(), delegate { console.GiveUseCommsJob(negotiator, this); },
+            VFEE_DefOf.VFEE_Deserters.FactionIcon,
+            EmpireUtility.Deserters.Color, MenuOptionPriority.InitiateSocial), negotiator, console);
 
     public override void WorldComponentTick()
     {
@@ -208,7 +208,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
             var request = default(GrammarRequest);
             request.Includes.Add(VFED_DefOf.VFED_PlotName);
             request.Constants.Add("nobleTitle", def.defName);
-            PlotMissions.Add(new PlotMissionInfo
+            PlotMissions.Add(new()
             {
                 royalTitle = def,
                 name = NameGenerator.GenerateName(VFED_DefOf.VFED_OperationName, rootKeyword: "operationName"),
@@ -298,7 +298,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
                 else if (Scribe.mode == LoadSaveMode.LoadingVars)
                 {
                     var curXmlParent = Scribe.loader.curXmlParent;
-                    EventQueue ??= new PriorityQueue<Action, int>();
+                    EventQueue ??= new();
                     EventQueue.Clear();
                     EventQueue.EnsureCapacity(curXmlParent.ChildNodes.Count);
 
@@ -318,9 +318,9 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
 
         Scribe_Collections.Look(ref DataForSites, "extraSiteData", LookMode.Reference, LookMode.Deep, ref tempSiteKeys, ref tempExtraDataValues);
 
-        ServiceQuests ??= new List<Quest>();
-        DataForSites ??= new Dictionary<Site, SiteExtraData>();
-        PlotMissions ??= new List<PlotMissionInfo>();
+        ServiceQuests ??= new();
+        DataForSites ??= new();
+        PlotMissions ??= new();
 
         Notify_VisibilityChanged(true);
     }
