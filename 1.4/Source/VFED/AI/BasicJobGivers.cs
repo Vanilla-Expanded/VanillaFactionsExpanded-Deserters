@@ -58,7 +58,7 @@ public class JobGiver_AIPatrol : JobGiver_AIFightEnemy
             return false;
         }
 
-        return CastPositionFinder.TryFindCastPosition(new CastPositionRequest
+        return CastPositionFinder.TryFindCastPosition(new()
         {
             caster = pawn,
             target = enemyTarget,
@@ -94,7 +94,7 @@ public class JobGiver_WanderBetweenDutyLocations : JobGiver_Wander
 
 public class JobGiver_FleeEnemies : ThinkNode_JobGiver
 {
-    private List<Thing> tmpThreats;
+    private readonly List<Thing> tmpThreats = new();
 
     protected override Job TryGiveJob(Pawn pawn)
     {

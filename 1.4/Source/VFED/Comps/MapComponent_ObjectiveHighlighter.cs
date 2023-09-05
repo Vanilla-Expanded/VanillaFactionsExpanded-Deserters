@@ -45,7 +45,7 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
         var opacity = 1f - progress / 2000f;
         var rotation = Quaternion.AngleAxis(180, Vector3.up);
 
-        ArrowMatWhite.color = new Color(1f, 1f, 1f, opacity);
+        ArrowMatWhite.color = new(1f, 1f, 1f, opacity);
 
         for (var i = objectives.Count; i-- > 0;)
             Graphics.DrawMesh(MeshPool.plane10, objectives[i].DrawPos + pos, rotation, ArrowMatWhite, 0);
@@ -54,8 +54,8 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
     public void Activate(string completeSignal, string questTag)
     {
         this.completeSignal = completeSignal;
-        questTags = new List<string> { questTag };
-        objectives = new List<Thing>();
+        questTags = new() { questTag };
+        objectives = new();
         Find.SignalManager.RegisterReceiver(this);
     }
 
@@ -81,6 +81,7 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
     public override void ExposeData()
     {
         base.ExposeData();
+        objectives?.RemoveAll(t => t.Destroyed || t.Discarded);
         Scribe_Values.Look(ref completeSignal, nameof(completeSignal));
         Scribe_Collections.Look(ref questTags, "questTags", LookMode.Value);
         Scribe_Collections.Look(ref objectives, nameof(objectives), LookMode.Reference);

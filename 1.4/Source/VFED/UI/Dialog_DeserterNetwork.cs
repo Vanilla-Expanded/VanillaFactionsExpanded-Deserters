@@ -74,10 +74,12 @@ public class Dialog_DeserterNetwork : Window
     public override void PostOpen()
     {
         base.PostOpen();
+        var seenThings = new HashSet<Thing>();
         foreach (var beacon in Building_OrbitalTradeBeacon.AllPowered(Map))
         foreach (var cell in beacon.TradeableCells)
         foreach (var thing in cell.GetThingList(Map))
         {
+            if (!seenThings.Add(thing)) continue;
             if (thing.def == VFED_DefOf.VFED_Intel) TotalIntel += thing.stackCount;
             if (thing.def == VFED_DefOf.VFED_CriticalIntel) TotalCriticalIntel += thing.stackCount;
         }
