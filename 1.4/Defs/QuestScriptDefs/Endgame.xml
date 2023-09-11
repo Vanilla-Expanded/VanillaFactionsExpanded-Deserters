@@ -206,6 +206,10 @@
             </possibleSongs>
             <priority>1</priority>
         </li>
+        <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+            <inSignal>ship.Destroyed</inSignal>
+            <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+        </li>
         <li Class="QuestNode_Signal">
           <inSignal>objectives.Complete</inSignal>
           <node Class="QuestNode_Sequence">

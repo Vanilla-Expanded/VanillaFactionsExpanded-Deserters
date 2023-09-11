@@ -231,6 +231,10 @@
                                 <li Class="QuestNode_SpawnWorldObjects">
                                     <worldObjects>$site</worldObjects>
                                 </li>
+                                <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                                    <inSignal>noble.Killed</inSignal>
+                                    <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+                                </li>
                             </nodes>
                         </raid>
                         <shootDown CombatLevel="Medium">
@@ -301,6 +305,10 @@
                                 </li>
                                 <li Class="QuestNode_SpawnWorldObjects">
                                     <worldObjects>$site</worldObjects>
+                                </li>
+                                <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                                    <inSignal>noble.Killed</inSignal>
+                                    <getRaidersFromMapParent>$site</getRaidersFromMapParent>
                                 </li>
                             </nodes>
                         </shootDown>

@@ -144,6 +144,10 @@
                     <outcome>Success</outcome>
                     <sendStandardLetter>true</sendStandardLetter>
                 </li>
+                <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                    <inSignal>$questCompleteSignal</inSignal>
+                    <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+                </li>
                 <li Class="QuestNode_End">
                     <inSignal>site.Destroyed</inSignal>
                     <outcome>Fail</outcome>
