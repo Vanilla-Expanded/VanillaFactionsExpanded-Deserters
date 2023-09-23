@@ -89,6 +89,7 @@
                     <inSignal>site.MapGenerated</inSignal>
                     <mapParent>$site</mapParent>
                     <points>$points</points>
+                    <lord>Defend</lord>
                 </li>
                 <li Class="VFED.QuestNode_ImperialResponse">
                     <siteName>site</siteName>
