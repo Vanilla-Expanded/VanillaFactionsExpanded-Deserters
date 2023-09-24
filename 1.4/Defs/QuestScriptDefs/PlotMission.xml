@@ -223,6 +223,9 @@
                                     </structures>
                                 </li>
                                 <li Class="QuestNode_SubScript">
+                                    <def>VFED_Util_AdjustPointsForDistantFight</def>
+                                </li>
+                                <li Class="QuestNode_SubScript">
                                     <def>Util_GenerateSite</def>
                                 </li>
                                 <li Class="VFED.QuestNode_ImperialResponse">
@@ -288,6 +291,9 @@
                                         <Stellarch>90</Stellarch>
                                         <VFEE_HighStellarch>100</VFEE_HighStellarch>
                                     </values>
+                                </li>
+                                <li Class="QuestNode_SubScript">
+                                    <def>VFED_Util_AdjustPointsForDistantFight</def>
                                 </li>
                                 <li Class="QuestNode_Set">
                                     <name>siteFaction</name>
