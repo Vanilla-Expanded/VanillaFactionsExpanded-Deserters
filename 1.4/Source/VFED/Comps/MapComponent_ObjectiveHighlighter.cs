@@ -85,5 +85,6 @@ public class MapComponent_ObjectiveHighlighter : MapComponent, ISignalReceiver
         Scribe_Values.Look(ref completeSignal, nameof(completeSignal));
         Scribe_Collections.Look(ref questTags, "questTags", LookMode.Value);
         Scribe_Collections.Look(ref objectives, nameof(objectives), LookMode.Reference);
+        if (Scribe.mode == LoadSaveMode.PostLoadInit && completeSignal != null) Find.SignalManager.RegisterReceiver(this);
     }
 }
