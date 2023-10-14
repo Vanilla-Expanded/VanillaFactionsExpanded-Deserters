@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Armour Expanded</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!-- ================================ Adds stuff to the Deserter Store ====================== -->
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/ThingDef[defName="VAE_Apparel_RoyalTrooperArmor"]</xpath>
+					<value>
+						<li Class="VFED.ContrabandExtension">
+							<category>VFED_Imperial</category>
+							<intelCost>1</intelCost>
+							<useCriticalIntel>true</useCriticalIntel>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/ThingDef[defName="VAE_Headgear_RoyalTrooperHelmet"]</xpath>
+					<value>
+						<li Class="VFED.ContrabandExtension">
+							<category>VFED_Imperial</category>
+							<intelCost>5</intelCost>
+							<useCriticalIntel>false</useCriticalIntel>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/ThingDef[defName="VAE_Apparel_RoyalSiegeArmor"]</xpath>
+					<value>
+						<li Class="VFED.ContrabandExtension">
+							<category>VFED_Imperial</category>
+							<intelCost>3</intelCost>
+							<useCriticalIntel>true</useCriticalIntel>
+						</li>
+					</value>
+				</li>			
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/ThingDef[defName="VAE_Headgear_RoyalSiegeHelmet"]</xpath>
+					<value>
+						<li Class="VFED.ContrabandExtension">
+							<category>VFED_Imperial</category>
+							<intelCost>8</intelCost>
+							<useCriticalIntel>false</useCriticalIntel>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
