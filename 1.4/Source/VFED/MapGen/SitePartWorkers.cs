@@ -26,9 +26,9 @@ public class SitePartWorker_WithQuestStructure : SitePartWorker_Objectives
     public override bool ShouldKeepSiteForObjectives(SitePart part) =>
         WorldComponent_Deserters.Instance.DataForSites.TryGetValue(part.site, out var data) && data?.noble is { Spawned: true };
 
-    public override void Notify_SiteMapAboutToBeRemoved(SitePart sitePart)
+    public override void PostDestroy(SitePart sitePart)
     {
-        base.Notify_SiteMapAboutToBeRemoved(sitePart);
+        base.PostDestroy(sitePart);
         WorldComponent_Deserters.Instance.DataForSites.Remove(sitePart.site);
     }
 }

@@ -16,7 +16,7 @@ using VFEEmpire;
 namespace VFED;
 
 [HarmonyPatch]
-public class WorldComponent_Deserters : WorldComponent, ICommunicable
+public class WorldComponent_Deserters : WorldComponent, ICommunicable, ILoadReferenceable
 {
     public static WorldComponent_Deserters Instance;
 
@@ -52,6 +52,8 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable
         FloatMenuUtility.DecoratePrioritizedTask(new("VFED.ContactDeserters".Translate(), delegate { console.GiveUseCommsJob(negotiator, this); },
             VFEE_DefOf.VFEE_Deserters.FactionIcon,
             EmpireUtility.Deserters.Color, MenuOptionPriority.InitiateSocial), negotiator, console);
+
+    public string GetUniqueLoadID() => world.GetUniqueLoadID() + "_Deserters";
 
     public override void WorldComponentTick()
     {
