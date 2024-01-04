@@ -7,7 +7,7 @@ namespace VFED;
 public class CompVeryFlammable : ThingComp
 {
     private int ticksTillSpark;
-    public bool OnFire => parent.OccupiedRect().Cells.SelectMany(c => c.GetThingList(parent.Map)).OfType<Fire>().Any();
+    public bool OnFire => parent.Map != null ? parent.OccupiedRect().Cells.SelectMany(c => c.GetThingList(parent.Map)).OfType<Fire>().Any() : false;
 
     public override void CompTick()
     {
