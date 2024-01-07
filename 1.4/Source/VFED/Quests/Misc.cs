@@ -39,14 +39,14 @@ public class QuestNode_GetNoble : QuestNode
         var empire = Faction.OfEmpire;
         var slate = QuestGen.slate;
         var royalTitle = title.GetValue(slate);
-        QuestGen.AddQuestNameConstants(new Dictionary<string, string> { { "nobleTitle", royalTitle.defName } });
-        QuestGen.AddQuestDescriptionConstants(new Dictionary<string, string> { { "nobleTitle", royalTitle.defName } });
+        QuestGen.AddQuestNameConstants(new() { { "nobleTitle", royalTitle.defName } });
+        QuestGen.AddQuestDescriptionConstants(new() { { "nobleTitle", royalTitle.defName } });
         var kind = royalTitle.GetModExtension<RoyalTitleDefExtension>().kindForHierarchy;
-        var noble = PawnGenerator.GeneratePawn(new PawnGenerationRequest(kind, empire, forceGenerateNewPawn: true, fixedTitle: royalTitle,
+        var noble = PawnGenerator.GeneratePawn(new(kind, empire, forceGenerateNewPawn: true, fixedTitle: royalTitle,
             canGeneratePawnRelations: false));
         slate.Set(storeAs.GetValue(slate), noble);
         QuestGen.AddToGeneratedPawns(noble);
-        if (!noble.IsWorldPawn()) Find.WorldPawns.PassToWorld(noble);
+        if (!noble.IsWorldPawn()) Find.WorldPawns.PassToWorld(noble, PawnDiscardDecideMode.KeepForever);
         if (WorldComponent_Deserters.GeneratingPlot != null) WorldComponent_Deserters.GeneratingPlot.target = noble;
     }
 
@@ -240,7 +240,7 @@ public class QuestNode_CheckDesertion : QuestNode
     protected override void RunInt()
     {
         if (WorldComponent_Deserters.Instance.Active)
-            QuestGen.AddQuestDescriptionConstants(new Dictionary<string, string> { { storeAs.GetValue(QuestGen.slate), "True" } });
+            QuestGen.AddQuestDescriptionConstants(new() { { storeAs.GetValue(QuestGen.slate), "True" } });
     }
 
     protected override bool TestRunInt(Slate slate) => !storeAs.GetValue(slate).NullOrEmpty();
