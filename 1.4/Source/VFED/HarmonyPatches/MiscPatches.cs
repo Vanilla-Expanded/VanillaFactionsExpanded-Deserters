@@ -302,7 +302,7 @@ public static class MiscPatches
     [HarmonyPostfix]
     public static void CheckDeserterSpawn(PawnGenOption o, PawnGroupMakerParms groupParms, ref bool __result)
     {
-        if (!__result || !o.kind.IsDeserter()) return;
+        if (!__result || o == null || groupParms == null || !o.kind.IsDeserter()) return;
         if (EmpireUtility.Deserters.defeated || (WorldComponent_Deserters.Instance.Active && groupParms.faction != EmpireUtility.Deserters)) __result = false;
     }
 }
