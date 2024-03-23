@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThoughtDef>
+		<defName>VFED_CleanedPropaganda</defName>
+		<thoughtClass>Thought_Memory</thoughtClass>
+		<durationDays>5</durationDays>
+		<stackLimit>15</stackLimit>
+		<stages>
+			<li>
+				<label>cleaned propaganda</label>
+				<description>I had to clean imperial propaganda. I did take a quick peek. Maybe it’s not all lies?</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

@@ -1,0 +1,953 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="VFED_AmmoBoxBase" ParentName="BuildingBase" Abstract="True">
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <altitudeLayer>Building</altitudeLayer>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <size>(1, 1)</size>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-5</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.2</fillPercent>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <pathCost>30</pathCost>
+    <passability>PassThroughOnly</passability>
+    <rotatable>false</rotatable>
+    <canOverlapZones>true</canOverlapZones>
+    <tradeability>None</tradeability>
+    <tickerType>Normal</tickerType>
+    <researchPrerequisites>
+      <li>VFED_ImperialDefenses</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <designationCategory>Security</designationCategory>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_AmmoBoxBase">
+    <defName>VFED_AmmoBox_UraniumSlug</defName>
+    <label>uranium slug ammo box</label>
+    <description>A small-sized box containing uranium slug ammunition. Used by Kontarion turrets to reload. May explode when damaged.</description>
+    <graphicData>
+      <texPath>Structures/Security/AmmoCrate_UraniumSlug</texPath>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <costList>
+      <Uranium>60</Uranium>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_AmmoBoxBase">
+    <defName>VFED_AmmoBox_Autocannon</defName>
+    <label>autocannon ammo box</label>
+    <description>A small-sized box containing autocannon ammunition. Used by Palintone turrets to reload. May explode when damaged.</description>
+    <graphicData>
+      <texPath>Structures/Security/AmmoCrate_Autocannon</texPath>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <costList>
+      <Steel>180</Steel>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_AmmoBoxBase">
+    <defName>VFED_AmmoBox_Missile</defName>
+    <label>missile ammo box</label>
+    <description>A small-sized box containing missiles. Used by Onager turrets to reload. May explode when damaged.</description>
+    <graphicData>
+      <texPath>Structures/Security/AmmoCrate_Missiles</texPath>
+    </graphicData>
+    <uiIconScale>0.85</uiIconScale>
+    <costList>
+      <Chemfuel>180</Chemfuel>
+    </costList>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>4.9</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase" Name="VFED_EmpireBuildingBase" Abstract="True">
+    <altitudeLayer>Building</altitudeLayer>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+      <deconstructible>false</deconstructible>
+    </building>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <pathCost>50</pathCost>
+    <passability>PassThroughOnly</passability>
+    <rotatable>false</rotatable>
+    <stealable>false</stealable>
+    <canOverlapZones>false</canOverlapZones>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_SupplyCrate</defName>
+    <label>supply crate</label>
+    <description>A small imperial crate containing valuables. May contain intel. Opening it requires bypassing several security protocols and takes a short while.\n\nAny attempt to destroy it will destroy the items as well.</description>
+    <thingClass>VFED.Building_SupplyCrate</thingClass>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1, 1)</drawSize>
+    </graphicData>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>500</WorkToBuild>
+    </statBases>
+    <fillPercent>0.3</fillPercent>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_BiosecuredCrate</defName>
+    <label>biosecured crate</label>
+    <description>A small imperial crate containing extremely valuable items. May contain critical intel. Due to the special restrictions, only imperial nobles are capable of opening it.\n\nAny attempt to destroy it will destroy the items as well.</description>
+    <thingClass>VFED.Building_CrateBiosecured</thingClass>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialBiosecuredCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1, 1)</drawSize>
+    </graphicData>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>500</WorkToBuild>
+    </statBases>
+    <fillPercent>0.3</fillPercent>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_SurveillancePillar</defName>
+    <label>surveillance pillar</label>
+    <description>A large pillar with a series of sensors, cameras and motion detectors. Thanks to the sophisticated face recognition system, surveillance pillar can detect the presence of deserters in radius and will increase the visibility of whichever faction has sent them. Can be disabled via electromagnetic pulse, or by simply cutting off the power grid.</description>
+    <graphicData>
+      <texPath>Structures/Security/SurveillancePillar_Off</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(4, 4)</drawSize>
+    </graphicData>
+    <size>(2, 2)</size>
+    <costList>
+      <Steel>150</Steel>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>400</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>15</Mass>
+      <WorkToBuild>200</WorkToBuild>
+    </statBases>
+    <building>
+      <soundAmbient>VFE_SurveillancePillarLoop_Ambience</soundAmbient>
+      <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
+    </building>
+    <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <placeWorkers>
+      <li>VFED.PlaceWorker_ShowMotionDetectionRadius</li>
+    </placeWorkers>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(145, 10, 28, 0)</glowColor>
+      </li>
+      <li Class="VFED.CompProperties_MotionDetection">
+        <compClass>VFED.CompSurveillancePillar</compClass>
+        <radius>20</radius>
+        <onlyPlayer>true</onlyPlayer>
+        <moteScan>Mote_ProximityScannerRadius</moteScan>
+        <moteGlow>Mote_ActivatorProximityGlow</moteGlow>
+        <soundEmitting>VFE_SurveillancePillarLoop_Ambience</soundEmitting>
+        <triggerSound>VFE_SurveillancePillar_Activated</triggerSound>
+        <activeGraphic>
+          <texPath>Structures/Security/SurveillancePillar_On</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(4, 4)</drawSize>
+        </activeGraphic>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <fillPercent>0.3</fillPercent>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_AerodroneMunitionsCrate</defName>
+    <label>aerodrone munitions crate</label>
+    <description>A large military crate of aerodrone munitions. Will explode when damaged, sending armed shells flying in random directions.</description>
+    <graphicData>
+      <texPath>Structures/Misc/AerodroneMunitionsCrate</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+    <size>(3, 3)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>150</Mass>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.6</fillPercent>
+    <comps>
+      <li Class="VFED.CompProperties_Explosive_Shells">
+        <wickTicks>1000</wickTicks>
+        <explosiveRadius>9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.2</chanceNeverExplodeFromDamage>
+        <startWickHitPointsPercent>0.25</startWickHitPointsPercent>
+        <shell>Shell_HighExplosive</shell>
+        <shellCount>3~8</shellCount>
+        <shellDist>3~20</shellDist>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_AerodroneBatteryPack</defName>
+    <label>aerodrone battery pack</label>
+    <description>A large, overcharged aerodrone battery. Will release a strong electromagnetic pulse when damaged, potentially disabling nearby defenses.</description>
+    <graphicData>
+      <texPath>Structures/Misc/AerodroneBatteryPack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <size>(2, 2)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>120</Mass>
+      <WorkToBuild>600</WorkToBuild>
+    </statBases>
+    <fillPercent>0.4</fillPercent>
+    <building>
+      <soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
+    </building>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>100</wickTicks>
+        <explosiveRadius>10</explosiveRadius>
+        <explosiveDamageType>EMP</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>
+      <li>
+        <compClass>VFED.CompEMPEffect</compClass>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_Aerodrone</defName>
+    <label>aerodrone</label>
+    <description>Aerodrone is a spacer-tech, unmanned aerial vehicle equipped with advanced sensors and a missile payload. Designed for autonomous long-range operations, it's commonly used by the Empire for reconnaissance and bombardment. Its ability to release powerful missile salvos makes it effective against various targets. This aerodrone is temporarily disabled due to the recharge cycle.</description>
+    <graphicData>
+      <texPath>Structures/Misc/Aerodrone</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(7, 5)</drawSize>
+    </graphicData>
+    <size>(5, 3)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>800</Mass>
+      <WorkToBuild>3000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.6</fillPercent>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ImperialMaxpack</defName>
+    <label>imperial maxpack</label>
+    <description>The Imperial maxpack is a formidable armored transport truck, known for its impressive cargo capacity. Its armor is impenetrable, ensuring the safety of its contents throughout transit. Once in motion, the Maxpack’s doors remain sealed until it reaches its predetermined destination. While attempting to loot its cargo is futile due to built-in self-destruct protocols, its robust exterior makes it an ideal shield on the battlefield.</description>
+    <graphicData>
+      <texPath>Structures/ImperialMaxpack/ImperialMaxpack</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(4, 7)</drawSize>
+    </graphicData>
+    <size>(3, 6)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <rotatable>true</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <passability>Impassable</passability>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>1000</Mass>
+      <WorkToBuild>5000</WorkToBuild>
+    </statBases>
+    <fillPercent>1.0</fillPercent>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_StrikeBuoy</defName>
+    <label>strike buoy</label>
+    <description>A small surveillance buoy usually deployed around temporary convoy stops. Linked directly with a patrolling aerodrone, once triggered, it will send down a small missile salvo on its location.</description>
+    <size>(1,1)</size>
+    <tickerType>Normal</tickerType>
+    <fillPercent>0.1</fillPercent>
+    <pathCost>20</pathCost>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <WorkToBuild>500</WorkToBuild>
+    </statBases>
+    <graphicData>
+      <texPath>Structures/Security/StrikeBuoy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.2,1.2)</drawSize>
+      <shadowData>
+        <volume>(0.6, 0.4, 0.6)</volume>
+      </shadowData>
+      <damageData>
+        <rect>(0.3, 0.3, 0.4, 0.4)</rect>
+      </damageData>
+    </graphicData>
+    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <placeWorkers>
+      <li>VFED.PlaceWorker_ShowMotionDetectionRadius</li>
+    </placeWorkers>
+    <altitudeLayer>Building</altitudeLayer>
+    <blockWind>true</blockWind>
+    <passability>PassThroughOnly</passability>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <repairEffect>ConstructMetal</repairEffect>
+    <forceDebugSpawnable>true</forceDebugSpawnable>
+    <receivesSignals>true</receivesSignals>
+    <building>
+      <claimable>false</claimable>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <comps>
+      <li Class="VFED.CompProperties_MotionDetection">
+        <compClass>VFED.CompStrikeBouy</compClass>
+        <onlyPlayer>true</onlyPlayer>
+        <radius>5</radius>
+        <moteScan>VFED_Mote_ProximityScannerRadius_Orange</moteScan>
+        <moteGlow>VFED_Mote_ActivatorProximityGlow_Orange</moteGlow>
+        <soundEmitting>ActivatorProximity_Ambience</soundEmitting>
+        <checkInterval>30</checkInterval>
+        <triggerSound>VFE_StrikeBuoy_Activated</triggerSound>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>2</glowRadius>
+        <glowColor>(179,88,9,0)</glowColor>
+      </li>
+    </comps>
+    <costList>
+      <Plasteel>7</Plasteel>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_FuelTank</defName>
+    <label>fuel tank</label>
+    <description>A large fuel tank used to refuel Imperial shuttles. Will detonate if damaged beyond a certain point, potentially triggering a chain reaction.</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialFuelTank</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+    <size>(2, 2)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>6</ComponentSpacer>
+      <Chemfuel>100</Chemfuel>
+    </costList>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>150</Mass>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.6</fillPercent>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>600</wickTicks>
+        <explosiveRadius>6</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.2</chanceNeverExplodeFromDamage>
+        <postExplosionSpawnThingDef>Filth_Fuel</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_SurveillanceStation</defName>
+    <label>surveillance console</label>
+    <description>A large console designed to link to surrounding surveillance pillars. Provides users with all the necessary data related to enemy movements in a given sector.</description>
+    <graphicData>
+      <texPath>Structures/Misc/SurveillanceStation</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+    <size>(2, 2)</size>
+    <costList>
+      <Steel>200</Steel>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>150</Mass>
+      <WorkToBuild>1000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.6</fillPercent>
+    <building>
+      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
+    </building>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>8</glowRadius>
+        <glowColor>(214,46,31,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_SurveillanceDisplayBank</defName>
+    <label>surveillance display bank</label>
+    <description>An imperial computer interface. Linked to the surveillance console, the display bank shows live footage from all surveillance pillars in the sector.</description>
+    <graphicData>
+      <texPath>Structures/Misc/SurveillanceTerminalBank/SurveillanceTerminalBank</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3.5,1.5)</drawSize>
+      <shadowData>
+        <volume>(3, 0.45, 1)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(3, 1)</size>
+    <fillPercent>0.50</fillPercent>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>true</rotatable>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <building>
+      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
+    </building>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(214,46,31,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_Techprinter</defName>
+    <label>techprinter</label>
+    <description>The Techprinter is a marvel of technological innovation, designed to capture and preserve the intricate knowledge residing within a techfriar’s mind. These advanced machines imprint this invaluable information directly onto techite discs. Techprints provide foundational knowledge for researchers, shedding light on innovations from more advanced societies.</description>
+    <graphicData>
+      <texPath>Structures/Misc/Techprinter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5, 5)</drawSize>
+    </graphicData>
+    <size>(4, 4)</size>
+    <costList>
+      <Plasteel>100</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>250</Mass>
+      <WorkToBuild>3000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.6</fillPercent>
+    <building>
+      <soundAmbient>VFE_Techprinter_Ambience</soundAmbient>
+    </building>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>300</wickTicks>
+        <explosiveRadius>7</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>1.0</chanceNeverExplodeFromDamage>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_TechiteDiscStack</defName>
+    <label>techite disc stack</label>
+    <description>A compact stack of discs crafted from the enigmatic element known as techite, produced exclusively by the Empire for knowledge transcribing. Primarily designed for preserving information. When ignited, they release a dense cloud of blinding smoke and sparks, capable of engulfing a vast area in flames.</description>
+    <graphicData>
+      <texPath>Structures/Misc/TechiteDiscStack</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <size>(1, 1)</size>
+    <tickerType>Normal</tickerType>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>2.0</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>10</Mass>
+      <WorkToBuild>600</WorkToBuild>
+    </statBases>
+    <fillPercent>0.4</fillPercent>
+    <comps>
+      <li>
+        <compClass>VFED.CompVeryFlammable</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ImperialUnderfarm</defName>
+    <label>imperial underfarm</label>
+    <description>An underground hydroponics basic used by the empire to feed their subjects. Fully automated and connected to water mains, these farms require no labor to operate.</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialUnderfarm</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <drawSize>(4, 4)</drawSize>
+    </graphicData>
+    <size>(4, 4)</size>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>30</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>1800</WorkToBuild>
+    </statBases>
+    <fillPercent>0</fillPercent>
+    <passability>Impassable</passability>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_WaterMain</defName>
+    <label>water main</label>
+    <description>A large node connecting all the nearby water mains. Required for the underfarms to operate.</description>
+    <graphicData>
+      <texPath>Structures/Misc/ImperialUnderfarmMain</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+    </graphicData>
+    <size>(3, 3)</size>
+    <costList>
+      <Steel>150</Steel>
+      <Plasteel>30</Plasteel>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>1200</WorkToBuild>
+    </statBases>
+    <fillPercent>0.3</fillPercent>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_CrashedAerodrone</defName>
+    <label>crashed aerodrone</label>
+    <description>A crashed imperial aerodrone.</description>
+    <graphicData>
+      <texPath>Structures/Misc/CrashedAerodrone</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(7, 5)</drawSize>
+    </graphicData>
+    <size>(5, 3)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>800</Mass>
+      <WorkToBuild>3000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.6</fillPercent>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ImperialMegaHighShield</defName>
+    <label>imperial mega high-shield</label>
+    <description>An advanced shielding apparatus, the Imperial mega high-shield projects a vast momentum repulsor field, allowing shots to exit but preventing any from entering. Specifically calibrated for high angles, it's adept at deflecting incoming mortar rounds, aerodrone strikes and even orbital slicer beams. The unit can be temporarily disabled by EMP attacks, either by shocking the projector unit itself, or using EMP munitions on the shield. Draws huge amounts of power.</description>
+    <graphicData>
+      <texPath>Endgame/ImperialMegaHighShield</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5, 5)</drawSize>
+    </graphicData>
+    <size>(5, 5)</size>
+    <costList>
+      <Plasteel>100</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+      <BroadshieldCore>4</BroadshieldCore>
+    </costList>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-200</Beauty>
+      <Mass>250</Mass>
+      <WorkToBuild>15000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.8</fillPercent>
+    <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <placeWorkers>
+      <li>PlaceWorker_ShowProjectileInterceptorRadius</li>
+    </placeWorkers>
+    <building>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+      <soundAmbient>BulletShield_Ambience</soundAmbient>
+	</building>
+    <comps>
+      <li Class="VFED.CompProperties_ProjectileInterceptor_Powered">
+        <radius>75</radius>
+        <interceptAirProjectiles>true</interceptAirProjectiles>
+        <color>(0.9, 0.9, 0.9)</color>
+        <reactivateEffect>MortarShieldGenerator_Reactivate</reactivateEffect>
+        <activeSound>MortarShield_Ambience</activeSound>
+        <disarmedByEmpForTicks>360</disarmedByEmpForTicks>
+        <chargeIntervalTicks>-1</chargeIntervalTicks>
+		    <interceptNonHostileProjectiles>true</interceptNonHostileProjectiles>
+        <requiresPower>true</requiresPower>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>12000</basePowerConsumption>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories Inherit="False">
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <killedLeavings>
+      <Plasteel>30</Plasteel>
+      <BroadshieldCore>4</BroadshieldCore>
+    </killedLeavings>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ZeusCannonControlStation</defName>
+    <label>zeus cannon control station</label>
+    <description>This terminal serves as the primary interface for operating the Zeus Cannon batteries. Equipped with sophisticated controls and targeting systems, the Zeus Cannon Control Station ensures precision and coordination when deploying the formidable firepower of the Zeus Cannons. Operators need to be within its radius to control it.</description>
+    <thingClass>VFED.Building_CannonControl</thingClass>
+    <graphicData>
+      <texPath>Endgame/ZeusCannonControlStation</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5,3)</drawSize>
+      <shadowData>
+        <volume>(5, 0.45, 3)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(5, 3)</size>
+    <fillPercent>0.60</fillPercent>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>1250</MaxHitPoints>
+      <WorkToBuild>6000</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <Steel>250</Steel>
+      <Plasteel>75</Plasteel>
+      <ComponentSpacer>8</ComponentSpacer>
+    </costList>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <tickerType>Normal</tickerType>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <building>
+      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
+    </building>
+    <comps>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>4</glowRadius>
+        <glowColor>(214,46,31,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ZeusCannonCapacitorBank</defName>
+    <label>zeus cannon capacitor bank</label>
+    <description>A capacitor bank that transforms electricity into raw energy for the Zeus cannon. Will release a large EMP shockwave when destroyed, potentially disabling the Zeus cannon itself.</description>
+    <graphicData>
+      <texPath>Endgame/ZeusCannonCapacitors/ZeusCannonCapacitors</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5, 3)</drawSize>
+      <shadowData>
+        <volume>(5, 0.15, 3)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(5, 3)</size>
+    <rotatable>true</rotatable>
+    <tickerType>Normal</tickerType>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <costList>
+      <Steel>200</Steel>
+      <Plasteel>80</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Flammability>0.2</Flammability>
+      <Beauty>0</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>1800</WorkToBuild>
+    </statBases>
+    <fillPercent>0.4</fillPercent>
+    <building>
+      <soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
+    </building>
+    <passability>Impassable</passability>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>100</wickTicks>
+        <explosiveRadius>5</explosiveRadius>
+        <explosiveDamageType>EMP</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0</chanceNeverExplodeFromDamage>
+      </li>
+      <li>
+        <compClass>VFED.CompEMPEffect</compClass>
+      </li>
+      <li>
+        <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_EmpireBuildingBase">
+    <defName>VFED_ZeusCannon</defName>
+    <label>zeus cannon</label>
+    <description>A relic of ancient Sophiamundan technology, the Zeus Cannon is a closely guarded secret of the Empire. This formidable artillery piece has the unique ability to convert vast quantities of electricity into potent energy blasts. With unmatched range, it can pierce the atmosphere to target and obliterate objects in orbit. A testament to lost engineering brilliance, it stands as both a weapon and a symbol of the Empire's might.\n\nIt has a long charging cycle, after which it will aim at the target and release a devastating energy blast.</description>
+    <thingClass>VFED.Building_ZeusCannon</thingClass>
+    <graphicData>
+      <texPath>Endgame/ZeusCannon/ZeusCannon_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(7, 7)</drawSize>
+      <shadowData>
+        <volume>(3, 3, 3)</volume>
+      </shadowData>
+    </graphicData>
+    <size>(5, 5)</size>
+    <uiIconPath>Endgame/ZeusCannon/ZeusCannon_MenuIcon</uiIconPath>
+    <costList>
+      <Steel>650</Steel>
+      <Plasteel>120</Plasteel>
+      <ComponentSpacer>16</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>-50</Beauty>
+      <Mass>300</Mass>
+      <WorkToBuild>12000</WorkToBuild>
+    </statBases>
+    <fillPercent>0.8</fillPercent>
+    <passability>Impassable</passability>
+    <rotatable>false</rotatable>
+    <drawerType>RealtimeOnly</drawerType>
+    <tickerType>Normal</tickerType>
+    <drawOffscreen>true</drawOffscreen>
+    <comps>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
+      <li Class="VFED.CompProperties_AffectsSky_ZeusCannon"/>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFED_BurnoutIntelScraper</defName>
+    <label>burnout intel scraper</label>
+    <description>A deserter device capable of intercepting imperial communication. When activated, it will begin intel scraping, emitting a pulse in regular intervals. Each pulse has a chance of generating a small amount of intel, but it may also increase your visibility and even alert an imperial strike force. After 10 pulses, the machine burns out and triggers a fiery explosion.</description>
+    <graphicData>
+      <texPath>Structures/Misc/BurnoutIntelScraper</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <shadowData>
+        <volume>(1.1, 0.75, 1.1</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.3</fillPercent>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2490</uiOrder>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>5600</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>50</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <VFED_DeserterDeclassifier>1</VFED_DeserterDeclassifier>
+    </costList>
+    <killedLeavings>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </killedLeavings>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <tickerType>Normal</tickerType>
+    <filthLeaving>Filth_MachineBits</filthLeaving>
+    <placeWorkers>
+      <li>VFED.PlaceWorker_DeserterOnly</li>
+    </placeWorkers>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories Inherit="False">
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>900~1800</wickTicks>
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>1</chanceNeverExplodeFromDamage>
+      </li>
+      <li><compClass>VFED.CompIntelScraper</compClass></li>
+    </comps>
+  </ThingDef>
+  
+</Defs>

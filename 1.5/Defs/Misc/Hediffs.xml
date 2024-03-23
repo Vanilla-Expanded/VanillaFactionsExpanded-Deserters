@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <HediffDef>
+    <defName>VFED_Invisibility</defName>
+    <label>invisibility</label>
+    <description>An invisibility granted by the invisibility engulfer item. This actually affects others nearby, making their brains unable to perceive the sight of this individual, even if the eyes are unaffected.</description>
+    <isBad>false</isBad>
+    <hediffClass>HediffWithComps</hediffClass>
+    <comps>
+      <li><compClass>HediffComp_Invisibility</compClass></li>
+      <li><compClass>VFED.HediffComp_DissapearsOnAttack</compClass></li>
+      <li><compClass>VFED.HediffComp_InvisibilityEngulfer</compClass></li>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+        <disappearsAfterTicks>2500</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+</Defs>

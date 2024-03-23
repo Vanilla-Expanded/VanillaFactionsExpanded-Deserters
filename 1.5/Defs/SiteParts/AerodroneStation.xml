@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SitePartDef ParentName="VFED_DeserterMissionSiteBase">
+    <defName>VFED_AerodroneStation</defName>
+    <label>aerodrone station</label>
+    <description>An Imperial Aerodrone Station.</description>
+    <expandingIconTexture>WorldObjects/QuestIcon_AerodroneStationSabotage</expandingIconTexture>
+    <tags>
+      <li>VFED_AerodroneStation</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>VFED_AerodroneStation</defName>
+    <linkWithSite>VFED_AerodroneStation</linkWithSite>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <scaleWithQuest>true</scaleWithQuest>
+      <tiledStructures>
+        <li>VFED_AerodroneStation</li>
+      </tiledStructures>
+    </genStep>
+  </GenStepDef>
+</Defs>

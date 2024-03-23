@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <RulePackDef>
+        <defName>VFED_OperationName</defName>
+        <include>
+            <li>GlobalUtility</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>operationName->Operation [AdjectiveAny] [NounAny]</li>
+                <li>NounAny->[ConceptAny]</li>
+                <li>NounAny->[ColorAny]</li>
+                <li>NounAny->[Vegetable]</li>
+                <li>NounAny->[Game]</li>
+                <li>NounAny->[AnimalAny]</li>
+                <li>NounAny->[Weapon]</li>
+                <li>NounAny->[TerrainFeature]</li>
+                <li>NounAny->[NaturalObject]</li>
+                <li>NounAny->[TreeType]</li>
+                <li>NounAny->[Enemy]</li>
+                <li>NounAny->[Apparel]</li>
+                <li>NounAny->[Gore]</li>
+                <li>NounAny->[BodyPart]</li>
+
+                <li>ColorAny->[Color]</li>
+                <li>ColorAny->[ColorBadass]</li>
+
+                <li>AnimalAny->[Animal]</li>
+                <li>AnimalAny->[AnimalBadass]</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+    <RulePackDef>
+        <defName>VFED_PlotName</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>plotName(nobleTitle==Knight)->Kindless knight</li>
+                <li>plotName(nobleTitle==Praetor)->Petty praetor</li>
+                <li>plotName(nobleTitle==Baron)->Bigoted baron</li>
+                <li>plotName(nobleTitle==Count)->Crooked count</li>
+                <li>plotName(nobleTitle==VFEE_Archcount)->Abusive archcount</li>
+                <li>plotName(nobleTitle==VFEE_Marquess)->Militant marquess</li>
+                <li>plotName(nobleTitle==Duke)->Depraved duke</li>
+                <li>plotName(nobleTitle==VFEE_Archduke)->Arrogant archduke</li>
+                <li>plotName(nobleTitle==Consul)->Corrupted consul</li>
+                <li>plotName(nobleTitle==VFEE_Magister)->Malevolent magister</li>
+                <li>plotName(nobleTitle==VFEE_Despot)->Deranged despot</li>
+                <li>plotName(nobleTitle==Stellarch)->Sickening stellarch</li>
+                <li>plotName(nobleTitle==VFEE_HighStellarch)->Heinous high stellarch</li>
+                <li>plotName(nobleTitle==Emperor)->Egocentric emperor</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+</Defs>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFED_EmpireRuins</defName>
+        <isRootSpecial>true</isRootSpecial>
+        <autoAccept>true</autoAccept>
+        <questNameRules>
+            <rulesStrings>
+                <li>questName->Ruins of the Empire</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription->The great collapse of [empire_name] was a historic event, one that changed the course of this planet. The once-majestic Imperial flagship, a testament to the Empire's technological prowess, now lies wrecked in a secluded location.
+\nThe debris from this massive ship is scattered across miles of treacherous terrain. Though shattered and dormant, it is believed that buried within its molten metallic embrace lies the last of the imperial technology - techprints, unique devices, and possibly even machinery not yet seen by the world. The potential for advancement, and perhaps dominance, is high for whoever can harness these forgotten wonders.
+\nMoreover, you can expect this place to be the final resting place of the imperial nobility. The emperor, the most revered figure of the Empire, may have met his end aboard that very ship. If true, his remains, and those of his noble court, may be a treasure trove of their own, revealing secrets or carrying possessions of untold value.
+\nTime is of the essence. The crash has not gone unnoticed. Other factions, hungry for power and knowledge, are setting their sights on the wreck. If we don’t make haste, we risk losing this opportunity to the winds of time and the ambitions of rivals.</li>
+            </rulesStrings>
+        </questDescriptionRules>
+        <root Class="QuestNode_Sequence">
+            <nodes>
+                <li Class="VFED.QuestNode_GetEmpire">
+                    <storeAs>empire</storeAs>
+                </li>
+                <li Class="QuestNode_GetSiteTile">
+                    <storeAs>siteTile</storeAs>
+                    <preferCloserTiles>false</preferCloserTiles>
+                </li>
+                <li Class="QuestNode_GetDefaultSitePartsParams">
+                    <tile>$siteTile</tile>
+                    <faction>$empire</faction>
+                    <sitePartDefs>
+                        <li>VFED_EmpireRuins</li>
+                    </sitePartDefs>
+                    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+                </li>
+                <li Class="QuestNode_Set">
+                    <name>siteFaction</name>
+                    <value>$empire</value>
+                </li>
+                <li Class="QuestNode_SubScript">
+                    <def>Util_GenerateSite</def>
+                </li>
+                <li Class="QuestNode_SpawnWorldObjects">
+                    <worldObjects>$site</worldObjects>
+                </li>
+                <li Class="QuestNode_WorldObjectTimeout">
+                    <worldObject>$site</worldObject>
+                    <isQuestTimeout>true</isQuestTimeout>
+                    <delayTicks>420000</delayTicks>
+                    <inSignalEnable>Initiate</inSignalEnable>
+                    <inSignalDisable>site.MapGenerated</inSignalDisable>
+                    <destroyOnCleanup>true</destroyOnCleanup>
+                    <reactivatable>true</reactivatable>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_Letter">
+                                <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+                                <text TKey="LetterTextQuestExpired">The [site_label] has been stripped by scavengers. The quest [resolvedQuestName] has expired.</text>
+                            </li>
+                            <li Class="QuestNode_End">
+                                <outcome>Fail</outcome>
+                            </li>
+                        </nodes>
+                    </node>
+                </li>
+            </nodes>
+        </root>
+    </QuestScriptDef>
+</Defs>

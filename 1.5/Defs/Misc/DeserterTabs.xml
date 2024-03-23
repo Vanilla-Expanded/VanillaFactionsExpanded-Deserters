@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VFED.DeserterTabDef>
+    <defName>VFED_Contraband</defName>
+    <label>contraband</label>
+    <workerClass>VFED.DeserterTabWorker_Contraband</workerClass>
+  </VFED.DeserterTabDef>
+  <VFED.DeserterTabDef>
+    <defName>VFED_Services</defName>
+    <label>services</label>
+    <workerClass>VFED.DeserterTabWorker_Services</workerClass>
+  </VFED.DeserterTabDef>
+  <VFED.DeserterTabDef>
+    <defName>VFED_Plots</defName>
+    <label>plots</label>
+    <workerClass>VFED.DeserterTabWorker_Plots</workerClass>
+  </VFED.DeserterTabDef>
+</Defs>

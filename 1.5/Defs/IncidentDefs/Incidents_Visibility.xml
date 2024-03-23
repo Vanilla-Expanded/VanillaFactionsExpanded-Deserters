@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+	<IncidentDef>
+		<defName>VFED_ImperialPatrol</defName>
+		<label>imperial patrol</label>
+		<category>ThreatBig</category>
+		<targetTags>
+			<li>Caravan</li>
+			<li>Map_TempIncident</li>
+		</targetTags>
+		<workerClass>VFED.IncidentWorker_ImperialPatrol</workerClass>
+		<pointsScaleable>true</pointsScaleable>
+		<minRefireDays>2.15</minRefireDays>
+		<baseChance>0.5</baseChance>
+		<mtbDaysByBiome>
+			<TemperateForest>20</TemperateForest>
+			<BorealForest>20</BorealForest>
+			<TropicalRainforest>20</TropicalRainforest>
+			<AridShrubland>20</AridShrubland>
+			<Desert>30</Desert>
+			<Tundra>30</Tundra>
+			<TropicalSwamp>30</TropicalSwamp>
+			<TemperateSwamp>30</TemperateSwamp>
+			<ColdBog>35</ColdBog>
+			<ExtremeDesert>35</ExtremeDesert>
+			<IceSheet>40</IceSheet>
+			<SeaIce>60</SeaIce>
+		</mtbDaysByBiome>
+	</IncidentDef>
+	<IncidentDef>
+		<defName>VFED_PropagandaDrop</defName>
+		<label>imperial propaganda drop</label>
+		<category>ThreatSmall</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VFED.IncidentWorker_PropagandaDrop</workerClass>
+		<baseChance>0.5</baseChance>
+		<minRefireDays>2.15</minRefireDays>
+		<letterDef>ThreatSmall</letterDef>
+		<letterText>Cargo pods are crashing nearby. They seem to contain imperial propaganda, advertising how life under the imperial rule is full of wonders. The leaflets seem to mention a new deserter-reporting system with great rewards. It will take a long time to clean up, and anyone cleaning these leaflets will suffer a mood penalty and lose certainty in their way.</letterText>
+		<letterLabel>Propaganda drop</letterLabel>
+		<pointsScaleable>false</pointsScaleable>
+	</IncidentDef>
+	<IncidentDef>
+		<defName>VFED_Raid_Absolver</defName>
+		<label>absolver raid</label>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>VFED.IncidentWorker_RaidAbsolver</workerClass>
+		<baseChance>7.4</baseChance>
+		<category>ThreatBig</category>
+		<pointsScaleable>false</pointsScaleable>
+	</IncidentDef>
+</Defs>

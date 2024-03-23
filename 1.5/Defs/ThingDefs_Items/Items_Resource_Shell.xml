@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableShellBase">
+    <defName>VFED_Shell_Shrapnel</defName>
+    <label>shrapnel shell</label>
+    <description>Mortar shell that is designed to explode mid-air and release a large number of sharp projectiles. These projectiles are specifically designed to cut through light armored enemies, inflicting serious injuries or fatalities. Projectiles are ejected with the same vector as the mortar shell, and may be stopped by obstacles.</description>
+    <possessionCount>1</possessionCount>
+    <statBases>
+      <MarketValue>60</MarketValue>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Shells/Shell_Shrapnel</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <projectileWhenLoaded>VFED_Bullet_Shell_Shrapnel</projectileWhenLoaded>
+    <costList>
+      <Steel>30</Steel>
+    </costList>
+    <recipeMaker Inherit="False">
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <workAmount>800</workAmount>
+      <targetCountAdjustment>5</targetCountAdjustment>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <displayPriority>100</displayPriority>
+      <researchPrerequisite>VFED_ImperialWarSolutions</researchPrerequisite>
+    </recipeMaker>
+    <costListForDifficulty>
+      <difficultyVar>classicMortars</difficultyVar>
+      <costList>
+        <Steel>30</Steel>
+      </costList>
+    </costListForDifficulty>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>1</intelCost>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFED_Bullet_Shell_Shrapnel</defName>
+    <label>shrapnel shell</label>
+    <graphicData>
+      <texPath>Projectiles/ShellShrapnel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>VFED.Projectile_Shrapnel</thingClass>
+    <projectile Class="VFED.ProjectileProperties_Shrapnel">
+      <damageDef>Bomb</damageDef>
+      <speed>41</speed>
+      <explosionRadius>2.9</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <shrapnelProjectile>VFED_Bullet_Shrapnel</shrapnelProjectile>
+      <shrapnelCount>24</shrapnelCount>
+      <shrapnelRange>16.5</shrapnelRange>
+      <angleVariance>25</angleVariance>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFED_Bullet_Shrapnel</defName>
+    <label>shrapnel</label>
+    <thingClass>VFED.Projectile_ShrapnelPiece</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef>
+
+  <!-- -->
+
+  <ThingDef ParentName="MakeableShellBase">
+    <defName>VFED_Shell_ArmorPiercing</defName>
+    <label>armor-piercing shell</label>
+    <description>Armor-piercing shells are designed to explode upon impact and destroy anything they hit, completely bypassing the armor of the target. Their explosion radius is almost non-existent, and armored targets need to be hit directly for the shell to destroy them. They are very accurate and travel at extreme speeds.</description>
+    <possessionCount>1</possessionCount>
+    <statBases>
+      <MarketValue>65</MarketValue>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Shells/Shell_AntiArmor</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>1.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <recipeMaker Inherit="False">
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <workAmount>800</workAmount>
+      <targetCountAdjustment>5</targetCountAdjustment>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <displayPriority>100</displayPriority>
+      <researchPrerequisite>VFED_ImperialWarSolutions</researchPrerequisite>
+    </recipeMaker>
+    <projectileWhenLoaded>VFED_Bullet_Shell_ArmorPiercing</projectileWhenLoaded>
+    <costList>
+      <Steel>20</Steel>
+      <Chemfuel>10</Chemfuel>
+    </costList>
+    <costListForDifficulty>
+      <difficultyVar>classicMortars</difficultyVar>
+      <costList>
+        <Steel>30</Steel>
+        <Chemfuel>10</Chemfuel>
+      </costList>
+    </costListForDifficulty>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>1</intelCost>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFED_Bullet_Shell_ArmorPiercing</defName>
+    <label>armor-piercing shell</label>
+    <graphicData>
+      <texPath>Projectiles/ShellAntiArmor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>80</damageAmountBase>
+      <speed>82</speed>
+      <armorPenetrationBase>2.0</armorPenetrationBase>
+      <stoppingPower>2</stoppingPower>
+      <explosionRadius>1.9</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+    </projectile>
+  </ThingDef>
+
+  <!-- -->
+
+  <ThingDef ParentName="MakeableShellBase">
+    <defName>VFED_Shell_Cluster</defName>
+    <label>cluster shell</label>
+    <description>Mortar shell that is designed to split mid-air and release three high-explosive shells. Separated shells are ejected in random directions, following the same vector as the cluster shell. Explosions cover a high area but the accuracy of the shells leave a lot to be desired.</description>
+    <possessionCount>1</possessionCount>
+    <statBases>
+      <MarketValue>170</MarketValue>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Shells/Shell_Cluster</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>VFED_Bullet_Shell_Cluster</projectileWhenLoaded>
+    <costList>
+      <Steel>45</Steel>
+      <Chemfuel>45</Chemfuel>
+    </costList>
+    <recipeMaker Inherit="False">
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <workAmount>800</workAmount>
+      <targetCountAdjustment>5</targetCountAdjustment>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <displayPriority>100</displayPriority>
+      <researchPrerequisite>VFED_ImperialWarSolutions</researchPrerequisite>
+    </recipeMaker>
+    <costListForDifficulty>
+      <difficultyVar>classicMortars</difficultyVar>
+      <costList>
+        <Steel>75</Steel>
+        <Chemfuel>45</Chemfuel>
+      </costList>
+    </costListForDifficulty>
+    <modExtensions>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>2</intelCost>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFED_Bullet_Shell_Cluster</defName>
+    <label>cluster shell</label>
+    <graphicData>
+      <texPath>Projectiles/ShellCluster</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>TransparentPostLight</shaderType>
+    </graphicData>
+    <thingClass>VFED.Projectile_Shrapnel</thingClass>
+    <projectile Class="VFED.ProjectileProperties_Shrapnel">
+      <damageDef>Bomb</damageDef>
+      <speed>41</speed>
+      <explosionRadius>2.9</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>MortarBomb_Explode</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <shrapnelProjectile>Bullet_Shell_HighExplosive</shrapnelProjectile>
+      <shrapnelCount>3</shrapnelCount>
+      <shrapnelRange>10.5</shrapnelRange>
+      <angleVariance>50</angleVariance>
+    </projectile>
+  </ThingDef>
+
+</Defs>

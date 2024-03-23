@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <KCSG.TiledStructureDef>
+    <defName>VFED_SupplyDepot</defName>
+    <tilesNumber>9</tilesNumber>    <!-- used when: not linked to quest/quest null -->
+    <tilesNumberRange>2~9</tilesNumberRange>    <!-- used when: linked to quest -->
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileDefs>
+      <li>
+        <def>VFED_SupplyDepotTile</def>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_SupplyDepotTile</defName>
+    <tileLayouts>
+      <li>VFED_SupplyDepotA</li>
+      <li>VFED_SupplyDepotB</li>
+      <li>VFED_SupplyDepotC</li>
+      <li>VFED_SupplyDepotD</li>
+      <li>VFED_SupplyDepotE</li>
+      <li>VFED_SupplyDepotF</li>
+      <li>VFED_SupplyDepotG</li>
+      <li>VFED_SupplyDepotH</li>
+      <li>VFED_SupplyDepotI</li>
+      <li>VFED_SupplyDepotJ</li>
+      <li>VFED_SupplyDepotK</li>
+      <li>VFED_SupplyDepotL</li>
+      <li>VFED_SupplyDepotM</li>
+      <li>VFED_SupplyDepotN</li>
+      <li>VFED_SupplyDepotO</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_AerodroneStation</defName>
+    <tilesNumber>9</tilesNumber>    <!-- used when: not linked to quest/quest null -->
+    <tilesNumberRange>2~9</tilesNumberRange>    <!-- used when: linked to quest -->
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileDefs>
+      <li>
+        <def>VFED_AerodroneStationTile</def>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_AerodroneStationTile</defName>
+    <tileLayouts>
+      <li>VFED_AerodroneStationA</li>
+      <li>VFED_AerodroneStationB</li>
+      <li>VFED_AerodroneStationC</li>
+      <li>VFED_AerodroneStationD</li>
+      <li>VFED_AerodroneStationE</li>
+      <li>VFED_AerodroneStationF</li>
+      <li>VFED_AerodroneStationG</li>
+      <li>VFED_AerodroneStationH</li>
+      <li>VFED_AerodroneStationI</li>
+      <li>VFED_AerodroneStationJ</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_ImperialConvoy</defName>
+    <tilesNumber>9</tilesNumber>    <!-- used when: not linked to quest/quest null -->
+    <tilesNumberRange>2~9</tilesNumberRange>    <!-- used when: linked to quest -->
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileDefs>
+      <li>
+        <def>VFED_ImperialConvoyTile</def>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ImperialConvoyTile</defName>
+    <tileLayouts>
+      <li>VFED_ImperialConvoyA</li>
+      <li>VFED_ImperialConvoyB</li>
+      <li>VFED_ImperialConvoyC</li>
+      <li>VFED_ImperialConvoyD</li>
+      <li>VFED_ImperialConvoyE</li>
+      <li>VFED_ImperialConvoyF</li>
+      <li>VFED_ImperialConvoyG</li>
+      <li>VFED_ImperialConvoyH</li>
+      <li>VFED_ImperialConvoyI</li>
+      <li>VFED_ImperialConvoyJ</li>
+      <li>VFED_ImperialConvoyK</li>
+      <li>VFED_ImperialConvoyL</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_ShuttleStagingPost</defName>
+    <tilesNumber>9</tilesNumber>    <!-- used when: not linked to quest/quest null -->
+    <tilesNumberRange>2~9</tilesNumberRange>    <!-- used when: linked to quest -->
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileDefs>
+      <li>
+        <def>VFED_ShuttleStagingPostTile</def>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ShuttleStagingPostTile</defName>
+    <tileLayouts>
+      <li>VFED_ShuttleStagingPostA</li>
+      <li>VFED_ShuttleStagingPostB</li>
+      <li>VFED_ShuttleStagingPostC</li>
+      <li>VFED_ShuttleStagingPostD</li>
+      <li>VFED_ShuttleStagingPostE</li>
+      <li>VFED_ShuttleStagingPostF</li>
+      <li>VFED_ShuttleStagingPostG</li>
+      <li>VFED_ShuttleStagingPostH</li>
+      <li>VFED_ShuttleStagingPostI</li>
+      <li>VFED_ShuttleStagingPostJ</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_ControlStation</defName>
+    <tilesNumber>9</tilesNumber>    <!-- used when: not linked to quest/quest null -->
+    <tilesNumberRange>2~9</tilesNumberRange>    <!-- used when: linked to quest -->
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <centerTileDefs>
+      <li>VFED_ControlStationMain</li>
+    </centerTileDefs>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_ControlStationTile</def>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ControlStationMain</defName>
+    <tileLayouts>
+      <li>VFED_SurveillanceStationMainA</li>
+      <li>VFED_SurveillanceStationMainB</li>
+      <li>VFED_SurveillanceStationMainC</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ControlStationTile</defName>
+    <tileLayouts>
+      <li>VFED_SurveillanceStationA</li>
+      <li>VFED_SurveillanceStationB</li>
+      <li>VFED_SurveillanceStationC</li>
+      <li>VFED_SurveillanceStationD</li>
+      <li>VFED_SurveillanceStationE</li>
+      <li>VFED_SurveillanceStationF</li>
+      <li>VFED_SurveillanceStationG</li>
+      <li>VFED_SurveillanceStationH</li>
+      <li>VFED_SurveillanceStationI</li>
+      <li>VFED_SurveillanceStationJ</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_TechPrinter</defName>
+    <tilesNumber>9</tilesNumber>    <!-- used when: not linked to quest/quest null -->
+    <tilesNumberRange>2~9</tilesNumberRange>    <!-- used when: linked to quest -->
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <allowedTileDefs>
+      <li>
+        <def>VFED_TechPrinterMain</def>
+        <count>1, 1</count>
+      </li>
+      <li>
+        <def>VFED_TechPrinterTile</def>
+        <count>2, 2</count>
+      </li>
+      <li>
+        <def>VFED_SupplyDepotTile</def>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_TechPrinterMain</defName>
+    <tileLayouts>
+      <li>VFED_TechPrinterMainA</li>
+      <li>VFED_TechPrinterMainB</li>
+      <li>VFED_TechPrinterMainC</li>
+      <li>VFED_TechPrinterMainD</li>
+      <li>VFED_TechPrinterMainE</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_TechPrinterTile</defName>
+    <tileLayouts>
+      <li>VFED_TechPrinterTileA</li>
+      <li>VFED_TechPrinterTileB</li>
+      <li>VFED_TechPrinterTileC</li>
+      <li>VFED_TechPrinterTileD</li>
+      <li>VFED_TechPrinterTileE</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TiledStructureDef>
+    <defName>VFED_Underfarm</defName>
+    <tilesNumber>9</tilesNumber>    <!-- used when: not linked to quest/quest null -->
+    <tilesNumberRange>2~9</tilesNumberRange>    <!-- used when: linked to quest -->
+    <maxDistanceFromCenter>1</maxDistanceFromCenter>    <!-- 9 tiles max -->
+    <centerTileDefs>
+      <li>VFED_UnderfarmMain</li>
+    </centerTileDefs>
+    <allowedTileDefs>
+      <li>
+        <def>VFED_UnderfarmTile</def>
+      </li>
+    </allowedTileDefs>
+  </KCSG.TiledStructureDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_UnderfarmMain</defName>
+    <tileLayouts>
+      <li>VFED_UnderfarmMainA</li>
+      <li>VFED_UnderfarmMainB</li>
+      <li>VFED_UnderfarmMainC</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_UnderfarmTile</defName>
+    <tileLayouts>
+      <li>VFED_UnderfarmA</li>
+      <li>VFED_UnderfarmB</li>
+      <li>VFED_UnderfarmC</li>
+      <li>VFED_UnderfarmD</li>
+      <li>VFED_UnderfarmE</li>
+      <li>VFED_UnderfarmF</li>
+      <li>VFED_UnderfarmG</li>
+      <li>VFED_UnderfarmH</li>
+      <li>VFED_UnderfarmI</li>
+      <li>VFED_UnderfarmJ</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+</Defs>

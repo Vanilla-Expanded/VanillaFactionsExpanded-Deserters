@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <ResearchProjectDef>
+    <defName>VFED_ImperialDefenses</defName>
+    <label>imperial defenses</label>
+    <description>Create imperial megaturrets: Kontarion, Onager and Palintone, as well as their ammunition.</description>
+    <baseCost>3000</baseCost>
+    <techLevel>Spacer</techLevel>
+	<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <prerequisites>
+      <li>Fabrication</li>
+    </prerequisites>
+    <techprintCount>1</techprintCount>
+    <techprintCommonality>1</techprintCommonality>
+    <techprintMarketValue>2000</techprintMarketValue>
+    <heldByFactionCategoryTags><li>Empire</li></heldByFactionCategoryTags>
+    <researchViewX>12.0</researchViewX>
+    <researchViewY>2.45</researchViewY>
+	<tab>VanillaExpanded</tab>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>VFED_ImperialWarSolutions</defName>
+    <label>imperial war solutions</label>
+    <description>Craft powerful imperial mortar shells, such as shrapnel, armor piercing and cluster.</description>
+    <baseCost>2500</baseCost>
+    <techLevel>Spacer</techLevel>
+	<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <prerequisites>
+      <li>Fabrication</li>
+    </prerequisites>
+    <techprintCount>1</techprintCount>
+    <techprintCommonality>1</techprintCommonality>
+    <techprintMarketValue>2000</techprintMarketValue>
+    <heldByFactionCategoryTags><li>Empire</li></heldByFactionCategoryTags>
+    <researchViewX>11.0</researchViewX>
+    <researchViewY>2.45</researchViewY>
+	<tab>VanillaExpanded</tab>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>VFED_RemoteDemolition</defName>
+    <label>imperial war solutions</label>
+    <description>Build advanced explosive traps with remote detonation mechanism.</description>
+    <baseCost>750</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>IEDs</li>
+    </prerequisites>
+    <researchViewX>10.0</researchViewX>
+    <researchViewY>2.45</researchViewY>
+	<tab>VanillaExpanded</tab>
+  </ResearchProjectDef>
+
+</Defs>

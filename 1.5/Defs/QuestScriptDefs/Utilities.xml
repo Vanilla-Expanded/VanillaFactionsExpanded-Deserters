@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <QuestScriptDef>
+    <defName>VFED_Util_RandomizePointsChallengeRating_AllStars</defName>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <!-- Record the original points for external use -->
+        <li Class="QuestNode_Set">
+          <name>pointsOriginal</name>
+          <value>$points</value>
+        </li>
+
+        <!-- Choose a rating and set points factor -->
+        <li Class="QuestNode_RandomNode">
+          <nodes>
+            <li Class="QuestNode_Sequence">  <!-- rating 1 -->
+              <selectionWeight>0.35</selectionWeight>
+              <nodes>
+                <li Class="QuestNode_Set">
+                  <name>challengeRating</name>
+                  <value>1</value>
+                </li>
+                <li Class="QuestNode_Set">
+                  <name>pointsFactor</name>
+                  <value>1</value>
+                </li>
+              </nodes>
+            </li>
+            <li Class="QuestNode_Sequence">  <!-- rating 2 -->
+              <selectionWeight>0.25</selectionWeight>
+              <nodes>
+                <li Class="QuestNode_Set">
+                  <name>challengeRating</name>
+                  <value>2</value>
+                </li>
+                <li Class="QuestNode_Set">
+                  <name>pointsFactor</name>
+                  <value>2</value>
+                </li>
+              </nodes>
+            </li>
+            <li Class="QuestNode_Sequence">  <!-- rating 3 -->
+              <selectionWeight>0.2</selectionWeight>
+              <nodes>
+                <li Class="QuestNode_Set">
+                    <name>challengeRating</name>
+                    <value>3</value>
+                  </li>
+                <li Class="QuestNode_Set">
+                  <name>pointsFactor</name>
+                  <value>3</value>
+                </li>
+              </nodes>
+            </li>
+            <li Class="QuestNode_Sequence">  <!-- rating 4 -->
+              <selectionWeight>0.1</selectionWeight>
+              <nodes>
+                <li Class="QuestNode_Set">
+                    <name>challengeRating</name>
+                    <value>4</value>
+                  </li>
+                <li Class="QuestNode_Set">
+                  <name>pointsFactor</name>
+                  <value>5</value>
+                </li>
+              </nodes>
+            </li>
+            <li Class="QuestNode_Sequence">  <!-- rating 5 -->
+              <selectionWeight>0.1</selectionWeight>
+              <nodes>
+                <li Class="QuestNode_Set">
+                    <name>challengeRating</name>
+                    <value>5</value>
+                  </li>
+                <li Class="QuestNode_Set">
+                  <name>pointsFactor</name>
+                  <value>8</value>
+                </li>
+              </nodes>
+            </li>
+          </nodes>
+        </li>
+        <li Class="QuestNode_Multiply">
+          <value1>$points</value1>
+          <value2>$pointsFactor</value2>
+          <storeAs>points</storeAs>
+        </li>
+        <li Class="QuestNode_SetChallengeRating">
+          <challengeRating>$challengeRating</challengeRating>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+
+  <QuestScriptDef>
+    <defName>VFED_Util_AdjustPointsForDistantFight</defName>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="QuestNode_EvaluateSimpleCurve">
+          <value>$points</value>
+          <storeAs>points</storeAs>
+          <curve>
+            <points>
+              <li>   35,   35</li>
+              <li>  400,  200</li>
+              <li> 1000,  400</li>
+              <li> 2000,  600</li>
+              <li> 3000,  800</li>
+              <li> 4000, 1000</li>
+              <li> 5000, 1100</li>
+              <li>10000, 2000</li>
+            </points>
+          </curve>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

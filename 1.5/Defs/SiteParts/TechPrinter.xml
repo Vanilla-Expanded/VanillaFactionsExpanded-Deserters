@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SitePartDef ParentName="VFED_DeserterMissionSiteBase">
+    <defName>VFED_TechPrinter</defName>
+    <label>techprinter center</label>
+    <description>An Imperial TechPrinter Center.</description>
+    <expandingIconTexture>WorldObjects/QuestIcon_TechprinterDemolition</expandingIconTexture>
+    <tags>
+      <li>VFED_TechPrinter</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>VFED_TechPrinter</defName>
+    <linkWithSite>VFED_TechPrinter</linkWithSite>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <scaleWithQuest>true</scaleWithQuest>
+      <tiledStructures>
+        <li>VFED_TechPrinter</li>
+      </tiledStructures>
+    </genStep>
+  </GenStepDef>
+</Defs>

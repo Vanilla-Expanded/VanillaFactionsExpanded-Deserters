@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <KCSG.TileDef>
+    <defName>VFED_GrandNobleThroneRoom</defName>
+    <tileLayouts>
+      <li>VFED_GrandNobleThroneRoomA</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_LargeNobleThroneRoom</defName>
+    <tileLayouts>
+      <li>VFED_LargeNobleThroneRoomA</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_MediumNobleThroneRoom</defName>
+    <tileLayouts>
+      <li>VFED_MediumNobleThroneRoomA</li>
+      <li>VFED_MediumNobleThroneRoomB</li>
+      <li>VFED_MediumNobleThroneRoomC</li>
+      <li>VFED_MediumNobleThroneRoomD</li>
+      <li>VFED_MediumNobleThroneRoomE</li>
+      <li>VFED_MediumNobleThroneRoomF</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_SmallNobleThroneRoom</defName>
+    <tileLayouts>
+      <li>VFED_SmallNobleThroneRoomA</li>
+      <li>VFED_SmallNobleThroneRoomB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_SmallNobleBedroom</defName>
+    <tileLayouts>
+      <li>VFED_SmallNobleBedroomA</li>
+      <li>VFED_SmallNobleBedroomB</li>
+      <li>VFED_SmallNobleBedroomC</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_MediumNobleBedroom</defName>
+    <tileLayouts>
+      <li>VFED_MediumNobleBedroomA</li>
+      <li>VFED_MediumNobleBedroomB</li>
+      <li>VFED_MediumNobleBedroomC</li>
+      <li>VFED_MediumNobleBedroomD</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_LargeNobleBedroom</defName>
+    <tileLayouts>
+      <li>VFED_LargeNobleBedroomA</li>
+      <li>VFED_LargeNobleBedroomB</li>
+      <li>VFED_LargeNobleBedroomC</li>
+      <li>VFED_LargeNobleBedroomD</li>
+      <li>VFED_LargeNobleBedroomE</li>
+      <li>VFED_LargeNobleBedroomF</li>
+      <li>VFED_LargeNobleBedroomG</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_MediumGallery</defName>
+    <tileLayouts>
+      <li>VFED_MediumGalleryA</li>
+      <li>VFED_MediumGalleryB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_LargeGallery</defName>
+    <tileLayouts>
+      <li>VFED_LargeGalleryA</li>
+      <li>VFED_LargeGalleryB</li>
+      <li>VFED_LargeGalleryC</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_MediumBallroom</defName>
+    <tileLayouts>
+      <li>VFED_MediumBallroomA</li>
+      <li>VFED_MediumBallroomB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_LargeBallroom</defName>
+    <tileLayouts>
+      <li>VFED_LargeBallroomA</li>
+      <li>VFED_LargeBallroomB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ServantQuarters</defName>
+    <tileLayouts>
+      <li>VFED_ServantQuartersA</li>
+      <li>VFED_ServantQuartersB</li>
+      <li>VFED_ServantQuartersC</li>
+      <li>VFED_ServantQuartersD</li>
+      <li>VFED_ServantQuartersE</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_ShuttleLandingPad</defName>
+    <tileLayouts>
+      <li>VFED_ShuttleLandingPadA</li>
+      <li>VFED_ShuttleLandingPadB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_StockpileDepot</defName>
+    <tileLayouts>
+      <li>VFED_StockpileDepotA</li>
+      <li>VFED_StockpileDepotB</li>
+      <li>VFED_StockpileDepotC</li>
+      <li>VFED_StockpileDepotD</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_Gardens</defName>
+    <tileLayouts>
+      <li>VFED_GardenA</li>
+      <li>VFED_GardenB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_Courtyard</defName>
+    <tileLayouts>
+      <li>VFED_CourtyardA</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_Bunker</defName>
+    <tileLayouts>
+      <li>VFED_BunkerA</li>
+      <li>VFED_BunkerB</li>
+      <li>VFED_BunkerC</li>
+      <li>VFED_BunkerD</li>
+      <li>VFED_BunkerE</li>
+      <li>VFED_BunkerF</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_PlotSurveillanceStation</defName>
+    <tileLayouts>
+      <li>VFED_PlotSurveillanceStationA</li>
+      <li>VFED_PlotSurveillanceStationB</li>
+      <li>VFED_PlotSurveillanceStationC</li>
+      <li>VFED_PlotSurveillanceStationD</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_PlotKontarionEmplacement</defName>
+    <tileLayouts>
+      <li>VFED_PlotKontarionEmplacementA</li>
+      <li>VFED_PlotKontarionEmplacementB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_PlotPalintoneEmplacement</defName>
+    <tileLayouts>
+      <li>VFED_PlotPalintoneEmplacementA</li>
+      <li>VFED_PlotPalintoneEmplacementB</li>
+      <li>VFED_PlotPalintoneEmplacementC</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+
+  <KCSG.TileDef>
+    <defName>VFED_PlotOnagerEmplacement</defName>
+    <tileLayouts>
+      <li>VFED_PlotOnagerEmplacementA</li>
+      <li>VFED_PlotOnagerEmplacementB</li>
+    </tileLayouts>
+  </KCSG.TileDef>
+</Defs>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="PsychicAmplifier"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+        <intelCost>3</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_PackJump"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+        <intelCost>7</intelCost>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_Gunlink"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+        <intelCost>4</intelCost>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Harp"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+        <intelCost>4</intelCost>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Harpsichord"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+        <intelCost>5</intelCost>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Piano"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+        <intelCost>10</intelCost>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_MonoSword"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_Zeushammer"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+        <intelCost>10</intelCost>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_PlasmaSword"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Apparel_AbsolverHelmet"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>2</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Apparel_ArmorAbsolver"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>4</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Apparel_TechfriarCrown"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>8</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_MeleeWeapon_Toxblade"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>20</intelCost>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Gun_ChargeThumper"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VEE_Gun_Fletcher"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>6</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Aperitif"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_ChargeRifle"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>10</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Gun_ChargeLance"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>13</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_ArmorReconPrestige"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>2</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_ArmorHelmetReconPrestige"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>7</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_ArmorMarinePrestige"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>3</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_ArmorMarineHelmetPrestige"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>9</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_ArmorCataphractPrestige"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>4</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Apparel_ArmorHelmetCataphractPrestige"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>11</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MeleeWeapon_PsyfocusStaff"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+		<intelCost>2</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Apparel_JanissaryCuirass"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Apparel_JanissaryHelmet"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Imperial</category>
+      </li>
+    </value>
+  </Operation>
+  
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Apparel_ArmorDeserter"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>5</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="VFEE_Apparel_DeserterHelmet"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+        <intelCost>1</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Shell_HighExplosive"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		<intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Shell_Incendiary"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		<intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Shell_EMP"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		<intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Shell_Smoke"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		<intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Shell_Firefoam"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		<intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="Shell_AntigrainWarhead"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		<intelCost>1</intelCost>
+        <useCriticalIntel>true</useCriticalIntel>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MealSurvivalPack"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		    <intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+        <countMult>3</countMult>
+      </li>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="MedicineIndustrial"]</xpath>
+    <value>
+      <li Class="VFED.ContrabandExtension">
+        <category>VFED_Deserter</category>
+		    <intelCost>1</intelCost>
+        <useCriticalIntel>false</useCriticalIntel>
+        <countMult>2</countMult>
+      </li>
+    </value>
+  </Operation>
+</Patch>

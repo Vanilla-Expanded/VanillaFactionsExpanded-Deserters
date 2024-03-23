@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <QuestScriptDef>
+    <defName>VFED_DeserterEndgame</defName>
+    <isRootSpecial>true</isRootSpecial>
+    <expireDaysRange>-1</expireDaysRange>
+    <questNameRules>
+      <rulesStrings>
+        <li>questName->Egocentric emperor</li>
+      </rulesStrings>
+    </questNameRules>
+    <questDescriptionRules>
+      <rulesStrings>
+        <li>questDescription->[noble_nameFull] is the Emperor of the [empire_name]. An egocentric ruler who values tradition over the lives of [noble_possessive] people, [noble_pronoun] has to be stopped at all costs. [noble_pronoun] refuses to adapt to the new reality post-Sophiamunda Shattering, and instead insists on maintaining old ways, leading to the wasteful loss of countless lives.
+\n\nDespite the warnings we have given [noble_objective] and the obvious signs of impending doom, [noble_pronoun] remains obstinate in [noble_possessive] ways, driving the Empire towards certain destruction. The only hope for the deserters is to take out the Imperial flagship in orbit, which gives the Emperor an overwhelming military advantage.
+\n\nIn order to do that, we have to take control of three Zeus cannons located in various places on the planet. This mission needs to be executed on all fronts simultaneously, as we will only have a limited window of opportunity once the first Zeus cannon is taken. Activating all three of them at the same time will ensure the total obliteration of the Imperial flagship, after which the Empire will have no choice but to dissolve.</li>
+      </rulesStrings>
+    </questDescriptionRules>
+    <questContentRules>
+      <rulesStrings>
+        <li>shuttleLetterText->All deserter cells on the planet have been informed about what is going to occur now. Everyone knows that now is the only time to strike.
+\n\nA deserter shuttle has landed in your area. It is tasked with delivering a deserter strike force, including whoever you choose to send on this mission, into a Zeus cannon installation. Your soldiers will be assisted by deserter reinforcements.
+\n\nThe installation is heavily defended. Furthermore, Imperial reinforcements will be dispatched almost immediately upon landing. You can expect the Empire to bring their best and most powerful weapons to try and stop you.
+\n\nYour objective is to capture the control room of the Zeus cannon batteries. As long as you are within the range of the main control station, Zeus cannons will continuously fire at the imperial flagship. The target is heavily armored, and bringing it down will require a lot of firepower.
+\n\nThe installation is defended by an imperial mega high-shield, which should keep you safe from aerodrone bombardments and slicer beams as long as you maintain a constant power supply to it.</li>
+      </rulesStrings>
+    </questContentRules>
+    <root Class="QuestNode_Sequence">
+      <nodes>
+        <li Class="VFED.QuestNode_GetEmpire">
+          <storeAs>empire</storeAs>
+        </li>
+        <li Class="VFED.QuestNode_GetDeserters">
+          <storeAs>deserters</storeAs>
+        </li>
+        <li Class="QuestNode_GetMap" />
+        <li Class="VFED.QuestNode_GetEmperor">
+          <storeAs>noble</storeAs>
+        </li>
+        <li Class="QuestNode_SetChallengeRating">
+          <challengeRating>5</challengeRating>
+        </li>
+        <li Class="QuestNode_Set">
+          <name>pointsOriginal</name>
+          <value>$points</value>
+        </li>
+        <li Class="QuestNode_Multiply">
+          <value1>$points</value1>
+          <value2>8</value2>
+          <storeAs>points</storeAs>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_AdjustPointsForDistantFight</def>
+        </li>
+        <li Class="VFED.QuestNode_GetSiteTileForComplex">
+          <storeAs>siteTile</storeAs>
+          <preferedBiomes>
+            <li>IceSheet</li>
+            <li>SeaIce</li>
+          </preferedBiomes>
+        </li>
+        <li Class="QuestNode_GetDefaultSitePartsParams">
+          <tile>$siteTile</tile>
+          <faction>$empire</faction>
+          <sitePartDefs>
+            <li>VFED_ZeusCannonComplex</li>
+          </sitePartDefs>
+          <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+        </li>
+        <li Class="QuestNode_Set">
+          <name>siteFaction</name>
+          <value>$empire</value>
+        </li>
+        <li Class="QuestNode_GetSiteThreatPoints">
+          <storeAs>sitePoints</storeAs>
+          <sitePartsParams>$sitePartsParams</sitePartsParams>
+        </li>
+        <li Class="QuestNode_SubScript">
+          <def>Util_GenerateSite</def>
+        </li>
+        <li Class="VFED.QuestNode_ImperialResponse">
+          <siteName>site</siteName>
+        </li>
+        <li Class="QuestNode_SpawnWorldObjects">
+          <worldObjects>$site</worldObjects>
+        </li>
+        <li Class="VFED.QuestNode_GenerateShuttleCustom">
+          <storeAs>pickupShipThing</storeAs>
+          <acceptColonists>true</acceptColonists>
+          <acceptChildren>false</acceptChildren>
+          <onlyAcceptColonists>true</onlyAcceptColonists>
+          <onlyAcceptHealthy>true</onlyAcceptHealthy>
+          <owningFaction>$deserters</owningFaction>
+          <permitShuttle>false</permitShuttle>
+          <shuttleDef>VFED_DeserterShuttle</shuttleDef>
+        </li>
+        <li Class="QuestNode_GenerateTransportShip">
+          <def>VFED_Ship_DeserterShuttle</def>
+          <shipThing>$pickupShipThing</shipThing>
+          <storeAs>pickUpShip</storeAs>
+        </li>
+        <li Class="QuestNode_AddShipJob_Arrive">
+          <transportShip>$pickUpShip</transportShip>
+          <shipJobStartMode>Instant</shipJobStartMode>
+        </li>
+        <li Class="VFED.QuestNode_AddShipJob_WaitSendable">
+          <jobDef>VFED_WaitLaunchable</jobDef>
+          <transportShip>$pickUpShip</transportShip>
+          <destination>$site</destination>
+        </li>
+        <li Class="QuestNode_AddShipJob_Unload">
+          <transportShip>$pickUpShip</transportShip>
+          <dropMode>All</dropMode>
+        </li>
+        <li Class="QuestNode_SendTransportShipAwayOnCleanup">
+          <transportShip>$pickUpShip</transportShip>
+          <unsatisfiedDropMode>All</unsatisfiedDropMode>
+        </li>
+        <li Class="QuestNode_Letter">
+          <label TKey="LetterLabelShuttleArrived">Shuttle arrived</label>
+          <text>[shuttleLetterText]</text>
+          <lookTargets>$pickupShipThing</lookTargets>
+          <relatedFaction>$deserters</relatedFaction>
+        </li>
+        <li Class="QuestNode_Signal">
+          <inSignal>pickupShipThing.Destroyed</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label TKey="LetterLabelShuttleDestroyed">Shuttle destroyed</label>
+                <text TKey="LetterTextShuttleDestroyed">The shuttle sent to collect colonists has been destroyed.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+        <li Class="QuestNode_LoopCount">
+          <loopCount>4</loopCount>
+          <node Class="QuestNode_GeneratePawn">
+            <addToList>deserterReinforcements</addToList>
+            <kindDef>VFEE_Deserter</kindDef>
+            <faction>$deserters</faction>
+            <mustBeCapableOfViolence>true</mustBeCapableOfViolence>
+            <biocodeWeaponChance>1</biocodeWeaponChance>
+            <biocodeApparelChance>1</biocodeApparelChance>
+          </node>
+        </li>
+        <li Class="QuestNode_SetAllApparelLocked">
+          <pawns>$deserterReinforcements</pawns>
+        </li>
+        <li Class="QuestNode_ExtraFaction">
+          <faction>$deserters</faction>
+          <pawns>$deserterReinforcements</pawns>
+          <factionType>HomeFaction</factionType>
+          <inSignalRemovePawn>deserter.Destroyed</inSignalRemovePawn>
+        </li>
+        <li Class="QuestNode_AddTag">
+          <targets>$deserterReinforcements</targets>
+          <tag>deserter</tag>
+        </li>
+        <li Class="QuestNode_JoinPlayer">
+          <pawns>$deserterReinforcements</pawns>
+          <joinPlayer>True</joinPlayer>
+          <makePrisoners>False</makePrisoners>
+        </li>
+        <li Class="QuestNode_AddContentsToShuttle">
+          <inSignal>pickUpShip.FlewAway</inSignal>
+          <shuttle>$pickupShipThing</shuttle>
+          <contents>$deserterReinforcements</contents>
+        </li>
+        <li Class="QuestNode_SetFaction">
+          <inSignal>ship.Destroyed</inSignal>
+          <faction>$deserters</faction>
+          <things>$deserterReinforcements</things>
+        </li>
+        <li Class="QuestNode_Leave">
+          <inSignal>ship.Destroyed</inSignal>
+          <pawns>$deserterReinforcements</pawns>
+          <sendStandardLetter>false</sendStandardLetter>
+          <inSignalRemovePawn>deserter.Destroyed</inSignalRemovePawn>
+        </li>
+        <li Class="VFED.QuestNode_MarkObjectives">
+          <inSignal>site.MapGenerated</inSignal>
+          <mapParent>$site</mapParent>
+          <objectiveDef>VFED_ZeusCannonControlStation</objectiveDef>
+          <objectiveCompleteSignal>Destroyed</objectiveCompleteSignal>
+        </li>
+        <li Class="VFED.QuestNode_ImperialForces">
+          <inSignal>site.MapGenerated</inSignal>
+          <mapParent>$site</mapParent>
+          <points>$points</points>
+          <pointsFactor>4</pointsFactor>
+          <lord>Assault</lord>
+        </li>
+        <li Class="VFED.QuestNode_FlagshipFight">
+          <inSignal>site.MapGenerated</inSignal>
+          <mapParent>$site</mapParent>
+        </li>
+        <li Class="VFECore.QuestNode_ForceMusic">
+            <inSignalEnable>site.MapGenerated</inSignalEnable>
+            <inSignalDisable>site.MapRemoved</inSignalDisable>
+            <possibleSongs>
+                <li>VFED_FinalBattle</li>
+            </possibleSongs>
+            <priority>1</priority>
+        </li>
+        <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+            <inSignal>ship.Destroyed</inSignal>
+            <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+        </li>
+        <li Class="QuestNode_Signal">
+          <inSignal>objectives.Complete</inSignal>
+          <node Class="QuestNode_Sequence">
+            <nodes>
+              <li Class="QuestNode_Letter">
+                <label TKey="LetterLabelControlStationDestroyed">Control station destroyed</label>
+                <text TKey="LetterTextControlStationDestroyed">The zeus cannon control station has been destroyed.</text>
+              </li>
+              <li Class="QuestNode_End">
+                <outcome>Fail</outcome>
+              </li>
+            </nodes>
+          </node>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>site.MapRemoved</inSignal>
+          <outcome>Fail</outcome>
+          <sendStandardLetter>true</sendStandardLetter>
+        </li>
+        <li Class="QuestNode_End">
+          <inSignal>ship.Destroyed</inSignal>
+          <outcome>Success</outcome>
+          <sendStandardLetter>true</sendStandardLetter>
+        </li>
+      </nodes>
+    </root>
+  </QuestScriptDef>
+</Defs>

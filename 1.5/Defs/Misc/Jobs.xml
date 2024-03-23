@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <JobDef>
+    <defName>VFED_ExtractIntel</defName>
+    <driverClass>VFED.JobDriver_ExtractIntel</driverClass>
+    <reportString>extracting intel from TargetA.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>VFED_ExtractIntelPawn</defName>
+    <driverClass>VFED.JobDriver_ExtractIntelPawn</driverClass>
+    <reportString>extracting intel from TargetA.</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>VFED_UseItemOn</defName>
+    <driverClass>VFED.JobDriver_UseItemOn</driverClass>
+    <reportString>using TargetA on TargetB.</reportString>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+  <JobDef>
+    <defName>VFED_FleeEnemies</defName>
+    <driverClass>JobDriver_FleeAndCower</driverClass>
+    <reportString>fleeing.</reportString>
+    <checkOverrideOnDamage>Never</checkOverrideOnDamage>
+  </JobDef>
+</Defs>

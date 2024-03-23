@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFED_ShuttleStagingPost</defName>
+	    <rootSelectionWeight>2</rootSelectionWeight>
+	    <expireDaysRange>3</expireDaysRange>
+	    <questNameRules>
+		    <rulesStrings>
+			    <li>questName->Shuttle staging post</li>
+		    </rulesStrings>
+	    </questNameRules>
+	    <questDescriptionRules>
+		    <rulesStrings>
+			    <li>questDescription->Our intel allowed us to pinpoint the location of a shuttle staging post belonging to [empire_name]. These staging posts allow shuttles to refuel between destinations. Destroying it will greatly hinder the Empire’s ability to freely travel the planet and resupply their forward bases.
+\nWe may be able to trigger a chain detonation of the fuel containers to create havoc and make our job easier.
+\nWe might find some useful supplies scattered around the staging post. If we have the time, we should take what we can.
+\nThe shuttle staging post is protected by:
+[forces_description]
+\nWe have also been informed that the location is protected by a number of ground-mounted striker turrets. Despite the limited range, these turrets can easily reveal our approach and provide covering fire for the imperial army.
+\nThe staging post is protected by surveillance pillars. They should not be approached, and instead should be disabled from afar - either by destroying them, or cutting off their power. Once activated, they will greatly increase our visibility.
+\nThe objective of this assignment is to destroy all fuel containers. Once that is done, the reward will arrive and we will have to make our escape.
+\nOnce we arrive at the staging post, we can expect an imperial response if our visibility is high enough. We will only have a limited amount of time to complete the mission.</li>
+		    </rulesStrings>
+	    </questDescriptionRules>
+	    <root Class="QuestNode_SubScript">
+			<def>VFED_DeserterQuestBase</def>
+			<parms>
+				<sitePartDef>VFED_ShuttleStagingPost</sitePartDef>
+				<hasObjectives>true</hasObjectives>
+				<objectiveDef>VFED_FuelTank</objectiveDef>
+			</parms>
+			<returnVarNames>
+				<li>empire</li>
+			</returnVarNames>
+	    </root>
+		<modExtensions>
+			<li Class="VFED.QuestExtension_Deserter" />
+		</modExtensions>
+    </QuestScriptDef>
+</Defs>

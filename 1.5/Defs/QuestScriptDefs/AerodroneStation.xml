@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFED_AerodroneStation</defName>
+	    <rootSelectionWeight>2</rootSelectionWeight>
+	    <expireDaysRange>3</expireDaysRange>
+	    <questNameRules>
+		    <rulesStrings>
+			    <li>questName->Aerodrone station sabotage</li>
+		    </rulesStrings>
+	    </questNameRules>
+	    <questDescriptionRules>
+		    <rulesStrings>
+			    <li>questDescription->Thanks to the intel we have obtained, we now know the location of an aerodrone station belonging to [empire_name]. These stations recharge and reload powerful aerodrones - autonomous, unmanned aerial vehicles that can bombard targets with powerful missile salvos.
+\nThese drones are a threat to everyone who disagrees with the Empire. They need to be destroyed.
+\nWe might find some useful supplies scattered around the station. It's crucial to remember that ammunition stacks and aerodrone batteries are highly volatile, and we might be able to use them to our advantage.
+\nThe aerodrone station is protected by:
+[forces_description]
+\nWe have also been informed that the location is protected by a number of ground-mounted striker turrets. Despite the limited range, these turrets can easily reveal our approach and provide covering fire for the imperial army.
+\nThe station is protected by surveillance pillars. They should not be approached, and instead should be disabled from afar - either by destroying them, or cutting off their power. Once activated, they will greatly increase our visibility.
+\nThe objective of this mission is to destroy all aerodrones currently stationed here by any means necessary.
+\nOnce we arrive at the station, we can expect an imperial response if our visibility is high enough. We will only have a limited amount of time to complete the mission.</li>
+		    </rulesStrings>
+	    </questDescriptionRules>
+	    <root Class="QuestNode_SubScript">
+			<def>VFED_DeserterQuestBase</def>
+			<parms>
+				<sitePartDef>VFED_AerodroneStation</sitePartDef>
+				<hasObjectives>true</hasObjectives>
+				<objectiveDef>VFED_Aerodrone</objectiveDef>
+			</parms>
+			<returnVarNames>
+				<li>empire</li>
+			</returnVarNames>
+	    </root>
+		<modExtensions>
+			<li Class="VFED.QuestExtension_Deserter" />
+		</modExtensions>
+    </QuestScriptDef>
+</Defs>

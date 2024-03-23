@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <VFED.VisibilityLevelDef>
+        <defName>VFED_Hidden</defName>
+        <label>hidden</label>
+        <iconPath>UI/IconVisibility_1</iconPath>
+        <description>You are operating in secret, and the Empire has no knowledge of your allegiance to the deserters. They will not respond to your attacks on their installations, and they will generally not look for you out in the world.</description>
+        <visibilityRange>0~20</visibilityRange>
+        <contrabandTimeToReceiveModifier>0.5</contrabandTimeToReceiveModifier>
+        <contrabandSiteTimeActiveModifier>5</contrabandSiteTimeActiveModifier>
+    </VFED.VisibilityLevelDef>
+    <VFED.VisibilityLevelDef>
+        <defName>VFED_Whispers</defName>
+        <label>whispers</label>
+        <iconPath>UI/IconVisibility_2</iconPath>
+        <description>Word of your activity has started to spread within the higher nobility, but the Empire still sees you as nothing more but a rare, minor annoyance. You can expect patrols to be dispatched to any imperial installations under attack, but you should still have enough time to get in and out before they arrive. Inventory checks become part of the updated briefing, making it slightly harder to acquire contraband.</description>
+        <visibilityRange>21~40</visibilityRange>
+        <contrabandTimeToReceiveModifier>1</contrabandTimeToReceiveModifier>
+        <contrabandSiteTimeActiveModifier>2</contrabandSiteTimeActiveModifier>
+        <imperialResponseTime>300</imperialResponseTime>
+        <imperialResponseType>VFED_Patrol</imperialResponseType>
+    </VFED.VisibilityLevelDef>
+    <VFED.VisibilityLevelDef>
+        <defName>VFED_Rumors</defName>
+        <label>rumors</label>
+        <iconPath>UI/IconVisibility_3</iconPath>
+        <description>Rumors about the deserter activity are starting to circulate among the lower-ranking officers and soldiers of the Empire. While the Empire does not yet have concrete evidence of your involvement, they are beginning to take the rumors seriously and have increased their security measures. Expect to encounter increased security on imperial installations, as well as janissary reaction force as soon as the installation is alerted of your presence. Imperial patrols are now prominent and will inspect every caravan they come across.</description>
+        <visibilityRange>41~60</visibilityRange>
+        <contrabandTimeToReceiveModifier>2</contrabandTimeToReceiveModifier>
+        <contrabandSiteTimeActiveModifier>1</contrabandSiteTimeActiveModifier>
+        <imperialResponseTime>240</imperialResponseTime>
+        <imperialResponseType>VFED_StrikeForce</imperialResponseType>
+        <specialEffects>
+            <li Class="VFED.VisibilityEffect_Incident">
+                <label>Imperial patrol caravan event becomes active</label>
+                <incident>VFED_ImperialPatrol</incident>
+                <becomesActive>true</becomesActive>
+            </li>
+            <li Class="VFED.VisibilityEffect_ArmySize">
+                <label>All imperial armies on all quest locations where Empire would spawn are 20% bigger</label>
+                <multiplier>1.2</multiplier>
+            </li>
+        </specialEffects>
+    </VFED.VisibilityLevelDef>
+    <VFED.VisibilityLevelDef>
+        <defName>VFED_News</defName>
+        <label>news</label>
+        <iconPath>UI/IconVisibility_4</iconPath>
+        <description>Your actions have become public knowledge and have hit the imperial news stations like a storm. The Empire now considers you a serious threat and has placed a high priority on tracking you down. Security measures across all installations have been greatly increased. Furthermore, the Empire will now send more raiding parties to any settlements suspected of harboring deserters. It will be harder to obtain contraband and support from the locals as the Empire's propaganda campaign is gaining strength.</description>
+        <visibilityRange>61~80</visibilityRange>
+        <intelCostModifier>2</intelCostModifier>
+        <contrabandTimeToReceiveModifier>5</contrabandTimeToReceiveModifier>
+        <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
+        <imperialResponseTime>180</imperialResponseTime>
+        <imperialResponseType>VFED_StellicGuards</imperialResponseType>
+        <specialEffects>
+            <li Class="VFED.VisibilityEffect_RaidChance">
+                <label>Raids from the Empire faction happen 2x as often</label>
+                <multiplier>2</multiplier>
+            </li>
+            <li Class="VFED.VisibilityEffect_ArmySize">
+                <label>All imperial armies on all quest locations where Empire would spawn are 50% bigger</label>
+                <multiplier>1.5</multiplier>
+            </li>
+            <li Class="VFED.VisibilityEffect_Incident">
+                <label>Imperial Propaganda can now drop</label>
+                <incident>VFED_PropagandaDrop</incident>
+                <becomesActive>true</becomesActive>
+            </li>
+            <li Class="VFED.VisibilityEffect_Incident">
+                <label>Chased Deserter quest no longer occurs</label>
+                <incident>VFED_GiveQuest_ChasedDeserter</incident>
+                <becomesInactive>true</becomesInactive>
+            </li>
+        </specialEffects>
+    </VFED.VisibilityLevelDef>
+    <VFED.VisibilityLevelDef>
+        <defName>VFED_PublicEnemy</defName>
+        <label>public enemy</label>
+        <iconPath>UI/IconVisibility_5</iconPath>
+        <description>You are now a household name, and the Empire considers you their number one enemy. They are using all of their resources to track you down and eliminate you and your followers. The Empire may also use scorched earth tactics, such as bombing or shelling entire areas suspected of supporting the deserters. They are willing to sacrifice their installations if it means eliminating the deserters, and will respond to any aggression with indiscriminate aerodrone bombardment. Most smuggling operations cease and contraband becomes incredibly hard to come across. The Imperial spy guilds will put out disinformation to turn other factions against you, making it hard to distinguish friend from foe. It's a full-blown war and the outcome will determine your fate and the fate of the Empire. Be prepared for a difficult fight, as survival is the only option now.</description>
+        <visibilityRange>81~99</visibilityRange>
+        <intelCostModifier>5</intelCostModifier>
+        <contrabandTimeToReceiveModifier>10</contrabandTimeToReceiveModifier>
+        <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
+        <imperialResponseTime>120</imperialResponseTime>
+        <imperialResponseType>VFED_MissileRain</imperialResponseType>
+        <specialEffects>
+	        <li Class="VFED.VisibilityEffect_RaidChance">
+		        <label>Raids from the Empire faction happen 3x as often</label>
+		        <multiplier>3</multiplier>
+	        </li>
+	        <li Class="VFED.VisibilityEffect_ArmySize">
+		        <label>All imperial armies on all quest locations where Empire would spawn are 100% bigger</label>
+		        <multiplier>2</multiplier>
+	        </li>
+	        <li Class="VFED.VisibilityEffect_AerodroneBombardment">
+		        <label>Aerodrone bombardment event becomes available.</label>
+	        </li>
+	        <li Class="VFED.VisibilityEffect_Incident">
+		        <label>Absolver Raid can now occur.</label>
+		        <incident>VFED_Raid_Absolver</incident>
+		        <becomesActive>true</becomesActive>
+	        </li>
+			<li Class="VFED.VisibilityEffect_Goodwill">
+                <label>Relations with a random faction drop by -10 once a day.</label>
+                <goodwill>-10</goodwill>
+			</li>
+        </specialEffects>
+    </VFED.VisibilityLevelDef>
+    <VFED.VisibilityLevelDef>
+        <defName>VFED_DivineInferno</defName>
+        <label>divine inferno</label>
+        <iconPath>UI/IconVisibility_6</iconPath>
+        <description>The Empire has initiated a Divine Inferno protocol on your location. May you find solace in the cleansing flames. You have 30 days before The Empire moves all required orbital slicer beam satellites into position. Unless you manage to bring the visibility back down to Hidden in time, your colony will be glassed by numerous pillars of fire.</description>
+        <visibilityRange>100~100</visibilityRange>
+        <intelCostModifier>10</intelCostModifier>
+        <contrabandTimeToReceiveModifier>20</contrabandTimeToReceiveModifier>
+        <contrabandSiteTimeActiveModifier>0.5</contrabandSiteTimeActiveModifier>
+        <imperialResponseTime>60</imperialResponseTime>
+        <imperialResponseType>VFED_MissileRain</imperialResponseType>
+        <specialEffects>
+            <li Class="VFED.VisibilityEffect_GameCondition">
+                <label>As soon as player reaches 100 Visibility, Divine Inferno countdown triggers.</label>
+	            <gameCondition>VFED_DivineInferno</gameCondition>
+                <durationDays>30</durationDays>
+            </li>
+        </specialEffects>
+    </VFED.VisibilityLevelDef>
+</Defs>

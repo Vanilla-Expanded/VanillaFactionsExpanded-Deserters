@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <SitePartDef ParentName="VFED_DeserterMissionSiteBase">
+    <defName>VFED_SupplyDepot</defName>
+    <label>supply depot</label>
+    <description>An Imperial Supply Depot.</description>
+    <expandingIconTexture>WorldObjects/QuestIcon_SupplyDepotRaid</expandingIconTexture>
+    <tags>
+      <li>VFED_SupplyDepot</li>
+    </tags>
+  </SitePartDef>
+
+  <GenStepDef>
+    <defName>VFED_SupplyDepot</defName>
+    <linkWithSite>VFED_SupplyDepot</linkWithSite>
+    <order>460</order>
+    <genStep Class="KCSG.GenStep_CustomStructureGen">
+      <scaleWithQuest>true</scaleWithQuest>
+      <tiledStructures>
+        <li>VFED_SupplyDepot</li>
+      </tiledStructures>
+    </genStep>
+  </GenStepDef>
+</Defs>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+   <Operation Class="PatchOperationFindMod">
+      <mods>
+         <li>Biotech</li>
+      </mods>
+      <match Class="PatchOperationSequence">
+         <operations>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs</xpath>
+               <value>
+                  <ThingDef ParentName="VFED_RemoteChargeBase">
+                     <defName>VFED_RemoteTrapIED_ToxGas</defName>
+                     <label>remote tox charge</label>
+                     <description>A pair of tox shells connected to a remote triggering mechanism. It can be detonated at will, but the fuse time might vary. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+                     <graphicData>
+                        <texPath>Structures/Security/RemoteChargeTrapToxGas</texPath>
+                     </graphicData>
+                     <uiOrder>44</uiOrder>
+                     <costList>
+                        <Shell_Toxic>2</Shell_Toxic>
+						<ComponentIndustrial>1</ComponentIndustrial>
+                     </costList>
+                     <comps>
+                        <li Class="CompProperties_Explosive">
+                           <explosiveRadius>8.9</explosiveRadius>
+                           <explosiveDamageType>ToxGas</explosiveDamageType>
+                           <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                           <postExplosionGasType>ToxGas</postExplosionGasType>
+                           <wickTicks>15</wickTicks>
+                           <startWickOnDamageTaken>
+                              <li>Bullet</li>
+                              <li>Arrow</li>
+                              <li>ArrowHighVelocity</li>
+                           </startWickOnDamageTaken>
+                        </li>
+                     </comps>
+                     <specialDisplayRadius>10.9</specialDisplayRadius>
+                  </ThingDef>
+               </value>
+            </li>
+         </operations>
+      </match>
+   </Operation>
+</Patch>

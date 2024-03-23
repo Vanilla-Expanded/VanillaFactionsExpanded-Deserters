@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VFED.ImperialResponseDef>
+    <defName>VFED_Patrol</defName>
+    <label>patrol</label>
+    <reinforcements>
+      <Empire_Fighter_Trooper>5~10</Empire_Fighter_Trooper>
+    </reinforcements>
+  </VFED.ImperialResponseDef>
+  <VFED.ImperialResponseDef>
+    <defName>VFED_StrikeForce</defName>
+    <label>strike force</label>
+    <reinforcements>
+      <Empire_Fighter_Janissary>4~8</Empire_Fighter_Janissary>
+      <Empire_Fighter_Cataphract>2~4</Empire_Fighter_Cataphract>
+    </reinforcements>
+  </VFED.ImperialResponseDef>
+  <VFED.ImperialResponseDef>
+    <defName>VFED_StellicGuards</defName>
+    <label>stellic guard squad</label>
+    <reinforcements>
+      <Empire_Fighter_StellicGuardMelee>4~8</Empire_Fighter_StellicGuardMelee>
+      <Empire_Fighter_StellicGuardRanged>4~8</Empire_Fighter_StellicGuardRanged>
+    </reinforcements>
+  </VFED.ImperialResponseDef>
+  <VFED.ImperialResponseDef>
+    <defName>VFED_MissileRain</defName>
+    <label>missile rain</label>
+    <gameCondition>VFED_MissileRain</gameCondition>
+  </VFED.ImperialResponseDef>
+</Defs>
