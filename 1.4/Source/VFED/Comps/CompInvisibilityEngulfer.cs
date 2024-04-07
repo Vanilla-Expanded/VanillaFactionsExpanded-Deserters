@@ -79,6 +79,6 @@ public class HediffComp_InvisibilityEngulfer : HediffComp
     public override void CompExposeData()
     {
         base.CompExposeData();
-        Scribe_Values.Look(ref source, nameof(source));
+        Scribe_References.Look(ref source, nameof(source));
     }
 }
