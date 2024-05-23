@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Furniture Expanded - Security</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="VFES_Turret_AutocannonDouble"]/comps</xpath>
+			<value>
+				<li Class="VFED.CompProperties_BoxRefuel">
+					<refuelWith>VFED_AmmoBox_Autocannon</refuelWith>
+					<!-- 2 to 1 conversion of steel to ammo -->
+					<refuelAmount>90</refuelAmount>
+				</li>
+			</value>
+		</match>
+	</Operation>
+</Patch>

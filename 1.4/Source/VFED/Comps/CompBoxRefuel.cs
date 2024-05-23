@@ -37,8 +37,13 @@ public class CompBoxRefuel : ThingComp
         for (var i = 0; i < checkThings.Count; i++)
             if (checkThings[i].def == Props.refuelWith)
             {
-                compRefuelable.Refuel(compRefuelable.Props.fuelCapacity / compRefuelable.Props.FuelMultiplierCurrentDifficulty);
+                var refuelAmount = Props.refuelAmount > 0 ? Props.refuelAmount : compRefuelable.Props.fuelCapacity;
+                compRefuelable.Refuel(refuelAmount / compRefuelable.Props.FuelMultiplierCurrentDifficulty);
                 checkThings[i].Destroy();
+
+                // Use the vanilla method that handles auto rebuilding and pass the only DestroyMode that allows it.
+                // Also don't use checkThings[i].Map, as it'll be null after the Destroy call.
+                ThingUtility.CheckAutoRebuildOnDestroyed(checkThings[i], DestroyMode.KillFinalize, parent.Map, checkThings[i].def);
                 break;
             }
     }
@@ -62,6 +67,7 @@ public class CompProperties_BoxRefuel : CompProperties
 {
     public bool mustUseBoxes;
     public ThingDef refuelWith;
+    public int refuelAmount = -1;
 
     public CompProperties_BoxRefuel() => compClass = typeof(CompBoxRefuel);
 
