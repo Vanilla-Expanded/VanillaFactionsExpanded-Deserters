@@ -19,7 +19,7 @@
     <VFED.AlreadyInvisibile>Already invisible</VFED.AlreadyInvisibile>
     <VFED.MustHavePsylink>Must have psylink</VFED.MustHavePsylink>
     <VFED.ExtractIntel>Extract intel</VFED.ExtractIntel>
-    <VFED.ExtractIntel.Desc>Extract intel from the brain of a nobleperson. They may be alive, dead, or downed, but the brain must be present. Will destroy the brain.</VFED.ExtractIntel.Desc>
+    <VFED.ExtractIntel.Desc>Extract intel from the brain of a nobleperson. They may be alive, or downed, but the brain must be present. Will destroy the brain.</VFED.ExtractIntel.Desc>
     <VFED.ImperialPatrol>{0} patrol</VFED.ImperialPatrol>
     <VFED.ImperialPatrol.Desc>{0} has encountered an imperial patrol from {1}. They have been spotted! {0} can try and escape, but this will inevitably increase the visibility of {2}. Fighting the patrol might be tough, but it will keep {2} safe. The patrol consists of:\n\n{3}</VFED.ImperialPatrol.Desc>
     <VFED.ImperialPatrol.Escape>Escape the patrol.</VFED.ImperialPatrol.Escape>
