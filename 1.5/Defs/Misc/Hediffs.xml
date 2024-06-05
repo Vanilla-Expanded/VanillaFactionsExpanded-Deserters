@@ -7,7 +7,9 @@
     <isBad>false</isBad>
     <hediffClass>HediffWithComps</hediffClass>
     <comps>
-      <li><compClass>HediffComp_Invisibility</compClass></li>
+      <li Class="HediffCompProperties_Invisibility">
+        <visibleToPlayer>true</visibleToPlayer>
+      </li>
       <li><compClass>VFED.HediffComp_DissapearsOnAttack</compClass></li>
       <li><compClass>VFED.HediffComp_InvisibilityEngulfer</compClass></li>
       <li Class="HediffCompProperties_Disappears">

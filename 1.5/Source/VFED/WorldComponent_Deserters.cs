@@ -101,6 +101,13 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable, ILoadRefe
 
         Find.FactionManager.goodwillSituationManager.RecalculateAll(true);
         Notify_VisibilityChanged(false, fromQuest);
+
+        foreach (Pawn pawn in PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists_NoSlaves)
+        {
+            pawn.needs?.mood?.thoughts?.memories?.TryGainMemory(VFED_DefOf.VFED_JoinedDeserters);
+        
+        }
+
     }
 
     public void BetrayDeserters(Quest fromQuest)

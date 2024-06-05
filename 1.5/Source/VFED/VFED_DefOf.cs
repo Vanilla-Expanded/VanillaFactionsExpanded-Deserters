@@ -67,6 +67,9 @@ public class VFED_DefOf
 
     public static SitePartDef VFED_ZeusCannonComplex;
 
+    public static ThoughtDef VFED_JoinedDeserters;
+    public static ThoughtDef VFED_UsedDeclassifier;
+
     static VFED_DefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(VFED_DefOf));
