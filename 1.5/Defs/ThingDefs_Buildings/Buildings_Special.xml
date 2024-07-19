@@ -245,7 +245,7 @@
     </statBases>
     <fillPercent>0.6</fillPercent>
     <comps>
-      <li Class="VFED.CompProperties_Explosive_Shells">
+      <li Class="VFECore.CompProperties_Explosive_Shells">
         <wickTicks>1000</wickTicks>
         <explosiveRadius>9</explosiveRadius>
         <explosiveDamageType>Bomb</explosiveDamageType>

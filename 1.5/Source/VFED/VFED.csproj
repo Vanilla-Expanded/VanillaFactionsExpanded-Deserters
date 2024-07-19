@@ -68,7 +68,6 @@
     <Compile Include="AI\WorkGiver_ExtractIntel.cs" />
     <Compile Include="Comps\CompDeployable.cs" />
     <Compile Include="Comps\CompEMPEffect.cs" />
-    <Compile Include="Comps\CompExplosive_Shells.cs" />
     <Compile Include="Comps\CompFleckEmitterExtended.cs" />
     <Compile Include="Comps\CompIntelExtract.cs" />
     <Compile Include="Comps\CompIntelExtractor.cs" />
