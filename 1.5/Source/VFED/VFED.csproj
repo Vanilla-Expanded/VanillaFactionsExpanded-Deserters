@@ -135,7 +135,6 @@
     <Compile Include="DesertersMod.cs" />
     <Compile Include="Things\LightningBeamMeshes.cs" />
     <Compile Include="Things\Mote_Strike.cs" />
-    <Compile Include="Things\Projectile_Shrapnel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContrabandManager.cs" />
     <Compile Include="UI\DesertersUIUtility.cs" />

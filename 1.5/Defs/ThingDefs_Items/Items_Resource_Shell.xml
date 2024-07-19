@@ -55,8 +55,8 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
-    <thingClass>VFED.Projectile_Shrapnel</thingClass>
-    <projectile Class="VFED.ProjectileProperties_Shrapnel">
+    <thingClass>VFECore.Projectile_Shrapnel</thingClass>
+    <projectile Class="VFECore.ProjectileProperties_Shrapnel">
       <damageDef>Bomb</damageDef>
       <speed>41</speed>
       <explosionRadius>2.9</explosionRadius>
@@ -75,7 +75,7 @@
   <ThingDef ParentName="BaseBullet">
     <defName>VFED_Bullet_Shrapnel</defName>
     <label>shrapnel</label>
-    <thingClass>VFED.Projectile_ShrapnelPiece</thingClass>
+    <thingClass>VFECore.Projectile_ShrapnelPiece</thingClass>
     <graphicData>
       <texPath>Things/Projectile/Bullet_Small</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -237,8 +237,8 @@
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>TransparentPostLight</shaderType>
     </graphicData>
-    <thingClass>VFED.Projectile_Shrapnel</thingClass>
-    <projectile Class="VFED.ProjectileProperties_Shrapnel">
+    <thingClass>VFECore.Projectile_Shrapnel</thingClass>
+    <projectile Class="VFECore.ProjectileProperties_Shrapnel">
       <damageDef>Bomb</damageDef>
       <speed>41</speed>
       <explosionRadius>2.9</explosionRadius>
