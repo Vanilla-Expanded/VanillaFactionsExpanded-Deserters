@@ -15,7 +15,7 @@
     <VFED.ItemName>Name of the item</VFED.ItemName>
     <VFED.Cost>Cost</VFED.Cost>
     <VFED.Basket>Basket</VFED.Basket>
-    <VFED.ContrabandRecieveDesc>Items purchased via the contraband system do not arrive in your colony with cargopods. Instead, a dead drop pick up quest will become available after some amount of time, and the quest will only be available for a brief moment. This is where you pick up purchased contraband.</VFED.ContrabandRecieveDesc>
+    <VFED.ContrabandRecieveDesc>Items purchased via the contraband system do not arrive in your colony with cargo pods. Instead, a dead drop pick up quest will become available after some amount of time, and the quest will only be available for a brief moment. This is where you pick up purchased contraband.</VFED.ContrabandRecieveDesc>
     <VFED.Purchase>Purchase</VFED.Purchase>
     <VFED.RushDelivery>Rush delivery</VFED.RushDelivery>
     <VFED.TotalCost>Total basket cost</VFED.TotalCost>
