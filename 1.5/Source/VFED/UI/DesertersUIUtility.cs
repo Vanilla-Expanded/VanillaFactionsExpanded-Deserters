@@ -39,11 +39,10 @@ public static class DesertersUIUtility
         }
     }
 
-    public static bool DoPurchaseButton(Rect inRect, string text, int intelCost, int criticalIntelCost, Dialog_DeserterNetwork parent)
+    public static bool DoPurchaseButton(Rect inRect, string text, int intelCost, int criticalIntelCost, Dialog_DeserterNetwork parent, bool forceDisabled = false)
     {
-        var cartEmpty = ContrabandManager.ShoppingCart.NullOrEmpty();
-        if (!parent.HasIntel(intelCost, criticalIntelCost) || cartEmpty) GUI.color = Color.grey;
-        if (Widgets.ButtonText(inRect, text) && !cartEmpty && parent.TrySpendIntel(intelCost, criticalIntelCost))
+        if (!parent.HasIntel(intelCost, criticalIntelCost) || forceDisabled) GUI.color = Color.grey;
+        if (Widgets.ButtonText(inRect, text) && !forceDisabled && parent.TrySpendIntel(intelCost, criticalIntelCost))
         {
             SoundDefOf.ExecuteTrade.PlayOneShotOnCamera();
             GUI.color = Color.white;

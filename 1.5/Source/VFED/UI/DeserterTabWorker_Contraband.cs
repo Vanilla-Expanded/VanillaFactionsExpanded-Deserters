@@ -107,7 +107,7 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
         buttonsRect.yMin -= 5;
 
         if (DesertersUIUtility.DoPurchaseButton(buttonsRect.TakeTopPart(100).ContractedBy(25, 5), "VFED.Purchase".Translate(), TotalCostIntel,
-                TotalCostCriticalIntel, Parent))
+                TotalCostCriticalIntel, Parent, ShoppingCart.NullOrEmpty()))
         {
             var slate = new Slate();
             slate.Set("delayTicks", Utilities.ReceiveTimeRange(TotalAmount).RandomInRange.DaysToTicks());
@@ -122,7 +122,7 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
         }
 
         if (DesertersUIUtility.DoPurchaseButton(buttonsRect.ContractedBy(25, 0), "VFED.RushDelivery".Translate(), TotalCostIntel * 2,
-                TotalCostCriticalIntel * 2, Parent))
+                TotalCostCriticalIntel * 2, Parent, ShoppingCart.NullOrEmpty()))
         {
             var things = new List<List<Thing>>();
             var curList = new List<Thing>();
