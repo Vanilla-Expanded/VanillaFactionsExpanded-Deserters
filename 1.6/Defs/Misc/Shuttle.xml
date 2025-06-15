@@ -106,7 +106,7 @@
         <defName>VFED_TravelingDeserterShuttle</defName>
         <label>deserter shuttle</label>
         <description>A deserter shuttle in flight.</description>
-        <worldObjectClass>TravelingTransportPods</worldObjectClass>
+        <worldObjectClass>TravellingTransporters</worldObjectClass>
         <texture>World/WorldObjects/Caravan</texture>
         <useDynamicDrawer>true</useDynamicDrawer>
         <expandingIcon>true</expandingIcon>

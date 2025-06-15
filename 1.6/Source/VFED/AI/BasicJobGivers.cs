@@ -103,14 +103,14 @@ public class JobGiver_FleeEnemies : ThinkNode_JobGiver
         for (var i = 0; i < potentialTargetsFor.Count; i++)
         {
             var thing = potentialTargetsFor[i].Thing;
-            if (SelfDefenseUtility.ShouldFleeFrom(thing, pawn, false, true)) tmpThreats.Add(thing);
+            if (FleeUtility.ShouldFleeFrom(thing, pawn, false, true)) tmpThreats.Add(thing);
         }
 
         var list = pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.AlwaysFlee);
         for (var j = 0; j < list.Count; j++)
         {
             var thing2 = list[j];
-            if (SelfDefenseUtility.ShouldFleeFrom(thing2, pawn, false, true)) tmpThreats.Add(thing2);
+            if (FleeUtility.ShouldFleeFrom(thing2, pawn, false, true)) tmpThreats.Add(thing2);
         }
 
         if (!tmpThreats.Any()) return null;

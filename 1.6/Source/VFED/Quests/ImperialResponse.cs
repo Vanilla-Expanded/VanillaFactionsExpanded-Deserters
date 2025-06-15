@@ -105,8 +105,11 @@ public class QuestPart_ImperialResponse : QuestPartActivable
 
                 pods.Add(pod);
             }
-
-            TransportersArrivalActionUtility.DropShuttle(pods, map, DropCellFinder.GetBestShuttleLandingSpot(map, Faction.OfEmpire), Faction.OfEmpire);
+            foreach (var pod in pods)
+            {
+                TransportersArrivalActionUtility.DropShuttle(pod, map, 
+                    DropCellFinder.GetBestShuttleLandingSpot(map, Faction.OfEmpire));
+            }
         }
 
         if (responseDef.gameCondition != null) map.gameConditionManager.RegisterCondition(GameConditionMaker.MakeConditionPermanent(responseDef.gameCondition));

@@ -219,7 +219,7 @@ public class QuestPart_RevealDelay : QuestPart_DelayRandom
         base.Enable(receivedArgs);
         quest.hidden = true;
         quest.hiddenInUI = true;
-        quest.ticksUntilAcceptanceExpiry = -1;
+        quest.acceptanceExpireTick = -1;
     }
 
     protected override void Complete(SignalArgs signalArgs)
@@ -227,7 +227,7 @@ public class QuestPart_RevealDelay : QuestPart_DelayRandom
         base.Complete(signalArgs);
         quest.hidden = false;
         quest.hiddenInUI = false;
-        quest.ticksUntilAcceptanceExpiry = quest.root.expireDaysRange.RandomInRange.DaysToTicks();
+        quest.acceptanceExpireTick = GenTicks.TicksGame + quest.root.expireDaysRange.RandomInRange.DaysToTicks();
         quest.appearanceTick = Find.TickManager.TicksGame;
         QuestUtility.SendLetterQuestAvailable(quest);
     }

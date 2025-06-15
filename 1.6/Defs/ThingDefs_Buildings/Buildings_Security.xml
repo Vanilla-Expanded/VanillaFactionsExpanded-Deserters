@@ -251,7 +251,7 @@
     </costList>
     <uiOrder>47</uiOrder>
     <comps>
-      <li Class="VFECore.CompProperties_Explosive_Shells">
+      <li Class="VEF.Weapons.CompProperties_Explosive_Shells">
         <explosiveRadius>0.1</explosiveRadius>
         <explosiveDamageType>Burn</explosiveDamageType>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
@@ -310,7 +310,7 @@
     </costList>
     <uiOrder>49</uiOrder>
     <comps>
-      <li Class="VFECore.CompProperties_Explosive_Shells">
+      <li Class="VEF.Weapons.CompProperties_Explosive_Shells">
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
         <explosiveRadius>0.1</explosiveRadius>
         <explosiveDamageType>Burn</explosiveDamageType>
@@ -341,7 +341,7 @@
 	  <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <comps>
-      <li Class="VFECore.CompProperties_Explosive_Shells">
+      <li Class="VEF.Weapons.CompProperties_Explosive_Shells">
         <explosiveRadius>0.1</explosiveRadius>
         <explosiveDamageType>Burn</explosiveDamageType>
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
@@ -402,7 +402,7 @@
 	  <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
     <comps>
-      <li Class="VFECore.CompProperties_Explosive_Shells">
+      <li Class="VEF.Weapons.CompProperties_Explosive_Shells">
         <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
         <explosiveRadius>0.1</explosiveRadius>
         <explosiveDamageType>Burn</explosiveDamageType>

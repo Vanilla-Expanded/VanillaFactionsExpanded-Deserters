@@ -182,7 +182,6 @@
       <WorkToBuild>200</WorkToBuild>
     </statBases>
     <building>
-      <soundAmbient>VFE_SurveillancePillarLoop_Ambience</soundAmbient>
       <destroySound>BuildingDestroyed_Metal_Medium</destroySound>
     </building>
     <tickerType>Normal</tickerType>
@@ -218,6 +217,9 @@
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
       </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>VFE_SurveillancePillarLoop_Ambience</sound>
+      </li>
     </comps>
     <fillPercent>0.3</fillPercent>
   </ThingDef>
@@ -245,7 +247,7 @@
     </statBases>
     <fillPercent>0.6</fillPercent>
     <comps>
-      <li Class="VFECore.CompProperties_Explosive_Shells">
+      <li Class="VEF.Weapons.CompProperties_Explosive_Shells">
         <wickTicks>1000</wickTicks>
         <explosiveRadius>9</explosiveRadius>
         <explosiveDamageType>Bomb</explosiveDamageType>
@@ -284,9 +286,6 @@
       <WorkToBuild>600</WorkToBuild>
     </statBases>
     <fillPercent>0.4</fillPercent>
-    <building>
-      <soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
-    </building>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>100</wickTicks>
@@ -299,6 +298,9 @@
       </li>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>VFE_ElectricityCracklingAmbience</sound>
       </li>
     </comps>
     <tickerType>Normal</tickerType>
@@ -493,9 +495,6 @@
       <WorkToBuild>1000</WorkToBuild>
     </statBases>
     <fillPercent>0.6</fillPercent>
-    <building>
-      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
-    </building>
     <comps>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
@@ -503,6 +502,9 @@
       <li Class="CompProperties_Glower">
         <glowRadius>8</glowRadius>
         <glowColor>(214,46,31,0)</glowColor>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>VFE_SurveillanceStation_Loop</sound>
       </li>
     </comps>
   </ThingDef>
@@ -529,9 +531,6 @@
       <WorkToBuild>1500</WorkToBuild>
       <Flammability>0.5</Flammability>
     </statBases>
-    <building>
-      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
-    </building>
     <costList>
       <Steel>150</Steel>
       <Plasteel>15</Plasteel>
@@ -546,6 +545,9 @@
       <li Class="CompProperties_Glower">
         <glowRadius>4</glowRadius>
         <glowColor>(214,46,31,0)</glowColor>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>VFE_SurveillanceStation_Loop</sound>
       </li>
     </comps>
   </ThingDef>
@@ -573,15 +575,15 @@
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
     <fillPercent>0.6</fillPercent>
-    <building>
-      <soundAmbient>VFE_Techprinter_Ambience</soundAmbient>
-    </building>
     <comps>
       <li Class="CompProperties_Explosive">
         <wickTicks>300</wickTicks>
         <explosiveRadius>7</explosiveRadius>
         <explosiveDamageType>Bomb</explosiveDamageType>
         <chanceNeverExplodeFromDamage>1.0</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>VFE_Techprinter_Ambience</sound>
       </li>
     </comps>
     <tickerType>Normal</tickerType>
@@ -723,7 +725,6 @@
     </placeWorkers>
     <building>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
-      <soundAmbient>BulletShield_Ambience</soundAmbient>
 	</building>
     <comps>
       <li Class="VFED.CompProperties_ProjectileInterceptor_Powered">
@@ -744,6 +745,9 @@
       </li>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>BulletShield_Ambience</sound>
       </li>
     </comps>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
@@ -788,9 +792,6 @@
     <pathCost>50</pathCost>
     <tickerType>Normal</tickerType>
     <drawerType>MapMeshAndRealTime</drawerType>
-    <building>
-      <soundAmbient>VFE_SurveillanceStation_Loop</soundAmbient>
-    </building>
     <comps>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
@@ -798,6 +799,9 @@
       <li Class="CompProperties_Glower">
         <glowRadius>4</glowRadius>
         <glowColor>(214,46,31,0)</glowColor>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>VFE_SurveillanceStation_Loop</sound>
       </li>
     </comps>
   </ThingDef>
@@ -831,9 +835,6 @@
       <WorkToBuild>1800</WorkToBuild>
     </statBases>
     <fillPercent>0.4</fillPercent>
-    <building>
-      <soundAmbient>VFE_ElectricityCracklingAmbience</soundAmbient>
-    </building>
     <passability>Impassable</passability>
     <comps>
       <li Class="CompProperties_Explosive">
@@ -847,6 +848,9 @@
       </li>
       <li>
         <compClass>VFED.CompIntelExtract</compClass>
+      </li>
+      <li Class="CompProperties_AmbientSound">
+        <sound>VFE_ElectricityCracklingAmbience</sound>
       </li>
     </comps>
   </ThingDef>

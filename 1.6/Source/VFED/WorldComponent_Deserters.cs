@@ -212,7 +212,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable, ILoadRefe
             var quest = QuestGen.Generate(questScript, slate);
             quest.hidden = true;
             quest.hiddenInUI = true;
-            quest.ticksUntilAcceptanceExpiry = -1;
+            quest.acceptanceExpireTick = -1;
             Find.QuestManager.Add(quest);
             ServiceQuests.Add(quest);
             var choice = quest.PartsListForReading.OfType<QuestPart_Choice>().First();
@@ -288,7 +288,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable, ILoadRefe
         var quest = QuestGen.Generate(plot.royalTitle == VFEE_DefOf.Emperor ? VFED_DefOf.VFED_DeserterEndgame : VFED_DefOf.VFED_PlotMission, slate);
         quest.hidden = true;
         quest.hiddenInUI = true;
-        quest.ticksUntilAcceptanceExpiry = -1;
+        quest.acceptanceExpireTick = -1;
         Find.QuestManager.Add(quest);
         plot.quest = quest;
         GeneratingPlot = null;

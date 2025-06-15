@@ -200,7 +200,10 @@ public class MapComponent_FlagshipFight : MapComponent
                 pod.innerContainer.TryAddRangeOrTransfer(pawns, false);
                 lord.AddPawns(pawns);
                 pods.Add(pod);
-                TransportersArrivalActionUtility.DropShuttle(pods, map, DropCellFinder.GetBestShuttleLandingSpot(map, Faction.OfEmpire), Faction.OfEmpire);
+                foreach (var shuttle in pods)
+                {
+                    TransportersArrivalActionUtility.DropShuttle(shuttle, map, DropCellFinder.GetBestShuttleLandingSpot(map, Faction.OfEmpire));
+                }
             }
 
             if (Rand.MTBEventOccurs(100, 60, 30))

@@ -87,6 +87,8 @@ public class DeserterTabWorker_Services : DeserterTabWorker
         }
     }
 
+    private static readonly Vector2 GizmoSpacing = new Vector2(5f, 14f);
+
     public override void DoMainPart(Rect inRect)
     {
         using (new TextBlock(GameFont.Medium))
@@ -156,19 +158,19 @@ public class DeserterTabWorker_Services : DeserterTabWorker
 
         var count = DefDatabase<DeserterServiceDef>.DefCount;
         var rows = Mathf.CeilToInt(count / 6f);
-        var height = rows * (Gizmo.Height + 25 + GizmoGridDrawer.GizmoSpacing.y);
-        var width = Mathf.Min(count, 6) * (Gizmo.Height + GizmoGridDrawer.GizmoSpacing.x);
+        var height = rows * (Gizmo.Height + 25 + GizmoSpacing.y);
+        var width = Mathf.Min(count, 6) * (Gizmo.Height + GizmoSpacing.x);
         var fullRect = new Rect(0, inRect.y + 5f, width, height).CenteredOnXIn(inRect);
         var rect = fullRect.TakeTopPart(Gizmo.Height + 25);
         count = 0;
         foreach (var service in DefDatabase<DeserterServiceDef>.AllDefs)
         {
             DrawService(rect.TakeLeftPart(Gizmo.Height), service);
-            rect.xMin += GizmoGridDrawer.GizmoSpacing.x;
+            rect.xMin += GizmoSpacing.x;
             count++;
             if (count >= 6)
             {
-                fullRect.yMin += GizmoGridDrawer.GizmoSpacing.y;
+                fullRect.yMin += GizmoSpacing.y;
                 rect = fullRect.TakeTopPart(Gizmo.Height + 25);
                 count = 0;
             }

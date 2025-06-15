@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ScenarioDef>
+  <ScenarioDef ParentName="ScenarioBase">
     <defName>VFED_NewSafehaven</defName>
     <label>New Safehaven</label>
     <description>Your deserter group has stumbled upon an old bunker, a potential haven. But with the valuable intel you carry, the Empire's visibility on you is alarmingly high. Aerodrones patrol the skies, and Imperial raiding parties are closing in. Use the intel to unlock powerful tech and deserter services, aiding your ultimate mission: to assassinate key Imperial nobility. Survive the initial onslaught and lay low; over time, the Empire's relentless search will wane. The choice is yours: fortify, adapt, or perish.\n\nNote: Since you start with high visibility, this is a difficult scenario.</description>

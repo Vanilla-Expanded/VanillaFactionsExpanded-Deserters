@@ -2,6 +2,7 @@
 using RimWorld;
 using Verse;
 using VEF;
+using System.Linq;
 
 namespace VFED;
 
@@ -12,7 +13,7 @@ public class DropPodIncoming_Propaganda : DropPodIncoming
         var usedCells = new HashSet<IntVec3>();
         for (var i = 0; i < 7; i++)
         {
-            var cell = GenAdjFast.AdjacentCells8Way(Position).Exclude(usedCells).RandomElement();
+            var cell = GenAdjFast.AdjacentCells8Way(Position).Except(usedCells).RandomElement();
             usedCells.Add(cell);
             FilthMaker.TryMakeFilth(cell, Map, VFED_DefOf.VFED_Filth_Propaganda, additionalFlags: FilthSourceFlags.Unnatural);
         }

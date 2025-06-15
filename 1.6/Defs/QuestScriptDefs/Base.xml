@@ -94,7 +94,7 @@
                 <li Class="VFED.QuestNode_ImperialResponse">
                     <siteName>site</siteName>
                 </li>
-                <li Class="VFECore.QuestNode_ForceMusic">
+                <li Class="VEF.Sounds.QuestNode_ForceMusic">
                     <inSignalEnable>site.MapGenerated</inSignalEnable>
                     <inSignalDisable>site.MapRemoved</inSignalDisable>
                     <possibleSongs>
