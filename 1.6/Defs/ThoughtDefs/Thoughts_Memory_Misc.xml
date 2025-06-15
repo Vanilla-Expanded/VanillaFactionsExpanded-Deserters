@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+
+	<ThoughtDef>
+		<defName>VFED_JoinedDeserters</defName>
+		<durationDays>1</durationDays>
+	
+		<stages>
+			<li>
+				<label>joined the deserters</label>
+				<description>We will show the Empire what freedom means.</description>
+				<baseMoodEffect>6</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	
+	<ThoughtDef>
+		<defName>VFED_UsedDeclassifier</defName>
+		<durationDays>1</durationDays>
+		<nullifyingTraits>
+			<li>Psychopath</li>
+			<li>Bloodlust</li>
+		</nullifyingTraits>
+		<stages>
+			<li>
+				<label>used a declassifier</label>
+				<description>It was a necessary evil.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+
+
+</Defs>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <VFED.ContrabandCategoryDef>
+    <defName>VFED_Deserter</defName>
+    <label>deserter technology</label>
+  </VFED.ContrabandCategoryDef>
+  <VFED.ContrabandCategoryDef>
+    <defName>VFED_Imperial</defName>
+    <label>imperial technology</label>
+  </VFED.ContrabandCategoryDef>
+  <DesignationDef>
+    <defName>VFED_ExtractIntel</defName>
+    <label>extract intel</label>
+    <description>extract intel from something</description>
+    <texturePath>Designators/RetrieveIntelDesignator</texturePath>
+    <targetType>Thing</targetType>
+    <removeIfBuildingDespawned>true</removeIfBuildingDespawned>
+  </DesignationDef>
+  <ShipJobDef>
+    <defName>VFED_WaitLaunchable</defName>
+    <jobClass>VFED.ShipJob_WaitLaunchable</jobClass>
+  </ShipJobDef>
+  <WorkGiverDef>
+    <defName>VFED_ExtractIntel</defName>
+    <label>extract intel</label>
+    <giverClass>VFED.WorkGiver_ExtractIntel</giverClass>
+    <workType>BasicWorker</workType>
+    <verb>extract</verb>
+    <gerund>extracting</gerund>
+    <priorityInType>55</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+</Defs>

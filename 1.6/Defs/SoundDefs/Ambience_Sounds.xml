@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?><Defs>
+
+  <SoundDef>
+    <defName>VFE_SurveillancePillarLoop_Ambience</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainStartSound>ScannerGroundPenetrating_Start</sustainStartSound>
+    <sustainStopSound>ScannerGroundPenetrating_Stop</sustainStopSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>SurveillancePillarRunning/SurveillancePillarRunning_Loop1a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>80</volumeRange>
+        <distRange>5~15</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_Techprinter_Ambience</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainStartSound>ScannerGroundPenetrating_Start</sustainStartSound>
+    <sustainStopSound>ScannerGroundPenetrating_Stop</sustainStopSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>TechPrinterLoop/TechPrinter_Ambience_Loop_01</clipPath>
+          </li>
+        </grains>
+        <volumeRange>30</volumeRange>
+        <distRange>5~15</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_SurveillanceStation_Loop</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainStartSound>ScannerGroundPenetrating_Start</sustainStartSound>
+    <sustainStopSound>ScannerGroundPenetrating_Stop</sustainStopSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>SurveillanceStationLoop/SurveillanceStation_Loop_1a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>60</volumeRange>
+        <distRange>5~15</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_ElectricityCracklingAmbience</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <sustainStartSound>FlickSwitch</sustainStartSound>
+    <sustainStopSound>FlickSwitch</sustainStopSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>ElectricityCrackling/ElectricityCracklingLoop_Sustainer_01a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>1</volumeRange>
+        <distRange>1~5</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_ZeusCannon_Aiming</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <maxSimultaneous>9</maxSimultaneous>
+    <sustainStartSound>FlickSwitch</sustainStartSound>
+    <sustainStopSound>TurretAcquireTarget</sustainStopSound>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>ZeusCannon_Aiming/ZeusCannon_Aiming_Sustainer_01a</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20</volumeRange>
+        <distRange>40~80</distRange>
+        <tempoAffectedByGameSpeed>true</tempoAffectedByGameSpeed>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_ZeusCannon_Shot</defName>  
+    <context>MapOnly</context>      
+    <maxSimultaneous>9</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipPath>ZeusCannon_Shot</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>65~70</volumeRange>
+        <pitchRange>0.8~1.1</pitchRange>
+        <distRange>20~160</distRange>
+        <filters>
+          <li Class="SoundFilterEcho">
+            <delay>1112.654</delay>          
+            <decayRatio>0.5433328</decayRatio>          
+            <wetMix>0.1333435</wetMix>          
+            <dryMix>1</dryMix>
+          </li>
+        </filters>      
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_ZeusCannon_DistantExplosion</defName>  
+    <context>MapOnly</context>      
+    <maxSimultaneous>9</maxSimultaneous>
+    <subSounds>
+      <li>
+        <onCamera>True</onCamera>    
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipPath>ZeusCannon_DistantExplosion</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>40~65</volumeRange>    
+        <pitchRange>0.8~1.1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_ZeusCannon_Recharging</defName>  
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <maxSimultaneous>9</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>ZeusCannon_Recharging/ZeusCannon_Recharging_01a</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>45~50</volumeRange>
+        <tempoAffectedByGameSpeed>true</tempoAffectedByGameSpeed>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_StrikeBuoy_Activated</defName>  
+    <context>MapOnly</context>      
+    <maxSimultaneous>4</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>StrikeBuoy/StrikeBuoy_Activated_01a</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>45~50</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>VFE_SurveillancePillar_Activated</defName>  
+    <context>MapOnly</context>      
+    <maxSimultaneous>4</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>SurveillanceAlarm/SurveillanceAlarm_ShutOff_01a</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>45~50</volumeRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  
+  
+</Defs>

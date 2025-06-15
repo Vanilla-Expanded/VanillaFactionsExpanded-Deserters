@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingSetMakerDef[defName="EmpireRaidLootMaker"]/root[@Class="ThingSetMaker_MarketValue"]/fixedParams/filter/thingDefs</xpath>
+        <value>
+            <li>VFED_Intel</li>
+			<li>VFED_CriticalIntel</li>
+        </value>
+    </Operation>
+</Patch>

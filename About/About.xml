@@ -5,6 +5,7 @@
   <supportedVersions>
     <li>1.4</li>
     <li>1.5</li>
+	 <li>1.6</li>
   </supportedVersions>
   <packageId>OskarPotocki.VFE.Deserters</packageId>
   <description>After the release of Vanilla Factions Expanded - Empire, a lot of you have requested that we tell the other side of this marvelous story - the story of Deserters. So many of you have requested it that in fact we made it our priority to release the Deserters faction expansion as soon as it was reasonably possible. What initially was meant to be a small mod about stealing stuff from the Empire, quickly became a grand new campaign against the evil nobility. We didn’t stop on just a few new quests and a new weapon - this mod comes packed with content to make the anti-imperial playthrough not only viable, but also oh so fun!
@@ -37,11 +38,7 @@ For obvious reasons this mod requires Royalty DLC.</description>
 	</li>
   </modDependencies>
   <loadAfter>
-    <li>Ludeon.RimWorld</li>
-    <li>Ludeon.RimWorld.Royalty</li>
-	<li>Ludeon.RimWorld.Ideology</li>
-	<li>Ludeon.RimWorld.Biotech</li>
-    <li>brrainz.harmony</li>
+  
     <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
     <li>OskarPotocki.VFE.Empire</li>
   </loadAfter>

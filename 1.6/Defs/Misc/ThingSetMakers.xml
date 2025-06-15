@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingSetMakerDef>
+    <defName>VFED_Reward_ItemsSpecial</defName>
+    <debugParams>
+      <totalMarketValueRange>500~5000</totalMarketValueRange>
+    </debugParams>
+    <root Class="ThingSetMaker_Sum">
+      <resolveInOrder>true</resolveInOrder>
+      <options>
+        <li>
+          <maxMarketValue>1000000</maxMarketValue>
+          <thingSetMaker Class="ThingSetMaker_RandomOption">
+            <fixedParams>
+              <minSingleItemMarketValuePct>0.15</minSingleItemMarketValuePct>
+            </fixedParams>
+            <options>
+              <li>
+                <weight>3</weight>
+                <thingSetMaker Class="ThingSetMaker_MarketValue">
+                  <fixedParams>
+                    <qualityGenerator>Reward</qualityGenerator>
+                    <allowNonStackableDuplicates>False</allowNonStackableDuplicates>
+                    <filter>
+                      <thingSetMakerTagsToAllow>
+                        <li>RewardStandardCore</li>
+                      </thingSetMakerTagsToAllow>
+                    </filter>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+              
+              <li>
+                <weight>5</weight>
+                <thingSetMaker Class="ThingSetMaker_MarketValue">
+                  <fixedParams>
+                    <qualityGenerator>Reward</qualityGenerator>
+                    <allowNonStackableDuplicates>False</allowNonStackableDuplicates>
+                    <filter>
+                      <thingSetMakerTagsToAllow>
+                        <li>RewardStandardHighFreq</li>
+                      </thingSetMakerTagsToAllow>
+                    </filter>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+              <li>
+                <weight>2.5</weight>
+                <thingSetMaker Class="ThingSetMaker_MarketValue">
+                  <fixedParams>
+                    <qualityGenerator>Reward</qualityGenerator>
+                    <allowNonStackableDuplicates>False</allowNonStackableDuplicates>
+                    <filter>
+                      <thingSetMakerTagsToAllow>
+                        <li>RewardStandardMidFreq</li>
+                      </thingSetMakerTagsToAllow>
+                    </filter>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_MarketValue">
+                  <fixedParams>
+                    <qualityGenerator>Reward</qualityGenerator>
+                    <allowNonStackableDuplicates>False</allowNonStackableDuplicates>
+                    <filter>
+                      <thingSetMakerTagsToAllow>
+                        <li>RewardStandardLowFreq</li>
+                      </thingSetMakerTagsToAllow>
+                    </filter>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <!-- Normal items, but in masterwork/legendary quality -->
+              <li>
+                <weight>1.5</weight>
+                <thingSetMaker Class="ThingSetMaker_MarketValue">
+                  <fixedParams>
+                    <qualityGenerator>Super</qualityGenerator>
+                    <allowNonStackableDuplicates>False</allowNonStackableDuplicates>
+                    <filter>
+                      <thingSetMakerTagsToAllow>
+                        <li>RewardStandardQualitySuper</li>
+                      </thingSetMakerTagsToAllow>
+                    </filter>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <!-- Techprints -->
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Techprints">
+                  <marketValueFactor>1.4</marketValueFactor>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>0.2</weight>
+                <weightIfPlayerHasNoItem>1</weightIfPlayerHasNoItem>
+                <weightIfPlayerHasNoItemItem>AIPersonaCore</weightIfPlayerHasNoItemItem>
+                <thingSetMaker Class="ThingSetMaker_Conditional_MinMaxTotalMarketValue">
+                  <minMaxTotalMarketValue>2500</minMaxTotalMarketValue>
+                  <thingSetMaker Class="ThingSetMaker_Conditional_ResearchFinished">
+                    <researchProject>MultiAnalyzer</researchProject>
+                    <thingSetMaker Class="ThingSetMaker_Count">
+                      <fixedParams>
+                        <filter>
+                          <thingDefs>
+                            <li>AIPersonaCore</li>
+                          </thingDefs>
+                        </filter>
+                      </fixedParams>
+                    </thingSetMaker>
+                  </thingSetMaker>
+                </thingSetMaker>
+              </li>
+            </options>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+</Defs>

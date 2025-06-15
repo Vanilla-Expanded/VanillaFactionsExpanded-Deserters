@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>VFED_NewSafehaven</defName>
+    <label>New Safehaven</label>
+    <description>A deserter cell, laying low.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>VFEE_Deserter</basicMemberKind>
+    <pawnSingular>deserter</pawnSingular>
+    <pawnsPlural>deserter</pawnsPlural>
+    <techLevel>Spacer</techLevel>
+    <factionNameMaker>NamerFactionOutlander</factionNameMaker>
+    <settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+    <allowedCultures><li>Astropolitan</li></allowedCultures>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Offworld</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+    <factionIconPath>WorldObjects/NewSafehaven</factionIconPath>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
+    <apparelStuffFilter>
+      <thingDefs>
+        <li>Synthread</li>
+      </thingDefs>
+    </apparelStuffFilter>
+    <modExtensions>
+      <li Class="VFECore.FactionDefExtension">
+        <startingGoodwillByFactionDefs>
+          <VFEE_Deserters>100~-100</VFEE_Deserters>
+        </startingGoodwillByFactionDefs>
+      </li>
+    </modExtensions>
+  </FactionDef>
+
+</Defs>

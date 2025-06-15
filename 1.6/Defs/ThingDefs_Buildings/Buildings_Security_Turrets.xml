@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase" Name="VFED_ImperialTurretBase" Abstract="True">
+    <thingClass>VFED.Building_TurretGunBarrels</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Structures/Security/ImperialTurret_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3, 3)</drawSize>
+      <drawOffset>(0,0,-0.1)</drawOffset>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(1.5,0.35,1.4)</volume>
+        <offset>(0,0,-0.05)</offset>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <size>(3,3)</size>
+    <statBases>
+      <MaxHitPoints>650</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <WorkToBuild>25000</WorkToBuild>
+      <Mass>200</Mass>
+      <Beauty>-20</Beauty>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.5</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Security</designationCategory>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>5.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+      </li>
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+    </comps>
+    <building>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretTopOffset>(0, 0)</turretTopOffset>
+    </building>
+    <researchPrerequisites>
+      <li>VFED_ImperialDefenses</li>
+    </researchPrerequisites>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+    <uiIconScale>0.95</uiIconScale>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_ImperialTurretBase">
+    <defName>VFED_Turret_Kontarion</defName>
+    <label>kontarion</label>
+    <description>A powerful, long-range weapon used by the Empire to take out enemy targets from afar. Kontarion turret fires ultra-dense uranium slugs at incredible speeds, penetrating even the heaviest armor. With its rapid-fire capabilities, tremendous accuracy and infinite range, it’s a force to be reckoned with. It's more accurate at longer ranges, and can't fire at all close up. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of uranium slug ammo in order to automatically reload. It cannot be reloaded by hand.</description>
+    <uiIconPath>Structures/Security/Kontarion_MenuIcon</uiIconPath>
+    <statBases>
+      <ShootingAccuracyTurret>0.98</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>450</Steel>
+      <Plasteel>80</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until rearm</fuelLabel>
+        <fuelGizmoLabel>Uranium slugs</fuelGizmoLabel>
+        <outOfFuelMessage>No slugs</outOfFuelMessage>
+        <fuelFilter>
+          <thingDefs>
+            <li>Uranium</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>30</fuelCapacity>
+        <fuelMultiplier>0.5</fuelMultiplier>
+        <initialFuelPercent>0</initialFuelPercent>
+        <autoRefuelPercent>0.5</autoRefuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>Overlays/NoAmmo_UraniumSlug</fuelIconPath>
+      </li>
+      <li Class="VFED.CompProperties_BoxRefuel">
+        <refuelWith>VFED_AmmoBox_UraniumSlug</refuelWith>
+        <mustUseBoxes>true</mustUseBoxes>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>VFED_Gun_Kontarion</turretGunDef>
+      <turretBurstCooldownTime>0.6</turretBurstCooldownTime>
+      <turretTopDrawSize>4.2</turretTopDrawSize>
+      <relatedBuildCommands>
+          <li>VFED_AmmoBox_UraniumSlug</li>
+      </relatedBuildCommands>
+    </building>
+    <modExtensions>
+      <li Class="VFED.TurretExtension_Barrels">
+        <barrels>
+          <li>(1.375, 0, 0)</li>
+          <li>(1.0625, 0, 0)</li>
+          <li>(0.75, 0, 0)</li>
+          <li>(-0.75, 0, 0)</li>
+          <li>(-1.0625, 0, 0)</li>
+          <li>(-1.375, 0, 0)</li>
+        </barrels>
+        <rotationSpeed>45</rotationSpeed>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>VFED_Gun_Kontarion</defName>
+    <label>kontarion cannon</label>
+    <description>A self-loading uranium slug cannon designed to attach to a turret.</description>
+    <graphicData>
+      <texPath>Structures/Security/KontarionTurret_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.12</AccuracyTouch>
+      <AccuracyShort>0.23</AccuracyShort>
+      <AccuracyMedium>0.34</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>3.2</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>40</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>Bullet_TurretSniper</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <minRange>15.9</minRange>
+        <range>500</range>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Shot_TurretSniper</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>18</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="VFED_ImperialTurretBase">
+    <defName>VFED_Turret_Palintone</defName>
+    <label>palintone</label>
+    <description>A powerful, anti-infantry weapon used by the Empire to defend unsafe outposts. Palintone turret fires large-caliber shells at incredible speeds, dealing heavy damage over significant ranges. It fires huge volleys of rounds that can provide suppressive fire and quickly shred lightly armored targets. With its devastating firepower, the Palintone turret is capable of keeping even the largest enemy forces at bay. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of autocannon ammo in order to automatically reload. It cannot be reloaded by hand.</description>
+    <uiIconPath>Structures/Security/PalintoneTurret_MenuIcon</uiIconPath>
+    <statBases>
+      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>480</Steel>
+      <Plasteel>60</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until rearm</fuelLabel>
+        <fuelGizmoLabel>Autocannon ammo</fuelGizmoLabel>
+        <outOfFuelMessage>No ammo</outOfFuelMessage>
+        <fuelFilter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>180</fuelCapacity>
+        <fuelMultiplier>0.75</fuelMultiplier>
+		<initialFuelPercent>0</initialFuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>Overlays/NoAmmo_Autocannon</fuelIconPath>
+      </li>
+      <li Class="VFED.CompProperties_BoxRefuel">
+        <refuelWith>VFED_AmmoBox_Autocannon</refuelWith>
+        <mustUseBoxes>true</mustUseBoxes>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>VFED_Gun_Palintone</turretGunDef>
+      <turretBurstCooldownTime>0</turretBurstCooldownTime>
+      <turretTopDrawSize>4.2</turretTopDrawSize>
+      <relatedBuildCommands>
+          <li>VFED_AmmoBox_Autocannon</li>
+      </relatedBuildCommands>
+    </building>
+    <modExtensions>
+      <li Class="VFED.TurretExtension_Barrels">
+        <barrels>
+          <li>(1.1875, 0, 0)</li>
+          <li>(0.75, 0, 0)</li>
+          <li>(-0.75, 0, 0)</li>
+          <li>(-1.1875, 0, 0)</li>
+        </barrels>
+        <rotationSpeed>45</rotationSpeed>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>VFED_Gun_Palintone</defName>
+    <label>palintone cannon</label>
+    <description>A self-loading cannon designed to attach to a turret.</description>
+    <graphicData>
+      <texPath>Structures/Security/PalintoneTurret_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.15</AccuracyTouch>
+      <AccuracyShort>0.25</AccuracyShort>
+      <AccuracyMedium>0.25</AccuracyMedium>
+      <AccuracyLong>0.18</AccuracyLong>
+      <RangedWeapon_Cooldown>0.0267</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>50</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>Bullet_Minigun</defaultProjectile>
+        <warmupTime>0.01</warmupTime>
+        <minRange>18.9</minRange>
+        <range>500</range>
+        <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+        <burstShotCount>15</burstShotCount>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  <ThingDef ParentName="VFED_ImperialTurretBase">
+    <defName>VFED_Turret_Onager</defName>
+    <label>onager</label>
+    <description>A powerful, anti-armored weapon used by the Empire to destroy heavily armored targets with ease. Capable of launching missiles in bursts of 6, the Onager can deal devastating damage to enemy forces in a short amount of time. The Onager turret is most effective at short range, where its missiles can be accurately targeted at enemy positions. However, it cannot fire at enemies that are too close, as the missiles require a certain distance to arm and track their targets. Additionally, due to the sheer number of missiles it fires, the Onager is not as accurate as other turrets, and can sometimes miss its targets. May explode when damaged.\n\nIt consumes a lot of ammunition, and requires an adjacent crate of missile ammo in order to automatically reload. It cannot be reloaded by hand.</description>
+    <uiIconPath>Structures/Security/OnagerTurret_MenuIcon</uiIconPath>
+    <statBases>
+      <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+    </statBases>
+    <costList>
+      <Steel>480</Steel>
+      <Plasteel>60</Plasteel>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Refuelable">
+        <fuelLabel>Shots until rearm</fuelLabel>
+        <fuelGizmoLabel>Onager missiles</fuelGizmoLabel>
+        <outOfFuelMessage>No missiles</outOfFuelMessage>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <fuelCapacity>12</fuelCapacity>
+        <fuelMultiplier>0.75</fuelMultiplier>
+		<initialFuelPercent>0</initialFuelPercent>
+        <showFuelGizmo>true</showFuelGizmo>
+        <minimumFueledThreshold>1</minimumFueledThreshold>
+        <factorByDifficulty>true</factorByDifficulty>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelIconPath>Overlays/NoAmmo_Missile</fuelIconPath>
+      </li>
+      <li Class="VFED.CompProperties_BoxRefuel">
+        <refuelWith>VFED_AmmoBox_Missile</refuelWith>
+        <mustUseBoxes>true</mustUseBoxes>
+      </li>
+    </comps>
+    <building>
+      <turretGunDef>VFED_Gun_Onager</turretGunDef>
+      <turretBurstCooldownTime>0.05</turretBurstCooldownTime>
+      <turretTopDrawSize>4.2</turretTopDrawSize>
+      <relatedBuildCommands>
+        <li>VFED_AmmoBox_Missile</li>
+      </relatedBuildCommands>
+    </building>
+    <modExtensions>
+      <li Class="VFED.TurretExtension_Barrels">
+        <barrels>
+          <li>(1.375, 0, 0)</li>
+          <li>(1.0625, 0, 0)</li>
+          <li>(0.75, 0, 0)</li>
+          <li>(-0.75, 0, 0)</li>
+          <li>(-1.0625, 0, 0)</li>
+          <li>(-1.375, 0, 0)</li>
+        </barrels>
+        <rotationSpeed>45</rotationSpeed>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeaponTurret">
+    <defName>VFED_Gun_Onager</defName>
+    <label>onager cannon</label>
+    <description>A self-loading rocket launcher designed to attach to a turret.</description>
+    <graphicData>
+      <texPath>Structures/Security/OnagerTurret_Top</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(6,6)</drawSize>
+    </graphicData>
+    <statBases>
+      <AccuracyTouch>0.15</AccuracyTouch>
+      <AccuracyShort>0.25</AccuracyShort>
+      <AccuracyMedium>0.25</AccuracyMedium>
+      <AccuracyLong>0.18</AccuracyLong>
+      <RangedWeapon_Cooldown>3.0</RangedWeapon_Cooldown>
+      <DeteriorationRate>0</DeteriorationRate>
+      <Mass>50</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <defaultProjectile>VFFED_Bullet_Onager</defaultProjectile>
+        <warmupTime>0</warmupTime>
+        <minRange>16.9</minRange>
+		<forcedMissRadius>2.9</forcedMissRadius>
+        <range>54.9</range>
+        <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+        <burstShotCount>6</burstShotCount>
+        <soundCast>RocketswarmLauncher_Fire</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+        <consumeFuelPerShot>1</consumeFuelPerShot>
+      </li>
+    </verbs>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>VFFED_Bullet_Onager</defName>
+    <label>onager</label>
+    <graphicData>
+      <texPath>Projectiles/Rocket_Onager</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>Projectile_Explosive</thingClass>
+    <projectile>
+      <speed>40</speed>
+      <damageDef>Bomb</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <explosionRadius>2.9</explosionRadius>
+      <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+      <ai_IsIncendiary>true</ai_IsIncendiary>
+      <arcHeightFactor>0.8</arcHeightFactor>
+      <soundExplode>Explosion_Rocket</soundExplode>
+      <shadowSize>0.6</shadowSize>
+    </projectile>
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>VFED_Turret_StrikerTurret</defName>
+    <label>striker turret</label>
+    <description>A stationary, powerful turret. Will self-destruct if it is sufficiently damaged.</description>
+    <thingClass>Building_TurretGun</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Structures/Security/ImperialTurret_Base</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+      <shadowData>
+        <volume>(0.27,0.25,0.27)</volume>
+        <offset>(0,0,0)</offset>
+      </shadowData>
+    </graphicData>
+    <uiIconPath>Structures/Security/StrikerTurret_MenuIcon</uiIconPath>
+    <uiIconScale>0.90</uiIconScale>
+    <altitudeLayer>Building</altitudeLayer>
+    <stealable>false</stealable>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>0.7</Flammability>
+      <Mass>10</Mass>
+      <Beauty>-20</Beauty>
+      <ShootingAccuracyTurret>0.78</ShootingAccuracyTurret>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <wickTicks>240</wickTicks>
+        <explosiveRadius>3.9</explosiveRadius>
+        <explosiveDamageType>Bomb</explosiveDamageType>
+        <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+        <explodeOnKilled>true</explodeOnKilled>
+      </li>
+      <li><compClass>VFED.CompIntelExtract</compClass></li>
+    </comps>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <fillPercent>0.4</fillPercent>
+    <hasTooltip>true</hasTooltip>
+    <costList>
+      <Steel>70</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <building>
+      <combatPower>45</combatPower>
+      <ai_combatDangerous>true</ai_combatDangerous>
+      <turretGunDef>VFEE_Gun_StrikerTurret</turretGunDef>
+      <turretBurstCooldownTime>6.8</turretBurstCooldownTime>
+      <deconstructible>false</deconstructible>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_TurretTop</li>
+      <li>PlaceWorker_ShowTurretRadius</li>
+    </placeWorkers>
+  </ThingDef>
+
+</Defs>

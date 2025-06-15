@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="DropPodIncoming">
+        <defName>VFED_DropPodIncoming_Propaganda</defName>
+        <thingClass>VFED.DropPodIncoming_Propaganda</thingClass>
+    </ThingDef>
+</Defs>

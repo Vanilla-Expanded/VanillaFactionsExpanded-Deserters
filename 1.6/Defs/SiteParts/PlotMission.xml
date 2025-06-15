@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <SitePartDef ParentName="VFED_PlotMissionSiteBase">
+        <defName>VFED_PlotMission_Raid</defName>
+        <label>noble mansion</label>
+        <description>A mansion for a noble.</description>
+        <tags>
+            <li>VFED_PlotMission_Raid</li>
+        </tags>
+    </SitePartDef>
+    <SitePartDef ParentName="VFED_PlotMissionSiteBase">
+        <defName>VFED_PlotMission_DownedShuttle</defName>
+        <label>downed shuttle</label>
+        <description>A downed shuttle carrying a noble.</description>
+        <tags>
+            <li>VFED_PlotMission_DownedShuttle</li>
+        </tags>
+    </SitePartDef>
+    <GenStepDef>
+        <defName>VFED_PlotMission_Raid</defName>
+        <linkWithSite>VFED_PlotMission_Raid</linkWithSite>
+        <order>470</order>
+        <genStep Class="VFED.GenStep_PlotRaid"></genStep>
+    </GenStepDef>
+    <GenStepDef>
+        <defName>VFED_PlotMission_DownedShuttle</defName>
+        <linkWithSite>VFED_PlotMission_DownedShuttle</linkWithSite>
+        <order>470</order>
+        <genStep Class="VFED.GenStep_DownedShuttle"></genStep>
+    </GenStepDef>
+</Defs>

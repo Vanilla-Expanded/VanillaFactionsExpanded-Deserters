@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="BaseBullet">
+        <defName>VFED_AerodroneStrikeIncoming</defName>
+        <label>aerodrone strike</label>
+        <graphicData>
+          <texPath>Things/Projectile/ShellHighExplosive</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+          <damageDef>Bomb</damageDef>
+          <speed>73</speed>
+          <explosionRadius>2.9</explosionRadius>
+          <flyOverhead>true</flyOverhead>
+          <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+          <soundExplode>MortarBomb_Explode</soundExplode>
+          <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+          <soundAmbient>MortarRound_Ambient</soundAmbient>
+          <arcHeightFactor>10</arcHeightFactor>
+          <shadowSize>0.5</shadowSize>
+        </projectile>
+        <comps>
+            <li><compClass>VFED.CompStrike</compClass></li>
+            <li><compClass>VFED.CompSmokeEmitter</compClass></li>
+            <li Class="VFED.CompProperties_FleckEmitterExtended">
+              <fleck>VFED_ExhaustGlow</fleck>
+              <emissionInterval>5</emissionInterval>
+              <scale>8~12</scale>
+              <rotationRate>-3~3</rotationRate>
+              <velocityAngle>0~360</velocityAngle>
+              <velocitySpeed>0.12</velocitySpeed>
+            </li>
+        </comps>
+    </ThingDef>
+    <ThingDef ParentName="BaseBullet">
+      <defName>VFED_Spark</defName>
+      <label>spark</label>
+      <thingClass>VFED.Projectile_Spark</thingClass>
+      <graphicData>
+        <graphicClass>Graphic_Single</graphicClass>
+        <texPath>Things/Mote/MicroSparks</texPath>
+        <shaderType>MoteGlow</shaderType>
+      </graphicData>
+      <projectile>
+        <speed>21</speed>
+        <alwaysFreeIntercept>true</alwaysFreeIntercept>
+      </projectile>
+    </ThingDef>
+</Defs>

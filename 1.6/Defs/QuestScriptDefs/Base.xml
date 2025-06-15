@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFED_DeserterQuestBase</defName>
+        <root Class="QuestNode_Sequence">
+            <nodes>
+                <li Class="VFED.QuestNode_GetEmpire">
+                    <storeAs>empire</storeAs>
+                </li>
+                <li Class="VFED.QuestNode_GetDeserters">
+                    <storeAs>deserters</storeAs>
+                </li>
+                <li Class="QuestNode_GetMap" />
+                <li Class="QuestNode_IsTrue">
+                    <value>$purchasable</value>                    <!-- Set by Services UI code for quests to be purchased-->
+                    <node Class="QuestNode_SubScript">
+                        <def>VFED_Util_RandomizePointsChallengeRating_AllStars</def>
+                    </node>
+                    <elseNode Class="QuestNode_SubScript">
+                        <def>Util_RandomizePointsChallengeRating</def>
+                    </elseNode>
+                </li>
+                <li Class="QuestNode_SubScript">
+                    <def>Util_AdjustPointsForDistantFight</def>
+                </li>
+                <li Class="QuestNode_GetSiteTile">
+                    <storeAs>siteTile</storeAs>
+                    <preferCloserTiles>true</preferCloserTiles>
+                </li>
+                <li Class="QuestNode_GetDefaultSitePartsParams">
+                    <tile>$siteTile</tile>
+                    <faction>$empire</faction>
+                    <sitePartDefs>
+                        <li>$sitePartDef</li>
+                    </sitePartDefs>
+                    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+                </li>
+                <li Class="QuestNode_Set">
+                    <name>siteFaction</name>
+                    <value>$empire</value>
+                </li>
+                <li Class="QuestNode_GetSiteThreatPoints">
+                    <storeAs>sitePoints</storeAs>
+                    <sitePartsParams>$sitePartsParams</sitePartsParams>
+                </li>
+                <li Class="QuestNode_SubScript">
+                    <def>Util_GetDefaultRewardValueFromPoints</def>
+                </li>
+                <li Class="QuestNode_Multiply">
+                    <value1>$rewardValue</value1>
+                    <value2>3.125</value2>
+                    <storeAs>rewardValue</storeAs>
+                </li>
+                <li Class="QuestNode_SubScript">
+                    <def>Util_GenerateSite</def>
+                </li>
+                <li Class="QuestNode_SpawnWorldObjects">
+                    <worldObjects>$site</worldObjects>
+                </li>
+                <li Class="QuestNode_IsSet">
+                    <name>objectiveCompleteSignal</name>
+                    <elseNode Class="QuestNode_Set">
+                        <name>objectiveCompleteSignal</name>
+                        <value>Destroyed</value>
+                    </elseNode>
+                </li>
+                <li Class="QuestNode_IsTrue">
+                    <value>$hasObjectives</value>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="VFED.QuestNode_MarkObjectives">
+                                <inSignal>site.MapGenerated</inSignal>
+                                <mapParent>$site</mapParent>
+                                <objectiveDef>$objectiveDef</objectiveDef>
+                                <objectiveCompleteSignal>$objectiveCompleteSignal</objectiveCompleteSignal>
+                            </li>
+                            <li Class="QuestNode_Set">
+                                <name>questCompleteSignal</name>
+                                <value>objectives.Complete</value>
+                            </li>
+                        </nodes>
+                    </node>
+                    <elseNode Class="QuestNode_Set">
+                        <name>questCompleteSignal</name>
+                        <value>site.AllEnemiesDefeated</value>
+                    </elseNode>
+                </li>
+                <li Class="VFED.QuestNode_ImperialForces">
+                    <inSignal>site.MapGenerated</inSignal>
+                    <mapParent>$site</mapParent>
+                    <points>$points</points>
+                    <lord>Defend</lord>
+                </li>
+                <li Class="VFED.QuestNode_ImperialResponse">
+                    <siteName>site</siteName>
+                </li>
+                <li Class="VFECore.QuestNode_ForceMusic">
+                    <inSignalEnable>site.MapGenerated</inSignalEnable>
+                    <inSignalDisable>site.MapRemoved</inSignalDisable>
+                    <possibleSongs>
+                        <li>VFED_Stealth1</li>
+                        <li>VFED_Stealth2</li>
+                        <li>VFED_Stealth3</li>
+                    </possibleSongs>
+                    <priority>2</priority>
+                </li>
+                <li Class="QuestNode_Signal">
+                    <inSignal>Initiate</inSignal>
+                    <outSignals>
+                        <li>StartTimeout</li>
+                    </outSignals>
+                </li>
+                <li Class="QuestNode_Signal">
+                    <inSignal>site.MapRemoved</inSignal>
+                    <inSignalDisable>$objectiveCompleteSignal</inSignalDisable>
+                    <outSignals>
+                        <li>StartTimeout</li>
+                    </outSignals>
+                </li>
+                <li Class="QuestNode_WorldObjectTimeout">
+                    <worldObject>$site</worldObject>
+                    <isQuestTimeout>true</isQuestTimeout>
+                    <delayTicks>300000</delayTicks>
+                    <inSignalEnable>StartTimeout</inSignalEnable>
+                    <inSignalDisable>site.MapGenerated</inSignalDisable>
+                    <destroyOnCleanup>true</destroyOnCleanup>
+                    <reactivatable>true</reactivatable>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_Letter">
+                                <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+                                <text TKey="LetterTextQuestExpired">The [site_label] has packed up and moved on. The quest [resolvedQuestName] has expired.</text>
+                            </li>
+                            <li Class="QuestNode_End">
+                                <outcome>Fail</outcome>
+                            </li>
+                        </nodes>
+                    </node>
+                </li>
+                <li Class="VFED.QuestNode_DeserterRewards">
+                    <inSignal>$questCompleteSignal</inSignal>
+                </li>
+                <li Class="QuestNode_End">
+                    <inSignal>$questCompleteSignal</inSignal>
+                    <outcome>Success</outcome>
+                    <sendStandardLetter>true</sendStandardLetter>
+                </li>
+                <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                    <inSignal>$questCompleteSignal</inSignal>
+                    <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+                </li>
+                <li Class="QuestNode_End">
+                    <inSignal>site.Destroyed</inSignal>
+                    <outcome>Fail</outcome>
+                    <sendStandardLetter>true</sendStandardLetter>
+                </li>
+            </nodes>
+        </root>
+    </QuestScriptDef>
+</Defs>

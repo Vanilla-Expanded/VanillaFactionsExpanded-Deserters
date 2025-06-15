@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>VFED_SupplyDepotRaid</defName>
+	    <rootSelectionWeight>2</rootSelectionWeight>
+		<expireDaysRange>3</expireDaysRange>
+	    <questNameRules>
+		    <rulesStrings>
+			    <li>questName->Supply depot raid</li>
+		    </rulesStrings>
+	    </questNameRules>
+	    <questDescriptionRules>
+		    <rulesStrings>
+			    <li>questDescription->The intel we have gathered allowed us to gain insight into the location of a supply depot belonging to [empire_name]. Supply depots like that are often scattered around imperial settlements and serve as secure stockpiles for the most valuable resources. Keeping these supply depots hidden away discourages any raiders from attacking these settlements.
+\nThe compound is guaranteed to contain numerous supply crates. Stealing these items is bound to slow down the Imperial war effort.
+\nIt is also possible we will find additional Biosecured crates, which can only be opened by noble-born people.
+\nThe supply depot is protected by:
+[forces_description]
+\nThe compound is protected by surveillance pillars. They should not be approached, and instead should be disabled from afar - either by destroying them, or cutting off their power. Once activated, they will greatly increase our visibility.
+\nThe objective of this assignment is to open all supply crates in the area. Once that is done, the reward will arrive and we will have to make our escape.
+\nOnce we arrive at the compound, we can expect an imperial response if our visibility is high enough. We will only have a limited amount of time to complete the mission.</li>
+		    </rulesStrings>
+	    </questDescriptionRules>
+	    <root Class="QuestNode_SubScript">
+			<def>VFED_DeserterQuestBase</def>
+			<parms>
+				<sitePartDef>VFED_SupplyDepot</sitePartDef>
+				<hasObjectives>true</hasObjectives>
+				<objectiveDef>VFED_SupplyCrate</objectiveDef>
+				<objectiveCompleteSignal>Opened</objectiveCompleteSignal>
+			</parms>
+			<returnVarNames>
+				<li>empire</li>
+			</returnVarNames>
+	    </root>
+		<modExtensions>
+			<li Class="VFED.QuestExtension_Deserter" />
+		</modExtensions>
+    </QuestScriptDef>
+</Defs>

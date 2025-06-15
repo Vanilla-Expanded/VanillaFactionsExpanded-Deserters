@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="BaseFilth">
+        <defName>VFED_Filth_Propaganda</defName>
+        <label>imperial propaganda</label>
+        <statBases>
+            <Beauty>-10</Beauty>
+            <Cleanliness>-5</Cleanliness>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Filth/PropagandaFilth</texPath>
+        </graphicData>
+        <filth>
+            <disappearsInDays>50~75</disappearsInDays>
+            <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+            <cleaningSound>Interact_CleanFilth_Scattered</cleaningSound>
+            <rainWashes>false</rainWashes>
+            <canFilthAttach>true</canFilthAttach>
+            <maxThickness>1</maxThickness>
+        </filth>
+        <modExtensions>
+            <li Class="VFED.FilthExtension_OnClean">
+                <thoughtCleaned>VFED_CleanedPropaganda</thoughtCleaned>
+                <factionIdeologyConvertTo>Empire</factionIdeologyConvertTo>
+            </li>
+        </modExtensions>
+    </ThingDef>
+</Defs>
