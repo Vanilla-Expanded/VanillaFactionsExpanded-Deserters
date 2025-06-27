@@ -180,7 +180,7 @@ public class QuestNode_MakeLord : QuestNode
         LordMaker.MakeNewLord(fac, lordJob.GetValue(slate) switch
         {
             LordJobType.Assault => new LordJob_AssaultColony(fac, false, canFlee.GetValue(slate), false, true, canSteal.GetValue(slate)),
-            LordJobType.Defend => new LordJob_DefendBase(fac, map.Center, true),
+            LordJobType.Defend => new LordJob_DefendBase(fac, map.Center, 180000, true),
             LordJobType.Assist => new LordJob_AssistColony(fac, CellFinder.RandomSpawnCellForPawnNear(CellFinder.RandomEdgeCell(map), map)),
             _ => throw new ArgumentOutOfRangeException()
         }, map, pawns.GetValue(slate));
