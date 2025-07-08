@@ -202,7 +202,7 @@ public class WorldComponent_Deserters : WorldComponent, ICommunicable, ILoadRefe
     {
         var points = StorytellerUtility.DefaultThreatPointsNow(Find.World);
         var storyState = Find.World.StoryState;
-        while (ServiceQuests.Count < 10 && Utilities.DeserterQuests.Where(root => root.CanRun(points,null))
+        while (ServiceQuests.Count < 10 && Utilities.DeserterQuests.Where(root => root.CanRun(points, Find.World))
                   .TryRandomElementByWeight(root => NaturalRandomQuestChooser.GetNaturalRandomSelectionWeight(root, points, storyState),
                        out var questScript))
         {
