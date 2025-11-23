@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <SitePartDef Name="VFED_DeserterRaidSiteBase" Abstract="True">
-        <siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
-    </SitePartDef>
-    <SitePartDef Name="VFED_DeserterMissionSiteBase" Abstract="True" ParentName="VFED_DeserterRaidSiteBase">
-        <workerClass>VFED.SitePartWorker_Objectives</workerClass>
-    </SitePartDef>
-    <SitePartDef Name="VFED_PlotMissionSiteBase" Abstract="True" ParentName="VFED_DeserterRaidSiteBase">
-        <workerClass>VFED.SitePartWorker_WithQuestStructure</workerClass>
-        <expandingIconTexture>WorldObjects/QuestIcon_PlotMission</expandingIconTexture>
-    </SitePartDef>
+	<SitePartDef Name="VFED_DeserterRaidSiteBase" Abstract="True">
+		<siteTexture>WorldObjects/QuestIcon_RaidMissionZoomedIn</siteTexture>
+		<gravShipsCanLandOn>true</gravShipsCanLandOn>
+	</SitePartDef>
+	<SitePartDef Name="VFED_DeserterMissionSiteBase" Abstract="True" ParentName="VFED_DeserterRaidSiteBase">
+		<workerClass>VFED.SitePartWorker_Objectives</workerClass>
+	</SitePartDef>
+	<SitePartDef Name="VFED_PlotMissionSiteBase" Abstract="True" ParentName="VFED_DeserterRaidSiteBase">
+		<workerClass>VFED.SitePartWorker_WithQuestStructure</workerClass>
+		<expandingIconTexture>WorldObjects/QuestIcon_PlotMission</expandingIconTexture>
+	</SitePartDef>
 </Defs>
