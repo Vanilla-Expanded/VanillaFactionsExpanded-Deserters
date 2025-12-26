@@ -28,6 +28,7 @@
     <VFED.AvailableQuests>Available quests</VFED.AvailableQuests>
     <VFED.CriticalQuests>Critical quests</VFED.CriticalQuests>
     <VFED.QuestDescription>Quest description</VFED.QuestDescription>
+    <VFED.NoQuestSelected>No quest selected</VFED.NoQuestSelected>
     <VFED.QuestPurchaseDesc>You can pay intel to obtain quests from the Deserter network, however you will not know the rewards that can be obtained from the quest until you purchase it.</VFED.QuestPurchaseDesc>
     <VFED.TotalQuestCost>Total quest cost</VFED.TotalQuestCost>
     <VFED.Activate>Activate</VFED.Activate>

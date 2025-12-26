@@ -60,7 +60,10 @@
                 <li Class="VFED.QuestNode_GetDeserters">
                     <storeAs>deserters</storeAs>
                 </li>
-                <li Class="QuestNode_GetMap" />
+                <li Class="QuestNode_GetMap">
+                  <canBeSpace>true</canBeSpace>
+                </li>
+                <li Class="VFED.QuestNode_GetFallbackMap" />
                 <li Class="VFED.QuestNode_ValueFromTitle">
                     <value>$nobleTitle</value>
                     <storeAs>challengeRating</storeAs>

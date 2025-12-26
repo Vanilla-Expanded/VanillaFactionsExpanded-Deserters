@@ -23,7 +23,9 @@ public class DeserterTabWorker_Services : DeserterTabWorker
     {
         base.Notify_Open(parent);
         WorldComponent_Deserters.Instance.EnsureQuestListFilled();
-        selected ??= WorldComponent_Deserters.Instance.ServiceQuests[0];
+
+        if (WorldComponent_Deserters.Instance.ServiceQuests.Count > 0)
+            selected ??= WorldComponent_Deserters.Instance.ServiceQuests[0];
     }
 
     public override void DoLeftPart(Rect inRect)
@@ -91,6 +93,13 @@ public class DeserterTabWorker_Services : DeserterTabWorker
 
     public override void DoMainPart(Rect inRect)
     {
+        if (selected == null)
+        {
+            using (new TextBlock(GameFont.Medium))
+                Widgets.Label(inRect.TakeTopPart(30).ContractedBy(3, 0), "VFED.NoQuestSelected".Translate());
+            return;
+        }
+
         using (new TextBlock(GameFont.Medium))
             Widgets.Label(inRect.TakeTopPart(30).ContractedBy(3, 0), "VFED.QuestDescription".Translate());
 

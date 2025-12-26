@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using KCSG;
 using RimWorld;
@@ -244,4 +245,22 @@ public class QuestNode_CheckDesertion : QuestNode
     }
 
     protected override bool TestRunInt(Slate slate) => !storeAs.GetValue(slate).NullOrEmpty();
+}
+
+public class QuestNode_GetFallbackMap : QuestNode
+{
+    [NoTranslate]
+    public SlateRef<string> storeAs = "map";
+
+    protected override bool TestRunInt(Slate slate) => slate.TryGet<Map>(storeAs.GetValue(slate), out var map) && map != null || Find.Maps.FirstOrDefault() != null;
+
+    protected override void RunInt()
+    {
+        if (!QuestGen.slate.TryGet<Map>(storeAs.GetValue(QuestGen.slate), out var map) || map == null)
+        {
+            map = Find.Maps.FirstOrDefault();
+            if (map != null)
+                QuestGen.slate.Set(storeAs.GetValue(QuestGen.slate), map);
+        }
+    }
 }
