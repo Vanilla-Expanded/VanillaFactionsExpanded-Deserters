@@ -3,6 +3,7 @@ using System.Linq;
 using RimWorld;
 using RimWorld.QuestGen;
 using UnityEngine;
+using VEF;
 using Verse;
 using Verse.Sound;
 using VEF.Utils;
@@ -173,12 +174,29 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
     }
 }
 
-public class ContrabandExtension : DefModExtension
+public class ContrabandExtension : DefModExtension, IMergeable
 {
     public ContrabandCategoryDef category;
     public int countMult = 1;
     public int intelCost = -1;
     public bool useCriticalIntel;
+
+    public float priority = 0;
+
+    public float Priority => priority;
+
+    public bool CanMerge(object other) => other.GetType() == typeof(ContrabandExtension);
+
+    public void Merge(object extension)
+    {
+        var other = (ContrabandExtension)extension;
+
+        category ??= other.category;
+        if (intelCost == -2)
+            intelCost = other.intelCost;
+        if (countMult == -2)
+            countMult = other.countMult;
+    }
 }
 
 public class ContrabandCategoryDef : Def

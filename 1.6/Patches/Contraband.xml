@@ -356,4 +356,35 @@
       </li>
     </value>
   </Operation>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Odyssey</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="Gun_ChargeRifle_Unique"]</xpath>
+          <value>
+            <li Class="VFED.ContrabandExtension">
+              <intelCost>2</intelCost>
+              <useCriticalIntel>true</useCriticalIntel>
+              <!-- We inherit the defModExtension from the parent def, so we set a higher priority here to override the base one. -->
+              <priority>100</priority>
+            </li>
+          </value>
+        </li>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="Gun_ChargeLance_Unique"]</xpath>
+          <value>
+            <li Class="VFED.ContrabandExtension">
+              <intelCost>3</intelCost>
+              <useCriticalIntel>true</useCriticalIntel>
+              <!-- We inherit the defModExtension from the parent def, so we set a higher priority here to override the base one. -->
+              <priority>100</priority>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
 </Patch>

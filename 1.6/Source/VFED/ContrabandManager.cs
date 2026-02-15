@@ -107,11 +107,15 @@ public static class ContrabandManager
 
     public static void SetCostIfMissing(ThingDef item, ContrabandExtension ext)
     {
-        if (ext.intelCost == -1) ext.intelCost = Math.Max(1, Mathf.FloorToInt(item.BaseMarketValue / (ext.useCriticalIntel ? 300 : 100)));
+        if (ext.intelCost is -1 or -2) ext.intelCost = Math.Max(1, Mathf.FloorToInt(item.BaseMarketValue / (ext.useCriticalIntel ? 300 : 100)));
+        if (ext.countMult is -1 or -2) ext.countMult = 1;
     }
 
     public static void Register(ThingDef item, ContrabandExtension ext)
     {
+        if (ext.intelCost < 0 || ext.countMult < 0)
+            return;
+
         AllContraband.Add((item, ext));
         if (!ContrabandByCategory.TryGetValue(ext.category, out var list))
         {
