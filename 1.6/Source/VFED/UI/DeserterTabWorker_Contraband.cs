@@ -61,6 +61,9 @@ public class DeserterTabWorker_Contraband : DeserterTabWorker
                     using (new TextBlock(TextAnchor.MiddleLeft)) Widgets.Label(itemRect.TakeRightPart(50), ext.TotalIntelCost().ToString());
                     Widgets.DefIcon(itemRect.TakeRightPart(30), ext.useCriticalIntel ? VFED_DefOf.VFED_CriticalIntel : VFED_DefOf.VFED_Intel);
                     var text = item.LabelCap + (ext.countMult == 1 ? "" : " x" + ext.countMult);
+                    if (item.GetCompProperties<CompProperties_Techprint>() is { } techprint)
+                        text += $" ({techprint.project.TechprintsApplied}/{techprint.project.TechprintCount})";
+
                     using (new TextBlock(Text.CalcSize(text).x > itemRect.width ? GameFont.Tiny : GameFont.Small, TextAnchor.MiddleLeft))
                         Widgets.Label(itemRect, text);
                 }
