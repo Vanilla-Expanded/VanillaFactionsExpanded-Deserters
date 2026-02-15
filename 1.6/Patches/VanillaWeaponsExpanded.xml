@@ -48,16 +48,6 @@
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSniperRifle"]</xpath>
-					<value>
-						<li Class="VFED.ContrabandExtension">
-							<category>VFED_Imperial</category>
-							<intelCost>16</intelCost>
-							<useCriticalIntel>false</useCriticalIntel>
-						</li>
-					</value>
-				</li>
-				<li Class="PatchOperationAddModExtension">
 					<xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun"]</xpath>
 					<value>
 						<li Class="VFED.ContrabandExtension">
