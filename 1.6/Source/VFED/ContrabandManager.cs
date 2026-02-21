@@ -115,6 +115,11 @@ public static class ContrabandManager
     {
         if (ext.intelCost < 0 || ext.countMult < 0)
             return;
+        if (ext.category == null)
+        {
+            Log.Warning($"[VFED] Trying to register item {item} with no contraband category, assigning VFED_Imperial as default.");
+            ext.category = VFED_DefOf.VFED_Imperial;
+        }
 
         AllContraband.Add((item, ext));
         if (!ContrabandByCategory.TryGetValue(ext.category, out var list))
