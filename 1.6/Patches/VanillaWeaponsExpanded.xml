@@ -47,6 +47,16 @@
 						</li>
 					</value>
 				</li>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSniperRifle"]</xpath>
+          <value>
+            <li Class="VFED.ContrabandExtension">
+              <category>VFED_Imperial</category>
+              <intelCost>16</intelCost>
+              <useCriticalIntel>false</useCriticalIntel>
+            </li>
+          </value>
+        </li>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>Defs/ThingDef[defName="VWE_Gun_ChargeMinigun"]</xpath>
 					<value>
@@ -104,6 +114,17 @@
                 <value>
                   <li Class="VFED.ContrabandExtension">
                     <intelCost>3</intelCost>
+                    <useCriticalIntel>true</useCriticalIntel>
+                    <!-- We inherit the defModExtension from the parent def, so we set a higher priority here to override the base one. -->
+                    <priority>100</priority>
+                  </li>
+                </value>
+              </li>
+              <li Class="PatchOperationAddModExtension">
+                <xpath>Defs/ThingDef[defName="VWE_Gun_ChargeSniperRifle_Unique"]</xpath>
+                <value>
+                  <li Class="VFED.ContrabandExtension">
+                    <intelCost>4</intelCost>
                     <useCriticalIntel>true</useCriticalIntel>
                     <!-- We inherit the defModExtension from the parent def, so we set a higher priority here to override the base one. -->
                     <priority>100</priority>
