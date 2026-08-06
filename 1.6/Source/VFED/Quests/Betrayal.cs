@@ -115,9 +115,24 @@ public class QuestNode_BetrayalRewards : QuestNode
         if (numTechPrints > 0)
         {
             var techprintReward = new Reward_Items();
+            var generated = new List<ThingDef>();
             for (var i = 0; i < numTechPrints; i++)
-                if (TechprintUtility.TryGetTechprintDefToGenerate(empire, out var techprint))
+            {
+                if (TechprintUtility.TryGetTechprintDefToGenerate_NewTemp(empire, out var techprint, generated))
+                {
                     techprintReward.items.Add(ThingMaker.MakeThing(techprint));
+                }
+                // In case generation failed, keep trying without caring for duplicates
+                else if (generated != null)
+                {
+                    // Set to null, won't keep track of duplicates
+                    generated = null;
+                    // And since we skipped the current attempt, do one more roll for techprint
+                    if (TechprintUtility.TryGetTechprintDefToGenerate_NewTemp(empire, out techprint))
+                        techprintReward.items.Add(ThingMaker.MakeThing(techprint));
+                }
+            }
+
             choice.rewards.Add(techprintReward);
         }
 
@@ -141,7 +156,7 @@ public class QuestNode_BetrayalRewards : QuestNode
 
         var parms = default(RewardsGeneratorParams);
         parms.rewardValue = map.PlayerWealthForStoryteller * wealthPercent + rewardValueRange.Average + numHonors * 500 + numTechPrints * 1000
-                          + (soldierKind?.combatPower ?? 0f) * 2 + RewardsGenerator.RewardValueToRoyalFavorCurve.EvaluateInverted(honor);
+                            + (soldierKind?.combatPower ?? 0f) * 2 + RewardsGenerator.RewardValueToRoyalFavorCurve.EvaluateInverted(honor);
         parms.giverFaction = empire;
         var builder = new StringBuilder();
 
