@@ -135,6 +135,7 @@ public static class MiscPatches
     }
 
     [HarmonyPatch(typeof(Verb_LaunchProjectile), "TryCastShot")]
+    [HarmonyPriority(Priority.First)]
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> APAlwaysHits(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
     {
