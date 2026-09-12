@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Vanilla Factions Expanded - Deserters</name>
-  <author>Oskar Potocki, xrushha, legodude17</author>
-  <supportedVersions>
-    <li>1.4</li>
-    <li>1.5</li>
-	 <li>1.6</li>
-  </supportedVersions>
-  <packageId>OskarPotocki.VFE.Deserters</packageId>
-  <description>After the release of Vanilla Factions Expanded - Empire, a lot of you have requested that we tell the other side of this marvelous story - the story of Deserters. So many of you have requested it that in fact we made it our priority to release the Deserters faction expansion as soon as it was reasonably possible. What initially was meant to be a small mod about stealing stuff from the Empire, quickly became a grand new campaign against the evil nobility. We didn’t stop on just a few new quests and a new weapon - this mod comes packed with content to make the anti-imperial playthrough not only viable, but also oh so fun!
+	<name>Vanilla Factions Expanded - Deserters</name>
+	<author>Oskar Potocki, xrushha, legodude17</author>
+	<supportedVersions>
+		<li>1.4</li>
+		<li>1.5</li>
+		<li>1.6</li>
+	</supportedVersions>
+	<packageId>OskarPotocki.VFE.Deserters</packageId>
+	<description>After the release of Vanilla Factions Expanded - Empire, a lot of you have requested that we tell the other side of this marvelous story - the story of Deserters. So many of you have requested it that in fact we made it our priority to release the Deserters faction expansion as soon as it was reasonably possible. What initially was meant to be a small mod about stealing stuff from the Empire, quickly became a grand new campaign against the evil nobility. We didn’t stop on just a few new quests and a new weapon - this mod comes packed with content to make the anti-imperial playthrough not only viable, but also oh so fun!
 
 An indepth visibility system will track how much the Empire knows about you, and will affect everything that occurs in your game against the Empire. Higher visibility might result in larger imperial raids, less time for the empire to send reinforcements to their compounds, higher contraband prices and even quiet absolver raids.
 
 Our goal with this mod was to make you feel like you’re a part of the bigger movement happening across the entire planet, but still in secret. You will be able to contact other deserter cells to send shuttles to pick you up, cause distractions and taunt imperial forces. You will be doing all that by trading intel - which is a new resource obtained directly from the empire via a variety of different ways. I encourage you to check the infographics to find out more about what we cooked for you!
 
 For obvious reasons this mod requires Royalty DLC.</description>
-  <modDependencies>
-    <li>
-      <packageId>brrainz.harmony</packageId>
-      <displayName>Harmony</displayName>
-      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-      <steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
-    </li>
-    <li>
-      <packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
-      <displayName>Vanilla Expanded Framework</displayName>
-      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2023507013</steamWorkshopUrl>
-    </li>
-    <li>
-      <packageId>OskarPotocki.VFE.Empire</packageId>
-      <displayName>Vanilla Factions Expanded - Empire</displayName>
-      <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2938820380</steamWorkshopUrl>
-    </li>
-	<li>
-		<packageId>Ludeon.RimWorld.Royalty</packageId>
-		<displayName>Royalty</displayName>
-	</li>
-  </modDependencies>
-  <loadAfter>
-  
-    <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
-    <li>OskarPotocki.VFE.Empire</li>
-  </loadAfter>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2023507013</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>OskarPotocki.VFE.Empire</packageId>
+			<displayName>Vanilla Factions Expanded - Empire</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2938820380</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>Ludeon.RimWorld.Royalty</packageId>
+			<displayName>Royalty</displayName>
+		</li>
+	</modDependencies>
+	<modIconPath IgnoreIfNoMatchingField="True">UI/VELogo</modIconPath>
+	<loadAfter>
+		<li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+		<li>OskarPotocki.VFE.Empire</li>
+	</loadAfter>
 </ModMetaData>
